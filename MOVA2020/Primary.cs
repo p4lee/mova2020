@@ -16,6 +16,14 @@ namespace MOVA2020
         public Primary()
         {
             this.db = new DBHandler();
+            List<Object[]> test = this.db.SelectQuery("SELECT * FROM asiakas");
+            foreach(Object[] itemarr in test)
+            {
+                foreach(Object item in itemarr)
+                {
+                    MessageBox.Show(item.ToString());
+                }
+            }
             InitializeComponent();
         }
     }

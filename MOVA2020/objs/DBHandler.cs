@@ -18,10 +18,10 @@ namespace MOVA2020.objs
             this.dbloc = dbloc;
             if (!File.Exists(dbloc))
             {
-                this.createDb(dbloc, dbdata);
+                this.CreateDb(dbloc, dbdata);
             }
         }
-        private void createDb(string dbloc, string dbdata)
+        private void CreateDb(string dbloc, string dbdata)
         {
             File.WriteAllBytes(dbloc, new byte[0]);
             using (var conn = new SqliteConnection("Data Source=" + dbloc))
@@ -50,7 +50,7 @@ namespace MOVA2020.objs
          * returns amounts of row affected by data manipulation queries
          * returns -1 if exception is encountered
          */
-        public int DMquery(string query, Dictionary<string, object> pairs)
+        public int DMquery(string query, Dictionary<string, Object> pairs)
         {
             int ret;
             using (var conn = new SqliteConnection("Data Source=" + dbloc))
@@ -58,7 +58,7 @@ namespace MOVA2020.objs
                 conn.Open();
                 var command = conn.CreateCommand();
                 command.CommandText = query;
-                foreach (KeyValuePair<string, object> kvp in pairs)
+                foreach (KeyValuePair<string, Object> kvp in pairs)
                 {
                     command.Parameters.AddWithValue(kvp.Key, kvp.Value);
                 }
@@ -74,18 +74,47 @@ namespace MOVA2020.objs
             }
             return ret;
         }
-        public string objToQuery(ArrayList list, string type="update")
+        public List<Object[]> SelectQuery(string select, Dictionary<string, Object> valuePairs=null)
         {
-            string query;
-            foreach(Object item in list)
+            List<Object[]> lista = new List<Object[]>();
+            using (var conn = new SqliteConnection("Data Source=" + dbloc))
             {
-                
+                conn.Open();
+                var command = conn.CreateCommand();
+                command.CommandText = select;
+                if (valuePairs != null)
+                {
+                    foreach (KeyValuePair<string, Object> kvp in valuePairs)
+                    {
+                        command.Parameters.AddWithValue(kvp.Key, kvp.Value);
+                    }
+                }
+                using (var reader = command.ExecuteReader())
+                {
+                    int i = 0;
+                    while (reader.Read())
+                    {
+                        Object[] asd = new object[reader.FieldCount];
+                        reader.GetValues(asd);
+                        lista.Add(asd);
+                        i++;
+                    }
+                }
+                conn.Close();
             }
-
+            return lista;
         }
-        public ArrayList selectToObjs()
+        public string ObjToQuery(ArrayList list, string type="update")
         {
+            //todo
+            return null;
+        }
 
+        public ArrayList SelectToObjs()
+        {
+            //todo
+            ArrayList list = new ArrayList();
+            return list;
         }
     }
 }

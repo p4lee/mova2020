@@ -19,5 +19,10 @@ namespace MOVA2020.objs.dbitems
 
         public int Postinro { get => postinro; set => postinro = value; }
         public string Toimipaikka { get => toimipaikka; set => toimipaikka = value; }
+
+        public string GetToString()
+        {
+            return this.Toimipaikka;
+        }
     }
 }
