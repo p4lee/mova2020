@@ -12,7 +12,7 @@ namespace MOVA2020.objs
     class DBHandler
     {
         private string dbloc;
-        public DBHandler(string dbloc = @"D:\temp\test.db", string dbdata = @"D:\temp\villagenewbies.sql")
+        public DBHandler(string dbloc = @"C:\temp\test.db", string dbdata = @"C:\temp\villagenewbies.sql")
         {
             this.dbloc = dbloc;
             if (!File.Exists(dbloc))
