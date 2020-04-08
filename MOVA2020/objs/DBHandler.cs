@@ -11,7 +11,6 @@ namespace MOVA2020.objs
 {
     class DBHandler
     {
-        private List<String> tables;
         private string dbloc;
         public DBHandler(string dbloc = @"D:\temp\test.db", string dbdata = @"D:\temp\villagenewbies.sql")
         {
