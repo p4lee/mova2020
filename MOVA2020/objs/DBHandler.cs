@@ -65,7 +65,7 @@ namespace MOVA2020.objs
                 {
                     ret = command.ExecuteNonQuery();
                 }
-                catch (SqliteException)
+                catch (SqliteException) //moi
                 {
                     ret = -1;
                 }
