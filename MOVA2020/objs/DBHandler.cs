@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace MOVA2020.objs
 {
-    class DBHandler
+    public class DBHandler
     {
         private string dbloc;
         public DBHandler(string dbloc = @"C:\temp\test.db", string dbdata = @"C:\temp\villagenewbies.sql")

@@ -8,12 +8,13 @@ namespace MOVA2020.objs.dbitems
 {
     public class Palvelu
     {
-        private int palvelu_id, tyyppi;
+        private long palvelu_id;
+        private int tyyppi;
         private Toimintaalue toimintaalue;
         private string nimi, kuvaus;
         private double hinta, alv;
 
-        public Palvelu(int palvelu_id, int tyyppi, string nimi, string kuvaus, double hinta, double alv, Toimintaalue toimintaalue)
+        public Palvelu(long palvelu_id, int tyyppi, string nimi, string kuvaus, double hinta, double alv, Toimintaalue toimintaalue)
         {
             this.palvelu_id = palvelu_id;
             Tyyppi = tyyppi;
@@ -24,7 +25,7 @@ namespace MOVA2020.objs.dbitems
             Toimintaalue = toimintaalue;
         }
 
-        public int Palvelu_id { get => palvelu_id;}
+        public long Palvelu_id { get => palvelu_id;}
         public int Tyyppi { get => tyyppi; set => tyyppi = value; }
         public string Nimi { get => nimi; set => nimi = value; }
         public string Kuvaus { get => kuvaus; set => kuvaus = value; }
