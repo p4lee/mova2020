@@ -13,18 +13,44 @@ namespace MOVA2020
 {
     public partial class Primary : Form
     {
-        private DBHandler db;
+        private DBHandler db = new DBHandler();
+        private List<Mokki> mokit = new List<Mokki>();
+        private List<Toimintaalue> toimintaalueet = new List<Toimintaalue>();
+        private List<Varaus> varaukset = new List<Varaus>();
         public Primary()
         {
-            this.db = new DBHandler();
-            List<Mokki> mokit = new List<Mokki>();
-            List<Object[]> test = this.db.SelectQuery("SELECT * FROM mokki");
-            foreach(Object[] itemarr in test)
-            {
-                MessageBox.Show("asd");
-                //Mokki m = new Mokki(itemarr[0], );
-            }
+
             InitializeComponent();
+            this.paivita();
+        }
+        public void paivita()
+        {
+            this.toimintaalueet.Clear();
+            List<Object[]> toimintaalueetquery = this.db.SelectQuery("SELECT * FROM toimintaalue");
+            foreach (Object[] itemarr in toimintaalueetquery)
+            {
+                Toimintaalue t = new Toimintaalue((long)itemarr[0], (string)itemarr[1]);
+                this.toimintaalueet.Add(t);
+            }
+            dgvToimintaalueet.DataSource = null;
+            dgvToimintaalueet.DataSource = this.toimintaalueet;
+        }
+
+        private void btnLisaatoimintaalue_Click(object sender, EventArgs e)
+        {
+            string nimi = tbLisaaToimintaalueNimi.Text;
+            string query = "INSERT INTO toimintaalue(nimi) VALUES($nimi)";
+            Dictionary<string, object> pairs = new Dictionary<string, object>();
+            pairs.Add("$nimi", nimi);
+            if(this.db.DMquery(query, pairs) !=-1)
+            {
+                this.paivita();
+                MessageBox.Show("Asd");
+            } else
+            {
+                MessageBox.Show("bas");
+            }
+            
         }
     }
 }

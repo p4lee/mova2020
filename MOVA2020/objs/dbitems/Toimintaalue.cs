@@ -8,16 +8,16 @@ namespace MOVA2020.objs.dbitems
 {
     public class Toimintaalue
     {
-        private int toiminta_alueid;
+        private long toiminta_alueid;
         private string nimi;
 
-        public Toimintaalue(int id, string nimi)
+        public Toimintaalue(long id, string nimi)
         {
             this.toiminta_alueid = id;
             this.nimi = nimi;
         }
 
         public string Nimi { get => nimi; set => nimi = value; }
-        public int Toiminta_alueid { get => toiminta_alueid;}
+        public long Toiminta_alueid { get => toiminta_alueid;}
     }
 }

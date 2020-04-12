@@ -8,12 +8,13 @@ namespace MOVA2020.objs.dbitems
 {
     public class Mokki
     {
-        private int mokki_id, henkilomaara;
+        private int henkilomaara;
+        private long mokki_id;
         private Toimintaalue toimintaalue;
         private Posti postinro;
         private string mokkinimi, katuosoite, kuvaus, varustelu;
 
-        public Mokki(int mokki_id, int henkilomaara, string mokkinimi, string katuosoite, string kuvaus, string varustelu, Toimintaalue toimintaalue, Posti postinro)
+        public Mokki(long mokki_id, int henkilomaara, string mokkinimi, string katuosoite, string kuvaus, string varustelu, Toimintaalue toimintaalue, Posti postinro)
         {
             this.mokki_id = mokki_id;
             Henkilomaara = henkilomaara;
@@ -25,7 +26,7 @@ namespace MOVA2020.objs.dbitems
             Postinro = postinro;
         }
 
-        public int Mokki_id { get => mokki_id;}
+        public long Mokki_id { get => mokki_id;}
         public int Henkilomaara { get => henkilomaara; set => henkilomaara = value; }
         public string Mokkinimi { get => mokkinimi; set => mokkinimi = value; }
         public string Katuosoite { get => katuosoite; set => katuosoite = value; }
