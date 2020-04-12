@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MOVA2020.objs.dbitems
 {
-    class Palvelu
+    public class Palvelu
     {
         private int palvelu_id, tyyppi;
         private Toimintaalue toimintaalue;
@@ -30,6 +30,6 @@ namespace MOVA2020.objs.dbitems
         public string Kuvaus { get => kuvaus; set => kuvaus = value; }
         public double Hinta { get => hinta; set => hinta = value; }
         public double Alv { get => alv; set => alv = value; }
-        internal Toimintaalue Toimintaalue { get => toimintaalue; set => toimintaalue = value; }
+        public Toimintaalue Toimintaalue { get => toimintaalue; set => toimintaalue = value; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MOVA2020.objs.dbitems
 {
-    class Varaus
+    public class Varaus
     {
         private int varaus_id;
         private DateTime varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm;
@@ -29,7 +29,7 @@ namespace MOVA2020.objs.dbitems
         public DateTime Vahvistus_pvm { get => vahvistus_pvm; set => vahvistus_pvm = value; }
         public DateTime Varattu_alkupvm { get => varattu_alkupvm; set => varattu_alkupvm = value; }
         public DateTime Varattu_loppupvm { get => varattu_loppupvm; set => varattu_loppupvm = value; }
-        internal Asiakas Asiakas { get => asiakas; set => asiakas = value; }
-        internal Mokki Mokki { get => mokki; set => mokki = value; }
+        public Asiakas Asiakas { get => asiakas; set => asiakas = value; }
+        public Mokki Mokki { get => mokki; set => mokki = value; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MOVA2020.objs.dbitems
 {
-    class Mokki
+    public class Mokki
     {
         private int mokki_id, henkilomaara;
         private Toimintaalue toimintaalue;
@@ -31,7 +31,7 @@ namespace MOVA2020.objs.dbitems
         public string Katuosoite { get => katuosoite; set => katuosoite = value; }
         public string Kuvaus { get => kuvaus; set => kuvaus = value; }
         public string Varustelu { get => varustelu; set => varustelu = value; }
-        internal Toimintaalue Toimintaalue { get => toimintaalue; set => toimintaalue = value; }
-        internal Posti Postinro { get => postinro; set => postinro = value; }
+        public Toimintaalue Toimintaalue { get => toimintaalue; set => toimintaalue = value; }
+        public Posti Postinro { get => postinro; set => postinro = value; }
     }
 }

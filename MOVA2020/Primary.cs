@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MOVA2020.objs;
+using MOVA2020.objs.dbitems;
 namespace MOVA2020
 {
     public partial class Primary : Form
@@ -16,13 +17,12 @@ namespace MOVA2020
         public Primary()
         {
             this.db = new DBHandler();
-            List<Object[]> test = this.db.SelectQuery("SELECT * FROM asiakas");
+            List<Mokki> mokit = new List<Mokki>();
+            List<Object[]> test = this.db.SelectQuery("SELECT * FROM mokki");
             foreach(Object[] itemarr in test)
             {
-                foreach(Object item in itemarr)
-                {
-                    MessageBox.Show(item.ToString());
-                }
+                MessageBox.Show("asd");
+                //Mokki m = new Mokki(itemarr[0], );
             }
             InitializeComponent();
         }

@@ -49,6 +49,7 @@ namespace MOVA2020.objs
          * returns amounts of row affected by data manipulation queries
          * returns -1 if exception is encountered
          */
+         //moi asd
         public int DMquery(string query, Dictionary<string, Object> pairs)
         {
             int ret;
