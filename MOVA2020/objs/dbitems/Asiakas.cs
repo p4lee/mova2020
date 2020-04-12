@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MOVA2020.objs.dbitems
 {
-    class Asiakas
+    public class Asiakas
     {
         private Posti postinro;
         private int asiakas_id;
@@ -29,6 +29,6 @@ namespace MOVA2020.objs.dbitems
         public string Lahiosoite { get => lahiosoite; set => lahiosoite = value; }
         public string Email { get => email; set => email = value; }
         public string Puhelinnro { get => puhelinnro; set => puhelinnro = value; }
-        internal Posti Postinro { get => postinro; set => postinro = value; }
+        public Posti Postinro { get => postinro; set => postinro = value; }
     }
 }

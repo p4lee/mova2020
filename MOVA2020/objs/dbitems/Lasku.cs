@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MOVA2020.objs.dbitems
 {
-    class Lasku
+    public class Lasku
     {
         private int lasku_id;
         private Varaus varaus;
@@ -23,6 +23,6 @@ namespace MOVA2020.objs.dbitems
         public int Lasku_id { get => lasku_id;}
         public double Summa { get => summa; set => summa = value; }
         public double Alv { get => alv; set => alv = value; }
-        internal Varaus Varaus { get => varaus; set => varaus = value; }
+        public Varaus Varaus { get => varaus; set => varaus = value; }
     }
 }
