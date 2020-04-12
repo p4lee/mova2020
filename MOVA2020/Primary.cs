@@ -39,16 +39,19 @@ namespace MOVA2020
         private void btnLisaatoimintaalue_Click(object sender, EventArgs e)
         {
             string nimi = tbLisaaToimintaalueNimi.Text;
+            // SQL kysely
             string query = "INSERT INTO toimintaalue(nimi) VALUES($nimi)";
+            /*
+                Luodaan dictionary jossa lisätään kyselyssä olevat $nimi, muuttujaksi nimi
+            */ 
             Dictionary<string, object> pairs = new Dictionary<string, object>();
             pairs.Add("$nimi", nimi);
             if(this.db.DMquery(query, pairs) !=-1)
             {
                 this.paivita();
-                MessageBox.Show("Asd");
             } else
             {
-                MessageBox.Show("bas");
+                MessageBox.Show("error");
             }
             
         }
