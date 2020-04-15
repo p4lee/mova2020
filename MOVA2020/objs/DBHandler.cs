@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace MOVA2020.objs
 {
-    class DBHandler
+    public class DBHandler
     {
         private string dbloc;
         public DBHandler(string dbloc = @"C:\temp\test.db", string dbdata = @"C:\temp\villagenewbies.sql")
@@ -49,6 +49,7 @@ namespace MOVA2020.objs
          * returns amounts of row affected by data manipulation queries
          * returns -1 if exception is encountered
          */
+         //moi asd
         public int DMquery(string query, Dictionary<string, Object> pairs)
         {
             int ret;
