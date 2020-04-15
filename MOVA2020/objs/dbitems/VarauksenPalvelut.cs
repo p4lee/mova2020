@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MOVA2020.objs.dbitems
 {
-    class VarauksenPalvelut
+    public class VarauksenPalvelut
     {
         private Varaus varaus;
         private Palvelu palvelu;
         private int lkm;
 
         public int Lkm { get => lkm; set => lkm = value; }
-        internal Varaus Varaus { get => varaus; set => varaus = value; }
-        internal Palvelu Palvelu { get => palvelu; set => palvelu = value; }
+        public Varaus Varaus { get => varaus; set => varaus = value; }
+        public  Palvelu Palvelu { get => palvelu; set => palvelu = value; }
     }
 }

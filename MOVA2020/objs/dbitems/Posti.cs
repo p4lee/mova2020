@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MOVA2020.objs.dbitems
 {
-    class Posti
+    public class Posti
     {
         private int postinro;
         private string toimipaikka;
