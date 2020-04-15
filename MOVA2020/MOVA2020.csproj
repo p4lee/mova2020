@@ -77,6 +77,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\mokkitiedot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\mokkitiedot.Designer.cs">
+      <DependentUpon>mokkitiedot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\mokkimuokkaus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\mokkimuokkaus.Designer.cs">
+      <DependentUpon>mokkimuokkaus.cs</DependentUpon>
+    </Compile>
     <Compile Include="objs\DBHandler.cs" />
     <Compile Include="objs\dbitems\Asiakas.cs" />
     <Compile Include="objs\dbitems\Lasku.cs" />
@@ -94,6 +106,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\mokkimuokkaus.resx">
+      <DependentUpon>mokkimuokkaus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\mokkitiedot.resx">
+      <DependentUpon>mokkitiedot.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Primary.resx">
       <DependentUpon>Primary.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,9 +138,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="forms\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
