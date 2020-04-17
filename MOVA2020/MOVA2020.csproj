@@ -89,12 +89,6 @@
     <Compile Include="forms\mokkimuokkaus.Designer.cs">
       <DependentUpon>mokkimuokkaus.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Testilomake.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\Testilomake.Designer.cs">
-      <DependentUpon>Testilomake.cs</DependentUpon>
-    </Compile>
     <Compile Include="objs\DBHandler.cs" />
     <Compile Include="objs\dbitems\Asiakas.cs" />
     <Compile Include="objs\dbitems\Lasku.cs" />
@@ -117,9 +111,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\mokkitiedot.resx">
       <DependentUpon>mokkitiedot.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\Testilomake.resx">
-      <DependentUpon>Testilomake.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Primary.resx">
       <DependentUpon>Primary.cs</DependentUpon>
