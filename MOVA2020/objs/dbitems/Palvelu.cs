@@ -32,5 +32,11 @@ namespace MOVA2020.objs.dbitems
         public double Hinta { get => hinta; set => hinta = value; }
         public double Alv { get => alv; set => alv = value; }
         public Toimintaalue Toimintaalue { get => toimintaalue; set => toimintaalue = value; }
+        
+        override
+        public string ToString()
+        {
+            return "ID: " + this.palvelu_id + " | " + this.nimi;
+        }
     }
 }
