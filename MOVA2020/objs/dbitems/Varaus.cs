@@ -12,8 +12,9 @@ namespace MOVA2020.objs.dbitems
         private DateTime varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm;
         private Asiakas asiakas;
         private Mokki mokki;
+        private List<Palvelu> varauksenpalvelut;
 
-        public Varaus(long varaus_id, DateTime varattu_pvm, DateTime vahvistus_pvm, DateTime varattu_alkupvm, DateTime varattu_loppupvm, Asiakas asiakas, Mokki mokki)
+        public Varaus(long varaus_id, DateTime varattu_pvm, DateTime vahvistus_pvm, DateTime varattu_alkupvm, DateTime varattu_loppupvm, Asiakas asiakas, Mokki mokki, List<Palvelu> varauksenpalvelut)
         {
             this.varaus_id = varaus_id;
             Varattu_pvm = varattu_pvm;
@@ -22,6 +23,7 @@ namespace MOVA2020.objs.dbitems
             Varattu_loppupvm = varattu_loppupvm;
             Asiakas = asiakas;
             Mokki = mokki;
+            Varauksenpalvelut = varauksenpalvelut;
         }
 
         public long Varaus_id { get => varaus_id; }
@@ -31,5 +33,6 @@ namespace MOVA2020.objs.dbitems
         public DateTime Varattu_loppupvm { get => varattu_loppupvm; set => varattu_loppupvm = value; }
         public Asiakas Asiakas { get => asiakas; set => asiakas = value; }
         public Mokki Mokki { get => mokki; set => mokki = value; }
+        public List<Palvelu> Varauksenpalvelut { get => varauksenpalvelut; set => varauksenpalvelut = value; }
     }
 }

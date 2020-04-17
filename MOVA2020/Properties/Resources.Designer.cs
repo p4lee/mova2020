@@ -115,5 +115,25 @@ namespace MOVA2020.Properties {
                 return ResourceManager.GetString("postinumerot", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO toimintaalue(nimi) VALUES
+        ///(&quot;Kuopio&quot;),
+        ///(&quot;Helsinki&quot;),
+        ///(&quot;Turku&quot;),
+        ///(&quot;Hämeenlinna&quot;);
+        ///
+        ///INSERT INTO asiakas(postinro, etunimi, sukunimi, lahiosoite, email, puhelinnro) VALUES
+        ///(&quot;41210&quot;, &quot;Marko&quot;, &quot;Malli&quot;, &quot;Mallikatu 3&quot;, &quot;marko.malli@gmail.com&quot;,&quot;00000000&quot;),
+        ///(&quot;94800&quot;, &quot;Anne&quot;, &quot;Lönni&quot;, &quot;Ilmarinnankulma&quot;, &quot;anne.lonni@hotmail.com&quot;,&quot;00000000&quot;),
+        ///(&quot;99990&quot;, &quot;Make&quot;, &quot;Ponnet&quot;, &quot;Testikuja&quot;, &quot;make.ponnet@outlook.com&quot;,&quot;00000000&quot;);
+        ///
+        ///INSERT INTO mokki(toimintaalue_id, postinro, mokkinimi, hinta, katuosoite, k [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string testidata {
+            get {
+                return ResourceManager.GetString("testidata", resourceCulture);
+            }
+        }
     }
 }

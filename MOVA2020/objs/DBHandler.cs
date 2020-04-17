@@ -30,7 +30,7 @@ namespace MOVA2020.objs
             {
                 conn.Open();
                 var command = conn.CreateCommand();
-                command.CommandText = Properties.Resources.alustus+Properties.Resources.postinumerot;
+                command.CommandText = Properties.Resources.alustus+Properties.Resources.postinumerot+Properties.Resources.testidata;
                 
                 command.ExecuteReader();
                 conn.Close();

@@ -40,6 +40,10 @@
             this.dgvVaraukset = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvAsiakkaat = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dgvLaskut = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokit)).BeginInit();
@@ -49,6 +53,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraukset)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsiakkaat)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLaskut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -60,6 +67,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
@@ -80,11 +88,14 @@
             // 
             // dgvMokit
             // 
+            this.dgvMokit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMokit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMokit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMokit.Location = new System.Drawing.Point(456, 6);
+            this.dgvMokit.Location = new System.Drawing.Point(239, 6);
             this.dgvMokit.Name = "dgvMokit";
-            this.dgvMokit.Size = new System.Drawing.Size(317, 383);
+            this.dgvMokit.Size = new System.Drawing.Size(534, 383);
             this.dgvMokit.TabIndex = 0;
             // 
             // tabPage2
@@ -187,6 +198,45 @@
             this.dgvAsiakkaat.Size = new System.Drawing.Size(317, 380);
             this.dgvAsiakkaat.TabIndex = 0;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.dataGridView1);
+            this.tabPage5.Controls.Add(this.button1);
+            this.tabPage5.Controls.Add(this.dgvLaskut);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(779, 392);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Laskut";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dgvLaskut
+            // 
+            this.dgvLaskut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLaskut.Location = new System.Drawing.Point(397, 6);
+            this.dgvLaskut.Name = "dgvLaskut";
+            this.dgvLaskut.Size = new System.Drawing.Size(376, 380);
+            this.dgvLaskut.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button1.Location = new System.Drawing.Point(6, 359);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 27);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(430, 168);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 2;
+            // 
             // Primary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +255,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraukset)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsiakkaat)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLaskut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,6 +276,10 @@
         private System.Windows.Forms.Button btnLisaatoimintaalue;
         private System.Windows.Forms.TextBox tbLisaaToimintaalueNimi;
         private System.Windows.Forms.Label lblLisaaToimintaalueNimi;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvLaskut;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
