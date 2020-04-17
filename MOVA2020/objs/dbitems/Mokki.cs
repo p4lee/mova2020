@@ -28,6 +28,7 @@ namespace MOVA2020.objs.dbitems
             Henkilomaara = henkilomaara;
         }
 
+        public long Mokki_id { get => mokki_id; }
         public string Mokkinimi { get => mokkinimi; set => mokkinimi = value; }
         public string Katuosoite { get => katuosoite; set => katuosoite = value; }
         public string Kuvaus { get => kuvaus; set => kuvaus = value; }
@@ -35,7 +36,12 @@ namespace MOVA2020.objs.dbitems
         public Posti Posti { get => postinro; set => postinro = value; }
         public Toimintaalue Toimintaalue { get => toimintaalue; set => toimintaalue = value; }
         public double Hinta { get => hinta; set => hinta = value; }
-        public long Mokki_id { get => mokki_id;}
         public int Henkilomaara { get => henkilomaara; set => henkilomaara = value; }
+
+        override
+        public string ToString()
+        {
+            return "ID:" + this.Mokki_id+" | "+this.Mokkinimi;
+        }
     }
 }

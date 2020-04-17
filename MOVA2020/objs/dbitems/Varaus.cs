@@ -34,5 +34,10 @@ namespace MOVA2020.objs.dbitems
         public Asiakas Asiakas { get => asiakas; set => asiakas = value; }
         public Mokki Mokki { get => mokki; set => mokki = value; }
         public List<Palvelu> Varauksenpalvelut { get => varauksenpalvelut; set => varauksenpalvelut = value; }
+        override
+        public string ToString()
+        {
+            return "VarausID:"+this.Varaus_id + " | MökkiID:"+this.mokki.Mokki_id+" | " + this.Varattu_alkupvm + " - " + this.varattu_loppupvm;
+        }
     }
 }

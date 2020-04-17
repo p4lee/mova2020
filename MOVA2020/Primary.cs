@@ -132,7 +132,7 @@ namespace MOVA2020
                 List<Palvelu> varauksenpalvelut = new List<Palvelu>();
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
                 pairs.Add("$varausid", itemarr[0]);
-                List<Object[]> varauksenpalvelutquery = this.db.SelectQuery("SELECT * FROM varauksen_palvelut WHERE varaus_id=$varausid");
+                List<Object[]> varauksenpalvelutquery = this.db.SelectQuery("SELECT * FROM varauksen_palvelut WHERE varaus_id=$varausid", pairs);
                 foreach(Object[] palvelu in varauksenpalvelutquery)
                 {
                     varauksenpalvelut.Add(palvelut.Find(i => i.Palvelu_id == (long)palvelu[0]));
@@ -140,7 +140,14 @@ namespace MOVA2020
                 
                 Asiakas a = asiakkaat.Find(i => i.Asiakas_id == (long)itemarr[1]);
                 Mokki m = mokit.Find(i => i.Mokki_id == (long)itemarr[2]);
-                Varaus v = new Varaus((long)itemarr[0], (DateTime)itemarr[3], (DateTime)itemarr[4], (DateTime)itemarr[5], (DateTime)itemarr[6], a, m, varauksenpalvelut);
+                var date = itemarr[4] as String;
+                DateTime t = DateTime.Parse("1970-01-01 00:00:00");
+                if(date != null)
+                {
+                    t = DateTime.Parse(date);
+                }
+                
+                Varaus v = new Varaus((long)itemarr[0], DateTime.Parse((string)itemarr[3]), t, DateTime.Parse((string)itemarr[5]), DateTime.Parse((string)itemarr[6]), a, m, varauksenpalvelut);
                 this.varaukset.Add(v);
             }
             dgvVaraukset.DataSource = null;
