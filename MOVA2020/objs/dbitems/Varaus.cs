@@ -23,7 +23,7 @@ namespace MOVA2020.objs.dbitems
             Varattu_loppupvm = varattu_loppupvm;
             Asiakas = asiakas;
             Mokki = mokki;
-            Varauksenpalvelut = varauksenpalvelut;
+            this.varauksenpalvelut = varauksenpalvelut;
         }
 
         public long Varaus_id { get => varaus_id; }

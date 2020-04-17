@@ -43,6 +43,8 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvLaskut = new System.Windows.Forms.DataGridView();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.dgvPalvelut = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokit)).BeginInit();
@@ -54,6 +56,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsiakkaat)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaskut)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPalvelut)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -66,6 +70,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
@@ -95,6 +100,7 @@
             this.dgvMokit.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMokit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMokit.Location = new System.Drawing.Point(411, 6);
+            this.dgvMokit.MultiSelect = false;
             this.dgvMokit.Name = "dgvMokit";
             this.dgvMokit.RowHeadersVisible = false;
             this.dgvMokit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -153,6 +159,7 @@
             this.dgvToimintaalueet.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvToimintaalueet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvToimintaalueet.Location = new System.Drawing.Point(411, 6);
+            this.dgvToimintaalueet.MultiSelect = false;
             this.dgvToimintaalueet.Name = "dgvToimintaalueet";
             this.dgvToimintaalueet.RowHeadersVisible = false;
             this.dgvToimintaalueet.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -186,6 +193,7 @@
             this.dgvVaraukset.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvVaraukset.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVaraukset.Location = new System.Drawing.Point(411, 6);
+            this.dgvVaraukset.MultiSelect = false;
             this.dgvVaraukset.Name = "dgvVaraukset";
             this.dgvVaraukset.RowHeadersVisible = false;
             this.dgvVaraukset.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -214,6 +222,7 @@
             this.dgvAsiakkaat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAsiakkaat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsiakkaat.Location = new System.Drawing.Point(411, 6);
+            this.dgvAsiakkaat.MultiSelect = false;
             this.dgvAsiakkaat.Name = "dgvAsiakkaat";
             this.dgvAsiakkaat.RowHeadersVisible = false;
             this.dgvAsiakkaat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -253,11 +262,41 @@
             this.dgvLaskut.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLaskut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLaskut.Location = new System.Drawing.Point(411, 6);
+            this.dgvLaskut.MultiSelect = false;
             this.dgvLaskut.Name = "dgvLaskut";
             this.dgvLaskut.RowHeadersVisible = false;
             this.dgvLaskut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLaskut.Size = new System.Drawing.Size(796, 546);
             this.dgvLaskut.TabIndex = 0;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.dgvPalvelut);
+            this.tabPage6.Location = new System.Drawing.Point(4, 25);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1213, 558);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Palvelut";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // dgvPalvelut
+            // 
+            this.dgvPalvelut.AllowUserToAddRows = false;
+            this.dgvPalvelut.AllowUserToDeleteRows = false;
+            this.dgvPalvelut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPalvelut.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvPalvelut.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvPalvelut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPalvelut.Location = new System.Drawing.Point(411, 6);
+            this.dgvPalvelut.MultiSelect = false;
+            this.dgvPalvelut.Name = "dgvPalvelut";
+            this.dgvPalvelut.RowHeadersVisible = false;
+            this.dgvPalvelut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPalvelut.Size = new System.Drawing.Size(796, 546);
+            this.dgvPalvelut.TabIndex = 0;
             // 
             // Primary
             // 
@@ -279,6 +318,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsiakkaat)).EndInit();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaskut)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPalvelut)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -300,6 +341,8 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvLaskut;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.DataGridView dgvPalvelut;
     }
 }
 

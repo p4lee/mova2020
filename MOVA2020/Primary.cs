@@ -106,9 +106,11 @@ namespace MOVA2020
             foreach(Object[] itemarr in palvelutquery)
             {
                 Toimintaalue t = toimintaalueet.Find(i => i.Toiminta_alueid == (long)itemarr[1]);
-                Palvelu p = new Palvelu((long)itemarr[0], (int)itemarr[3], (string)itemarr[2], (string)itemarr[4], (double)itemarr[5], (double)itemarr[6], t);
+                Palvelu p = new Palvelu((long)itemarr[0], (int)(long)itemarr[3], (string)itemarr[2], (string)itemarr[4], (double)itemarr[5], (double)itemarr[6], t);
                 this.palvelut.Add(p);
             }
+            this.dgvPalvelut.DataSource = null;
+            this.dgvPalvelut.DataSource = this.palvelut;
         }
         private void PaivitaLaskut()
         {
