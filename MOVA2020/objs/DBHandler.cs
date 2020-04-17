@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using System.IO;
 using System.Collections;
-
+/*
+ * 
+ * DELETE FROM asiakas WHERE asiakas_id=$id;
+ * UPDATE asiakas SET etunimi=$etunimi WHERE asiakas_id=$id;
+ * INSERT INTO asiakas(postinro, etunimi, sukunimi, lahiosoite, email, puhelinnro) VALUES($postinro, $etunimi, $lahiosoite, $email, $puhelinnro)
+ * 
+ * Dictionary<string, Object) paritAsiakas = new Dictionary<string, object>();
+ * parit.add($id, asiakasid);
+ * 
+ * INSERTIN parit
+ * Dictionary<string, Object) paritAsiakas = new Dictionary<string, object>();
+ * parit.add("$postinro", tbPostinro.Text)
+ * 
+ */
 namespace MOVA2020.objs
 {
     public class DBHandler

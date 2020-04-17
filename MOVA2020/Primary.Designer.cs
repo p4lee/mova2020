@@ -39,6 +39,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvVaraukset = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btPoista = new System.Windows.Forms.Button();
+            this.btMuokkaa = new System.Windows.Forms.Button();
+            this.btLisaa = new System.Windows.Forms.Button();
             this.dgvAsiakkaat = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -202,6 +205,9 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btPoista);
+            this.tabPage4.Controls.Add(this.btMuokkaa);
+            this.tabPage4.Controls.Add(this.btLisaa);
             this.tabPage4.Controls.Add(this.dgvAsiakkaat);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
@@ -211,7 +217,7 @@
             this.tabPage4.Text = "Asiakkaat";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dgvAsiakkaat
+            // btPoista
             // 
             this.dgvAsiakkaat.AllowUserToAddRows = false;
             this.dgvAsiakkaat.AllowUserToDeleteRows = false;
