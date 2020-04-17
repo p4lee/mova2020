@@ -8,21 +8,22 @@ namespace MOVA2020.objs.dbitems
 {
     public class Posti
     {
-        private int postinro;
+        private string postinro;
         private string toimipaikka;
 
-        public Posti(int postinro, string toimipaikka)
+        public Posti(string postinro, string toimipaikka)
         {
             Postinro = postinro;
             Toimipaikka = toimipaikka;
         }
 
-        public int Postinro { get => postinro; set => postinro = value; }
+        public string Postinro { get => postinro; set => postinro = value; }
         public string Toimipaikka { get => toimipaikka; set => toimipaikka = value; }
 
-        public string GetToString()
+        override
+        public string ToString()
         {
-            return this.Toimipaikka;
+            return this.postinro + " " +this.Toimipaikka;
         }
     }
 }

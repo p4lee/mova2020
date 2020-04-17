@@ -19,5 +19,11 @@ namespace MOVA2020.objs.dbitems
         }
         public long Toiminta_alueid { get => toiminta_alueid; }
         public string Nimi { get => nimi; set => nimi = value; }
+        
+        override
+        public string ToString()
+        {
+            return this.nimi;
+        }
     }
 }
