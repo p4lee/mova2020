@@ -14,6 +14,7 @@ namespace MOVA2020.objs
         private string dbloc;
         public DBHandler(string dbloc = @"C:\temp\test.db", string dbdata = @"C:\temp\villagenewbies.sql")
         {
+
             this.dbloc = dbloc;
             if (!File.Exists(dbloc))
             {
@@ -49,7 +50,6 @@ namespace MOVA2020.objs
          * returns amounts of row affected by data manipulation queries
          * returns -1 if exception is encountered
          */
-         //moi asd
         public int DMquery(string query, Dictionary<string, Object> pairs)
         {
             int ret;
