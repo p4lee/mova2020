@@ -77,6 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\Laskutus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Laskutus.Designer.cs">
+      <DependentUpon>Laskutus.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\mokkitiedot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,30 @@
     </Compile>
     <Compile Include="forms\mokkimuokkaus.Designer.cs">
       <DependentUpon>mokkimuokkaus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Varauksenlisays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Varauksenlisays.Designer.cs">
+      <DependentUpon>Varauksenlisays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Varauksenperuminen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Varauksenperuminen.Designer.cs">
+      <DependentUpon>Varauksenperuminen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Varausasiakastiedot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Varausasiakastiedot.Designer.cs">
+      <DependentUpon>Varausasiakastiedot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Varausmuokkaus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Varausmuokkaus.Designer.cs">
+      <DependentUpon>Varausmuokkaus.cs</DependentUpon>
     </Compile>
     <Compile Include="objs\DBHandler.cs" />
     <Compile Include="objs\dbitems\Asiakas.cs" />
@@ -106,11 +136,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\Laskutus.resx">
+      <DependentUpon>Laskutus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\mokkimuokkaus.resx">
       <DependentUpon>mokkimuokkaus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\mokkitiedot.resx">
       <DependentUpon>mokkitiedot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Varauksenlisays.resx">
+      <DependentUpon>Varauksenlisays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Varauksenperuminen.resx">
+      <DependentUpon>Varauksenperuminen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Varausasiakastiedot.resx">
+      <DependentUpon>Varausasiakastiedot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Varausmuokkaus.resx">
+      <DependentUpon>Varausmuokkaus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Primary.resx">
       <DependentUpon>Primary.cs</DependentUpon>
