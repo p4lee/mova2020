@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MOVA2020.objs;
 using MOVA2020.objs.dbitems;
+using MOVA2020.forms;
 namespace MOVA2020
 {
     public partial class Primary : Form
@@ -38,14 +39,13 @@ namespace MOVA2020
 
         private void btnLisaatoimintaalue_Click(object sender, EventArgs e)
         {
-            string nimi = tbLisaaToimintaalueNimi.Text;
             // SQL kysely
             string query = "INSERT INTO toimintaalue(nimi) VALUES($nimi)";
             /*
                 Luodaan dictionary jossa lisätään kyselyssä olevat $nimi, muuttujaksi nimi
             */ 
             Dictionary<string, object> pairs = new Dictionary<string, object>();
-            pairs.Add("$nimi", nimi);
+            pairs.Add("$nimi", tbLisaaToimintaalueNimi.Text);
             if(this.db.DMquery(query, pairs) !=-1)
             {
                 this.paivita();
@@ -54,6 +54,14 @@ namespace MOVA2020
                 MessageBox.Show("error");
             }
             
+        }
+
+        private void btMuokkaa_Click(object sender, EventArgs e)
+        {
+            Posti posti = new Posti(70500, "kuopio");
+            Asiakas asiakas = new Asiakas(2,"tommi","puurunen","hermanninkatu","tommi.puurunen@edu.savonia.fi","3232323", posti);
+            Asiakastiedot t = new Asiakastiedot(asiakas);
+            t.Show();
         }
     }
 }

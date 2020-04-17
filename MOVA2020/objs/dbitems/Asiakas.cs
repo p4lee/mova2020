@@ -8,11 +8,11 @@ namespace MOVA2020.objs.dbitems
 {
     public class Asiakas
     {
-        private Posti postinro;
+        private Posti posti;
         private long asiakas_id;
         private string etunimi, sukunimi, lahiosoite, email, puhelinnro;
 
-        public Asiakas(long asiakas_id, string etunimi, string sukunimi, string lahiosoite, string email, string puhelinnro, Posti postinro)
+        public Asiakas(long asiakas_id, string etunimi, string sukunimi, string lahiosoite, string email, string puhelinnro, Posti posti)
         {
             this.asiakas_id = asiakas_id;
             Etunimi = etunimi;
@@ -20,7 +20,7 @@ namespace MOVA2020.objs.dbitems
             Lahiosoite = lahiosoite;
             Email = email;
             Puhelinnro = puhelinnro;
-            Postinro = postinro;
+            Posti = posti;
         }
 
         public long Asiakas_id { get => asiakas_id;}
@@ -29,6 +29,6 @@ namespace MOVA2020.objs.dbitems
         public string Lahiosoite { get => lahiosoite; set => lahiosoite = value; }
         public string Email { get => email; set => email = value; }
         public string Puhelinnro { get => puhelinnro; set => puhelinnro = value; }
-        public Posti Postinro { get => postinro; set => postinro = value; }
+        public Posti Posti { get => posti; set => posti = value; }
     }
 }

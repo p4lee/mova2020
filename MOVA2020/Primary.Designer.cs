@@ -39,10 +39,10 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvVaraukset = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dgvAsiakkaat = new System.Windows.Forms.DataGridView();
-            this.btLisaa = new System.Windows.Forms.Button();
-            this.btMuokkaa = new System.Windows.Forms.Button();
             this.btPoista = new System.Windows.Forms.Button();
+            this.btMuokkaa = new System.Windows.Forms.Button();
+            this.btLisaa = new System.Windows.Forms.Button();
+            this.dgvAsiakkaat = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokit)).BeginInit();
@@ -181,15 +181,24 @@
             this.tabPage4.Text = "Asiakkaat";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dgvAsiakkaat
+            // btPoista
             // 
-            this.dgvAsiakkaat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvAsiakkaat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsiakkaat.Location = new System.Drawing.Point(233, 6);
-            this.dgvAsiakkaat.Name = "dgvAsiakkaat";
-            this.dgvAsiakkaat.Size = new System.Drawing.Size(403, 383);
-            this.dgvAsiakkaat.TabIndex = 0;
+            this.btPoista.Location = new System.Drawing.Point(27, 115);
+            this.btPoista.Name = "btPoista";
+            this.btPoista.Size = new System.Drawing.Size(135, 23);
+            this.btPoista.TabIndex = 3;
+            this.btPoista.Text = "Poista asiakas";
+            this.btPoista.UseVisualStyleBackColor = true;
+            // 
+            // btMuokkaa
+            // 
+            this.btMuokkaa.Location = new System.Drawing.Point(27, 68);
+            this.btMuokkaa.Name = "btMuokkaa";
+            this.btMuokkaa.Size = new System.Drawing.Size(135, 23);
+            this.btMuokkaa.TabIndex = 2;
+            this.btMuokkaa.Text = "Muokkaa Tietoja";
+            this.btMuokkaa.UseVisualStyleBackColor = true;
+            this.btMuokkaa.Click += new System.EventHandler(this.btMuokkaa_Click);
             // 
             // btLisaa
             // 
@@ -200,23 +209,15 @@
             this.btLisaa.Text = "Lisää asiakas";
             this.btLisaa.UseVisualStyleBackColor = true;
             // 
-            // btMuokkaa
+            // dgvAsiakkaat
             // 
-            this.btMuokkaa.Location = new System.Drawing.Point(27, 68);
-            this.btMuokkaa.Name = "btMuokkaa";
-            this.btMuokkaa.Size = new System.Drawing.Size(135, 23);
-            this.btMuokkaa.TabIndex = 2;
-            this.btMuokkaa.Text = "Muokkaa Tietoja";
-            this.btMuokkaa.UseVisualStyleBackColor = true;
-            // 
-            // btPoista
-            // 
-            this.btPoista.Location = new System.Drawing.Point(27, 115);
-            this.btPoista.Name = "btPoista";
-            this.btPoista.Size = new System.Drawing.Size(135, 23);
-            this.btPoista.TabIndex = 3;
-            this.btPoista.Text = "Poista asiakas";
-            this.btPoista.UseVisualStyleBackColor = true;
+            this.dgvAsiakkaat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAsiakkaat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAsiakkaat.Location = new System.Drawing.Point(233, 6);
+            this.dgvAsiakkaat.Name = "dgvAsiakkaat";
+            this.dgvAsiakkaat.Size = new System.Drawing.Size(403, 383);
+            this.dgvAsiakkaat.TabIndex = 0;
             // 
             // Primary
             // 
