@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOVA2020.Properties
-{
-
-
+namespace MOVA2020.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,52 +19,100 @@ namespace MOVA2020.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MOVA2020.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- -----------------------------------------------------
+        ///-- Table posti
+        ///-- -----------------------------------------------------
+        ///
+        ///CREATE TABLE posti (
+        ///  postinro CHAR(5) NOT NULL,
+        ///  toimipaikka VARCHAR(45) NULL,
+        ///  PRIMARY KEY (postinro)
+        ///  );
+        ///
+        ///
+        ///-- -----------------------------------------------------
+        ///-- Table asiakas
+        ///-- -----------------------------------------------------
+        ///CREATE TABLE asiakas (
+        ///  asiakas_id INTEGER NOT NULL,
+        ///  postinro CHAR(5) NOT NULL,
+        ///  etunimi VARCHAR(20) NULL DEFAULT NU [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string alustus {
+            get {
+                return ResourceManager.GetString("alustus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO posti (postinro, toimipaikka) VALUES 
+        ///(&quot;79700&quot;, &quot;HEIN�VESI&quot;),
+        ///(&quot;86240&quot;, &quot;PYH�NKOSKI&quot;),
+        ///(&quot;97390&quot;, &quot;KIERINKI&quot;),
+        ///(&quot;00900&quot;, &quot;HELSINKI&quot;),
+        ///(&quot;02760&quot;, &quot;ESPOO&quot;),
+        ///(&quot;07590&quot;, &quot;ASKOLA&quot;),
+        ///(&quot;13720&quot;, &quot;PAROLA&quot;),
+        ///(&quot;50350&quot;, &quot;NOROLA&quot;),
+        ///(&quot;55700&quot;, &quot;IMATRA&quot;),
+        ///(&quot;56800&quot;, &quot;SIMPELE&quot;),
+        ///(&quot;64260&quot;, &quot;KASKINEN&quot;),
+        ///(&quot;70101&quot;, &quot;KUOPIO&quot;),
+        ///(&quot;74250&quot;, &quot;NISSIL�&quot;),
+        ///(&quot;80130&quot;, &quot;JOENSUU&quot;),
+        ///(&quot;03220&quot;, &quot;TERVALAMPI&quot;),
+        ///(&quot;07910&quot;, &quot;VALKO&quot;),
+        ///(&quot;14610&quot;, &quot;LEPAA&quot;),
+        ///(&quot;15141&quot;, &quot;LAHTI&quot;),
+        ///(&quot;19650&quot;, &quot;JOUTSA&quot;),
+        ///(&quot;32560&quot;, &quot;VIRTTAA&quot;),
+        ///(&quot;35 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string postinumerot {
+            get {
+                return ResourceManager.GetString("postinumerot", resourceCulture);
             }
         }
     }

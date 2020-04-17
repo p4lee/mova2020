@@ -32,14 +32,14 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvMokit = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnLisaatoimintaalue = new System.Windows.Forms.Button();
+            this.tbLisaaToimintaalueNimi = new System.Windows.Forms.TextBox();
+            this.lblLisaaToimintaalueNimi = new System.Windows.Forms.Label();
             this.dgvToimintaalueet = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvVaraukset = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvAsiakkaat = new System.Windows.Forms.DataGridView();
-            this.lblLisaaToimintaalueNimi = new System.Windows.Forms.Label();
-            this.tbLisaaToimintaalueNimi = new System.Windows.Forms.TextBox();
-            this.btnLisaatoimintaalue = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokit)).BeginInit();
@@ -60,6 +60,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -70,10 +71,10 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.dgvMokit);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(779, 395);
+            this.tabPage1.Size = new System.Drawing.Size(779, 392);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mökit";
             // 
@@ -92,13 +93,40 @@
             this.tabPage2.Controls.Add(this.tbLisaaToimintaalueNimi);
             this.tabPage2.Controls.Add(this.lblLisaaToimintaalueNimi);
             this.tabPage2.Controls.Add(this.dgvToimintaalueet);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(779, 395);
+            this.tabPage2.Size = new System.Drawing.Size(779, 392);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Toimialueet";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnLisaatoimintaalue
+            // 
+            this.btnLisaatoimintaalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnLisaatoimintaalue.Location = new System.Drawing.Point(6, 52);
+            this.btnLisaatoimintaalue.Name = "btnLisaatoimintaalue";
+            this.btnLisaatoimintaalue.Size = new System.Drawing.Size(111, 28);
+            this.btnLisaatoimintaalue.TabIndex = 4;
+            this.btnLisaatoimintaalue.Text = "Lisää toiminta-alue";
+            this.btnLisaatoimintaalue.UseVisualStyleBackColor = true;
+            this.btnLisaatoimintaalue.Click += new System.EventHandler(this.btnLisaatoimintaalue_Click);
+            // 
+            // tbLisaaToimintaalueNimi
+            // 
+            this.tbLisaaToimintaalueNimi.Location = new System.Drawing.Point(6, 23);
+            this.tbLisaaToimintaalueNimi.Name = "tbLisaaToimintaalueNimi";
+            this.tbLisaaToimintaalueNimi.Size = new System.Drawing.Size(111, 23);
+            this.tbLisaaToimintaalueNimi.TabIndex = 3;
+            // 
+            // lblLisaaToimintaalueNimi
+            // 
+            this.lblLisaaToimintaalueNimi.AutoSize = true;
+            this.lblLisaaToimintaalueNimi.Location = new System.Drawing.Point(6, 3);
+            this.lblLisaaToimintaalueNimi.Name = "lblLisaaToimintaalueNimi";
+            this.lblLisaaToimintaalueNimi.Size = new System.Drawing.Size(35, 17);
+            this.lblLisaaToimintaalueNimi.TabIndex = 2;
+            this.lblLisaaToimintaalueNimi.Text = "Nimi";
             // 
             // dgvToimintaalueet
             // 
@@ -116,16 +144,16 @@
             this.dgvToimintaalueet.ShowCellToolTips = false;
             this.dgvToimintaalueet.ShowEditingIcon = false;
             this.dgvToimintaalueet.ShowRowErrors = false;
-            this.dgvToimintaalueet.Size = new System.Drawing.Size(317, 383);
+            this.dgvToimintaalueet.Size = new System.Drawing.Size(317, 380);
             this.dgvToimintaalueet.TabIndex = 0;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgvVaraukset);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(779, 395);
+            this.tabPage3.Size = new System.Drawing.Size(779, 392);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Varaukset";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -141,10 +169,10 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dgvAsiakkaat);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(779, 395);
+            this.tabPage4.Size = new System.Drawing.Size(779, 392);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Asiakkaat";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -156,34 +184,8 @@
             this.dgvAsiakkaat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsiakkaat.Location = new System.Drawing.Point(456, 6);
             this.dgvAsiakkaat.Name = "dgvAsiakkaat";
-            this.dgvAsiakkaat.Size = new System.Drawing.Size(317, 383);
+            this.dgvAsiakkaat.Size = new System.Drawing.Size(317, 380);
             this.dgvAsiakkaat.TabIndex = 0;
-            // 
-            // lblLisaaToimintaalueNimi
-            // 
-            this.lblLisaaToimintaalueNimi.AutoSize = true;
-            this.lblLisaaToimintaalueNimi.Location = new System.Drawing.Point(-3, 6);
-            this.lblLisaaToimintaalueNimi.Name = "lblLisaaToimintaalueNimi";
-            this.lblLisaaToimintaalueNimi.Size = new System.Drawing.Size(27, 13);
-            this.lblLisaaToimintaalueNimi.TabIndex = 2;
-            this.lblLisaaToimintaalueNimi.Text = "Nimi";
-            // 
-            // tbLisaaToimintaalueNimi
-            // 
-            this.tbLisaaToimintaalueNimi.Location = new System.Drawing.Point(0, 22);
-            this.tbLisaaToimintaalueNimi.Name = "tbLisaaToimintaalueNimi";
-            this.tbLisaaToimintaalueNimi.Size = new System.Drawing.Size(111, 20);
-            this.tbLisaaToimintaalueNimi.TabIndex = 3;
-            // 
-            // btnLisaatoimintaalue
-            // 
-            this.btnLisaatoimintaalue.Location = new System.Drawing.Point(0, 48);
-            this.btnLisaatoimintaalue.Name = "btnLisaatoimintaalue";
-            this.btnLisaatoimintaalue.Size = new System.Drawing.Size(111, 23);
-            this.btnLisaatoimintaalue.TabIndex = 4;
-            this.btnLisaatoimintaalue.Text = "Lisää toiminta-alue";
-            this.btnLisaatoimintaalue.UseVisualStyleBackColor = true;
-            this.btnLisaatoimintaalue.Click += new System.EventHandler(this.btnLisaatoimintaalue_Click);
             // 
             // Primary
             // 
