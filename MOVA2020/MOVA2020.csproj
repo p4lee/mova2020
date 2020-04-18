@@ -82,7 +82,7 @@
     </Compile>
     <Compile Include="forms\Laskutus.Designer.cs">
       <DependentUpon>Laskutus.cs</DependentUpon>
-
+    </Compile>
     <Compile Include="forms\Asiakastiedot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +143,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\Laskutus.resx">
       <DependentUpon>Laskutus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\Asiakastiedot.resx">
       <DependentUpon>Asiakastiedot.cs</DependentUpon>
     </EmbeddedResource>
