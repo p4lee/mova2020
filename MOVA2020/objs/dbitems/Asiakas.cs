@@ -11,7 +11,7 @@ namespace MOVA2020.objs.dbitems
         private Posti postinro;
         private long asiakas_id;
         private string etunimi, sukunimi, lahiosoite, email, puhelinnro;
-
+        //asd
         public Asiakas(long asiakas_id, string etunimi, string sukunimi, string lahiosoite, string email, string puhelinnro, Posti postinro)
         {
             this.asiakas_id = asiakas_id;
