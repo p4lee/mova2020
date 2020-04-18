@@ -177,7 +177,7 @@ namespace MOVA2020
 
         private void btMuokkaa_Click(object sender, EventArgs e)
         {
-            Posti posti = new Posti(70500, "kuopio");
+            Posti posti = new Posti("70500", "kuopio");
             Asiakas asiakas = new Asiakas(2,"tommi","puurunen","hermanninkatu","tommi.puurunen@edu.savonia.fi","3232323", posti);
             Asiakastiedot t = new Asiakastiedot(asiakas);
             t.Show();
