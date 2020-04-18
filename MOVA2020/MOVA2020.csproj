@@ -89,6 +89,12 @@
     <Compile Include="forms\mokkimuokkaus.Designer.cs">
       <DependentUpon>mokkimuokkaus.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\varmennus_kysely_poistosta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\varmennus_kysely_poistosta.Designer.cs">
+      <DependentUpon>varmennus_kysely_poistosta.cs</DependentUpon>
+    </Compile>
     <Compile Include="objs\DBHandler.cs" />
     <Compile Include="objs\dbitems\Asiakas.cs" />
     <Compile Include="objs\dbitems\Lasku.cs" />
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\mokkitiedot.resx">
       <DependentUpon>mokkitiedot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\varmennus_kysely_poistosta.resx">
+      <DependentUpon>varmennus_kysely_poistosta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Primary.resx">
       <DependentUpon>Primary.cs</DependentUpon>

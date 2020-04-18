@@ -24,5 +24,10 @@ namespace MOVA2020.forms
             this.Text = "Muokkaa mökkiä";
             InitializeComponent();
         }
+
+        private void btnLisays_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

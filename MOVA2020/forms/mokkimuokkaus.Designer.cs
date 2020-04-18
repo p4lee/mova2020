@@ -49,132 +49,148 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(9, 25);
+            this.comboBox1.Location = new System.Drawing.Point(12, 31);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(281, 21);
+            this.comboBox1.Size = new System.Drawing.Size(373, 24);
             this.comboBox1.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 104);
+            this.textBox1.Location = new System.Drawing.Point(12, 128);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(280, 20);
+            this.textBox1.Size = new System.Drawing.Size(372, 22);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(9, 65);
+            this.textBox2.Location = new System.Drawing.Point(12, 80);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(281, 20);
+            this.textBox2.Size = new System.Drawing.Size(373, 22);
             this.textBox2.TabIndex = 2;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(9, 143);
+            this.textBox3.Location = new System.Drawing.Point(12, 176);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(281, 20);
+            this.textBox3.Size = new System.Drawing.Size(373, 22);
             this.textBox3.TabIndex = 3;
             // 
             // lblPostinro
             // 
             this.lblPostinro.AutoSize = true;
-            this.lblPostinro.Location = new System.Drawing.Point(6, 88);
+            this.lblPostinro.Location = new System.Drawing.Point(8, 108);
+            this.lblPostinro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPostinro.Name = "lblPostinro";
-            this.lblPostinro.Size = new System.Drawing.Size(65, 13);
+            this.lblPostinro.Size = new System.Drawing.Size(87, 17);
             this.lblPostinro.TabIndex = 5;
             this.lblPostinro.Text = "Postinumero";
             // 
             // lblNimi
             // 
             this.lblNimi.AutoSize = true;
-            this.lblNimi.Location = new System.Drawing.Point(8, 49);
+            this.lblNimi.Location = new System.Drawing.Point(11, 60);
+            this.lblNimi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNimi.Name = "lblNimi";
-            this.lblNimi.Size = new System.Drawing.Size(27, 13);
+            this.lblNimi.Size = new System.Drawing.Size(35, 17);
             this.lblNimi.TabIndex = 6;
             this.lblNimi.Text = "Nimi";
             // 
             // lblKatuosoite
             // 
             this.lblKatuosoite.AutoSize = true;
-            this.lblKatuosoite.Location = new System.Drawing.Point(6, 127);
+            this.lblKatuosoite.Location = new System.Drawing.Point(8, 156);
+            this.lblKatuosoite.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKatuosoite.Name = "lblKatuosoite";
-            this.lblKatuosoite.Size = new System.Drawing.Size(57, 13);
+            this.lblKatuosoite.Size = new System.Drawing.Size(75, 17);
             this.lblKatuosoite.TabIndex = 7;
             this.lblKatuosoite.Text = "Katuosoite";
             // 
             // lblKuvaus
             // 
             this.lblKuvaus.AutoSize = true;
-            this.lblKuvaus.Location = new System.Drawing.Point(6, 289);
+            this.lblKuvaus.Location = new System.Drawing.Point(8, 356);
+            this.lblKuvaus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKuvaus.Name = "lblKuvaus";
-            this.lblKuvaus.Size = new System.Drawing.Size(43, 13);
+            this.lblKuvaus.Size = new System.Drawing.Size(55, 17);
             this.lblKuvaus.TabIndex = 8;
             this.lblKuvaus.Text = "Kuvaus";
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(9, 309);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 380);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(283, 142);
+            this.richTextBox1.Size = new System.Drawing.Size(376, 174);
             this.richTextBox1.TabIndex = 9;
             this.richTextBox1.Text = "";
             // 
             // lblToimialueet
             // 
             this.lblToimialueet.AutoSize = true;
-            this.lblToimialueet.Location = new System.Drawing.Point(6, 9);
+            this.lblToimialueet.Location = new System.Drawing.Point(8, 11);
+            this.lblToimialueet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblToimialueet.Name = "lblToimialueet";
-            this.lblToimialueet.Size = new System.Drawing.Size(52, 13);
+            this.lblToimialueet.Size = new System.Drawing.Size(69, 17);
             this.lblToimialueet.TabIndex = 10;
             this.lblToimialueet.Text = "Toimialue";
             // 
             // nmbHenkilomaara
             // 
-            this.nmbHenkilomaara.Location = new System.Drawing.Point(9, 182);
+            this.nmbHenkilomaara.Location = new System.Drawing.Point(12, 224);
+            this.nmbHenkilomaara.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nmbHenkilomaara.Name = "nmbHenkilomaara";
-            this.nmbHenkilomaara.Size = new System.Drawing.Size(280, 20);
+            this.nmbHenkilomaara.Size = new System.Drawing.Size(373, 22);
             this.nmbHenkilomaara.TabIndex = 11;
             // 
             // lblHenkilomaara
             // 
             this.lblHenkilomaara.AutoSize = true;
-            this.lblHenkilomaara.Location = new System.Drawing.Point(6, 166);
+            this.lblHenkilomaara.Location = new System.Drawing.Point(8, 204);
+            this.lblHenkilomaara.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHenkilomaara.Name = "lblHenkilomaara";
-            this.lblHenkilomaara.Size = new System.Drawing.Size(72, 13);
+            this.lblHenkilomaara.Size = new System.Drawing.Size(95, 17);
             this.lblHenkilomaara.TabIndex = 12;
             this.lblHenkilomaara.Text = "Henkilömäärä";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 205);
+            this.label1.Location = new System.Drawing.Point(8, 252);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 13;
             this.label1.Text = "Varustelu";
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(9, 221);
+            this.richTextBox2.Location = new System.Drawing.Point(12, 272);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(282, 65);
+            this.richTextBox2.Size = new System.Drawing.Size(375, 79);
             this.richTextBox2.TabIndex = 14;
             this.richTextBox2.Text = "";
             // 
             // btnLisays
             // 
-            this.btnLisays.Location = new System.Drawing.Point(9, 466);
+            this.btnLisays.Location = new System.Drawing.Point(12, 574);
+            this.btnLisays.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLisays.Name = "btnLisays";
-            this.btnLisays.Size = new System.Drawing.Size(282, 23);
+            this.btnLisays.Size = new System.Drawing.Size(376, 28);
             this.btnLisays.TabIndex = 15;
             this.btnLisays.Text = "Lisää mökki";
             this.btnLisays.UseVisualStyleBackColor = true;
+            this.btnLisays.Click += new System.EventHandler(this.btnLisays_Click);
             // 
             // mokkimuokkaus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 511);
+            this.ClientSize = new System.Drawing.Size(396, 629);
             this.Controls.Add(this.btnLisays);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.label1);
@@ -190,6 +206,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "mokkimuokkaus";
             ((System.ComponentModel.ISupportInitialize)(this.nmbHenkilomaara)).EndInit();
             this.ResumeLayout(false);
