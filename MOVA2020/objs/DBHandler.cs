@@ -6,40 +6,46 @@ using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using System.IO;
 using System.Collections;
-
+/*
+ * 
+ * DELETE FROM asiakas WHERE asiakas_id=$id;
+ * UPDATE asiakas SET etunimi=$etunimi WHERE asiakas_id=$id;
+ * INSERT INTO asiakas(postinro, etunimi, sukunimi, lahiosoite, email, puhelinnro) VALUES($postinro, $etunimi, $lahiosoite, $email, $puhelinnro)
+ * 
+ * Dictionary<string, Object) paritAsiakas = new Dictionary<string, object>();
+ * parit.add($id, asiakasid);
+ * 
+ * INSERTIN parit
+ * Dictionary<string, Object) paritAsiakas = new Dictionary<string, object>();
+ * parit.add("$postinro", tbPostinro.Text)
+ * 
+ */
 namespace MOVA2020.objs
 {
     public class DBHandler
     {
         private string dbloc;
-        public DBHandler(string dbloc = @"D:\temp\test.db", string dbdata = @"D:\temp\villagenewbies.sql")
-        {
 
+        /*
+         * Luo tietokannan projektin Debug kansioon source\repos\MOVA2020\MOVA2020\bin\Debug
+         */
+        public DBHandler(string dbloc = @".\tietokanta.db")
+        {
             this.dbloc = dbloc;
             if (!File.Exists(dbloc))
             {
-                this.CreateDb(dbloc, dbdata);
+                this.CreateDb(dbloc);
             }
         }
-        private void CreateDb(string dbloc, string dbdata)
+        private void CreateDb(string dbloc)
         {
             File.WriteAllBytes(dbloc, new byte[0]);
             using (var conn = new SqliteConnection("Data Source=" + dbloc))
             {
                 conn.Open();
                 var command = conn.CreateCommand();
-                var insertstr = "INSERT INTO posti(postinro, toimipaikka) VALUES($nro, $toimipaikka);";
-                insertstr += "INSERT INTO asiakas(etunimi, sukunimi, lahiosoite, email, puhelinnro, postinro) VALUES($etunimi, $sukunimi, $lahiosoite, $email, $puh, $postinro);";
-
-                command.CommandText = File.ReadAllText(dbdata) + insertstr;
-                command.Parameters.AddWithValue("$nro", "70500");
-                command.Parameters.AddWithValue("$toimipaikka", "Kuopio");
-                command.Parameters.AddWithValue("$etunimi", "asd");
-                command.Parameters.AddWithValue("$sukunimi", "asd");
-                command.Parameters.AddWithValue("$lahiosoite", "asd");
-                command.Parameters.AddWithValue("$email", "asdsad");
-                command.Parameters.AddWithValue("$puh", "sadads");
-                command.Parameters.AddWithValue("$postinro", "70500");
+                command.CommandText = Properties.Resources.alustus+Properties.Resources.postinumerot+Properties.Resources.testidata;
+                
                 command.ExecuteReader();
                 conn.Close();
             }
