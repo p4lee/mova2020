@@ -41,5 +41,10 @@ namespace MOVA2020.forms
         {
             // UC ID 3.3.1 Nappi, jota painamalla lasku lähetetään asiakkaan sähköpostiin
         }
+
+        private void Laskutus_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
