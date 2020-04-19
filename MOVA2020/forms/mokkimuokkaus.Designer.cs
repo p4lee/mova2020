@@ -48,33 +48,46 @@
             // 
             // cbToimialue
             // 
-
+            this.cbToimialue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbToimialue.FormattingEnabled = true;
-            this.cbToimialue.Location = new System.Drawing.Point(9, 25);
+            this.cbToimialue.Location = new System.Drawing.Point(38, 22);
+            this.cbToimialue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbToimialue.Name = "cbToimialue";
-            this.cbToimialue.Size = new System.Drawing.Size(281, 21);
+            this.cbToimialue.Size = new System.Drawing.Size(363, 24);
             this.cbToimialue.TabIndex = 0;
-
-            this.tbPostinumero.Location = new System.Drawing.Point(9, 104);
+            // 
+            // tbPostinumero
+            // 
+            this.tbPostinumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.tbPostinumero.Location = new System.Drawing.Point(38, 111);
+            this.tbPostinumero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPostinumero.Name = "tbPostinumero";
-            this.tbPostinumero.Size = new System.Drawing.Size(280, 20);
+            this.tbPostinumero.Size = new System.Drawing.Size(363, 23);
             this.tbPostinumero.TabIndex = 1;
-
-            this.tbNimi.Location = new System.Drawing.Point(9, 65);
+            // 
+            // tbNimi
+            // 
+            this.tbNimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.tbNimi.Location = new System.Drawing.Point(38, 67);
+            this.tbNimi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbNimi.Name = "tbNimi";
-            this.tbNimi.Size = new System.Drawing.Size(281, 20);
+            this.tbNimi.Size = new System.Drawing.Size(363, 23);
             this.tbNimi.TabIndex = 2;
-
-            this.tbKatuosoite.Location = new System.Drawing.Point(9, 143);
+            // 
+            // tbKatuosoite
+            // 
+            this.tbKatuosoite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.tbKatuosoite.Location = new System.Drawing.Point(38, 155);
+            this.tbKatuosoite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbKatuosoite.Name = "tbKatuosoite";
-            this.tbKatuosoite.Size = new System.Drawing.Size(281, 20);
+            this.tbKatuosoite.Size = new System.Drawing.Size(363, 23);
             this.tbKatuosoite.TabIndex = 3;
             // 
             // lblPostinro
             // 
             this.lblPostinro.AutoSize = true;
-            this.lblPostinro.Location = new System.Drawing.Point(8, 108);
-            this.lblPostinro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPostinro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblPostinro.Location = new System.Drawing.Point(35, 92);
             this.lblPostinro.Name = "lblPostinro";
             this.lblPostinro.Size = new System.Drawing.Size(87, 17);
             this.lblPostinro.TabIndex = 5;
@@ -83,8 +96,8 @@
             // lblNimi
             // 
             this.lblNimi.AutoSize = true;
-            this.lblNimi.Location = new System.Drawing.Point(11, 60);
-            this.lblNimi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblNimi.Location = new System.Drawing.Point(35, 48);
             this.lblNimi.Name = "lblNimi";
             this.lblNimi.Size = new System.Drawing.Size(35, 17);
             this.lblNimi.TabIndex = 6;
@@ -93,8 +106,8 @@
             // lblKatuosoite
             // 
             this.lblKatuosoite.AutoSize = true;
-            this.lblKatuosoite.Location = new System.Drawing.Point(8, 156);
-            this.lblKatuosoite.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKatuosoite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblKatuosoite.Location = new System.Drawing.Point(35, 136);
             this.lblKatuosoite.Name = "lblKatuosoite";
             this.lblKatuosoite.Size = new System.Drawing.Size(75, 17);
             this.lblKatuosoite.TabIndex = 7;
@@ -103,8 +116,8 @@
             // lblKuvaus
             // 
             this.lblKuvaus.AutoSize = true;
-            this.lblKuvaus.Location = new System.Drawing.Point(8, 356);
-            this.lblKuvaus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKuvaus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblKuvaus.Location = new System.Drawing.Point(35, 301);
             this.lblKuvaus.Name = "lblKuvaus";
             this.lblKuvaus.Size = new System.Drawing.Size(55, 17);
             this.lblKuvaus.TabIndex = 8;
@@ -112,18 +125,19 @@
             // 
             // rtbKuvaus
             // 
-
-            this.rtbKuvaus.Location = new System.Drawing.Point(9, 309);
+            this.rtbKuvaus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rtbKuvaus.Location = new System.Drawing.Point(38, 320);
+            this.rtbKuvaus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rtbKuvaus.Name = "rtbKuvaus";
-            this.rtbKuvaus.Size = new System.Drawing.Size(283, 142);
+            this.rtbKuvaus.Size = new System.Drawing.Size(365, 143);
             this.rtbKuvaus.TabIndex = 9;
             this.rtbKuvaus.Text = "";
             // 
             // lblToimialueet
             // 
             this.lblToimialueet.AutoSize = true;
-            this.lblToimialueet.Location = new System.Drawing.Point(8, 11);
-            this.lblToimialueet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblToimialueet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblToimialueet.Location = new System.Drawing.Point(35, 3);
             this.lblToimialueet.Name = "lblToimialueet";
             this.lblToimialueet.Size = new System.Drawing.Size(69, 17);
             this.lblToimialueet.TabIndex = 10;
@@ -131,17 +145,17 @@
             // 
             // nmbHenkilomaara
             // 
-            this.nmbHenkilomaara.Location = new System.Drawing.Point(12, 224);
-            this.nmbHenkilomaara.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nmbHenkilomaara.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.nmbHenkilomaara.Location = new System.Drawing.Point(38, 200);
             this.nmbHenkilomaara.Name = "nmbHenkilomaara";
-            this.nmbHenkilomaara.Size = new System.Drawing.Size(373, 22);
+            this.nmbHenkilomaara.Size = new System.Drawing.Size(363, 23);
             this.nmbHenkilomaara.TabIndex = 11;
             // 
             // lblHenkilomaara
             // 
             this.lblHenkilomaara.AutoSize = true;
-            this.lblHenkilomaara.Location = new System.Drawing.Point(8, 204);
-            this.lblHenkilomaara.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHenkilomaara.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblHenkilomaara.Location = new System.Drawing.Point(35, 180);
             this.lblHenkilomaara.Name = "lblHenkilomaara";
             this.lblHenkilomaara.Size = new System.Drawing.Size(95, 17);
             this.lblHenkilomaara.TabIndex = 12;
@@ -150,8 +164,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 252);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.Location = new System.Drawing.Point(35, 226);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 13;
@@ -159,34 +173,32 @@
             // 
             // rtbVarustelu
             // 
-
-            this.rtbVarustelu.Location = new System.Drawing.Point(9, 221);
+            this.rtbVarustelu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rtbVarustelu.Location = new System.Drawing.Point(38, 245);
+            this.rtbVarustelu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rtbVarustelu.Name = "rtbVarustelu";
-            this.rtbVarustelu.Size = new System.Drawing.Size(282, 65);
+            this.rtbVarustelu.Size = new System.Drawing.Size(364, 54);
             this.rtbVarustelu.TabIndex = 14;
             this.rtbVarustelu.Text = "";
-
             // 
             // btnMokki
             // 
-
-            this.btnMokki.Location = new System.Drawing.Point(9, 467);
+            this.btnMokki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnMokki.Location = new System.Drawing.Point(41, 467);
+            this.btnMokki.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMokki.Name = "btnMokki";
-            this.btnMokki.Size = new System.Drawing.Size(282, 23);
+            this.btnMokki.Size = new System.Drawing.Size(364, 37);
             this.btnMokki.TabIndex = 15;
             this.btnMokki.Text = "Lisää mökki";
             this.btnMokki.UseVisualStyleBackColor = true;
-
             // 
             // mokkimuokkaus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(297, 511);
+            this.ClientSize = new System.Drawing.Size(441, 515);
             this.Controls.Add(this.btnMokki);
             this.Controls.Add(this.rtbVarustelu);
-
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblHenkilomaara);
             this.Controls.Add(this.nmbHenkilomaara);
@@ -196,12 +208,11 @@
             this.Controls.Add(this.lblKatuosoite);
             this.Controls.Add(this.lblNimi);
             this.Controls.Add(this.lblPostinro);
-
             this.Controls.Add(this.tbKatuosoite);
             this.Controls.Add(this.tbNimi);
             this.Controls.Add(this.tbPostinumero);
             this.Controls.Add(this.cbToimialue);
-
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "mokkimuokkaus";
             ((System.ComponentModel.ISupportInitialize)(this.nmbHenkilomaara)).EndInit();
             this.ResumeLayout(false);
