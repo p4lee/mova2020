@@ -77,6 +77,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\Laskutus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Laskutus.Designer.cs">
+      <DependentUpon>Laskutus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Asiakastiedot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Asiakastiedot.Designer.cs">
+      <DependentUpon>Asiakastiedot.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\mokkitiedot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,12 +106,34 @@
     </Compile>
     <Compile Include="forms\varmennus_kysely_poistosta.Designer.cs">
       <DependentUpon>varmennus_kysely_poistosta.cs</DependentUpon>
+    <Compile Include="forms\Varauksenlisays.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Varauksenlisays.Designer.cs">
+      <DependentUpon>Varauksenlisays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Varauksenperuminen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Varauksenperuminen.Designer.cs">
+      <DependentUpon>Varauksenperuminen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Varausasiakastiedot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Varausasiakastiedot.Designer.cs">
+      <DependentUpon>Varausasiakastiedot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Varausmuokkaus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Varausmuokkaus.Designer.cs">
+      <DependentUpon>Varausmuokkaus.cs</DependentUpon>
     </Compile>
     <Compile Include="objs\DBHandler.cs" />
     <Compile Include="objs\dbitems\Asiakas.cs" />
     <Compile Include="objs\dbitems\Lasku.cs" />
     <Compile Include="objs\dbitems\Palvelu.cs" />
-    <Compile Include="objs\dbitems\VarauksenPalvelut.cs" />
     <Compile Include="objs\dbitems\Varaus.cs" />
     <Compile Include="objs\dbitems\Mokki.cs" />
     <Compile Include="objs\dbitems\Posti.cs" />
@@ -112,6 +146,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\Laskutus.resx">
+      <DependentUpon>Laskutus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Asiakastiedot.resx">
+      <DependentUpon>Asiakastiedot.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\mokkimuokkaus.resx">
       <DependentUpon>mokkimuokkaus.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,24 +160,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\varmennus_kysely_poistosta.resx">
       <DependentUpon>varmennus_kysely_poistosta.cs</DependentUpon>
+    <EmbeddedResource Include="forms\Varauksenlisays.resx">
+      <DependentUpon>Varauksenlisays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Varauksenperuminen.resx">
+      <DependentUpon>Varauksenperuminen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Varausasiakastiedot.resx">
+      <DependentUpon>Varausasiakastiedot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Varausmuokkaus.resx">
+      <DependentUpon>Varausmuokkaus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Primary.resx">
       <DependentUpon>Primary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -147,7 +199,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="sql\alustus.sql" />
+    <Content Include="sql\postinumerot.sql" />
+    <Content Include="sql\testidata.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.2\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

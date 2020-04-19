@@ -28,56 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cbToimialue = new System.Windows.Forms.ComboBox();
+            this.tbPostinumero = new System.Windows.Forms.TextBox();
+            this.tbNimi = new System.Windows.Forms.TextBox();
+            this.tbKatuosoite = new System.Windows.Forms.TextBox();
             this.lblPostinro = new System.Windows.Forms.Label();
             this.lblNimi = new System.Windows.Forms.Label();
             this.lblKatuosoite = new System.Windows.Forms.Label();
             this.lblKuvaus = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbKuvaus = new System.Windows.Forms.RichTextBox();
             this.lblToimialueet = new System.Windows.Forms.Label();
             this.nmbHenkilomaara = new System.Windows.Forms.NumericUpDown();
             this.lblHenkilomaara = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.btnLisays = new System.Windows.Forms.Button();
+            this.rtbVarustelu = new System.Windows.Forms.RichTextBox();
+            this.btnMokki = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nmbHenkilomaara)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbToimialue
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 31);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(373, 24);
-            this.comboBox1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 128);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(372, 22);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(12, 80);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(373, 22);
-            this.textBox2.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(12, 176);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(373, 22);
-            this.textBox3.TabIndex = 3;
+
+            this.cbToimialue.FormattingEnabled = true;
+            this.cbToimialue.Location = new System.Drawing.Point(9, 25);
+            this.cbToimialue.Name = "cbToimialue";
+            this.cbToimialue.Size = new System.Drawing.Size(281, 21);
+            this.cbToimialue.TabIndex = 0;
+
+            this.tbPostinumero.Location = new System.Drawing.Point(9, 104);
+            this.tbPostinumero.Name = "tbPostinumero";
+            this.tbPostinumero.Size = new System.Drawing.Size(280, 20);
+            this.tbPostinumero.TabIndex = 1;
+
+            this.tbNimi.Location = new System.Drawing.Point(9, 65);
+            this.tbNimi.Name = "tbNimi";
+            this.tbNimi.Size = new System.Drawing.Size(281, 20);
+            this.tbNimi.TabIndex = 2;
+
+            this.tbKatuosoite.Location = new System.Drawing.Point(9, 143);
+            this.tbKatuosoite.Name = "tbKatuosoite";
+            this.tbKatuosoite.Size = new System.Drawing.Size(281, 20);
+            this.tbKatuosoite.TabIndex = 3;
             // 
             // lblPostinro
             // 
@@ -119,14 +110,14 @@
             this.lblKuvaus.TabIndex = 8;
             this.lblKuvaus.Text = "Kuvaus";
             // 
-            // richTextBox1
+            // rtbKuvaus
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 380);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(376, 174);
-            this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "";
+
+            this.rtbKuvaus.Location = new System.Drawing.Point(9, 309);
+            this.rtbKuvaus.Name = "rtbKuvaus";
+            this.rtbKuvaus.Size = new System.Drawing.Size(283, 142);
+            this.rtbKuvaus.TabIndex = 9;
+            this.rtbKuvaus.Text = "";
             // 
             // lblToimialueet
             // 
@@ -166,47 +157,51 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Varustelu";
             // 
-            // richTextBox2
+            // rtbVarustelu
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(12, 272);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(375, 79);
-            this.richTextBox2.TabIndex = 14;
-            this.richTextBox2.Text = "";
+
+            this.rtbVarustelu.Location = new System.Drawing.Point(9, 221);
+            this.rtbVarustelu.Name = "rtbVarustelu";
+            this.rtbVarustelu.Size = new System.Drawing.Size(282, 65);
+            this.rtbVarustelu.TabIndex = 14;
+            this.rtbVarustelu.Text = "";
+
             // 
-            // btnLisays
+            // btnMokki
             // 
-            this.btnLisays.Location = new System.Drawing.Point(12, 574);
-            this.btnLisays.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnLisays.Name = "btnLisays";
-            this.btnLisays.Size = new System.Drawing.Size(376, 28);
-            this.btnLisays.TabIndex = 15;
-            this.btnLisays.Text = "Lisää mökki";
-            this.btnLisays.UseVisualStyleBackColor = true;
-            this.btnLisays.Click += new System.EventHandler(this.btnLisays_Click);
+
+            this.btnMokki.Location = new System.Drawing.Point(9, 467);
+            this.btnMokki.Name = "btnMokki";
+            this.btnMokki.Size = new System.Drawing.Size(282, 23);
+            this.btnMokki.TabIndex = 15;
+            this.btnMokki.Text = "Lisää mökki";
+            this.btnMokki.UseVisualStyleBackColor = true;
+
             // 
             // mokkimuokkaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 629);
-            this.Controls.Add(this.btnLisays);
-            this.Controls.Add(this.richTextBox2);
+
+            this.ClientSize = new System.Drawing.Size(297, 511);
+            this.Controls.Add(this.btnMokki);
+            this.Controls.Add(this.rtbVarustelu);
+
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblHenkilomaara);
             this.Controls.Add(this.nmbHenkilomaara);
             this.Controls.Add(this.lblToimialueet);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbKuvaus);
             this.Controls.Add(this.lblKuvaus);
             this.Controls.Add(this.lblKatuosoite);
             this.Controls.Add(this.lblNimi);
             this.Controls.Add(this.lblPostinro);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
+            this.Controls.Add(this.tbKatuosoite);
+            this.Controls.Add(this.tbNimi);
+            this.Controls.Add(this.tbPostinumero);
+            this.Controls.Add(this.cbToimialue);
+
             this.Name = "mokkimuokkaus";
             ((System.ComponentModel.ISupportInitialize)(this.nmbHenkilomaara)).EndInit();
             this.ResumeLayout(false);
@@ -216,20 +211,20 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox cbToimialue;
+        private System.Windows.Forms.TextBox tbPostinumero;
+        private System.Windows.Forms.TextBox tbNimi;
+        private System.Windows.Forms.TextBox tbKatuosoite;
         private System.Windows.Forms.Label lblPostinro;
         private System.Windows.Forms.Label lblNimi;
         private System.Windows.Forms.Label lblKatuosoite;
         private System.Windows.Forms.Label lblKuvaus;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbKuvaus;
         private System.Windows.Forms.Label lblToimialueet;
         private System.Windows.Forms.NumericUpDown nmbHenkilomaara;
         private System.Windows.Forms.Label lblHenkilomaara;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.Button btnLisays;
+        private System.Windows.Forms.RichTextBox rtbVarustelu;
+        private System.Windows.Forms.Button btnMokki;
     }
 }
