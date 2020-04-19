@@ -29,7 +29,7 @@ namespace MOVA2020.objs.dbitems
         public string Lahiosoite { get => lahiosoite; set => lahiosoite = value; }
         public string Email { get => email; set => email = value; }
         public string Puhelinnro { get => puhelinnro; set => puhelinnro = value; }
-        public Posti Posti { get => posti; set => posti = value; }
+        public Posti Posti { get => this.posti; set => this.posti = value; }
 
         override
         public string ToString()
