@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 373);
+            this.ClientSize = new System.Drawing.Size(271, 388);
             this.Controls.Add(this.lblHinta);
             this.Controls.Add(this.tbHintaSisALV);
             this.Controls.Add(this.lblToimintaalue);

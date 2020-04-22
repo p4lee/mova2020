@@ -8,34 +8,77 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MOVA2020.objs.dbitems;
+using MOVA2020.objs;
 namespace MOVA2020.forms
 {
     public partial class Asiakastiedot : Form
     {
-        Primary pri;
-        private Asiakas asiakas;        
-       
-
-        public Asiakastiedot(Primary t, Asiakas asiakas)
-        {
-            InitializeComponent();
-            pri = t;
-            this.asiakas = asiakas;
-            
-            tbEtunimi.Text = asiakas.Etunimi;
-            tbSukunimi.Text = asiakas.Sukunimi;
-            tbLahiosoite.Text = asiakas.Lahiosoite;           
-            tbPostinumero.Text = asiakas.Postinro.Postinro; //tätä herjaa kun painaa muokkaa!
-            tbPostitoimipaikka.Text = asiakas.Postinro.Toimipaikka; //tätä herjaa kun painaa muokkaa!
-            tbPuhelinnumero.Text = asiakas.Puhelinnro;
-            tbSahkopostiosoite.Text = asiakas.Email;  
-        }
-
+        Primary lomake;
+        private Asiakas asiakas;
+        private DBHandler db = new DBHandler();
 
         public Asiakastiedot(Primary t) //luotu uusi konstruktori
         {
+            this.lomake = t;
+            this.asiakas = null;
             InitializeComponent();
-            pri = t;           
+            
+            //cbToimintaalueet.DataSource = this.lomake.Toimintaalueet;
+            //this.btnPalvelu.Text = "Lisää palvelu";
+        }
+
+        public Asiakastiedot(Primary t, Asiakas asiakas)
+        {           
+            this.lomake = t;
+            this.asiakas = asiakas;
+            InitializeComponent();
+            //cbToimintaalueet.DataSource = this.lomake.Toimintaalueet;
+            
+            this.tbEtunimi.Text = asiakas.Etunimi;
+            this.tbSukunimi.Text = asiakas.Sukunimi;
+            this.tbLahiosoite.Text = asiakas.Lahiosoite;           
+            this.tbPostinumero.Text = asiakas.Postinro.Postinro; //tätä herjaa kun painaa muokkaa!
+            this.tbPostitoimipaikka.Text = asiakas.Postinro.Toimipaikka; //tätä herjaa kun painaa muokkaa!
+            this.tbPuhelinnumero.Text = asiakas.Puhelinnro;
+            this.tbSahkopostiosoite.Text = asiakas.Email;  
+        }
+     
+
+
+
+        private void btTallenna_Click(object sender, EventArgs e)
+        {
+            Posti posti2 = new Posti(tbPostinumero.Text, tbPostitoimipaikka.Text);
+        
+            asiakas = new Asiakas(999, tbEtunimi.Text, tbSukunimi.Text,
+            tbLahiosoite.Text, tbSahkopostiosoite.Text,tbPuhelinnumero.Text, posti2); 
+
+                // SQL kysely, päivitetään siis tietokantaa
+                string query = "INSERT INTO asiakas(etunimi) VALUES($etunimi)";
+                /*
+                Luodaan dictionary jossa lisätään kyselyssä olevat $nimi, muuttujaksi nimi
+                */
+                Dictionary<string, object> pairs = new Dictionary<string, object>();
+                pairs.Add("$etunimi", tbEtunimi.Text);
+                if (this.db.DMquery(query, pairs) != -1)
+                {
+                     lomake.paivita();
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
+
+            //lomake.paivita();
+            MessageBox.Show("Uusi asiakas tallennettu.");
+            this.Close();
+
+        }
+
+
+        private void btPeruuta_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 
@@ -50,48 +93,6 @@ namespace MOVA2020.forms
                 e.Handled = true;
             }
         }
-
-
-        private void btTallenna_Click(object sender, EventArgs e)
-        {
-            Posti posti2 = new Posti(tbPostinumero.Text, tbPostitoimipaikka.Text);
-        
-            //if (asiakas == null)
-            //{
-                asiakas = new Asiakas(999, tbEtunimi.Text, tbSukunimi.Text,
-                    tbLahiosoite.Text, tbSahkopostiosoite.Text,tbPuhelinnumero.Text, posti2); //uusi olio
-                
-                pri.paivita();
-                MessageBox.Show("Uusi asiakas tallennettu.");
-                this.Close();
-
-            //}
-            //else
-            //{
-            //    asiakas = new Asiakas(999, tbEtunimi.Text, tbSukunimi.Text, 
-            //        tbLahiosoite.Text, tbSahkopostiosoite.Text, tbPuhelinnumero.Text, posti2);
-                
-            //    asiakas.Etunimi = tbEtunimi.Text; 
-            //    asiakas.Sukunimi = tbSukunimi.Text;
-            //    asiakas.Lahiosoite = tbLahiosoite.Text;
-            //    asiakas.Email = tbSahkopostiosoite.Text;
-            //    asiakas.Puhelinnro = tbPuhelinnumero.Text;
-
-            //    pri.paivita();
-            //    MessageBox.Show("Uusi asiakas tallennettu.");
-            //    this.Close();
-
-            //} 
-        }
-
-
-        private void btPeruuta_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-
 
 
     }
