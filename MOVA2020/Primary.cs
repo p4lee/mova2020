@@ -14,6 +14,8 @@ namespace MOVA2020
 {
     public partial class Primary : Form
     {
+        int valitturivi; //btPoistaAsiakas_Click
+
         private DBHandler db = new DBHandler();
         private List<Mokki> mokit = new List<Mokki>();
         private List<Toimintaalue> toimintaalueet = new List<Toimintaalue>();
@@ -177,10 +179,43 @@ namespace MOVA2020
 
         private void btMuokkaa_Click(object sender, EventArgs e)
         {
-            Posti posti = new Posti(70500, "kuopio");
-            Asiakas asiakas = new Asiakas(2,"tommi","puurunen","hermanninkatu","tommi.puurunen@edu.savonia.fi","3232323", posti);
-            Asiakastiedot t = new Asiakastiedot(asiakas);
+            //Posti posti = new Posti("0000", "kuopio");
+            Asiakas asiakas = dgvAsiakkaat.SelectedRows[0].DataBoundItem as Asiakas;
+            //2,"tommi","puurunen","hermanninkatu","tommi.puurunen@edu.savonia.fi","3232323", posti
+            Asiakastiedot t = new Asiakastiedot(this, asiakas);
             t.Show();
         }
+        
+
+
+        private void btLisaaAsiakas_Click(object sender, EventArgs e)
+        {
+            
+            Asiakastiedot t = new Asiakastiedot(this);
+            t.Show();
+        }
+
+        private void btPoistaAsiakas_Click(object sender, EventArgs e)
+        {
+            
+            valitturivi = dgvAsiakkaat.SelectedRows[0].Index;
+
+            if (valitturivi >= 0)  
+            {
+                if (MessageBox.Show("Haluatko varmasti poistaa tiedot?",//Varmistetaan valitun tiedon poisto.
+                    "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    //tässä pitäisi suorittaa tietokannasta asiakkaan poisto
+                    paivita();
+                   
+                }
+                else
+                    return;
+            }
+          
+        }
+
+
+
     }
 }

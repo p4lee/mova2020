@@ -39,9 +39,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvVaraukset = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btPoista = new System.Windows.Forms.Button();
-            this.btMuokkaa = new System.Windows.Forms.Button();
-            this.btLisaa = new System.Windows.Forms.Button();
+            this.btPoistaAsiakas = new System.Windows.Forms.Button();
+            this.btMuokkaaTietoja = new System.Windows.Forms.Button();
+            this.btLisaaAsiakas = new System.Windows.Forms.Button();
             this.dgvAsiakkaat = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1221, 587);
+            this.tabControl1.Size = new System.Drawing.Size(868, 421);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -88,7 +88,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1213, 558);
+            this.tabPage1.Size = new System.Drawing.Size(860, 331);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mökit";
             // 
@@ -107,7 +107,7 @@
             this.dgvMokit.Name = "dgvMokit";
             this.dgvMokit.RowHeadersVisible = false;
             this.dgvMokit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMokit.Size = new System.Drawing.Size(796, 546);
+            this.dgvMokit.Size = new System.Drawing.Size(443, 319);
             this.dgvMokit.TabIndex = 0;
             // 
             // tabPage2
@@ -119,7 +119,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1213, 558);
+            this.tabPage2.Size = new System.Drawing.Size(860, 331);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Toimialueet";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -180,7 +180,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1213, 558);
+            this.tabPage3.Size = new System.Drawing.Size(860, 331);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Varaukset";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -205,19 +205,52 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.btPoista);
-            this.tabPage4.Controls.Add(this.btMuokkaa);
-            this.tabPage4.Controls.Add(this.btLisaa);
+            this.tabPage4.Controls.Add(this.btPoistaAsiakas);
+            this.tabPage4.Controls.Add(this.btMuokkaaTietoja);
+            this.tabPage4.Controls.Add(this.btLisaaAsiakas);
             this.tabPage4.Controls.Add(this.dgvAsiakkaat);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1213, 558);
+            this.tabPage4.Size = new System.Drawing.Size(860, 392);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Asiakkaat";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // btPoista
+            // btPoistaAsiakas
+            // 
+            this.btPoistaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btPoistaAsiakas.Location = new System.Drawing.Point(22, 171);
+            this.btPoistaAsiakas.Name = "btPoistaAsiakas";
+            this.btPoistaAsiakas.Size = new System.Drawing.Size(141, 36);
+            this.btPoistaAsiakas.TabIndex = 3;
+            this.btPoistaAsiakas.Text = "Poista asiakas";
+            this.btPoistaAsiakas.UseVisualStyleBackColor = true;
+            this.btPoistaAsiakas.Click += new System.EventHandler(this.btPoistaAsiakas_Click);
+            // 
+            // btMuokkaaTietoja
+            // 
+            this.btMuokkaaTietoja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btMuokkaaTietoja.Location = new System.Drawing.Point(22, 100);
+            this.btMuokkaaTietoja.Name = "btMuokkaaTietoja";
+            this.btMuokkaaTietoja.Size = new System.Drawing.Size(141, 36);
+            this.btMuokkaaTietoja.TabIndex = 2;
+            this.btMuokkaaTietoja.Text = "Muokkaa tietoja";
+            this.btMuokkaaTietoja.UseVisualStyleBackColor = true;
+            this.btMuokkaaTietoja.Click += new System.EventHandler(this.btMuokkaa_Click);
+            // 
+            // btLisaaAsiakas
+            // 
+            this.btLisaaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btLisaaAsiakas.Location = new System.Drawing.Point(22, 29);
+            this.btLisaaAsiakas.Name = "btLisaaAsiakas";
+            this.btLisaaAsiakas.Size = new System.Drawing.Size(141, 36);
+            this.btLisaaAsiakas.TabIndex = 1;
+            this.btLisaaAsiakas.Text = "Lisää asiakas";
+            this.btLisaaAsiakas.UseVisualStyleBackColor = true;
+            this.btLisaaAsiakas.Click += new System.EventHandler(this.btLisaaAsiakas_Click);
+            // 
+            // dgvAsiakkaat
             // 
             this.dgvAsiakkaat.AllowUserToAddRows = false;
             this.dgvAsiakkaat.AllowUserToDeleteRows = false;
@@ -227,12 +260,12 @@
             this.dgvAsiakkaat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAsiakkaat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAsiakkaat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsiakkaat.Location = new System.Drawing.Point(411, 6);
+            this.dgvAsiakkaat.Location = new System.Drawing.Point(285, 9);
             this.dgvAsiakkaat.MultiSelect = false;
             this.dgvAsiakkaat.Name = "dgvAsiakkaat";
             this.dgvAsiakkaat.RowHeadersVisible = false;
             this.dgvAsiakkaat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAsiakkaat.Size = new System.Drawing.Size(796, 546);
+            this.dgvAsiakkaat.Size = new System.Drawing.Size(443, 380);
             this.dgvAsiakkaat.TabIndex = 0;
             // 
             // tabPage5
@@ -242,7 +275,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1213, 558);
+            this.tabPage5.Size = new System.Drawing.Size(860, 331);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Laskut";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -272,7 +305,7 @@
             this.dgvLaskut.Name = "dgvLaskut";
             this.dgvLaskut.RowHeadersVisible = false;
             this.dgvLaskut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLaskut.Size = new System.Drawing.Size(796, 546);
+            this.dgvLaskut.Size = new System.Drawing.Size(443, 319);
             this.dgvLaskut.TabIndex = 0;
             // 
             // tabPage6
@@ -281,7 +314,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1213, 558);
+            this.tabPage6.Size = new System.Drawing.Size(860, 331);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Palvelut";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -308,7 +341,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1245, 611);
+            this.ClientSize = new System.Drawing.Size(892, 445);
             this.Controls.Add(this.tabControl1);
             this.Name = "Primary";
             this.Text = "MOVA2020";
@@ -349,6 +382,9 @@
         private System.Windows.Forms.DataGridView dgvLaskut;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.DataGridView dgvPalvelut;
+        private System.Windows.Forms.Button btPoistaAsiakas;
+        private System.Windows.Forms.Button btMuokkaaTietoja;
+        private System.Windows.Forms.Button btLisaaAsiakas;
     }
 }
 
