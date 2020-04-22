@@ -45,7 +45,7 @@ namespace MOVA2020
         {
             this.asiakkaat.Clear();
             List<Object[]> asiakkaatquery = this.db.SelectQuery("SELECT * FROM asiakas");
-            foreach(Object[] itemarr in asiakkaatquery)
+            foreach (Object[] itemarr in asiakkaatquery)
             {
                 Posti p = postinumerot.Find(i => i.Postinro == (string)itemarr[1]);
                 Asiakas a = new Asiakas((long)itemarr[0], (string)itemarr[2], (string)itemarr[3], (string)itemarr[4], (string)itemarr[5], (string)itemarr[6], p);
@@ -53,7 +53,7 @@ namespace MOVA2020
             }
             dgvAsiakkaat.DataSource = null;
             dgvAsiakkaat.DataSource = asiakkaat;
-            
+
         }
         private void PaivitaPostinumerot()
         {
@@ -105,7 +105,7 @@ namespace MOVA2020
         {
             this.palvelut.Clear();
             List<Object[]> palvelutquery = this.db.SelectQuery("SELECT * FROM palvelu");
-            foreach(Object[] itemarr in palvelutquery)
+            foreach (Object[] itemarr in palvelutquery)
             {
                 Toimintaalue t = toimintaalueet.Find(i => i.Toiminta_alueid == (long)itemarr[1]);
                 Palvelu p = new Palvelu((long)itemarr[0], (int)(long)itemarr[3], (string)itemarr[2], (string)itemarr[4], (double)itemarr[5], (double)itemarr[6], t);
@@ -131,26 +131,26 @@ namespace MOVA2020
         {
             this.varaukset.Clear();
             List<Object[]> varausquery = this.db.SelectQuery("SELECT * FROM varaus");
-            foreach(Object[] itemarr in varausquery)
+            foreach (Object[] itemarr in varausquery)
             {
                 List<Palvelu> varauksenpalvelut = new List<Palvelu>();
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
                 pairs.Add("$varausid", itemarr[0]);
                 List<Object[]> varauksenpalvelutquery = this.db.SelectQuery("SELECT * FROM varauksen_palvelut WHERE varaus_id=$varausid", pairs);
-                foreach(Object[] palvelu in varauksenpalvelutquery)
+                foreach (Object[] palvelu in varauksenpalvelutquery)
                 {
                     varauksenpalvelut.Add(palvelut.Find(i => i.Palvelu_id == (long)palvelu[0]));
                 }
-                
+
                 Asiakas a = asiakkaat.Find(i => i.Asiakas_id == (long)itemarr[1]);
                 Mokki m = mokit.Find(i => i.Mokki_id == (long)itemarr[2]);
                 var date = itemarr[4] as String;
                 DateTime t = DateTime.Parse("1970-01-01 00:00:00");
-                if(date != null)
+                if (date != null)
                 {
                     t = DateTime.Parse(date);
                 }
-                
+
                 Varaus v = new Varaus((long)itemarr[0], DateTime.Parse((string)itemarr[3]), t, DateTime.Parse((string)itemarr[5]), DateTime.Parse((string)itemarr[6]), a, m, varauksenpalvelut);
                 this.varaukset.Add(v);
             }
@@ -163,17 +163,18 @@ namespace MOVA2020
             string query = "INSERT INTO toimintaalue(nimi) VALUES($nimi)";
             /*
                 Luodaan dictionary jossa lisätään kyselyssä olevat $nimi, muuttujaksi nimi
-            */ 
+            */
             Dictionary<string, object> pairs = new Dictionary<string, object>();
             pairs.Add("$nimi", tbLisaaToimintaalueNimi.Text);
-            if(this.db.DMquery(query, pairs) !=-1)
+            if (this.db.DMquery(query, pairs) != -1)
             {
                 this.paivita();
-            } else
+            }
+            else
             {
                 MessageBox.Show("error");
             }
-            
+
         }
 
         private void Primary_Load(object sender, EventArgs e)
@@ -212,5 +213,166 @@ namespace MOVA2020
             mokkitiedot mokkitiedotjapalvelut = new mokkitiedot();
             mokkitiedotjapalvelut.ShowDialog();
         }
+
+        private void dgvMokit_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+            string column = grid.Columns[e.ColumnIndex].Name;
+            if (column.Equals("Varustelu"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvMokit.DataSource = this.mokit.OrderBy(x => x.Varustelu).ToList();
+                }
+                else
+                {
+                    dgvMokit.DataSource = this.mokit.OrderByDescending(x => x.Varustelu).ToList();
+                }
+            }
+
+            else if (column.Equals("Toimintaalue"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvMokit.DataSource = this.mokit.OrderBy(x => x.Toimintaalue.Nimi).ToList();
+                }
+                else
+                {
+                    dgvMokit.DataSource = this.mokit.OrderByDescending(x => x.Toimintaalue.Nimi).ToList();
+                }
+
+            }
+            else
+            {
+                dgvMokit.DataSource = this.mokit;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
+
+        private void dgvPalvelut_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else{
+                so = SortOrder.Ascending;
+            }
+
+            string column = grid.Columns[e.ColumnIndex].Name;
+
+            if (column.Equals("Nimi"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Nimi).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Nimi).ToList();
+                }
+            }
+            else if (column.Equals("Palvelu_id"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Palvelu_id).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Palvelu_id).ToList();
+                }
+            }
+            else if (column.Equals("Toimintaalue"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Toimintaalue.Nimi).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Toimintaalue.Nimi).ToList();
+                }
+            }
+            else if (column.Equals("Hinta"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Hinta).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Hinta).ToList();
+                }
+            }
+            else
+            {
+                dgvPalvelut.DataSource = this.palvelut;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
+
+        private void dgvToimintaalueet_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+
+            string column = grid.Columns[e.ColumnIndex].Name;
+
+            if (column.Equals("Toiminta_alueid"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderBy(x => x.Toiminta_alueid).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderByDescending(x => x.Toiminta_alueid).ToList();
+                }
+            }
+            else if (column.Equals("Nimi"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderBy(x => x.Nimi).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderByDescending(x => x.Nimi).ToList();
+                }
+            }
+
+            else
+            {
+                dgvToimintaalueet.DataSource = this.toimintaalueet;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
     }
 }
+
