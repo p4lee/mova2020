@@ -241,9 +241,26 @@ namespace MOVA2020
             if(dgvPalvelut.SelectedRows.Count > 0)
             {
                 btnMuokkaaPalvelua.Enabled = true;
+                btnPoistaPalvelu.Enabled = true;
             } else
             {
                 btnMuokkaaPalvelua.Enabled = false;
+                btnPoistaPalvelu.Enabled = false;
+            }
+        }
+
+        private void btnPoistaPalvelu_Click(object sender, EventArgs e)
+        {
+            Palvelu palvelu = (Palvelu)dgvPalvelut.SelectedRows[0].DataBoundItem;
+
+            DialogResult dr = MessageBox.Show("Haluatko poistaa palvelun "+palvelu.Nimi+" ?", "Poista Palvelu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(dr == DialogResult.Yes)
+            {
+                Dictionary<string, object> pairs = new Dictionary<string, object>();
+                pairs.Add("$palvelu_id", palvelu.Palvelu_id);
+                string query = "DELETE FROM palvelu WHERE palvelu_id = $palvelu_id";
+                this.Db.DMquery(query, pairs);
+                this.paivita();
             }
         }
     }

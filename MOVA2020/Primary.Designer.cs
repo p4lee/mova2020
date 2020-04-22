@@ -51,6 +51,7 @@
             this.dgvPalvelut = new System.Windows.Forms.DataGridView();
             this.btnLisaaPalvelu = new System.Windows.Forms.Button();
             this.btnMuokkaaPalvelua = new System.Windows.Forms.Button();
+            this.btnPoistaPalvelu = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokit)).BeginInit();
@@ -339,6 +340,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.btnPoistaPalvelu);
             this.tabPage6.Controls.Add(this.btnMuokkaaPalvelua);
             this.tabPage6.Controls.Add(this.btnLisaaPalvelu);
             this.tabPage6.Controls.Add(this.dgvPalvelut);
@@ -377,7 +379,7 @@
             this.btnLisaaPalvelu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnLisaaPalvelu.Location = new System.Drawing.Point(5, 5);
             this.btnLisaaPalvelu.Name = "btnLisaaPalvelu";
-            this.btnLisaaPalvelu.Size = new System.Drawing.Size(87, 29);
+            this.btnLisaaPalvelu.Size = new System.Drawing.Size(165, 29);
             this.btnLisaaPalvelu.TabIndex = 1;
             this.btnLisaaPalvelu.Text = "Lisää palvelu";
             this.btnLisaaPalvelu.UseVisualStyleBackColor = true;
@@ -389,11 +391,23 @@
             this.btnMuokkaaPalvelua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnMuokkaaPalvelua.Location = new System.Drawing.Point(6, 41);
             this.btnMuokkaaPalvelua.Name = "btnMuokkaaPalvelua";
-            this.btnMuokkaaPalvelua.Size = new System.Drawing.Size(86, 29);
+            this.btnMuokkaaPalvelua.Size = new System.Drawing.Size(164, 29);
             this.btnMuokkaaPalvelua.TabIndex = 2;
             this.btnMuokkaaPalvelua.Text = "Muokkaa Palvelua";
             this.btnMuokkaaPalvelua.UseVisualStyleBackColor = true;
             this.btnMuokkaaPalvelua.Click += new System.EventHandler(this.btnMuokkaaPalvelua_Click);
+            // 
+            // btnPoistaPalvelu
+            // 
+            this.btnPoistaPalvelu.Enabled = false;
+            this.btnPoistaPalvelu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnPoistaPalvelu.Location = new System.Drawing.Point(6, 76);
+            this.btnPoistaPalvelu.Name = "btnPoistaPalvelu";
+            this.btnPoistaPalvelu.Size = new System.Drawing.Size(164, 26);
+            this.btnPoistaPalvelu.TabIndex = 3;
+            this.btnPoistaPalvelu.Text = "Poista Palvelu";
+            this.btnPoistaPalvelu.UseVisualStyleBackColor = true;
+            this.btnPoistaPalvelu.Click += new System.EventHandler(this.btnPoistaPalvelu_Click);
             // 
             // Primary
             // 
@@ -447,6 +461,7 @@
         private System.Windows.Forms.DataGridView dgvPalvelut;
         private System.Windows.Forms.Button btnMuokkaaPalvelua;
         private System.Windows.Forms.Button btnLisaaPalvelu;
+        private System.Windows.Forms.Button btnPoistaPalvelu;
     }
 }
 

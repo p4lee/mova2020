@@ -42,7 +42,7 @@ namespace MOVA2020.forms
             Dictionary<string, object> pairs = new Dictionary<string, object>();
             pairs.Add("$toimintaalue", this.lomake.Toimintaalueet[this.cbToimintaalueet.SelectedIndex].Toiminta_alueid);
             pairs.Add("$nimi", tbNimi.Text);
-            pairs.Add("$tyyppi", null);
+            pairs.Add("$tyyppi", 1);
             pairs.Add("$kuvaus", rtbKuvaus.Text);
             pairs.Add("$hinta", Double.Parse(tbHintaEiAlv.Text));
             pairs.Add("$alv", Double.Parse(tbALV.Text));
@@ -68,7 +68,7 @@ namespace MOVA2020.forms
 
         private void tbHintaEiAlv_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char.IsControl(e.KeyChar)) | (char.IsNumber(e.KeyChar)) | (char))
+            if ((char.IsControl(e.KeyChar)) | (char.IsNumber(e.KeyChar)) | (char.IsPunctuation(e.KeyChar)))
             {
                 e.Handled = false;
             }
