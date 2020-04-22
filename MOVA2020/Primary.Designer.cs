@@ -45,7 +45,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvAsiakkaat = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLaskutus = new System.Windows.Forms.Button();
             this.dgvLaskut = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.btnPoistaPalvelu = new System.Windows.Forms.Button();
@@ -296,7 +296,7 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.button1);
+            this.tabPage5.Controls.Add(this.btnLaskutus);
             this.tabPage5.Controls.Add(this.dgvLaskut);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
@@ -307,16 +307,17 @@
             this.tabPage5.Text = "Laskut";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnLaskutus
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(4, 292);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 26);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLaskutus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnLaskutus.Location = new System.Drawing.Point(4, 418);
+            this.btnLaskutus.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLaskutus.Name = "btnLaskutus";
+            this.btnLaskutus.Size = new System.Drawing.Size(87, 26);
+            this.btnLaskutus.TabIndex = 1;
+            this.btnLaskutus.Text = "Laskutus";
+            this.btnLaskutus.UseVisualStyleBackColor = true;
+            this.btnLaskutus.Click += new System.EventHandler(this.btnLaskutus_Click);
             // 
             // dgvLaskut
             // 
@@ -455,7 +456,7 @@
         private System.Windows.Forms.Button btnLisaaMokki;
         private System.Windows.Forms.Button btnMokinTiedotJaPalvelut;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLaskutus;
         private System.Windows.Forms.DataGridView dgvLaskut;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.DataGridView dgvPalvelut;

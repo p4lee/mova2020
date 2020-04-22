@@ -263,5 +263,11 @@ namespace MOVA2020
                 this.paivita();
             }
         }
+
+        private void btnLaskutus_Click(object sender, EventArgs e)
+        {
+            Laskutus l = new Laskutus();
+            l.Show();
+        }
     }
 }
