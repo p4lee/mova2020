@@ -252,7 +252,7 @@ namespace MOVA2020
         private void btnPoistaPalvelu_Click(object sender, EventArgs e)
         {
             Palvelu palvelu = (Palvelu)dgvPalvelut.SelectedRows[0].DataBoundItem;
-
+            SystemSounds.Beep.Play();
             DialogResult dr = MessageBox.Show("Haluatko poistaa palvelun "+palvelu.Nimi+" ?", "Poista Palvelu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(dr == DialogResult.Yes)
             {
