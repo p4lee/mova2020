@@ -263,5 +263,38 @@ namespace MOVA2020
                 this.paivita();
             }
         }
+
+        private void btnLaskutus_Click(object sender, EventArgs e)
+        {
+            Laskutus l = new Laskutus();
+            l.Show();
+        }
+
+        private void btnLisaaAsiakas_Click(object sender, EventArgs e)
+        {
+            Asiakastiedot at = new Asiakastiedot(this);
+            at.Show();
+        }
+
+        private void btnMuokkaaAsiakas_Click(object sender, EventArgs e)
+        {
+            Asiakas a = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
+            Asiakastiedot at = new Asiakastiedot(this, a);
+            at.Show();
+        }
+
+        private void btnPoistaAsiakas_Click(object sender, EventArgs e)
+        {
+            Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
+            DialogResult dr = MessageBox.Show("Haluatko poistaa palvelun " + asiakas.ToString() + " ?", "Poista Palvelu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                Dictionary<string, object> pairs = new Dictionary<string, object>();
+                pairs.Add("$asiakas_id", asiakas.Asiakas_id);
+                string query = "DELETE FROM asiakas WHERE asiakas_id=$asiakas_id";
+                this.Db.DMquery(query, pairs);
+                this.paivita();
+            }
+        }
     }
 }
