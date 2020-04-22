@@ -348,7 +348,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Laskutus";
             this.Text = "Laskutus";
-            this.Load += new System.EventHandler(this.Laskutus_Load);
             this.pllasku.ResumeLayout(false);
             this.pllasku.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVlaskutus)).EndInit();

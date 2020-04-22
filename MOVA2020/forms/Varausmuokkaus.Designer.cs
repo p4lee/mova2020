@@ -31,11 +31,12 @@
             this.btmuokkaa = new System.Windows.Forms.Button();
             this.lblvaraus = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.lblmokki = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.CLBPalvelut = new System.Windows.Forms.CheckedListBox();
             this.lblPalvelut = new System.Windows.Forms.Label();
+            this.lblvarausalkaa = new System.Windows.Forms.Label();
+            this.lblvarausloppuu = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btmuokkaa
@@ -48,6 +49,7 @@
             this.btmuokkaa.TabIndex = 0;
             this.btmuokkaa.Text = "Muokkaa varausta";
             this.btmuokkaa.UseVisualStyleBackColor = true;
+            this.btmuokkaa.Click += new System.EventHandler(this.btmuokkaa_Click);
             // 
             // lblvaraus
             // 
@@ -66,14 +68,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(345, 28);
             this.comboBox1.TabIndex = 2;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(2, 1);
-            this.monthCalendar1.Location = new System.Drawing.Point(5, 267);
-            this.monthCalendar1.MaxSelectionCount = 30;
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 3;
             // 
             // lblmokki
             // 
@@ -110,16 +104,35 @@
             this.lblPalvelut.TabIndex = 11;
             this.lblPalvelut.Text = "Palvelut";
             // 
+            // lblvarausalkaa
+            // 
+            this.lblvarausalkaa.AutoSize = true;
+            this.lblvarausalkaa.Location = new System.Drawing.Point(16, 276);
+            this.lblvarausalkaa.Name = "lblvarausalkaa";
+            this.lblvarausalkaa.Size = new System.Drawing.Size(106, 20);
+            this.lblvarausalkaa.TabIndex = 13;
+            this.lblvarausalkaa.Text = "Varaus alkaa";
+            // 
+            // lblvarausloppuu
+            // 
+            this.lblvarausloppuu.AutoSize = true;
+            this.lblvarausloppuu.Location = new System.Drawing.Point(16, 313);
+            this.lblvarausloppuu.Name = "lblvarausloppuu";
+            this.lblvarausloppuu.Size = new System.Drawing.Size(116, 20);
+            this.lblvarausloppuu.TabIndex = 14;
+            this.lblvarausloppuu.Text = "Varaus loppuu";
+            // 
             // Varausmuokkaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(453, 570);
+            this.Controls.Add(this.lblvarausloppuu);
+            this.Controls.Add(this.lblvarausalkaa);
             this.Controls.Add(this.CLBPalvelut);
             this.Controls.Add(this.lblPalvelut);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.lblmokki);
-            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblvaraus);
             this.Controls.Add(this.btmuokkaa);
@@ -137,10 +150,11 @@
         private System.Windows.Forms.Button btmuokkaa;
         private System.Windows.Forms.Label lblvaraus;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label lblmokki;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.CheckedListBox CLBPalvelut;
         private System.Windows.Forms.Label lblPalvelut;
+        private System.Windows.Forms.Label lblvarausalkaa;
+        private System.Windows.Forms.Label lblvarausloppuu;
     }
 }
