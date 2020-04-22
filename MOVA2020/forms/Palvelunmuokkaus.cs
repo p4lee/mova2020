@@ -12,10 +12,20 @@ namespace MOVA2020.forms
 {
     public partial class Palvelunmuokkaus : Form
     {
+
+        /*
+         * Palveluitten lisäys ja muokkaus
+         * 
+         * 
+         */
         private Primary lomake;
         private Palvelu palvelu;
         public Palvelunmuokkaus(Primary lomake)
         {
+            /*
+             * Otetaan päälomakkeen tieto ja laitetaan palvelu muuttuja nulliksi
+             * Ohjelma tekee muokkauksen ja lisäyksen samassa lomakkeessa, riippuen mitä konstruktoria käyttää.
+             */
             this.lomake = lomake;
             this.palvelu = null;
             InitializeComponent();
@@ -24,6 +34,9 @@ namespace MOVA2020.forms
         }
         public Palvelunmuokkaus(Primary lomake, Palvelu p)
         {
+            /*
+             * Palvelun muokkaamisen konstruktori
+             */
             this.palvelu = p;
             this.lomake = lomake;
             InitializeComponent();
@@ -38,6 +51,10 @@ namespace MOVA2020.forms
 
         private void btnPalvelu_Click(object sender, EventArgs e)
         {
+            /*
+             * Lisää Palvelu
+             * Muokkaa Palvelua
+             */
             string query;
             Dictionary<string, object> pairs = new Dictionary<string, object>();
             pairs.Add("$toimintaalue", this.lomake.Toimintaalueet[this.cbToimintaalueet.SelectedIndex].Toiminta_alueid);
@@ -68,7 +85,11 @@ namespace MOVA2020.forms
 
         private void tbHintaEiAlv_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char.IsControl(e.KeyChar)) | (char.IsNumber(e.KeyChar)) | (char.IsPunctuation(e.KeyChar)))
+            /*
+             * Estetään kirjainten ja muitten erikoismerkkien kuin pilkun käyttö
+             * 
+             */
+            if ((char.IsControl(e.KeyChar)) | (char.IsNumber(e.KeyChar)) | (e.KeyChar == char.Parse(",")&&!tbHintaEiAlv.Text.Contains(",")))
             {
                 e.Handled = false;
             }
