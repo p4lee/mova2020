@@ -24,9 +24,9 @@ namespace MOVA2020.forms
         {
             string query;
             Dictionary<string, object> pairs = new Dictionary<string, object>();
-            pairs.Add("$asiakas", this.lomake.Asiakkaat[this.CBAsiakas.SelectedIndex].asiakas_id);
-            pairs.Add("$mokki", this.lomake.Mokit[this.CBMokki.SelectedIndex].mokki_id);
-            pairs.Add("$palvelu", this.lomake.Palvelut[this.CLBpalvelut].palvelu_id);
+            pairs.Add("$asiakas", this.lomake.Asiakkaat[this.CBAsiakas.SelectedIndex].Asiakas_id);
+            pairs.Add("$mokki", this.lomake.Mokit[this.CBMokki.SelectedIndex].Mokki_id);
+            pairs.Add("$palvelu", this.lomake.Palvelut[this.CLBpalvelut.SelectedIndex].Palvelu_id);
             pairs.Add("$varattu_pvm", DTPvarauspv.Value);
             pairs.Add("$vahvistus_pvm", DTPvarauspv.Value);
             pairs.Add("$varattu_alkupvm", DTPVarausalku.Value);
