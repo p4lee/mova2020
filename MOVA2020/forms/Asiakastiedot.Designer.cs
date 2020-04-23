@@ -64,7 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbSukunimi.AutoSize = true;
             this.lbSukunimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSukunimi.Location = new System.Drawing.Point(244, 24);
+            this.lbSukunimi.Location = new System.Drawing.Point(222, 24);
             this.lbSukunimi.Name = "lbSukunimi";
             this.lbSukunimi.Size = new System.Drawing.Size(65, 17);
             this.lbSukunimi.TabIndex = 1;
@@ -92,9 +92,11 @@
             // 
             // lbPostitoimipaikka
             // 
+            this.lbPostitoimipaikka.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPostitoimipaikka.AutoSize = true;
             this.lbPostitoimipaikka.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPostitoimipaikka.Location = new System.Drawing.Point(244, 156);
+            this.lbPostitoimipaikka.Location = new System.Drawing.Point(224, 156);
             this.lbPostitoimipaikka.Name = "lbPostitoimipaikka";
             this.lbPostitoimipaikka.Size = new System.Drawing.Size(109, 17);
             this.lbPostitoimipaikka.TabIndex = 4;
@@ -131,7 +133,7 @@
             // 
             this.tbSukunimi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSukunimi.Location = new System.Drawing.Point(247, 44);
+            this.tbSukunimi.Location = new System.Drawing.Point(225, 44);
             this.tbSukunimi.Name = "tbSukunimi";
             this.tbSukunimi.Size = new System.Drawing.Size(182, 20);
             this.tbSukunimi.TabIndex = 8;
@@ -143,7 +145,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbLahiosoite.Location = new System.Drawing.Point(28, 110);
             this.tbLahiosoite.Name = "tbLahiosoite";
-            this.tbLahiosoite.Size = new System.Drawing.Size(401, 20);
+            this.tbLahiosoite.Size = new System.Drawing.Size(379, 20);
             this.tbLahiosoite.TabIndex = 9;
             // 
             // tbPostinumero
@@ -161,7 +163,7 @@
             // 
             this.tbPostitoimipaikka.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPostitoimipaikka.Location = new System.Drawing.Point(247, 176);
+            this.tbPostitoimipaikka.Location = new System.Drawing.Point(225, 176);
             this.tbPostitoimipaikka.Name = "tbPostitoimipaikka";
             this.tbPostitoimipaikka.Size = new System.Drawing.Size(182, 20);
             this.tbPostitoimipaikka.TabIndex = 11;
@@ -186,8 +188,9 @@
             // 
             // btTallenna
             // 
+            this.btTallenna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btTallenna.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTallenna.Location = new System.Drawing.Point(316, 410);
+            this.btTallenna.Location = new System.Drawing.Point(286, 410);
             this.btTallenna.Name = "btTallenna";
             this.btTallenna.Size = new System.Drawing.Size(113, 28);
             this.btTallenna.TabIndex = 14;
@@ -204,12 +207,13 @@
             this.btPeruuta.TabIndex = 15;
             this.btPeruuta.Text = "Peruuta";
             this.btPeruuta.UseVisualStyleBackColor = true;
+            this.btPeruuta.Click += new System.EventHandler(this.btPeruuta_Click);
             // 
             // Asiakastiedot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 450);
+            this.ClientSize = new System.Drawing.Size(444, 461);
             this.Controls.Add(this.btPeruuta);
             this.Controls.Add(this.btTallenna);
             this.Controls.Add(this.tbSahkopostiosoite);
@@ -226,6 +230,7 @@
             this.Controls.Add(this.lbLahiosoite);
             this.Controls.Add(this.lbSukunimi);
             this.Controls.Add(this.lbEtunimi);
+            this.MinimumSize = new System.Drawing.Size(460, 500);
             this.Name = "Asiakastiedot";
             this.Text = "Asiakastiedot";
             this.ResumeLayout(false);

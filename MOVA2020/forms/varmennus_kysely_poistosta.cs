@@ -28,6 +28,7 @@ namespace MOVA2020.forms
             //KESKEN
             //poistaa valitun kohteen tietokannasta/dgvMokista
 
+            this.Close();
         }
     }
 }
