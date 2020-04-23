@@ -15,6 +15,12 @@ namespace MOVA2020.forms
         public Varausmuokkaus()
         {
             InitializeComponent();
+            this.btmuokkaa.Text = "Muokkaa varausta";
+        }
+
+        private void btmuokkaa_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
