@@ -38,6 +38,9 @@ namespace MOVA2020
 
             InitializeComponent();
             this.paivita();
+            btnMuokkaaAsiakas.Enabled = true;
+            btnPoistaAsiakas.Enabled = true;
+ 
         }
         public void paivita()
         {
@@ -286,7 +289,7 @@ namespace MOVA2020
         private void btnPoistaAsiakas_Click(object sender, EventArgs e)
         {
             Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
-            DialogResult dr = MessageBox.Show("Haluatko poistaa palvelun " + asiakas.ToString() + " ?", "Poista Palvelu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Haluatko poistaa asiakkaan " + asiakas.ToString() + " ?", "Poista asiakas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
@@ -296,5 +299,7 @@ namespace MOVA2020
                 this.paivita();
             }
         }
+
+
     }
 }
