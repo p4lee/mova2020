@@ -56,7 +56,12 @@ namespace MOVA2020
             foreach(Object[] itemarr in asiakkaatquery)
             {
                 Posti p = Postinumerot.Find(i => i.Postinro == (string)itemarr[1]);
-                Asiakas a = new Asiakas((long)itemarr[0], (string)itemarr[2], (string)itemarr[3], (string)itemarr[4], (string)itemarr[5], (string)itemarr[6], p);
+                var email = itemarr[5] as String;
+                if(email == null)
+                {
+                    email = "";
+                }
+                Asiakas a = new Asiakas((long)itemarr[0], (string)itemarr[2], (string)itemarr[3], (string)itemarr[4], email, (string)itemarr[6], p);
                 this.Asiakkaat.Add(a);
             }
             dgvAsiakkaat.DataSource = null;
