@@ -36,7 +36,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 10);
+            this.label1.Location = new System.Drawing.Point(11, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 20);
@@ -48,8 +48,9 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(89, 10);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(275, 28);
+            this.comboBox1.Size = new System.Drawing.Size(286, 28);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -60,17 +61,18 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Peru varaus";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Varauksenperuminen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 251);
+            this.ClientSize = new System.Drawing.Size(393, 235);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Varauksenperuminen";
             this.Text = "Varauksen peruminen";
             this.ResumeLayout(false);
