@@ -106,6 +106,7 @@
     </Compile>
     <Compile Include="forms\varmennus_kysely_poistosta.Designer.cs">
       <DependentUpon>varmennus_kysely_poistosta.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\Varauksenlisays.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +161,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\varmennus_kysely_poistosta.resx">
       <DependentUpon>varmennus_kysely_poistosta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\Varauksenlisays.resx">
       <DependentUpon>Varauksenlisays.cs</DependentUpon>
     </EmbeddedResource>
