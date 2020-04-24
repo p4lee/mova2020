@@ -16,5 +16,23 @@ namespace MOVA2020.forms
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult poisto = MessageBox.Show("Oletko varma, että haluat poistaa varauksen?", "Poista varaus" ,MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (poisto == DialogResult.Yes) 
+            {
+            
+            }
+            else
+            {
+
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
