@@ -51,14 +51,13 @@ namespace MOVA2020.forms
         private void btnMokinLisays_Click(object sender, EventArgs e)
         {
             //jos kaikki kentät eivät ole täytettynä, se ei anna lisätä mökkiä tietokantaan
-            if (cbToimialue.Text.Length == 0 || tbMokkiNimi.TextLength == 0 || tbPostinumero.TextLength == 0
-                || tbKatuosoite.TextLength == 0 || tbMokkiHinta.TextLength == 0 || rtbVarustelu.Text.Length == 0
-                || rtbKuvaus.Text.Length == 0)
+            /*if (cbToimialue.Text.Length == 0 || tbMokkiNimi.TextLength == 0 || tbPostinumero.TextLength == 0
+                || tbKatuosoite.TextLength == 0 || tbMokkiHinta.TextLength == 0)
             {
                 MessageBox.Show("Kaikki kentät tulee olla täytettynä, ennen kuin voit lisätä mökin.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {
+            {*/
                 // SQL kysely
                 string query;
                 /*
@@ -91,7 +90,7 @@ namespace MOVA2020.forms
                     this.p.paivita();
                     this.Close();
                 }
-            }
+           // }
         }
 
         private void tbMokkiHinta_KeyPress(object sender, KeyPressEventArgs e)

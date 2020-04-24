@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbToimialue = new System.Windows.Forms.ComboBox();
             this.tbPostinumero = new System.Windows.Forms.TextBox();
             this.tbMokkiNimi = new System.Windows.Forms.TextBox();
@@ -45,7 +46,9 @@
             this.btnMokinLisays = new System.Windows.Forms.Button();
             this.lbMokkiHinta = new System.Windows.Forms.Label();
             this.tbMokkiHinta = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nmbHenkilomaara)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbToimialue
@@ -257,6 +260,10 @@
             this.tbMokkiHinta.TabIndex = 4;
             this.tbMokkiHinta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMokkiHinta_KeyPress);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // mokkimuokkaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -282,6 +289,7 @@
             this.MinimumSize = new System.Drawing.Size(322, 657);
             this.Name = "mokkimuokkaus";
             ((System.ComponentModel.ISupportInitialize)(this.nmbHenkilomaara)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,5 +314,6 @@
         private System.Windows.Forms.Button btnMokinLisays;
         private System.Windows.Forms.Label lbMokkiHinta;
         private System.Windows.Forms.TextBox tbMokkiHinta;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
