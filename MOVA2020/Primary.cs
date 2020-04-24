@@ -231,6 +231,8 @@ namespace MOVA2020
             {
                 btnMuokkaaMokki.Enabled = false;
                 btnPoistaMokki.Enabled = false;
+            }
+        }
         private void btnLisaaPalvelu_Click(object sender, EventArgs e)
         {
             Palvelunmuokkaus p = new Palvelunmuokkaus(this);
