@@ -36,6 +36,7 @@ namespace MOVA2020.forms
             string query = "DELETE FROM mokki WHERE mokki_id = $mokki_id";
             this.p.Db.DMquery(query, pairs);
             this.p.paivita();
+
             this.Close();
         }
     }

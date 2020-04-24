@@ -14,6 +14,7 @@ namespace MOVA2020.forms
 {
     public partial class mokkimuokkaus : Form
     {
+        //fix
         Primary p;
         Mokki m;
 
