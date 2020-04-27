@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MOVA2020.objs.dbitems;
 namespace MOVA2020.forms
 {
     public partial class Laskutus : Form
     {
+        private Lasku l;
         // UC ID 3.3 Laskutuksen koodi.
         
         private void doc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -24,9 +25,10 @@ namespace MOVA2020.forms
             float factor = ((float)bmp.Height / (float)bmp.Width);
             e.Graphics.DrawImage(bmp, bounds.Left, bounds.Top, bounds.Width, factor * bounds.Width);
         }
-        public Laskutus()
+        public Laskutus(Lasku l)
         {
             InitializeComponent();
+            this.l = l;
         }
         
         private void bttulosta_Click(object sender, EventArgs e)
@@ -42,6 +44,10 @@ namespace MOVA2020.forms
             // UC ID 3.3.1 Nappi, jota painamalla lasku lähetetään asiakkaan sähköpostiin
         }
 
-        
+        private void btnVaraustiedot_Click(object sender, EventArgs e)
+        {
+            Varauksentiedot vt = new Varauksentiedot(l.Varaus);
+            vt.Show();
+        }
     }
 }

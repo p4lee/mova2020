@@ -168,8 +168,6 @@ namespace MOVA2020
                 Varaus v = new Varaus((long)itemarr[0], DateTime.Parse((string)itemarr[3]), t, DateTime.Parse((string)itemarr[5]), DateTime.Parse((string)itemarr[6]), a, m, varauksenpalvelut);
                 this.Varaukset.Add(v);
             }
-            dgvVaraukset.DataSource = null;
-            dgvVaraukset.DataSource = Varaukset;
         }
         private void btnLisaatoimintaalue_Click(object sender, EventArgs e)
         {
@@ -283,48 +281,68 @@ namespace MOVA2020
 
         private void btnLaskutus_Click(object sender, EventArgs e)
         {
-            Laskutus l = new Laskutus();
-            l.Show();
+            Lasku l = (Lasku)dgvLaskut.SelectedRows[0].DataBoundItem;
+            Laskutus lt = new Laskutus(l);
+            lt.Show();
         }
 
         private void btnLisaaAsiakas_Click(object sender, EventArgs e)
         {
-            Asiakastiedot at = new Asiakastiedot(this);
+            Asiakasmuokkaus at = new Asiakasmuokkaus(this);
             at.Show();
         }
 
         private void btnMuokkaaAsiakas_Click(object sender, EventArgs e)
         {
             Asiakas a = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
-            Asiakastiedot at = new Asiakastiedot(this, a);
+            Asiakasmuokkaus at = new Asiakasmuokkaus(this, a);
             at.Show();
         }
 
         private void btnPoistaAsiakas_Click(object sender, EventArgs e)
         {
             Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
-            DialogResult dr = MessageBox.Show("Haluatko poistaa asiakkaan " + asiakas.ToString() + " ?", "Poista Asiakas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Haluatko poistaa asiakkaan " + asiakas.ToString() + " ?\nTämä poistaa kaikki laskut ja varaukset!", "Poista Asiakas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
                 pairs.Add("$asiakas_id", asiakas.Asiakas_id);
+
                 string query = "DELETE FROM asiakas WHERE asiakas_id = $asiakas_id";
                 this.Db.DMquery(query, pairs);
                 this.paivita();
             }
         }
-
+        private void btnAsiakastiedot_Click(object sender, EventArgs e)
+        {
+            Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
+            Asiakastiedot at = new Asiakastiedot(this, asiakas);
+            at.Show();
+        }
         private void dgvAsiakkaat_Click(object sender, EventArgs e)
         {
             if (dgvAsiakkaat.SelectedRows.Count > 0)
             {
                 btnMuokkaaAsiakas.Enabled = true;
                 btnPoistaAsiakas.Enabled = true;
+                btnAsiakastiedot.Enabled = true;
             }
             else
             {
                 btnMuokkaaAsiakas.Enabled = false;
                 btnPoistaAsiakas.Enabled = false;
+                btnAsiakastiedot.Enabled = false;
+            }
+        }
+
+        private void dgvLaskut_Click(object sender, EventArgs e)
+        {
+            if(dgvLaskut.SelectedRows.Count > 0)
+            {
+                btnLaskutus.Enabled = true;
+            } else
+            {
+                btnLaskutus.Enabled = false;
             }
         }
     }
