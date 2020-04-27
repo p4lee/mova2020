@@ -55,6 +55,12 @@ namespace MOVA2020.forms
              * Lisää Palvelu
              * Muokkaa Palvelua
              */
+
+            if(tbNimi.Text.Length == 0 || tbHintaEiAlv.Text.Length == 0 || tbALV.Text.Length == 0 || tbHintaSisALV.Text.Length == 0)
+            {
+                MessageBox.Show("Täytä kaikki kentät!", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string query;
             Dictionary<string, object> pairs = new Dictionary<string, object>();
             pairs.Add("$toimintaalue", this.lomake.Toimintaalueet[this.cbToimintaalueet.SelectedIndex].Toiminta_alueid);

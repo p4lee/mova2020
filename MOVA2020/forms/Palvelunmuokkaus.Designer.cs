@@ -104,9 +104,9 @@
             this.lblHintaEiALV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblHintaEiALV.Location = new System.Drawing.Point(12, 239);
             this.lblHintaEiALV.Name = "lblHintaEiALV";
-            this.lblHintaEiALV.Size = new System.Drawing.Size(97, 17);
+            this.lblHintaEiALV.Size = new System.Drawing.Size(106, 17);
             this.lblHintaEiALV.TabIndex = 6;
-            this.lblHintaEiALV.Text = "Hinta (Ei ALV)";
+            this.lblHintaEiALV.Text = "Hinta (Ei ALV) *";
             // 
             // lblALV
             // 
@@ -114,9 +114,9 @@
             this.lblALV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblALV.Location = new System.Drawing.Point(157, 239);
             this.lblALV.Name = "lblALV";
-            this.lblALV.Size = new System.Drawing.Size(34, 17);
+            this.lblALV.Size = new System.Drawing.Size(43, 17);
             this.lblALV.TabIndex = 7;
-            this.lblALV.Text = "ALV";
+            this.lblALV.Text = "ALV *";
             // 
             // lblKuvaus
             // 
@@ -134,9 +134,9 @@
             this.lblNimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblNimi.Location = new System.Drawing.Point(12, 53);
             this.lblNimi.Name = "lblNimi";
-            this.lblNimi.Size = new System.Drawing.Size(35, 17);
+            this.lblNimi.Size = new System.Drawing.Size(44, 17);
             this.lblNimi.TabIndex = 9;
-            this.lblNimi.Text = "Nimi";
+            this.lblNimi.Text = "Nimi *";
             // 
             // lblToimintaalue
             // 
@@ -144,9 +144,9 @@
             this.lblToimintaalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblToimintaalue.Location = new System.Drawing.Point(12, 9);
             this.lblToimintaalue.Name = "lblToimintaalue";
-            this.lblToimintaalue.Size = new System.Drawing.Size(94, 17);
+            this.lblToimintaalue.Size = new System.Drawing.Size(103, 17);
             this.lblToimintaalue.TabIndex = 10;
-            this.lblToimintaalue.Text = "Toiminta-alue";
+            this.lblToimintaalue.Text = "Toiminta-alue *";
             // 
             // tbHintaSisALV
             // 
@@ -163,9 +163,9 @@
             this.lblHinta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblHinta.Location = new System.Drawing.Point(12, 282);
             this.lblHinta.Name = "lblHinta";
-            this.lblHinta.Size = new System.Drawing.Size(106, 17);
+            this.lblHinta.Size = new System.Drawing.Size(115, 17);
             this.lblHinta.TabIndex = 12;
-            this.lblHinta.Text = "Hinta (sis. ALV)";
+            this.lblHinta.Text = "Hinta (sis. ALV) *";
             // 
             // Palvelunmuokkaus
             // 

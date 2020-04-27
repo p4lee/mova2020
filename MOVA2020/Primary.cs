@@ -291,14 +291,28 @@ namespace MOVA2020
         private void btnPoistaAsiakas_Click(object sender, EventArgs e)
         {
             Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
-            DialogResult dr = MessageBox.Show("Haluatko poistaa palvelun " + asiakas.ToString() + " ?", "Poista Palvelu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Haluatko poistaa asiakkaan " + asiakas.ToString() + " ?", "Poista Asiakas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
                 pairs.Add("$asiakas_id", asiakas.Asiakas_id);
-                string query = "DELETE FROM asiakas WHERE asiakas_id=$asiakas_id";
+                string query = "DELETE FROM asiakas WHERE asiakas_id = $asiakas_id";
                 this.Db.DMquery(query, pairs);
                 this.paivita();
+            }
+        }
+
+        private void dgvAsiakkaat_Click(object sender, EventArgs e)
+        {
+            if (dgvAsiakkaat.SelectedRows.Count > 0)
+            {
+                btnMuokkaaAsiakas.Enabled = true;
+                btnPoistaAsiakas.Enabled = true;
+            }
+            else
+            {
+                btnMuokkaaAsiakas.Enabled = false;
+                btnPoistaAsiakas.Enabled = false;
             }
         }
     }

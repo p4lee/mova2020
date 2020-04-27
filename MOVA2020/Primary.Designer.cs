@@ -43,6 +43,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvVaraukset = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnPoistaAsiakas = new System.Windows.Forms.Button();
+            this.btnMuokkaaAsiakas = new System.Windows.Forms.Button();
+            this.btnLisaaAsiakas = new System.Windows.Forms.Button();
             this.dgvAsiakkaat = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btnLaskutus = new System.Windows.Forms.Button();
@@ -52,9 +55,6 @@
             this.btnMuokkaaPalvelua = new System.Windows.Forms.Button();
             this.btnLisaaPalvelu = new System.Windows.Forms.Button();
             this.dgvPalvelut = new System.Windows.Forms.DataGridView();
-            this.btnLisaaAsiakas = new System.Windows.Forms.Button();
-            this.btnMuokkaaAsiakas = new System.Windows.Forms.Button();
-            this.btnPoistaAsiakas = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokit)).BeginInit();
@@ -281,6 +281,41 @@
             this.tabPage4.Text = "Asiakkaat";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // btnPoistaAsiakas
+            // 
+            this.btnPoistaAsiakas.Enabled = false;
+            this.btnPoistaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnPoistaAsiakas.Location = new System.Drawing.Point(5, 415);
+            this.btnPoistaAsiakas.Name = "btnPoistaAsiakas";
+            this.btnPoistaAsiakas.Size = new System.Drawing.Size(166, 31);
+            this.btnPoistaAsiakas.TabIndex = 3;
+            this.btnPoistaAsiakas.Text = "Poista asiakas";
+            this.btnPoistaAsiakas.UseVisualStyleBackColor = true;
+            this.btnPoistaAsiakas.Click += new System.EventHandler(this.btnPoistaAsiakas_Click);
+            // 
+            // btnMuokkaaAsiakas
+            // 
+            this.btnMuokkaaAsiakas.Enabled = false;
+            this.btnMuokkaaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnMuokkaaAsiakas.Location = new System.Drawing.Point(5, 358);
+            this.btnMuokkaaAsiakas.Name = "btnMuokkaaAsiakas";
+            this.btnMuokkaaAsiakas.Size = new System.Drawing.Size(166, 30);
+            this.btnMuokkaaAsiakas.TabIndex = 2;
+            this.btnMuokkaaAsiakas.Text = "Muokkaa asiakasta";
+            this.btnMuokkaaAsiakas.UseVisualStyleBackColor = true;
+            this.btnMuokkaaAsiakas.Click += new System.EventHandler(this.btnMuokkaaAsiakas_Click);
+            // 
+            // btnLisaaAsiakas
+            // 
+            this.btnLisaaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnLisaaAsiakas.Location = new System.Drawing.Point(5, 298);
+            this.btnLisaaAsiakas.Name = "btnLisaaAsiakas";
+            this.btnLisaaAsiakas.Size = new System.Drawing.Size(166, 28);
+            this.btnLisaaAsiakas.TabIndex = 1;
+            this.btnLisaaAsiakas.Text = "Lisää asiakas";
+            this.btnLisaaAsiakas.UseVisualStyleBackColor = true;
+            this.btnLisaaAsiakas.Click += new System.EventHandler(this.btnLisaaAsiakas_Click);
+            // 
             // dgvAsiakkaat
             // 
             this.dgvAsiakkaat.AllowUserToAddRows = false;
@@ -299,6 +334,7 @@
             this.dgvAsiakkaat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAsiakkaat.Size = new System.Drawing.Size(597, 444);
             this.dgvAsiakkaat.TabIndex = 0;
+            this.dgvAsiakkaat.Click += new System.EventHandler(this.dgvAsiakkaat_Click);
             // 
             // tabPage5
             // 
@@ -415,41 +451,6 @@
             this.dgvPalvelut.Size = new System.Drawing.Size(729, 444);
             this.dgvPalvelut.TabIndex = 0;
             this.dgvPalvelut.Click += new System.EventHandler(this.dgvPalvelut_Click);
-            // 
-            // btnLisaaAsiakas
-            // 
-            this.btnLisaaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLisaaAsiakas.Location = new System.Drawing.Point(5, 298);
-            this.btnLisaaAsiakas.Name = "btnLisaaAsiakas";
-            this.btnLisaaAsiakas.Size = new System.Drawing.Size(166, 28);
-            this.btnLisaaAsiakas.TabIndex = 1;
-            this.btnLisaaAsiakas.Text = "Lisää asiakas";
-            this.btnLisaaAsiakas.UseVisualStyleBackColor = true;
-            this.btnLisaaAsiakas.Click += new System.EventHandler(this.btnLisaaAsiakas_Click);
-            // 
-            // btnMuokkaaAsiakas
-            // 
-            this.btnMuokkaaAsiakas.Enabled = false;
-            this.btnMuokkaaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnMuokkaaAsiakas.Location = new System.Drawing.Point(5, 358);
-            this.btnMuokkaaAsiakas.Name = "btnMuokkaaAsiakas";
-            this.btnMuokkaaAsiakas.Size = new System.Drawing.Size(166, 30);
-            this.btnMuokkaaAsiakas.TabIndex = 2;
-            this.btnMuokkaaAsiakas.Text = "Muokkaa asiakasta";
-            this.btnMuokkaaAsiakas.UseVisualStyleBackColor = true;
-            this.btnMuokkaaAsiakas.Click += new System.EventHandler(this.btnMuokkaaAsiakas_Click);
-            // 
-            // btnPoistaAsiakas
-            // 
-            this.btnPoistaAsiakas.Enabled = false;
-            this.btnPoistaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnPoistaAsiakas.Location = new System.Drawing.Point(5, 415);
-            this.btnPoistaAsiakas.Name = "btnPoistaAsiakas";
-            this.btnPoistaAsiakas.Size = new System.Drawing.Size(166, 31);
-            this.btnPoistaAsiakas.TabIndex = 3;
-            this.btnPoistaAsiakas.Text = "Poista asiakas";
-            this.btnPoistaAsiakas.UseVisualStyleBackColor = true;
-            this.btnPoistaAsiakas.Click += new System.EventHandler(this.btnPoistaAsiakas_Click);
             // 
             // Primary
             // 

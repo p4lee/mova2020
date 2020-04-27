@@ -21,7 +21,7 @@ CREATE TABLE asiakas (
   email VARCHAR(50) NULL DEFAULT NULL,
   puhelinnro VARCHAR(15) NULL DEFAULT NULL,
   PRIMARY KEY (asiakas_id),
-  CONSTRAINT fk_asiakas_posti FOREIGN KEY (postinro) REFERENCES posti (postinro) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT fk_asiakas_posti FOREIGN KEY (postinro) REFERENCES posti (postinro) ON DELETE SET NULL ON UPDATE SET NULL
 );
 
 
@@ -50,8 +50,8 @@ CREATE TABLE mokki (
   henkilomaara INT NULL,
   varustelu VARCHAR(100) NULL,
   PRIMARY KEY (mokki_id),
-  CONSTRAINT fk_mokki_toimintaalue FOREIGN KEY (toimintaalue_id) REFERENCES toimintaalue (toimintaalue_id) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT fk_mokki_posti FOREIGN KEY (postinro) REFERENCES posti (postinro) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT fk_mokki_toimintaalue FOREIGN KEY (toimintaalue_id) REFERENCES toimintaalue (toimintaalue_id) ON DELETE SET NULL ON UPDATE SET NULL,
+  CONSTRAINT fk_mokki_posti FOREIGN KEY (postinro) REFERENCES posti (postinro) ON DELETE SET NULL ON UPDATE SET NULL
 );
 
 
@@ -68,8 +68,8 @@ CREATE TABLE varaus (
   varattu_alkupvm DATETIME NULL DEFAULT NULL,
   varattu_loppupvm DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (varaus_id),
-  CONSTRAINT varaus_ibfk FOREIGN KEY (asiakas_id) REFERENCES asiakas (asiakas_id) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT fk_varaus_mokki FOREIGN KEY (mokki_mokki_id) REFERENCES mokki (mokki_id) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT varaus_ibfk FOREIGN KEY (asiakas_id) REFERENCES asiakas (asiakas_id) ON DELETE SET NULL ON UPDATE SET NULL,
+  CONSTRAINT fk_varaus_mokki FOREIGN KEY (mokki_mokki_id) REFERENCES mokki (mokki_id) ON DELETE SET NULL ON UPDATE SET NULL
 );
 
 
@@ -104,7 +104,7 @@ CREATE TABLE palvelu (
   hinta DOUBLE(8, 2) NOT NULL,
   alv DOUBLE(8, 2) NOT NULL,
   PRIMARY KEY (palvelu_id),
-  CONSTRAINT palvelu_ibfk_1 FOREIGN KEY (toimintaalue_id) REFERENCES toimintaalue (toimintaalue_id) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT palvelu_ibfk_1 FOREIGN KEY (toimintaalue_id) REFERENCES toimintaalue (toimintaalue_id) ON DELETE SET NULL ON UPDATE SET NULL
 );
 
 
