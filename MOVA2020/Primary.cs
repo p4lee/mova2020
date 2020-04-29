@@ -217,8 +217,8 @@ namespace MOVA2020
 
         private void btnMokinTiedot_Click(object sender, EventArgs e)
         {
-            //aukaisee mokkitiedot filen valitusta mokista
-            mokkitiedot mokkitiedotjapalvelut = new mokkitiedot();
+            Mokki mokki = (Mokki)dgvMokit.SelectedRows[0].DataBoundItem;
+            mokkitiedot mokkitiedotjapalvelut = new mokkitiedot(this, mokki);
             mokkitiedotjapalvelut.ShowDialog();
         }
 
@@ -229,11 +229,13 @@ namespace MOVA2020
             {
                 btnMuokkaaMokki.Enabled = true;
                 btnPoistaMokki.Enabled = true;
+                btnMokinTiedot.Enabled = true;
             }
             else
             {
                 btnMuokkaaMokki.Enabled = false;
                 btnPoistaMokki.Enabled = false;
+                btnMokinTiedot.Enabled = false;
             }
         }
         private void btnLisaaPalvelu_Click(object sender, EventArgs e)
@@ -279,12 +281,24 @@ namespace MOVA2020
             }
         }
 
+        private void dgvLaskut_Click(object sender, EventArgs e)
+        {
+            if (dgvLaskut.SelectedRows.Count > 0)
+            {
+                btnLaskutus.Enabled = true;
+            }
+            else
+            {
+                btnLaskutus.Enabled = false;
+            }
+        }
         private void btnLaskutus_Click(object sender, EventArgs e)
         {
             Lasku l = (Lasku)dgvLaskut.SelectedRows[0].DataBoundItem;
-            Laskutus lt = new Laskutus(l);
+            Laskutus lt = new Laskutus(this, l);
             lt.Show();
         }
+
 
         private void btnLisaaAsiakas_Click(object sender, EventArgs e)
         {
@@ -335,15 +349,6 @@ namespace MOVA2020
             }
         }
 
-        private void dgvLaskut_Click(object sender, EventArgs e)
-        {
-            if(dgvLaskut.SelectedRows.Count > 0)
-            {
-                btnLaskutus.Enabled = true;
-            } else
-            {
-                btnLaskutus.Enabled = false;
-            }
-        }
+
     }
 }

@@ -13,6 +13,7 @@ namespace MOVA2020.forms
     public partial class Laskutus : Form
     {
         private Lasku l;
+        private Primary p;
         // UC ID 3.3 Laskutuksen koodi.
         
         private void doc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -25,9 +26,10 @@ namespace MOVA2020.forms
             float factor = ((float)bmp.Height / (float)bmp.Width);
             e.Graphics.DrawImage(bmp, bounds.Left, bounds.Top, bounds.Width, factor * bounds.Width);
         }
-        public Laskutus(Lasku l)
+        public Laskutus(Primary p, Lasku l)
         {
             InitializeComponent();
+            this.p = p;
             this.l = l;
         }
         
@@ -46,7 +48,7 @@ namespace MOVA2020.forms
 
         private void btnVaraustiedot_Click(object sender, EventArgs e)
         {
-            Varauksentiedot vt = new Varauksentiedot(l.Varaus);
+            Varauksentiedot vt = new Varauksentiedot(p, l.Varaus);
             vt.Show();
         }
     }

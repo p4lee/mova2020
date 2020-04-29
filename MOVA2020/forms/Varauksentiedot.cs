@@ -14,34 +14,31 @@ namespace MOVA2020.forms
     public partial class Varauksentiedot : Form
     {
         private Varaus varaus;
-        public Varauksentiedot(Varaus v)
+        private Primary p;
+        public Varauksentiedot(Primary p, Varaus v)
         {
             this.varaus = v;
+            this.p = p;
             InitializeComponent();
 
-            tbEtunimi.Text = v.Asiakas.Etunimi;
-            tbSukunimi.Text = v.Asiakas.Sukunimi;
-            tbPuhnro.Text = v.Asiakas.Puhelinnro;
-            tbSahkoposti.Text = v.Asiakas.Email;
-            tbAsiakasPaikkakunta.Text = v.Asiakas.Posti.Toimipaikka;
-            tbAsiakaspostinro.Text = v.Asiakas.Posti.Postinro;
-            tbAsiakasosoite.Text = v.Asiakas.Lahiosoite;
-
+            tbAsiakasnimi.Text = v.Asiakas.Etunimi + " " + v.Asiakas.Sukunimi;
             tbMokkinimi.Text = v.Mokki.Mokkinimi;
-            tbMokkiPaikkakunta.Text = v.Mokki.Posti.Toimipaikka;
-            tbMokkiPostinro.Text = v.Mokki.Posti.Postinro;
-            tbToimintaalue.Text = v.Mokki.Toimintaalue.Nimi;
-            tbHinta.Text = v.Mokki.Hinta.ToString();
-            nmrHenkilomaara.Value = v.Mokki.Henkilomaara;
-            rtbKuvaus.Text = v.Mokki.Kuvaus;
-            rtbVarustelu.Text = v.Mokki.Varustelu;
-            tbMokkiOsoite.Text = v.Mokki.Katuosoite;
-
             dtpVarattupvm.Value = v.Varattu_pvm;
-
             calVaraus.SelectionStart = v.Varattu_alkupvm;
             calVaraus.SelectionEnd = v.Varattu_loppupvm;
+            calVaraus.TodayDate = v.Varattu_alkupvm;
         }
 
+        private void btnAsiakkaantiedot_Click(object sender, EventArgs e)
+        {
+            Asiakastiedot at = new Asiakastiedot(this.p, this.varaus.Asiakas);
+            at.Show();
+        }
+
+        private void btnMokintiedot_Click(object sender, EventArgs e)
+        {
+            mokkitiedot mt = new mokkitiedot(this.p, this.varaus.Mokki);
+            mt.Show();
+        }
     }
 }

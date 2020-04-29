@@ -21,15 +21,15 @@ namespace MOVA2020.forms
             this.asiakas = a;
             this.paalomake = p;
             InitializeComponent();
-            lblEtunimi.Text = a.Etunimi;
-            lblSukunimi.Text = a.Sukunimi;
+            tbEtunimi.Text = a.Etunimi;
+            tbSukunimi.Text = a.Sukunimi;
 
-            lblKatuosoite.Text = a.Lahiosoite;
-            lblPaikkakunta.Text = a.Posti.Toimipaikka;
-            lblPostinumero.Text = a.Posti.Postinro;
+            tbKatuosoite.Text = a.Lahiosoite;
+            tbPaikkakunta.Text = a.Posti.Toimipaikka;
+            tbPostinumero.Text = a.Posti.Postinro;
 
-            lblPuhnro.Text = a.Puhelinnro;
-            lblSahkoposti.Text = a.Email;
+            tbPuhnro.Text = a.Puhelinnro;
+            tbSahkoposti.Text = a.Email;
 
             this.paivita();
         }
