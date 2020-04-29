@@ -308,5 +308,165 @@ namespace MOVA2020
                 this.paivita();
             }
         }
+        private void dgvMokit_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+            string column = grid.Columns[e.ColumnIndex].Name;
+            if (column.Equals("Varustelu"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvMokit.DataSource = this.mokit.OrderBy(x => x.Varustelu).ToList();
+                }
+                else
+                {
+                    dgvMokit.DataSource = this.mokit.OrderByDescending(x => x.Varustelu).ToList();
+                }
+            }
+
+            else if (column.Equals("Toimintaalue"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvMokit.DataSource = this.mokit.OrderBy(x => x.Toimintaalue.Nimi).ToList();
+                }
+                else
+                {
+                    dgvMokit.DataSource = this.mokit.OrderByDescending(x => x.Toimintaalue.Nimi).ToList();
+                }
+
+            }
+            else
+            {
+                dgvMokit.DataSource = this.mokit;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
+
+        private void dgvPalvelut_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+
+            string column = grid.Columns[e.ColumnIndex].Name;
+
+            if (column.Equals("Nimi"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Nimi).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Nimi).ToList();
+                }
+            }
+            else if (column.Equals("Palvelu_id"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Palvelu_id).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Palvelu_id).ToList();
+                }
+            }
+            else if (column.Equals("Toimintaalue"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Toimintaalue.Nimi).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Toimintaalue.Nimi).ToList();
+                }
+            }
+            else if (column.Equals("Hinta"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Hinta).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Hinta).ToList();
+                }
+            }
+            else
+            {
+                dgvPalvelut.DataSource = this.palvelut;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
+
+        private void dgvToimintaalueet_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+
+            string column = grid.Columns[e.ColumnIndex].Name;
+
+            if (column.Equals("Toiminta_alueid"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderBy(x => x.Toiminta_alueid).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderByDescending(x => x.Toiminta_alueid).ToList();
+                }
+            }
+            else if (column.Equals("Nimi"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderBy(x => x.Nimi).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderByDescending(x => x.Nimi).ToList();
+                }
+            }
+
+            else
+            {
+                dgvToimintaalueet.DataSource = this.toimintaalueet;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
     }
 }
