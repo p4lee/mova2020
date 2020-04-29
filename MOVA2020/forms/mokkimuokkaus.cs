@@ -52,13 +52,53 @@ namespace MOVA2020.forms
         private void btnMokinLisays_Click(object sender, EventArgs e)
         {
             //jos kaikki kentät eivät ole täytettynä, se ei anna lisätä mökkiä tietokantaan
-            /*if (cbToimialue.Text.Length == 0 || tbMokkiNimi.TextLength == 0 || tbPostinumero.TextLength == 0
+            if (cbToimialue.Text.Length == 0 || tbMokkiNimi.TextLength == 0 || tbPostinumero.TextLength < 5 || tbPostinumero.TextLength > 5
                 || tbKatuosoite.TextLength == 0 || tbMokkiHinta.TextLength == 0)
             {
-                MessageBox.Show("Kaikki kentät tulee olla täytettynä, ennen kuin voit lisätä mökin.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(cbToimialue.Text.Length == 0)
+                {
+                    errorProvider1.SetError(cbToimialue, "Toimialue puuttuu");
+                }
+                else
+                {
+                    errorProvider1.SetError(cbToimialue, "");
+                }
+                if (tbMokkiNimi.TextLength == 0)
+                {
+                    errorProvider1.SetError(tbMokkiNimi, "Mökin nimi puuttuu");
+                }
+                else
+                {
+                    errorProvider1.SetError(tbMokkiNimi, "");
+                }
+                if (tbPostinumero.TextLength < 5 || tbPostinumero.TextLength > 5)
+                {
+                    errorProvider1.SetError(tbPostinumero, "Postinumero ei ole oikein");
+                }
+                else
+                {
+                    errorProvider1.SetError(tbPostinumero, "");
+                }
+                if (tbKatuosoite.TextLength == 0)
+                {
+                    errorProvider1.SetError(tbKatuosoite, "Katuosoite puuttuu");
+                }
+                else
+                {
+                    errorProvider1.SetError(tbKatuosoite, "");
+                }
+                if (tbMokkiHinta.TextLength == 0)
+                {
+                    errorProvider1.SetError(tbMokkiHinta, "Mökkihinta ei ole oikein");
+                }
+                else
+                {
+                    errorProvider1.SetError(tbMokkiHinta, "");
+                }
             }
+            //jos kaikki kentät ovat ok niin lisätään tai päivitetään mökki tietokantaan
             else
-            {*/
+            {
                 // SQL kysely
                 string query;
                 /*
@@ -91,7 +131,7 @@ namespace MOVA2020.forms
                     this.p.paivita();
                     this.Close();
                 }
-           // }
+            }
         }
 
         private void tbMokkiHinta_KeyPress(object sender, KeyPressEventArgs e)
@@ -113,6 +153,7 @@ namespace MOVA2020.forms
 
         private void tbPostinumero_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //postinumeroon mahdollista syöttää vain numerot ja backspace
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
             {
                 e.Handled = true;
