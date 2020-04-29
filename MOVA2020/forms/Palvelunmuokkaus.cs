@@ -10,13 +10,16 @@ using System.Windows.Forms;
 using MOVA2020.objs.dbitems;
 namespace MOVA2020.forms
 {
+    /*
+     * Palvelun muokkaus ja lisäys
+     * 
+     * 
+     */
     public partial class Palvelunmuokkaus : Form
     {
 
         /*
          * Palveluitten lisäys ja muokkaus
-         * 
-         * 
          */
         private Primary lomake;
         private Palvelu palvelu;

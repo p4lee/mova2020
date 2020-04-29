@@ -16,7 +16,7 @@ namespace MOVA2020.forms
     {
         private Asiakas asiakas;
         private Primary paalomake;
-        public Asiakastiedot(Primary p,Asiakas a)
+        public Asiakastiedot(Primary p, Asiakas a)
         {
             this.asiakas = a;
             this.paalomake = p;
@@ -40,7 +40,6 @@ namespace MOVA2020.forms
             dgvVaraukset.DataSource = this.HaeVaraukset;
         }
         private List<Varaus> HaeVaraukset => this.paalomake.Varaukset.FindAll(i => i.Asiakas.Asiakas_id == this.asiakas.Asiakas_id);
-
         private void dgvVaraukset_Click(object sender, EventArgs e)
         {
             if(dgvVaraukset.SelectedRows.Count > 0)
