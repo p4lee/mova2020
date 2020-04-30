@@ -7,39 +7,213 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MOVA2020.objs.dbitems;
 namespace MOVA2020.forms
 {
     public partial class Varauksenlisays : Form
     {
-        private Primary lomake;
-        public Varauksenlisays(Primary lomake)
+        public struct VarauksenPalvelu
         {
-            this.lomake = lomake;
+            public Palvelu p;
+            public int lkm;
+            override
+            public string ToString()
+            {
+                return p.ToString() + " Lukumäärä:" + lkm.ToString();
+            }
+        }
+        private Primary lomake;
+        private Asiakastiedot att;
+        private Asiakas a;
+        private Varaus v = null;
+        public Varauksenlisays(Asiakastiedot att, Primary p, Asiakas a)
+        {
+            this.att = att;
+            this.lomake = p;
+            this.a = a;
             InitializeComponent();
+            lbVarauksenPalvelut.DataSource = null;
+            cbToimintaalueet.DataSource = this.lomake.Toimintaalueet;
+            this.Text = "Varauksen lisäys";
             this.btvaraus.Text = "Tee varaus";
         }
+        public Varauksenlisays(Asiakastiedot att, Primary p, Asiakas a, Varaus v)
+        {
+            this.att = att;
+            this.lomake = p;
+            this.a = a;
+            this.v = v;
+            InitializeComponent();
+            lbVarauksenPalvelut.DataSource = null;
 
+            cbToimintaalueet.Items.Add(v.Mokki.Toimintaalue);
+            cbToimintaalueet.SelectedIndex = 0;
+            cbToimintaalueet.Enabled = false;
+            CBMokki.Enabled = false;
+            this.Text = "Varauksen muokkaus";
+            this.btvaraus.Text = "Muokkaa varausta";
+        }
+        public void paivita()
+        {
+            this.lomake.paivita();
+            this.att.paivita();
+        }
         private void btvaraus_Click(object sender, EventArgs e)
         {
-            string query;
-            Dictionary<string, object> pairs = new Dictionary<string, object>();
-            pairs.Add("$asiakas", this.lomake.Asiakkaat[this.CBAsiakas.SelectedIndex].Asiakas_id);
-            pairs.Add("$mokki", this.lomake.Mokit[this.CBMokki.SelectedIndex].Mokki_id);
-            pairs.Add("$varattu_pvm", DTPvarauspv.Value);
-            pairs.Add("$vahvistus_pvm", DTPvarauspv.Value);
-            pairs.Add("$varattu_alkupvm", DTPVarausalku.Value);
-            pairs.Add("$varattu_loppupvm",DTPVarausloppu.Value);
+            if (this.CBMokki.SelectedIndex != -1) {
+                string query;
+                Dictionary<string, object> pairs = new Dictionary<string, object>();
+                pairs.Add("$asiakas", a.Asiakas_id);
+                pairs.Add("$mokki_id", this.lomake.Mokit[this.CBMokki.SelectedIndex].Mokki_id);
+                pairs.Add("$varattu_pvm", DateTime.Now);
+                pairs.Add("$varaus_alkupvm", calVaraus.SelectionRange.Start);
+                pairs.Add("$varaus_loppupvm", calVaraus.SelectionRange.End);
 
+                if (this.MokkiVapaana())
+                {
+                    if (v == null)
+                    {
+                        double summa = 0;
+                        query = "INSERT INTO varaus(mokki_mokki_id, asiakas_id, varattu_pvm, varattu_alkupvm, varattu_loppupvm) VALUES($mokki_id,$asiakas, $varattu_pvm, $varaus_alkupvm, $varaus_loppupvm)";
 
-            query = "INSERT INTO varaus(varaus_id, mokki_id, varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm) VALUES($varaus_id, $mokki_id, $varattu_pvm, $vahvistus_pvm, $varaus_alkupvm, $varaus_loppupvm)";
+                        this.lomake.Db.DMquery(query, pairs);
+                        this.paivita();
 
-            this.lomake.Db.DMquery(query, pairs);
-            this.lomake.paivita();
-            this.Close();
+                        Varaus vt = this.lomake.Varaukset.Find(i => i.Asiakas.Asiakas_id == a.Asiakas_id && i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id && i.Varattu_alkupvm.Equals(calVaraus.SelectionRange.Start) && i.Varattu_loppupvm.Equals(calVaraus.SelectionRange.End));
+                        string query2 = "INSERT INTO varauksen_palvelut(varaus_id, palvelu_id, lkm) VALUES($varaus_id, $palvelu_id, $lkm)";
+                        Dictionary<string, object> pairs2 = new Dictionary<string, object>();
+                        foreach (VarauksenPalvelu pari in lbVarauksenPalvelut.Items)
+                        {
+                            summa += pari.lkm * (pari.p.Hinta+pari.p.Alv);
+                            pairs2.Clear();
+                            pairs2.Add("$varaus_id", vt.Varaus_id);
+                            pairs2.Add("$palvelu_id", pari.p.Palvelu_id);
+                            pairs2.Add("$lkm", pari.lkm);
+                            this.lomake.Db.DMquery(query2, pairs2);
+                        }
+                        summa += (calVaraus.SelectionRange.End - calVaraus.SelectionRange.Start).TotalDays * ((Mokki)this.CBMokki.SelectedItem).Hinta;
+                 
+                        query2 = "INSERT INTO lasku (varaus_id, summa, alv) VALUES ($varaus_id, $summa, $alv)";
+                        pairs2.Clear();
+                        pairs2.Add("$varaus_id", vt.Varaus_id);
+                        pairs2.Add("$summa", summa);
+                        pairs2.Add("$alv", (summa*1.24)-summa);
+                        this.lomake.Db.DMquery(query2, pairs2);
 
+                        this.att.paivita();
+                        this.Close();
+                    } else
+                    {
+                        double summa = 0;
+                        Dictionary<string, object> pairs2 = new Dictionary<string, object>();
+                        pairs2.Add("$varaus_id", this.v.Varaus_id);
+                        string query2 = "DELETE FROM varauksen_palvelut WHERE varaus_id = $varaus_id";
+                        this.lomake.Db.DMquery(query2, pairs2);
+
+                        query = "UPDATE varaus SET varattu_alkupvm = $varattu_alkupvm, varattu_loppupvm = $varattu_loppupvm WHERE varaus_id=$varaus_id";
+                        pairs2.Clear();
+                        pairs2.Add("$varattu_alkupvm", calVaraus.SelectionRange.Start);
+                        pairs2.Add("$varattu_loppupvm", calVaraus.SelectionRange.End);
+                        pairs2.Add("$varaus_id", this.v.Varaus_id);
+                        this.lomake.Db.DMquery(query2, pairs);
+
+                        query2 = "INSERT INTO varauksen_palvelut(varaus_id, palvelu_id, lkm) VALUES($varaus_id, $palvelu_id, $lkm)";
+                        foreach (VarauksenPalvelu pari in lbVarauksenPalvelut.Items)
+                        {
+                            summa += pari.lkm * (pari.p.Hinta + pari.p.Alv);
+                            pairs2.Clear();
+                            pairs2.Add("$varaus_id", this.v.Varaus_id);
+                            pairs2.Add("$palvelu_id", pari.p.Palvelu_id);
+                            pairs2.Add("$lkm", pari.lkm);
+                            this.lomake.Db.DMquery(query2, pairs2);
+                        }
+                        summa += (calVaraus.SelectionRange.End - calVaraus.SelectionRange.Start).TotalDays * ((Mokki)this.CBMokki.SelectedItem).Hinta;
+                        Lasku l = this.lomake.Laskut.Find(i => i.Varaus.Varaus_id == this.v.Varaus_id);
+                        query2 = "UPDATE lasku SET summa=$summa, alv=$alv WHERE varaus_id = $varaus_id AND lasku_id=$lasku_id";
+                        pairs2.Clear();
+                        pairs2.Add("$lasku_id", l.Lasku_id);
+                        pairs2.Add("$varaus_id", this.v.Varaus_id);
+                        pairs2.Add("$summa", summa);
+                        pairs2.Add("$alv", (summa * 1.24) - summa);
+                        this.lomake.Db.DMquery(query2, pairs2);
+                        this.att.paivita();
+                        this.Close();
+                    }
+                } else
+                {
+                    MessageBox.Show("Mökillä on varauksia alkupäivän ja loppupäivän aikana.");
+                }
+            }
         }
 
-        
+        private void btnLisaa_Click(object sender, EventArgs e)
+        {
+
+            VarauksenPalvelu pari;
+            if (cbPalvelut.SelectedIndex != -1)
+            {
+                pari.p = (Palvelu)cbPalvelut.SelectedItem;
+                pari.lkm = int.Parse(nmrLukumaara.Value.ToString());
+                lbVarauksenPalvelut.Items.Add(pari);
+                cbPalvelut.Items.Remove(cbPalvelut.SelectedItem);
+            }
+        }
+
+        private void btnPoista_Click(object sender, EventArgs e)
+        {
+            if (lbVarauksenPalvelut.SelectedItems.Count > 0) {
+                VarauksenPalvelu pari = (VarauksenPalvelu)lbVarauksenPalvelut.SelectedItem;
+                cbPalvelut.Items.Add(pari.p);
+                lbVarauksenPalvelut.Items.Remove(lbVarauksenPalvelut.SelectedItem);
+            }
+        }
+        private Boolean MokkiVapaana()
+        {
+            List<Varaus> mokinvaraukset;
+            if(this.v != null)
+            {
+                mokinvaraukset = this.lomake.Varaukset.FindAll(i => i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id && i.Varaus_id == this.v.Varaus_id);
+            } else
+            {
+                mokinvaraukset = this.lomake.Varaukset.FindAll(i => i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id);
+            }
+            
+            foreach(Varaus vm in mokinvaraukset)
+            {
+                if(calVaraus.SelectionRange.Start >= vm.Varattu_alkupvm && calVaraus.SelectionRange.Start <= vm.Varattu_loppupvm)
+                {
+                    return false;
+                } else if (calVaraus.SelectionRange.End >= vm.Varattu_alkupvm && calVaraus.SelectionRange.End <= vm.Varattu_loppupvm)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void cbToimintaalueet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbToimintaalueet.SelectedIndex != -1) {
+                CBMokki.Items.Clear();
+                List<Mokki> toimintamokit = this.lomake.Mokit.FindAll(i => i.Toimintaalue.Toiminta_alueid == ((Toimintaalue)cbToimintaalueet.SelectedItem).Toiminta_alueid);
+                foreach (Mokki m in toimintamokit) {
+                    CBMokki.Items.Add(m);
+                }
+                cbPalvelut.Items.Clear();
+                List<Palvelu> toimintapalvelut = this.lomake.Palvelut.FindAll(i => i.Toimintaalue.Toiminta_alueid == ((Toimintaalue)cbToimintaalueet.SelectedItem).Toiminta_alueid);
+                foreach (Palvelu pa in toimintapalvelut) {
+                    cbPalvelut.Items.Add(pa);
+                }
+            }
+        }
+        private void btnMokintiedot_Click(object sender, EventArgs e)
+        {
+            if (CBMokki.SelectedIndex != -1)
+            {
+                Mokki m = (Mokki)CBMokki.SelectedItem;
+                mokkitiedot mt = new mokkitiedot(this.lomake, m);
+                mt.Show();
+            }
+        }
     }
 }

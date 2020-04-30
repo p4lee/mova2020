@@ -172,7 +172,7 @@
             this.dgvLaskut.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLaskut.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLaskut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLaskut.Location = new System.Drawing.Point(139, 5);
+            this.dgvLaskut.Location = new System.Drawing.Point(166, 5);
             this.dgvLaskut.Margin = new System.Windows.Forms.Padding(2);
             this.dgvLaskut.MultiSelect = false;
             this.dgvLaskut.Name = "dgvLaskut";
@@ -180,7 +180,7 @@
             this.dgvLaskut.RowHeadersVisible = false;
             this.dgvLaskut.RowHeadersWidth = 51;
             this.dgvLaskut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLaskut.Size = new System.Drawing.Size(764, 438);
+            this.dgvLaskut.Size = new System.Drawing.Size(737, 438);
             this.dgvLaskut.TabIndex = 0;
             // 
             // tabPage4
@@ -203,7 +203,7 @@
             // 
             this.btnAsiakastiedot.Enabled = false;
             this.btnAsiakastiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAsiakastiedot.Location = new System.Drawing.Point(37, 366);
+            this.btnAsiakastiedot.Location = new System.Drawing.Point(6, 413);
             this.btnAsiakastiedot.Name = "btnAsiakastiedot";
             this.btnAsiakastiedot.Size = new System.Drawing.Size(164, 29);
             this.btnAsiakastiedot.TabIndex = 4;
@@ -215,7 +215,7 @@
             // 
             this.btnPoistaAsiakas.Enabled = false;
             this.btnPoistaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnPoistaAsiakas.Location = new System.Drawing.Point(37, 321);
+            this.btnPoistaAsiakas.Location = new System.Drawing.Point(6, 378);
             this.btnPoistaAsiakas.Name = "btnPoistaAsiakas";
             this.btnPoistaAsiakas.Size = new System.Drawing.Size(164, 29);
             this.btnPoistaAsiakas.TabIndex = 3;
@@ -227,7 +227,7 @@
             // 
             this.btnMuokkaaAsiakas.Enabled = false;
             this.btnMuokkaaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnMuokkaaAsiakas.Location = new System.Drawing.Point(37, 275);
+            this.btnMuokkaaAsiakas.Location = new System.Drawing.Point(6, 343);
             this.btnMuokkaaAsiakas.Name = "btnMuokkaaAsiakas";
             this.btnMuokkaaAsiakas.Size = new System.Drawing.Size(164, 29);
             this.btnMuokkaaAsiakas.TabIndex = 2;
@@ -238,7 +238,7 @@
             // btnLisaaAsiakas
             // 
             this.btnLisaaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLisaaAsiakas.Location = new System.Drawing.Point(37, 8);
+            this.btnLisaaAsiakas.Location = new System.Drawing.Point(6, 8);
             this.btnLisaaAsiakas.Name = "btnLisaaAsiakas";
             this.btnLisaaAsiakas.Size = new System.Drawing.Size(164, 29);
             this.btnLisaaAsiakas.TabIndex = 1;
@@ -360,7 +360,7 @@
             this.btnMokinTiedot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnMokinTiedot.Enabled = false;
             this.btnMokinTiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMokinTiedot.Location = new System.Drawing.Point(28, 388);
+            this.btnMokinTiedot.Location = new System.Drawing.Point(5, 413);
             this.btnMokinTiedot.Name = "btnMokinTiedot";
             this.btnMokinTiedot.Size = new System.Drawing.Size(164, 29);
             this.btnMokinTiedot.TabIndex = 4;
@@ -372,7 +372,7 @@
             // 
             this.btnPoistaMokki.Enabled = false;
             this.btnPoistaMokki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPoistaMokki.Location = new System.Drawing.Point(28, 354);
+            this.btnPoistaMokki.Location = new System.Drawing.Point(5, 379);
             this.btnPoistaMokki.Margin = new System.Windows.Forms.Padding(2);
             this.btnPoistaMokki.Name = "btnPoistaMokki";
             this.btnPoistaMokki.Size = new System.Drawing.Size(164, 29);
@@ -385,7 +385,7 @@
             // 
             this.btnMuokkaaMokki.Enabled = false;
             this.btnMuokkaaMokki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMuokkaaMokki.Location = new System.Drawing.Point(28, 321);
+            this.btnMuokkaaMokki.Location = new System.Drawing.Point(5, 346);
             this.btnMuokkaaMokki.Margin = new System.Windows.Forms.Padding(2);
             this.btnMuokkaaMokki.Name = "btnMuokkaaMokki";
             this.btnMuokkaaMokki.Size = new System.Drawing.Size(164, 29);
@@ -397,7 +397,7 @@
             // btnLisaaMokki
             // 
             this.btnLisaaMokki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLisaaMokki.Location = new System.Drawing.Point(28, 19);
+            this.btnLisaaMokki.Location = new System.Drawing.Point(5, 5);
             this.btnLisaaMokki.Margin = new System.Windows.Forms.Padding(2);
             this.btnLisaaMokki.Name = "btnLisaaMokki";
             this.btnLisaaMokki.Size = new System.Drawing.Size(164, 29);

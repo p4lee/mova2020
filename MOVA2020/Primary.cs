@@ -147,13 +147,13 @@ namespace MOVA2020
             List<Object[]> varausquery = this.Db.SelectQuery("SELECT * FROM varaus");
             foreach(Object[] itemarr in varausquery)
             {
-                List<Palvelu> varauksenpalvelut = new List<Palvelu>();
+                Dictionary<int, int> varauksenpalvelut = new Dictionary<int, int>();
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
                 pairs.Add("$varausid", itemarr[0]);
                 List<Object[]> varauksenpalvelutquery = this.Db.SelectQuery("SELECT * FROM varauksen_palvelut WHERE varaus_id=$varausid", pairs);
                 foreach(Object[] palvelu in varauksenpalvelutquery)
                 {
-                    varauksenpalvelut.Add(Palvelut.Find(i => i.Palvelu_id == (long)palvelu[0]));
+                    varauksenpalvelut.Add((int)(long)palvelu[1], (int)(long)palvelu[2]);
                 }
                 
                 Asiakas a = Asiakkaat.Find(i => i.Asiakas_id == (long)itemarr[1]);

@@ -45,15 +45,34 @@ namespace MOVA2020.forms
             if(dgvVaraukset.SelectedRows.Count > 0)
             {
                 btnPoistaVaraus.Enabled = true;
+                btnMuokkaaVarausta.Enabled = true;
+                btnVaraustiedot.Enabled = true;
             } else
             {
                 btnPoistaVaraus.Enabled = false;
+                btnMuokkaaVarausta.Enabled = false;
+                btnVaraustiedot.Enabled = false;
             }
         }
 
         private void btnLisaaVaraus_Click(object sender, EventArgs e)
         {
+            Varauksenlisays vl = new Varauksenlisays(this, this.paalomake, this.asiakas);
+            vl.Show();
+        }
 
+        private void btnMuokkaaVarausta_Click(object sender, EventArgs e)
+        {
+            Varaus v = (Varaus)dgvVaraukset.SelectedRows[0].DataBoundItem;
+            Varauksenlisays vm = new Varauksenlisays(this, this.paalomake, this.asiakas, v);
+            vm.Show();
+        }
+
+        private void btnVaraustiedot_Click(object sender, EventArgs e)
+        {
+            Varaus v = (Varaus)dgvVaraukset.SelectedRows[0].DataBoundItem;
+            Varauksentiedot vt = new Varauksentiedot(this.paalomake, v);
+            vt.Show();
         }
     }
 }

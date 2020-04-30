@@ -67,14 +67,9 @@ namespace MOVA2020.objs
                 {
                     command.Parameters.AddWithValue(kvp.Key, kvp.Value);
                 }
-                try
-                {
+
                     ret = command.ExecuteNonQuery();
-                }
-                catch (SqliteException)
-                {
-                    ret = -1;
-                }
+
                 conn.Close();
             }
             return ret;

@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MOVA2020.objs.dbitems;
+using MOVA2020.objs;
 namespace MOVA2020.forms
 {
     public partial class Varausmuokkaus : Form
     {
-        public Varausmuokkaus()
+        public Varausmuokkaus(Primary p, Varaus v)
         {
             InitializeComponent();
             this.btmuokkaa.Text = "Muokkaa varausta";

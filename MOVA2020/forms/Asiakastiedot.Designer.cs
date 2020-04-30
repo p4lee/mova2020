@@ -45,6 +45,8 @@
             this.tbPostinumero = new System.Windows.Forms.TextBox();
             this.tbPuhnro = new System.Windows.Forms.TextBox();
             this.tbSahkoposti = new System.Windows.Forms.TextBox();
+            this.btnMuokkaaVarausta = new System.Windows.Forms.Button();
+            this.btnVaraustiedot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraukset)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,21 +57,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVaraukset.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVaraukset.Location = new System.Drawing.Point(268, 12);
+            this.dgvVaraukset.Location = new System.Drawing.Point(386, 12);
             this.dgvVaraukset.MultiSelect = false;
             this.dgvVaraukset.Name = "dgvVaraukset";
             this.dgvVaraukset.ReadOnly = true;
             this.dgvVaraukset.RowHeadersVisible = false;
-            this.dgvVaraukset.Size = new System.Drawing.Size(520, 426);
+            this.dgvVaraukset.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVaraukset.Size = new System.Drawing.Size(608, 426);
             this.dgvVaraukset.TabIndex = 0;
             this.dgvVaraukset.Click += new System.EventHandler(this.dgvVaraukset_Click);
             // 
             // btnLisaaVaraus
             // 
             this.btnLisaaVaraus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLisaaVaraus.Location = new System.Drawing.Point(137, 409);
+            this.btnLisaaVaraus.Location = new System.Drawing.Point(235, 409);
             this.btnLisaaVaraus.Name = "btnLisaaVaraus";
-            this.btnLisaaVaraus.Size = new System.Drawing.Size(125, 29);
+            this.btnLisaaVaraus.Size = new System.Drawing.Size(145, 29);
             this.btnLisaaVaraus.TabIndex = 1;
             this.btnLisaaVaraus.Text = "Lisää Varaus";
             this.btnLisaaVaraus.UseVisualStyleBackColor = true;
@@ -151,7 +154,7 @@
             this.btnPoistaVaraus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnPoistaVaraus.Location = new System.Drawing.Point(6, 409);
             this.btnPoistaVaraus.Name = "btnPoistaVaraus";
-            this.btnPoistaVaraus.Size = new System.Drawing.Size(125, 29);
+            this.btnPoistaVaraus.Size = new System.Drawing.Size(154, 29);
             this.btnPoistaVaraus.TabIndex = 9;
             this.btnPoistaVaraus.Text = "Poista Varaus";
             this.btnPoistaVaraus.UseVisualStyleBackColor = true;
@@ -212,11 +215,37 @@
             this.tbSahkoposti.Size = new System.Drawing.Size(222, 20);
             this.tbSahkoposti.TabIndex = 16;
             // 
+            // btnMuokkaaVarausta
+            // 
+            this.btnMuokkaaVarausta.Enabled = false;
+            this.btnMuokkaaVarausta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnMuokkaaVarausta.Location = new System.Drawing.Point(6, 374);
+            this.btnMuokkaaVarausta.Name = "btnMuokkaaVarausta";
+            this.btnMuokkaaVarausta.Size = new System.Drawing.Size(154, 29);
+            this.btnMuokkaaVarausta.TabIndex = 17;
+            this.btnMuokkaaVarausta.Text = "Muokkaa Varausta";
+            this.btnMuokkaaVarausta.UseVisualStyleBackColor = true;
+            this.btnMuokkaaVarausta.Click += new System.EventHandler(this.btnMuokkaaVarausta_Click);
+            // 
+            // btnVaraustiedot
+            // 
+            this.btnVaraustiedot.Enabled = false;
+            this.btnVaraustiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnVaraustiedot.Location = new System.Drawing.Point(235, 374);
+            this.btnVaraustiedot.Name = "btnVaraustiedot";
+            this.btnVaraustiedot.Size = new System.Drawing.Size(145, 29);
+            this.btnVaraustiedot.TabIndex = 18;
+            this.btnVaraustiedot.Text = "Varauksen tiedot";
+            this.btnVaraustiedot.UseVisualStyleBackColor = true;
+            this.btnVaraustiedot.Click += new System.EventHandler(this.btnVaraustiedot_Click);
+            // 
             // Asiakastiedot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1006, 450);
+            this.Controls.Add(this.btnVaraustiedot);
+            this.Controls.Add(this.btnMuokkaaVarausta);
             this.Controls.Add(this.tbSahkoposti);
             this.Controls.Add(this.tbPuhnro);
             this.Controls.Add(this.tbPostinumero);
@@ -261,5 +290,7 @@
         private System.Windows.Forms.TextBox tbPostinumero;
         private System.Windows.Forms.TextBox tbPuhnro;
         private System.Windows.Forms.TextBox tbSahkoposti;
+        private System.Windows.Forms.Button btnMuokkaaVarausta;
+        private System.Windows.Forms.Button btnVaraustiedot;
     }
 }

@@ -54,13 +54,19 @@
             // 
             // dgvVaraukset
             // 
+            this.dgvVaraukset.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVaraukset.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVaraukset.Location = new System.Drawing.Point(351, 30);
             this.dgvVaraukset.MultiSelect = false;
             this.dgvVaraukset.Name = "dgvVaraukset";
+            this.dgvVaraukset.ReadOnly = true;
             this.dgvVaraukset.RowHeadersVisible = false;
+            this.dgvVaraukset.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVaraukset.Size = new System.Drawing.Size(437, 408);
             this.dgvVaraukset.TabIndex = 2;
+            this.dgvVaraukset.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvVaraukset_ColumnHeaderMouseClick);
             // 
             // lblVaraukset
             // 

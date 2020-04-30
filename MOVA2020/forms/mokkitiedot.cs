@@ -43,5 +43,74 @@ namespace MOVA2020.forms
             dgvVaraukset.DataSource = this.Varaukset;
         }
         public List<Varaus> Varaukset => p.Varaukset.FindAll(i => i.Mokki.Mokki_id == this.m.Mokki_id);
+
+        private void dgvVaraukset_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+            string column = grid.Columns[e.ColumnIndex].Name;
+            if (column.Equals("Varattu_pvm"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvVaraukset.DataSource = null;
+                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Varattu_pvm).ToList();
+                }
+                else
+                {
+                    dgvVaraukset.DataSource = null;
+                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Varattu_pvm).ToList();
+                }
+            } else if(column.Equals("Vahvistus_pvm"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvVaraukset.DataSource = null;
+                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Vahvistus_pvm).ToList();
+                }
+                else
+                {
+                    dgvVaraukset.DataSource = null;
+                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Vahvistus_pvm).ToList();
+                }
+            }
+            else if (column.Equals("Varattu_alkupvm"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvVaraukset.DataSource = null;
+                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Varattu_alkupvm).ToList();
+                }
+                else
+                {
+                    dgvVaraukset.DataSource = null;
+                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Varattu_alkupvm).ToList();
+                }
+            }
+            else if (column.Equals("Varattu_loppupvm"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvVaraukset.DataSource = null;
+                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Varattu_loppupvm).ToList();
+                }
+                else
+                {
+                    dgvVaraukset.DataSource = null;
+                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Varattu_loppupvm).ToList();
+                }
+            }
+            
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
     }
 }

@@ -131,12 +131,6 @@
     <Compile Include="forms\Varauksenlisays.Designer.cs">
       <DependentUpon>Varauksenlisays.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Varauksenperuminen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\Varauksenperuminen.Designer.cs">
-      <DependentUpon>Varauksenperuminen.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\Varausasiakastiedot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,9 +185,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Varauksenlisays.resx">
       <DependentUpon>Varauksenlisays.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\Varauksenperuminen.resx">
-      <DependentUpon>Varauksenperuminen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Varausasiakastiedot.resx">
       <DependentUpon>Varausasiakastiedot.cs</DependentUpon>
