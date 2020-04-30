@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MOVA2020.objs.dbitems;
 namespace MOVA2020.forms
 {
-    public partial class Varauksenlisays : Form
+    public partial class Varauksenmuokkaus : Form
     {
         public struct VarauksenPalvelu
         {
@@ -26,7 +26,7 @@ namespace MOVA2020.forms
         private Asiakastiedot att;
         private Asiakas a;
         private Varaus v = null;
-        public Varauksenlisays(Asiakastiedot att, Primary p, Asiakas a)
+        public Varauksenmuokkaus(Asiakastiedot att, Primary p, Asiakas a)
         {
             this.att = att;
             this.lomake = p;
@@ -37,7 +37,7 @@ namespace MOVA2020.forms
             this.Text = "Varauksen lisäys";
             this.btvaraus.Text = "Tee varaus";
         }
-        public Varauksenlisays(Asiakastiedot att, Primary p, Asiakas a, Varaus v)
+        public Varauksenmuokkaus(Asiakastiedot att, Primary p, Asiakas a, Varaus v)
         {
             this.att = att;
             this.lomake = p;
@@ -52,6 +52,22 @@ namespace MOVA2020.forms
             CBMokki.Enabled = false;
             this.Text = "Varauksen muokkaus";
             this.btvaraus.Text = "Muokkaa varausta";
+
+            calVaraus.SelectionRange.Start = this.v.Varattu_alkupvm;
+            calVaraus.SelectionRange.End = this.v.Varattu_loppupvm;
+
+            foreach(KeyValuePair<int, int> item in v.Varauksenpalvelut)
+            {
+                Palvelu pp = this.lomake.Palvelut.Find(i => i.Palvelu_id == item.Key);
+                VarauksenPalvelu vp;
+                vp.p = pp;
+                vp.lkm = item.Value;
+                lbVarauksenPalvelut.Items.Add(vp);
+            }
+
+
+
+
         }
         public void paivita()
         {
@@ -64,7 +80,7 @@ namespace MOVA2020.forms
                 string query;
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
                 pairs.Add("$asiakas", a.Asiakas_id);
-                pairs.Add("$mokki_id", this.lomake.Mokit[this.CBMokki.SelectedIndex].Mokki_id);
+                pairs.Add("$mokki_id", ((Mokki)this.CBMokki.SelectedItem).Mokki_id);
                 pairs.Add("$varattu_pvm", DateTime.Now);
                 pairs.Add("$varaus_alkupvm", calVaraus.SelectionRange.Start);
                 pairs.Add("$varaus_loppupvm", calVaraus.SelectionRange.End);
@@ -79,7 +95,7 @@ namespace MOVA2020.forms
                         this.lomake.Db.DMquery(query, pairs);
                         this.paivita();
 
-                        Varaus vt = this.lomake.Varaukset.Find(i => i.Asiakas.Asiakas_id == a.Asiakas_id && i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id && i.Varattu_alkupvm.Equals(calVaraus.SelectionRange.Start) && i.Varattu_loppupvm.Equals(calVaraus.SelectionRange.End));
+                        Varaus vt = this.lomake.Varaukset.Find(i => i.Asiakas.Asiakas_id == a.Asiakas_id && i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id && i.Varattu_alkupvm == calVaraus.SelectionRange.Start && i.Varattu_loppupvm == calVaraus.SelectionRange.End);
                         string query2 = "INSERT INTO varauksen_palvelut(varaus_id, palvelu_id, lkm) VALUES($varaus_id, $palvelu_id, $lkm)";
                         Dictionary<string, object> pairs2 = new Dictionary<string, object>();
                         foreach (VarauksenPalvelu pari in lbVarauksenPalvelut.Items)
@@ -211,7 +227,7 @@ namespace MOVA2020.forms
             if (CBMokki.SelectedIndex != -1)
             {
                 Mokki m = (Mokki)CBMokki.SelectedItem;
-                mokkitiedot mt = new mokkitiedot(this.lomake, m);
+                Mokkitiedot mt = new Mokkitiedot(this.lomake, m);
                 mt.Show();
             }
         }

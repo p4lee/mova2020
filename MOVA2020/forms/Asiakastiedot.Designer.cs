@@ -158,6 +158,7 @@
             this.btnPoistaVaraus.TabIndex = 9;
             this.btnPoistaVaraus.Text = "Poista Varaus";
             this.btnPoistaVaraus.UseVisualStyleBackColor = true;
+            this.btnPoistaVaraus.Click += new System.EventHandler(this.btnPoistaVaraus_Click);
             // 
             // tbSukunimi
             // 

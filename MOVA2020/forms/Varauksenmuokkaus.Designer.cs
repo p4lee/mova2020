@@ -1,6 +1,6 @@
 ﻿namespace MOVA2020.forms
 {
-    partial class Varauksenlisays
+    partial class Varauksenmuokkaus
     {
         /// <summary>
         /// Required designer variable.
@@ -72,7 +72,7 @@
             // lblmokki
             // 
             this.lblmokki.AutoSize = true;
-            this.lblmokki.Location = new System.Drawing.Point(4, 167);
+            this.lblmokki.Location = new System.Drawing.Point(241, 9);
             this.lblmokki.Name = "lblmokki";
             this.lblmokki.Size = new System.Drawing.Size(44, 17);
             this.lblmokki.TabIndex = 5;
@@ -82,7 +82,7 @@
             // 
             this.CBMokki.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBMokki.FormattingEnabled = true;
-            this.CBMokki.Location = new System.Drawing.Point(7, 187);
+            this.CBMokki.Location = new System.Drawing.Point(244, 29);
             this.CBMokki.Name = "CBMokki";
             this.CBMokki.Size = new System.Drawing.Size(230, 24);
             this.CBMokki.Sorted = true;
@@ -109,7 +109,7 @@
             // btnLisaa
             // 
             this.btnLisaa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLisaa.Location = new System.Drawing.Point(244, 32);
+            this.btnLisaa.Location = new System.Drawing.Point(244, 114);
             this.btnLisaa.Name = "btnLisaa";
             this.btnLisaa.Size = new System.Drawing.Size(74, 70);
             this.btnLisaa.TabIndex = 15;
@@ -120,7 +120,7 @@
             // btnPoista
             // 
             this.btnPoista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnPoista.Location = new System.Drawing.Point(324, 32);
+            this.btnPoista.Location = new System.Drawing.Point(324, 114);
             this.btnPoista.Name = "btnPoista";
             this.btnPoista.Size = new System.Drawing.Size(70, 70);
             this.btnPoista.TabIndex = 16;
@@ -132,14 +132,14 @@
             // 
             this.cbPalvelut.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPalvelut.FormattingEnabled = true;
-            this.cbPalvelut.Location = new System.Drawing.Point(7, 32);
+            this.cbPalvelut.Location = new System.Drawing.Point(7, 162);
             this.cbPalvelut.Name = "cbPalvelut";
             this.cbPalvelut.Size = new System.Drawing.Size(230, 24);
             this.cbPalvelut.TabIndex = 17;
             // 
             // nmrLukumaara
             // 
-            this.nmrLukumaara.Location = new System.Drawing.Point(7, 79);
+            this.nmrLukumaara.Location = new System.Drawing.Point(7, 116);
             this.nmrLukumaara.Name = "nmrLukumaara";
             this.nmrLukumaara.Size = new System.Drawing.Size(230, 23);
             this.nmrLukumaara.TabIndex = 18;
@@ -147,7 +147,7 @@
             // lblLukumäärä
             // 
             this.lblLukumäärä.AutoSize = true;
-            this.lblLukumäärä.Location = new System.Drawing.Point(4, 59);
+            this.lblLukumäärä.Location = new System.Drawing.Point(4, 96);
             this.lblLukumäärä.Name = "lblLukumäärä";
             this.lblLukumäärä.Size = new System.Drawing.Size(79, 17);
             this.lblLukumäärä.TabIndex = 19;
@@ -156,7 +156,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 9);
+            this.label3.Location = new System.Drawing.Point(5, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 20;
@@ -166,7 +166,7 @@
             // 
             this.cbToimintaalueet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbToimintaalueet.FormattingEnabled = true;
-            this.cbToimintaalueet.Location = new System.Drawing.Point(8, 143);
+            this.cbToimintaalueet.Location = new System.Drawing.Point(8, 29);
             this.cbToimintaalueet.Name = "cbToimintaalueet";
             this.cbToimintaalueet.Size = new System.Drawing.Size(229, 24);
             this.cbToimintaalueet.TabIndex = 21;
@@ -175,7 +175,7 @@
             // lblToimintaalue
             // 
             this.lblToimintaalue.AutoSize = true;
-            this.lblToimintaalue.Location = new System.Drawing.Point(4, 123);
+            this.lblToimintaalue.Location = new System.Drawing.Point(5, 9);
             this.lblToimintaalue.Name = "lblToimintaalue";
             this.lblToimintaalue.Size = new System.Drawing.Size(94, 17);
             this.lblToimintaalue.TabIndex = 22;
@@ -194,15 +194,15 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(244, 187);
+            this.button1.Location = new System.Drawing.Point(244, 59);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 24);
+            this.button1.Size = new System.Drawing.Size(230, 24);
             this.button1.TabIndex = 24;
             this.button1.Text = "Mökin tiedot";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnMokintiedot_Click);
             // 
-            // Varauksenlisays
+            // Varauksenmuokkaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -225,7 +225,7 @@
             this.Controls.Add(this.lblVaraus);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Varauksenlisays";
+            this.Name = "Varauksenmuokkaus";
             this.Text = "Varauksen lisäys";
             ((System.ComponentModel.ISupportInitialize)(this.nmrLukumaara)).EndInit();
             this.ResumeLayout(false);

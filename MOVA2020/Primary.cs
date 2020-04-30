@@ -196,14 +196,14 @@ namespace MOVA2020
         private void btnLisaaMokki_Click(object sender, EventArgs e)
         {
             //aukaisee mokkimuokkaus filen
-            mokkimuokkaus lisaamokki = new mokkimuokkaus(this);
+            Mokkimuokkaus lisaamokki = new Mokkimuokkaus(this);
             lisaamokki.ShowDialog();
         }
 
         private void btnMuokkaaMokki_Click(object sender, EventArgs e)
         {
             //aukaiseen mokkimuokkaus filen valitun mokin tiedoista
-            mokkimuokkaus mokkimuokkaus = new mokkimuokkaus(this, (Mokki)dgvMokit.SelectedRows[0].DataBoundItem);
+            Mokkimuokkaus mokkimuokkaus = new Mokkimuokkaus(this, (Mokki)dgvMokit.SelectedRows[0].DataBoundItem);
             mokkimuokkaus.ShowDialog();
         }
 
@@ -218,7 +218,7 @@ namespace MOVA2020
         private void btnMokinTiedot_Click(object sender, EventArgs e)
         {
             Mokki mokki = (Mokki)dgvMokit.SelectedRows[0].DataBoundItem;
-            mokkitiedot mokkitiedotjapalvelut = new mokkitiedot(this, mokki);
+            Mokkitiedot mokkitiedotjapalvelut = new Mokkitiedot(this, mokki);
             mokkitiedotjapalvelut.ShowDialog();
         }
 

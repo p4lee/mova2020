@@ -95,17 +95,17 @@
     <Compile Include="forms\Asiakasmuokkaus.Designer.cs">
       <DependentUpon>Asiakasmuokkaus.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\mokkitiedot.cs">
+    <Compile Include="forms\Mokkitiedot.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\mokkitiedot.Designer.cs">
-      <DependentUpon>mokkitiedot.cs</DependentUpon>
+    <Compile Include="forms\Mokkitiedot.Designer.cs">
+      <DependentUpon>Mokkitiedot.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\mokkimuokkaus.cs">
+    <Compile Include="forms\Mokkimuokkaus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\mokkimuokkaus.Designer.cs">
-      <DependentUpon>mokkimuokkaus.cs</DependentUpon>
+    <Compile Include="forms\Mokkimuokkaus.Designer.cs">
+      <DependentUpon>Mokkimuokkaus.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\Palvelunmuokkaus.cs">
       <SubType>Form</SubType>
@@ -125,23 +125,11 @@
     <Compile Include="forms\varmennus_kysely_poistosta.Designer.cs">
       <DependentUpon>varmennus_kysely_poistosta.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Varauksenlisays.cs">
+    <Compile Include="forms\Varauksenmuokkaus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Varauksenlisays.Designer.cs">
-      <DependentUpon>Varauksenlisays.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\Varausasiakastiedot.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\Varausasiakastiedot.Designer.cs">
-      <DependentUpon>Varausasiakastiedot.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\Varausmuokkaus.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\Varausmuokkaus.Designer.cs">
-      <DependentUpon>Varausmuokkaus.cs</DependentUpon>
+    <Compile Include="forms\Varauksenmuokkaus.Designer.cs">
+      <DependentUpon>Varauksenmuokkaus.cs</DependentUpon>
     </Compile>
     <Compile Include="objs\DBHandler.cs" />
     <Compile Include="objs\dbitems\Asiakas.cs" />
@@ -168,11 +156,11 @@
     <EmbeddedResource Include="forms\Asiakasmuokkaus.resx">
       <DependentUpon>Asiakasmuokkaus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\mokkimuokkaus.resx">
-      <DependentUpon>mokkimuokkaus.cs</DependentUpon>
+    <EmbeddedResource Include="forms\Mokkimuokkaus.resx">
+      <DependentUpon>Mokkimuokkaus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\mokkitiedot.resx">
-      <DependentUpon>mokkitiedot.cs</DependentUpon>
+    <EmbeddedResource Include="forms\Mokkitiedot.resx">
+      <DependentUpon>Mokkitiedot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Palvelunmuokkaus.resx">
       <DependentUpon>Palvelunmuokkaus.cs</DependentUpon>
@@ -183,14 +171,8 @@
     <EmbeddedResource Include="forms\varmennus_kysely_poistosta.resx">
       <DependentUpon>varmennus_kysely_poistosta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Varauksenlisays.resx">
-      <DependentUpon>Varauksenlisays.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\Varausasiakastiedot.resx">
-      <DependentUpon>Varausasiakastiedot.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\Varausmuokkaus.resx">
-      <DependentUpon>Varausmuokkaus.cs</DependentUpon>
+    <EmbeddedResource Include="forms\Varauksenmuokkaus.resx">
+      <DependentUpon>Varauksenmuokkaus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Primary.resx">
       <DependentUpon>Primary.cs</DependentUpon>

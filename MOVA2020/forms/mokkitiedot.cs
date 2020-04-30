@@ -11,11 +11,11 @@ using MOVA2020;
 using MOVA2020.objs.dbitems;
 namespace MOVA2020.forms
 {
-    public partial class mokkitiedot : Form
+    public partial class Mokkitiedot : Form
     {
         private Primary p;
         private Mokki m;
-        public mokkitiedot(Primary p, Mokki m)
+        public Mokkitiedot(Primary p, Mokki m)
         {
             InitializeComponent();
             this.p = p;

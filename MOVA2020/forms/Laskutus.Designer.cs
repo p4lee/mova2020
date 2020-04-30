@@ -40,7 +40,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblIBAN = new System.Windows.Forms.Label();
             this.TByht = new System.Windows.Forms.TextBox();
-            this.DGVlaskutus = new System.Windows.Forms.DataGridView();
             this.lblyht = new System.Windows.Forms.Label();
             this.TBerapvm = new System.Windows.Forms.TextBox();
             this.TBpvm = new System.Windows.Forms.TextBox();
@@ -58,14 +57,16 @@
             this.btlaheta = new System.Windows.Forms.Button();
             this.bttulosta = new System.Windows.Forms.Button();
             this.btnVaraustiedot = new System.Windows.Forms.Button();
+            this.btnVarmenna = new System.Windows.Forms.Button();
+            this.TBLaskutus = new System.Windows.Forms.TextBox();
             this.pllasku.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVlaskutus)).BeginInit();
             this.SuspendLayout();
             // 
             // pllasku
             // 
             this.pllasku.AccessibleDescription = "";
             this.pllasku.BackColor = System.Drawing.Color.White;
+            this.pllasku.Controls.Add(this.TBLaskutus);
             this.pllasku.Controls.Add(this.textBox5);
             this.pllasku.Controls.Add(this.textBox4);
             this.pllasku.Controls.Add(this.textBox3);
@@ -77,7 +78,6 @@
             this.pllasku.Controls.Add(this.label2);
             this.pllasku.Controls.Add(this.lblIBAN);
             this.pllasku.Controls.Add(this.TByht);
-            this.pllasku.Controls.Add(this.DGVlaskutus);
             this.pllasku.Controls.Add(this.lblyht);
             this.pllasku.Controls.Add(this.TBerapvm);
             this.pllasku.Controls.Add(this.TBpvm);
@@ -186,18 +186,6 @@
             this.TByht.ReadOnly = true;
             this.TByht.Size = new System.Drawing.Size(72, 23);
             this.TByht.TabIndex = 16;
-            // 
-            // DGVlaskutus
-            // 
-            this.DGVlaskutus.BackgroundColor = System.Drawing.Color.White;
-            this.DGVlaskutus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVlaskutus.GridColor = System.Drawing.Color.White;
-            this.DGVlaskutus.Location = new System.Drawing.Point(17, 344);
-            this.DGVlaskutus.Name = "DGVlaskutus";
-            this.DGVlaskutus.RowHeadersWidth = 51;
-            this.DGVlaskutus.RowTemplate.Height = 24;
-            this.DGVlaskutus.Size = new System.Drawing.Size(555, 298);
-            this.DGVlaskutus.TabIndex = 15;
             // 
             // lblyht
             // 
@@ -348,11 +336,32 @@
             this.btnVaraustiedot.UseVisualStyleBackColor = true;
             this.btnVaraustiedot.Click += new System.EventHandler(this.btnVaraustiedot_Click);
             // 
+            // btnVarmenna
+            // 
+            this.btnVarmenna.Enabled = false;
+            this.btnVarmenna.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnVarmenna.Location = new System.Drawing.Point(415, 899);
+            this.btnVarmenna.Name = "btnVarmenna";
+            this.btnVarmenna.Size = new System.Drawing.Size(189, 37);
+            this.btnVarmenna.TabIndex = 4;
+            this.btnVarmenna.Text = "Maksun varmennus";
+            this.btnVarmenna.UseVisualStyleBackColor = true;
+            this.btnVarmenna.Click += new System.EventHandler(this.btnVarmenna_Click);
+            // 
+            // TBLaskutus
+            // 
+            this.TBLaskutus.Location = new System.Drawing.Point(17, 345);
+            this.TBLaskutus.Multiline = true;
+            this.TBLaskutus.Name = "TBLaskutus";
+            this.TBLaskutus.Size = new System.Drawing.Size(557, 297);
+            this.TBLaskutus.TabIndex = 27;
+            // 
             // Laskutus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 920);
+            this.ClientSize = new System.Drawing.Size(616, 938);
+            this.Controls.Add(this.btnVarmenna);
             this.Controls.Add(this.btnVaraustiedot);
             this.Controls.Add(this.bttulosta);
             this.Controls.Add(this.btlaheta);
@@ -363,7 +372,6 @@
             this.Text = "Laskutus";
             this.pllasku.ResumeLayout(false);
             this.pllasku.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVlaskutus)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,7 +395,6 @@
         private System.Windows.Forms.Button btlaheta;
         private System.Windows.Forms.Button bttulosta;
         private System.Windows.Forms.Label lblyht;
-        private System.Windows.Forms.DataGridView DGVlaskutus;
         private System.Windows.Forms.TextBox TByht;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
@@ -400,5 +407,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblIBAN;
         private System.Windows.Forms.Button btnVaraustiedot;
+        private System.Windows.Forms.Button btnVarmenna;
+        private System.Windows.Forms.TextBox TBLaskutus;
     }
 }

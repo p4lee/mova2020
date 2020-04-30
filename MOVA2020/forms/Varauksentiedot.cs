@@ -37,7 +37,7 @@ namespace MOVA2020.forms
 
         private void btnMokintiedot_Click(object sender, EventArgs e)
         {
-            mokkitiedot mt = new mokkitiedot(this.p, this.varaus.Mokki);
+            Mokkitiedot mt = new Mokkitiedot(this.p, this.varaus.Mokki);
             mt.Show();
         }
     }

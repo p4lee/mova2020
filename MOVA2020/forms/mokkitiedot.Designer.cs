@@ -1,6 +1,6 @@
 ﻿namespace MOVA2020.forms
 {
-    partial class mokkitiedot
+    partial class Mokkitiedot
     {
         /// <summary>
         /// Required designer variable.

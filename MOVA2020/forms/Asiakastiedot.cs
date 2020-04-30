@@ -57,15 +57,22 @@ namespace MOVA2020.forms
 
         private void btnLisaaVaraus_Click(object sender, EventArgs e)
         {
-            Varauksenlisays vl = new Varauksenlisays(this, this.paalomake, this.asiakas);
+            Varauksenmuokkaus vl = new Varauksenmuokkaus(this, this.paalomake, this.asiakas);
             vl.Show();
         }
 
         private void btnMuokkaaVarausta_Click(object sender, EventArgs e)
         {
+
             Varaus v = (Varaus)dgvVaraukset.SelectedRows[0].DataBoundItem;
-            Varauksenlisays vm = new Varauksenlisays(this, this.paalomake, this.asiakas, v);
-            vm.Show();
+            if (!v.Vahvistus_pvm.Equals(DateTime.Parse("1970-01-01 00:00:00")))
+            {
+                Varauksenmuokkaus vm = new Varauksenmuokkaus(this, this.paalomake, this.asiakas, v);
+                vm.Show();
+            } else
+            {
+                MessageBox.Show("Varaus on jo maksettu ja ei voida enään muuttaa!", "Varauksen muokkaaminen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnVaraustiedot_Click(object sender, EventArgs e)
@@ -73,6 +80,20 @@ namespace MOVA2020.forms
             Varaus v = (Varaus)dgvVaraukset.SelectedRows[0].DataBoundItem;
             Varauksentiedot vt = new Varauksentiedot(this.paalomake, v);
             vt.Show();
+        }
+
+        private void btnPoistaVaraus_Click(object sender, EventArgs e)
+        {
+            Varaus v = (Varaus)dgvVaraukset.SelectedRows[0].DataBoundItem;
+            DialogResult dr = MessageBox.Show("Haluatko poistaa varauksen " + v.Mokki.Mokkinimi + " " + " ?", "Poista Varaus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                Dictionary<string, object> pairs = new Dictionary<string, object>();
+                pairs.Add("$varaus_id", v.Varaus_id);
+                string query = "DELETE FROM varaus WHERE varaus_id = $varaus_id";
+                this.paalomake.Db.DMquery(query, pairs);
+                this.paivita();
+            }
         }
     }
 }
