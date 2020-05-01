@@ -111,7 +111,7 @@
             this.btnLisaa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnLisaa.Location = new System.Drawing.Point(244, 114);
             this.btnLisaa.Name = "btnLisaa";
-            this.btnLisaa.Size = new System.Drawing.Size(74, 70);
+            this.btnLisaa.Size = new System.Drawing.Size(106, 70);
             this.btnLisaa.TabIndex = 15;
             this.btnLisaa.Text = "+";
             this.btnLisaa.UseVisualStyleBackColor = true;
@@ -120,9 +120,9 @@
             // btnPoista
             // 
             this.btnPoista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnPoista.Location = new System.Drawing.Point(324, 114);
+            this.btnPoista.Location = new System.Drawing.Point(356, 114);
             this.btnPoista.Name = "btnPoista";
-            this.btnPoista.Size = new System.Drawing.Size(70, 70);
+            this.btnPoista.Size = new System.Drawing.Size(110, 70);
             this.btnPoista.TabIndex = 16;
             this.btnPoista.Text = "-";
             this.btnPoista.UseVisualStyleBackColor = true;
@@ -190,7 +190,6 @@
             this.calVaraus.MinDate = new System.DateTime(2020, 5, 1, 0, 0, 0, 0);
             this.calVaraus.Name = "calVaraus";
             this.calVaraus.TabIndex = 23;
-            this.calVaraus.TodayDate = new System.DateTime(2020, 4, 30, 0, 0, 0, 0);
             // 
             // button1
             // 
