@@ -12,13 +12,13 @@ using MOVA2020.objs.dbitems;
 
 namespace MOVA2020.forms
 {
-    public partial class mokkimuokkaus : Form
+    public partial class Mokkimuokkaus : Form
     {
         //fix
         Primary p;
         Mokki m;
 
-        public mokkimuokkaus(Primary pr)
+        public Mokkimuokkaus(Primary pr)
         {
             this.Text = "Mökin lisäys";
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace MOVA2020.forms
             cbToimialue.DataSource = this.p.Toimintaalueet;
             this.btnMokinLisays.Text = "Lisää Mökki";
         }
-        public mokkimuokkaus(Primary pr, Mokki mo)
+        public Mokkimuokkaus(Primary pr, Mokki mo)
         {
             this.Text = "Muokkaa mökkiä";
             InitializeComponent();
