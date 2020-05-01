@@ -8,91 +8,92 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MOVA2020.objs.dbitems;
+using MOVA2020.objs;
+using MOVA2020;
 namespace MOVA2020.forms
 {
     public partial class Asiakastiedot : Form
     {
-        Primary pri;
-        private Asiakas asiakas;        
-       
-
-        public Asiakastiedot(Primary t, Asiakas asiakas)
+        private Asiakas asiakas;
+        private Primary paalomake;
+        public Asiakastiedot(Primary p, Asiakas a)
         {
+            this.asiakas = a;
+            this.paalomake = p;
             InitializeComponent();
-            pri = t;
-            this.asiakas = asiakas;
-            
-            tbEtunimi.Text = asiakas.Etunimi;
-            tbSukunimi.Text = asiakas.Sukunimi;
-            tbLahiosoite.Text = asiakas.Lahiosoite;           
-            tbPostinumero.Text = asiakas.Posti.Postinro; //tätä herjaa kun painaa muokkaa!
-            tbPostitoimipaikka.Text = asiakas.Posti.Toimipaikka; //tätä herjaa kun painaa muokkaa!
-            tbPuhelinnumero.Text = asiakas.Puhelinnro;
-            tbSahkopostiosoite.Text = asiakas.Email;  
+            tbEtunimi.Text = a.Etunimi;
+            tbSukunimi.Text = a.Sukunimi;
+
+            tbKatuosoite.Text = a.Lahiosoite;
+            tbPaikkakunta.Text = a.Posti.Toimipaikka;
+            tbPostinumero.Text = a.Posti.Postinro;
+
+            tbPuhnro.Text = a.Puhelinnro;
+            tbSahkoposti.Text = a.Email;
+
+            this.paivita();
         }
-
-
-        public Asiakastiedot(Primary t) //luotu uusi konstruktori
+        public void paivita()
         {
-            InitializeComponent();
-            pri = t;           
+            this.paalomake.paivita();
+            dgvVaraukset.DataSource = null;
+            dgvVaraukset.DataSource = this.HaeVaraukset;
         }
-
-
-        private void tbPostinumero_KeyPress(object sender, KeyPressEventArgs e)
+        private List<Varaus> HaeVaraukset => this.paalomake.Varaukset.FindAll(i => i.Asiakas.Asiakas_id == this.asiakas.Asiakas_id);
+        private void dgvVaraukset_Click(object sender, EventArgs e)
         {
-            if ((char.IsControl(e.KeyChar)) | (char.IsNumber(e.KeyChar)))
+            if(dgvVaraukset.SelectedRows.Count > 0)
             {
-                e.Handled = false;
-            }
-            else
+                btnPoistaVaraus.Enabled = true;
+                btnMuokkaaVarausta.Enabled = true;
+                btnVaraustiedot.Enabled = true;
+            } else
             {
-                e.Handled = true;
+                btnPoistaVaraus.Enabled = false;
+                btnMuokkaaVarausta.Enabled = false;
+                btnVaraustiedot.Enabled = false;
             }
         }
 
-
-        private void btTallenna_Click(object sender, EventArgs e)
+        private void btnLisaaVaraus_Click(object sender, EventArgs e)
         {
-            Posti posti2 = new Posti(tbPostinumero.Text, tbPostitoimipaikka.Text);
-        
-            //if (asiakas == null)
-            //{
-                asiakas = new Asiakas(999, tbEtunimi.Text, tbSukunimi.Text,
-                    tbLahiosoite.Text, tbSahkopostiosoite.Text,tbPuhelinnumero.Text, posti2); //uusi olio
-                
-                pri.paivita();
-                MessageBox.Show("Uusi asiakas tallennettu.");
-                this.Close();
-
-            //}
-            //else
-            //{
-            //    asiakas = new Asiakas(999, tbEtunimi.Text, tbSukunimi.Text, 
-            //        tbLahiosoite.Text, tbSahkopostiosoite.Text, tbPuhelinnumero.Text, posti2);
-                
-            //    asiakas.Etunimi = tbEtunimi.Text; 
-            //    asiakas.Sukunimi = tbSukunimi.Text;
-            //    asiakas.Lahiosoite = tbLahiosoite.Text;
-            //    asiakas.Email = tbSahkopostiosoite.Text;
-            //    asiakas.Puhelinnro = tbPuhelinnumero.Text;
-
-            //    pri.paivita();
-            //    MessageBox.Show("Uusi asiakas tallennettu.");
-            //    this.Close();
-
-            //} 
+            Varauksenmuokkaus vl = new Varauksenmuokkaus(this, this.paalomake, this.asiakas);
+            vl.Show();
         }
 
-
-        private void btPeruuta_Click(object sender, EventArgs e)
+        private void btnMuokkaaVarausta_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+            Varaus v = (Varaus)dgvVaraukset.SelectedRows[0].DataBoundItem;
+            if (!v.Vahvistus_pvm.Equals(DateTime.Parse("1970-01-01 00:00:00")))
+            {
+                Varauksenmuokkaus vm = new Varauksenmuokkaus(this, this.paalomake, this.asiakas, v);
+                vm.Show();
+            } else
+            {
+                MessageBox.Show("Varaus on jo maksettu ja ei voida enään muuttaa!", "Varauksen muokkaaminen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
+        private void btnVaraustiedot_Click(object sender, EventArgs e)
+        {
+            Varaus v = (Varaus)dgvVaraukset.SelectedRows[0].DataBoundItem;
+            Varauksentiedot vt = new Varauksentiedot(this.paalomake, v);
+            vt.Show();
+        }
 
-
-
-
+        private void btnPoistaVaraus_Click(object sender, EventArgs e)
+        {
+            Varaus v = (Varaus)dgvVaraukset.SelectedRows[0].DataBoundItem;
+            DialogResult dr = MessageBox.Show("Haluatko poistaa varauksen " + v.Mokki.Mokkinimi + " " + " ?", "Poista Varaus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                Dictionary<string, object> pairs = new Dictionary<string, object>();
+                pairs.Add("$varaus_id", v.Varaus_id);
+                string query = "DELETE FROM varaus WHERE varaus_id = $varaus_id";
+                this.paalomake.Db.DMquery(query, pairs);
+                this.paivita();
+            }
+        }
     }
 }
