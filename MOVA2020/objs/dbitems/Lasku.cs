@@ -20,7 +20,8 @@ namespace MOVA2020.objs.dbitems
             Varaus = varaus;
         }
 
-        public long Lasku_id { get => lasku_id;}
+        public long Lasku_id { get => lasku_id; }
+        public DateTime Erapaiva { get => Varaus.Varattu_pvm.AddDays(14); }
         public double SummaEiAlv { get => summa; set => summa = value; }
         public double Alv { get => alv; set => alv = value; }
         public double Summa { get => alv + summa; }
