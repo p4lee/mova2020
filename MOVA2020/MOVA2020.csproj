@@ -113,6 +113,12 @@
     <Compile Include="forms\Palvelunmuokkaus.Designer.cs">
       <DependentUpon>Palvelunmuokkaus.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\Toimintaalueentiedot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Toimintaalueentiedot.Designer.cs">
+      <DependentUpon>Toimintaalueentiedot.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\Varauksentiedot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Palvelunmuokkaus.resx">
       <DependentUpon>Palvelunmuokkaus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Toimintaalueentiedot.resx">
+      <DependentUpon>Toimintaalueentiedot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Varauksentiedot.resx">
       <DependentUpon>Varauksentiedot.cs</DependentUpon>

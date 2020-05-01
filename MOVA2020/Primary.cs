@@ -125,8 +125,6 @@ namespace MOVA2020
                 Palvelu p = new Palvelu((long)itemarr[0], (int)(long)itemarr[3], (string)itemarr[2], (string)itemarr[4], (double)itemarr[5], (double)itemarr[6], t);
                 this.Palvelut.Add(p);
             }
-            this.dgvPalvelut.DataSource = null;
-            this.dgvPalvelut.DataSource = this.Palvelut;
         }
         private void PaivitaLaskut()
         {
@@ -238,48 +236,9 @@ namespace MOVA2020
                 btnMokinTiedot.Enabled = false;
             }
         }
-        private void btnLisaaPalvelu_Click(object sender, EventArgs e)
-        {
-            Palvelunmuokkaus p = new Palvelunmuokkaus(this);
-            p.Show();
-        }
 
-        private void btnMuokkaaPalvelua_Click(object sender, EventArgs e)
-        {
 
-            Palvelu palvelu = (Palvelu)dgvPalvelut.SelectedRows[0].DataBoundItem;
 
-            Palvelunmuokkaus p = new Palvelunmuokkaus(this, palvelu);
-            p.Show();
-        }
-
-        private void dgvPalvelut_Click(object sender, EventArgs e)
-        {
-            if(dgvPalvelut.SelectedRows.Count > 0)
-            {
-                btnMuokkaaPalvelua.Enabled = true;
-                btnPoistaPalvelu.Enabled = true;
-            } else
-            {
-                btnMuokkaaPalvelua.Enabled = false;
-                btnPoistaPalvelu.Enabled = false;
-            }
-        }
-
-        private void btnPoistaPalvelu_Click(object sender, EventArgs e)
-        {
-            Palvelu palvelu = (Palvelu)dgvPalvelut.SelectedRows[0].DataBoundItem;
-            SystemSounds.Beep.Play();
-            DialogResult dr = MessageBox.Show("Haluatko poistaa palvelun "+palvelu.Nimi+" ?", "Poista Palvelu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(dr == DialogResult.Yes)
-            {
-                Dictionary<string, object> pairs = new Dictionary<string, object>();
-                pairs.Add("$palvelu_id", palvelu.Palvelu_id);
-                string query = "DELETE FROM palvelu WHERE palvelu_id = $palvelu_id";
-                this.Db.DMquery(query, pairs);
-                this.paivita();
-            }
-        }
 
         private void dgvLaskut_Click(object sender, EventArgs e)
         {
@@ -349,6 +308,42 @@ namespace MOVA2020
             }
         }
 
+        private void dgvToimintaalueet_Click(object sender, EventArgs e)
+        {
+            if(dgvToimintaalueet.SelectedRows.Count > 0)
+            {
+                btnPoistaToimintaalue.Enabled = true;
+                btnToimintaalueentiedot.Enabled = true;
+            } else
+            {
+                btnPoistaToimintaalue.Enabled = false;
+                btnToimintaalueentiedot.Enabled = false;
+            }
+        }
 
+        private void btnPoistaToimintaalue_Click(object sender, EventArgs e)
+        {
+            Toimintaalue t = (Toimintaalue)dgvToimintaalueet.SelectedRows[0].DataBoundItem;
+            DialogResult dr = MessageBox.Show("Haluatko poistaa Toimialueen " + t.Nimi + " ?\nTämä ei onnistu ilman, että poistat ensimmäisenä kaikki palvelut ja mökit!", "Poista Toiminta-alue", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                Dictionary<string, object> pairs = new Dictionary<string, object>();
+                pairs.Add("$toimintaalue_id", t.Toiminta_alueid);
+
+                string query = "DELETE FROM toimintaalue WHERE toimintaalue_id = $toimintaalue_id";
+                if(this.Db.DMquery(query, pairs) == -1)
+                {
+                    MessageBox.Show("Poisto epäonnistui, muista poistaa ensimmäiseksi palvelut ja mökit!");
+                }
+                this.paivita();
+            }
+        }
+
+        private void btnToimintaalueentiedot_Click(object sender, EventArgs e)
+        {
+            Toimintaalue t = (Toimintaalue)dgvToimintaalueet.SelectedRows[0].DataBoundItem;
+            Toimintaalueentiedot tt = new Toimintaalueentiedot(this, t);
+            tt.Show();
+        }
     }
 }

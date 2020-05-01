@@ -187,6 +187,7 @@
             this.calVaraus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.calVaraus.Location = new System.Drawing.Point(8, 243);
             this.calVaraus.MaxSelectionCount = 365;
+            this.calVaraus.MinDate = new System.DateTime(2020, 5, 1, 0, 0, 0, 0);
             this.calVaraus.Name = "calVaraus";
             this.calVaraus.TabIndex = 23;
             this.calVaraus.TodayDate = new System.DateTime(2020, 4, 30, 0, 0, 0, 0);
@@ -225,6 +226,7 @@
             this.Controls.Add(this.lblVaraus);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(974, 543);
             this.Name = "Varauksenmuokkaus";
             this.Text = "Varauksen lisäys";
             ((System.ComponentModel.ISupportInitialize)(this.nmrLukumaara)).EndInit();

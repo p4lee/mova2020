@@ -50,7 +50,7 @@ CREATE TABLE mokki (
   henkilomaara INT NULL,
   varustelu VARCHAR(100) NULL,
   PRIMARY KEY (mokki_id),
-  CONSTRAINT fk_mokki_toimintaalue FOREIGN KEY (toimintaalue_id) REFERENCES toimintaalue (toimintaalue_id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT fk_mokki_toimintaalue FOREIGN KEY (toimintaalue_id) REFERENCES toimintaalue (toimintaalue_id) ON DELETE RESTRICT ON UPDATE NO ACTION,
   CONSTRAINT fk_mokki_posti FOREIGN KEY (postinro) REFERENCES posti (postinro) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
@@ -104,7 +104,7 @@ CREATE TABLE palvelu (
   hinta DOUBLE(8, 2) NOT NULL,
   alv DOUBLE(8, 2) NOT NULL,
   PRIMARY KEY (palvelu_id),
-  CONSTRAINT palvelu_ibfk_1 FOREIGN KEY (toimintaalue_id) REFERENCES toimintaalue (toimintaalue_id) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT palvelu_ibfk_1 FOREIGN KEY (toimintaalue_id) REFERENCES toimintaalue (toimintaalue_id) ON DELETE RESTRICT ON UPDATE NO ACTION
 );
 
 

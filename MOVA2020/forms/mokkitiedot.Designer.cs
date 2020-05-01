@@ -251,7 +251,7 @@
             this.tbToimintaalue.Size = new System.Drawing.Size(100, 23);
             this.tbToimintaalue.TabIndex = 21;
             // 
-            // mokkitiedot
+            // Mokkitiedot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -276,7 +276,8 @@
             this.Controls.Add(this.lblNimi);
             this.Controls.Add(this.lblVaraukset);
             this.Controls.Add(this.dgvVaraukset);
-            this.Name = "mokkitiedot";
+            this.MinimumSize = new System.Drawing.Size(816, 489);
+            this.Name = "Mokkitiedot";
             this.Text = "Mökin tiedot";
             ((System.ComponentModel.ISupportInitialize)(this.dgvVaraukset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrHenkilomaara)).EndInit();

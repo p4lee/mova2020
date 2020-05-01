@@ -67,8 +67,13 @@ namespace MOVA2020.objs
                 {
                     command.Parameters.AddWithValue(kvp.Key, kvp.Value);
                 }
-
+                try
+                {
                     ret = command.ExecuteNonQuery();
+                } catch(SqliteException e)
+                {
+                    ret = -1;
+                }
 
                 conn.Close();
             }
@@ -103,18 +108,6 @@ namespace MOVA2020.objs
                 conn.Close();
             }
             return lista;
-        }
-        public string ObjToQuery(ArrayList list, string type="update")
-        {
-            //todo
-            return null;
-        }
-
-        public ArrayList SelectToObjs()
-        {
-            //todo
-            ArrayList list = new ArrayList();
-            return list;
         }
     }
 }

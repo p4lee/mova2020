@@ -21,29 +21,30 @@ namespace MOVA2020.forms
         /*
          * Palveluitten lisäys ja muokkaus
          */
+        private Toimintaalueentiedot t;
         private Primary lomake;
         private Palvelu palvelu;
-        public Palvelunmuokkaus(Primary lomake)
+        public Palvelunmuokkaus(Toimintaalueentiedot t)
         {
             /*
              * Otetaan päälomakkeen tieto ja laitetaan palvelu muuttuja nulliksi
              * Ohjelma tekee muokkauksen ja lisäyksen samassa lomakkeessa, riippuen mitä konstruktoria käyttää.
              */
-            this.lomake = lomake;
+            this.t = t;
+            this.lomake = t.P;
             this.palvelu = null;
             InitializeComponent();
-            cbToimintaalueet.DataSource = this.lomake.Toimintaalueet;
             this.btnPalvelu.Text = "Lisää palvelu";
         }
-        public Palvelunmuokkaus(Primary lomake, Palvelu p)
+        public Palvelunmuokkaus(Toimintaalueentiedot t, Palvelu p)
         {
             /*
              * Palvelun muokkaamisen konstruktori
              */
+            this.t = t;
             this.palvelu = p;
-            this.lomake = lomake;
+            this.lomake = t.P;
             InitializeComponent();
-            cbToimintaalueet.DataSource = this.lomake.Toimintaalueet;
             this.tbNimi.Text = palvelu.Nimi;
             this.rtbKuvaus.Text = palvelu.Kuvaus;
             this.tbHintaEiAlv.Text = palvelu.Hinta.ToString();
@@ -66,7 +67,7 @@ namespace MOVA2020.forms
             }
             string query;
             Dictionary<string, object> pairs = new Dictionary<string, object>();
-            pairs.Add("$toimintaalue", this.lomake.Toimintaalueet[this.cbToimintaalueet.SelectedIndex].Toiminta_alueid);
+            pairs.Add("$toimintaalue", this.t.T.Toiminta_alueid);
             pairs.Add("$nimi", tbNimi.Text);
             pairs.Add("$tyyppi", 1);
             pairs.Add("$kuvaus", rtbKuvaus.Text);
@@ -77,7 +78,7 @@ namespace MOVA2020.forms
                 query = "INSERT INTO palvelu(toimintaalue_id, nimi, tyyppi, kuvaus, hinta, alv) VALUES($toimintaalue, $nimi, $tyyppi, $kuvaus, $hinta, $alv)";
 
                 this.lomake.Db.DMquery(query, pairs);
-                this.lomake.paivita();
+                this.t.paivita();
                 this.Close();
             } else
             {
@@ -85,7 +86,7 @@ namespace MOVA2020.forms
                 pairs.Add("$palvelu_id", this.palvelu.Palvelu_id);
 
                 this.lomake.Db.DMquery(query, pairs);
-                this.lomake.paivita();
+                this.t.paivita();
                 this.Close();
             }
         }

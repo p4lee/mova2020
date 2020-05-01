@@ -43,13 +43,13 @@ namespace MOVA2020.forms
             TBpvm.Text = l.Varaus.Vahvistus_pvm.ToString("yyyy-MM-dd");
             string lisatiedot = l.Varaus.Mokki.Kuvaus + "\r\n" + l.Varaus.Mokki.Varustelu + "\r\n";
             string summat = l.Varaus.Varattu_alkupvm.ToString("yyyy-MM-dd")+" - "+l.Varaus.Varattu_loppupvm.ToString("yyyy-MM-dd")+ "\r\n";
-            summat += (l.Varaus.Varattu_loppupvm - l.Varaus.Varattu_alkupvm).TotalDays.ToString() + " päivää, " +
+            summat += (l.Varaus.Varattu_loppupvm - l.Varaus.Varattu_alkupvm).TotalDays.ToString() + " päivä(ä), " +
                 l.Varaus.Mokki.Hinta * (l.Varaus.Varattu_loppupvm - l.Varaus.Varattu_alkupvm).TotalDays;
 
             foreach (KeyValuePair<int, int> item in l.Varaus.Varauksenpalvelut)
             {
                 Palvelu pa = this.p.Palvelut.Find(i => i.Palvelu_id == item.Key);
-                lisatiedot += "\r\n" + pa.Nimi + pa.Hinta.ToString() + "/kpl\r\nx" + item.Value;
+                lisatiedot += "\r\n" + pa.Nimi + pa.Hinta.ToString() + " €/kpl\r\nx" + item.Value;
                 summat += "\r\nx" + item.Value +" * " + pa.Hinta.ToString() + " = "+(item.Value * pa.Hinta);
             }
             TBlisatiedot.Text = lisatiedot;

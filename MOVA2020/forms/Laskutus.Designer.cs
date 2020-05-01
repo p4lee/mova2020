@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pllasku = new System.Windows.Forms.Panel();
+            this.TBLaskutus = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@
             this.bttulosta = new System.Windows.Forms.Button();
             this.btnVaraustiedot = new System.Windows.Forms.Button();
             this.btnVarmenna = new System.Windows.Forms.Button();
-            this.TBLaskutus = new System.Windows.Forms.TextBox();
             this.pllasku.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,6 +97,14 @@
             this.pllasku.Name = "pllasku";
             this.pllasku.Size = new System.Drawing.Size(595, 842);
             this.pllasku.TabIndex = 0;
+            // 
+            // TBLaskutus
+            // 
+            this.TBLaskutus.Location = new System.Drawing.Point(17, 345);
+            this.TBLaskutus.Multiline = true;
+            this.TBLaskutus.Name = "TBLaskutus";
+            this.TBLaskutus.Size = new System.Drawing.Size(557, 297);
+            this.TBLaskutus.TabIndex = 27;
             // 
             // textBox5
             // 
@@ -348,14 +356,6 @@
             this.btnVarmenna.UseVisualStyleBackColor = true;
             this.btnVarmenna.Click += new System.EventHandler(this.btnVarmenna_Click);
             // 
-            // TBLaskutus
-            // 
-            this.TBLaskutus.Location = new System.Drawing.Point(17, 345);
-            this.TBLaskutus.Multiline = true;
-            this.TBLaskutus.Name = "TBLaskutus";
-            this.TBLaskutus.Size = new System.Drawing.Size(557, 297);
-            this.TBLaskutus.TabIndex = 27;
-            // 
             // Laskutus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -368,6 +368,7 @@
             this.Controls.Add(this.pllasku);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(632, 977);
             this.Name = "Laskutus";
             this.Text = "Laskutus";
             this.pllasku.ResumeLayout(false);

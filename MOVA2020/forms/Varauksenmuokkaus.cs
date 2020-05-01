@@ -34,6 +34,7 @@ namespace MOVA2020.forms
             InitializeComponent();
             lbVarauksenPalvelut.DataSource = null;
             cbToimintaalueet.DataSource = this.lomake.Toimintaalueet;
+            calVaraus.MinDate = DateTime.Now;
             this.Text = "Varauksen lisäys";
             this.btvaraus.Text = "Tee varaus";
         }
@@ -45,7 +46,7 @@ namespace MOVA2020.forms
             this.v = v;
             InitializeComponent();
             lbVarauksenPalvelut.DataSource = null;
-
+            calVaraus.MinDate = DateTime.Now;
             cbToimintaalueet.Items.Add(v.Mokki.Toimintaalue);
             cbToimintaalueet.SelectedIndex = 0;
             cbToimintaalueet.Enabled = false;

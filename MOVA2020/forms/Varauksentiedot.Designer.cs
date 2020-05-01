@@ -159,6 +159,7 @@
             this.Controls.Add(this.lblVarattupvm);
             this.Controls.Add(this.calVaraus);
             this.Controls.Add(this.lblVaraus);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Varauksentiedot";
             this.Text = "Varauksentiedot";
             this.ResumeLayout(false);
