@@ -70,11 +70,11 @@ namespace MOVA2020.objs
                 try
                 {
                     ret = command.ExecuteNonQuery();
-                }
-                catch (SqliteException) //moi
+                } catch(SqliteException e)
                 {
                     ret = -1;
                 }
+
                 conn.Close();
             }
             return ret;
@@ -108,18 +108,6 @@ namespace MOVA2020.objs
                 conn.Close();
             }
             return lista;
-        }
-        public string ObjToQuery(ArrayList list, string type="update")
-        {
-            //todo
-            return null;
-        }
-
-        public ArrayList SelectToObjs()
-        {
-            //todo
-            ArrayList list = new ArrayList();
-            return list;
         }
     }
 }
