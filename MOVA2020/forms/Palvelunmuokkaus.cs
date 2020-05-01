@@ -11,9 +11,33 @@ using MOVA2020.objs.dbitems;
 namespace MOVA2020.forms
 {
     /*
+     * MOVA2020
+     * Tekijä: Tommi Puurunen
+     * 
      * Palvelun muokkaus ja lisäys
+     * Toteuttaa 
+     *      toiminnallisuusmäärittelyn 4.2.12, 4.2.13 (v 1.0)
      * 
      * 
+     * Palvelunmuokkaus(Toimintaalueentiedot)
+     *      Konstruktori jolla lisätään palvelu toiminta-alueeseen
+     *      
+     *      
+     * Palvelunmuokkaus(Toimintaalueentiedot, Palvelu)
+     *      Konstruktori jolla muokataan palvelua toiminta-alueessa
+     *      
+     *      
+     * btnPalvelu_Click(object, EventArgs)
+     *      Toteuttaa varsinaisen päivittämisen/lisäämisen
+     *      
+     *      
+     * tbHintaEiAlv_KeyPress(object, EventArgs)
+     *      Estää muitten kuin numeroitten laittamisen ja yhden pilkun (,)
+     *      
+     *      
+     * tbHintaEiAlv_TextChanged(object, EventArgs)
+     *      Lisää kahteen muuhun tekstikenttään lasketun arvonlisäveron ja loppusumman
+     *      
      */
     public partial class Palvelunmuokkaus : Form
     {
@@ -62,41 +86,43 @@ namespace MOVA2020.forms
 
             if(tbNimi.Text.Length == 0 || tbHintaEiAlv.Text.Length == 0 || tbALV.Text.Length == 0 || tbHintaSisALV.Text.Length == 0)
             {
+                // Mikäli vaaditut kentät ovat tyhjiä, niin annetaan virheilmoitus
                 MessageBox.Show("Täytä kaikki kentät!", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            // valmistellaan SQL kysely
             string query;
             Dictionary<string, object> pairs = new Dictionary<string, object>();
-            pairs.Add("$toimintaalue", this.t.T.Toiminta_alueid);
+            pairs.Add("$toimintaalue", this.t.T.Toiminta_alueid); // lisätään arvot ns. merkkijono muuttujille
             pairs.Add("$nimi", tbNimi.Text);
             pairs.Add("$tyyppi", 1);
             pairs.Add("$kuvaus", rtbKuvaus.Text);
             pairs.Add("$hinta", Double.Parse(tbHintaEiAlv.Text));
             pairs.Add("$alv", Double.Parse(tbALV.Text));
-            if (this.palvelu == null)
+            if (this.palvelu == null) // jos palvelua lisätään, muokkaus konstruktorissa this.palvelu saa palvelun arvon
             {
                 query = "INSERT INTO palvelu(toimintaalue_id, nimi, tyyppi, kuvaus, hinta, alv) VALUES($toimintaalue, $nimi, $tyyppi, $kuvaus, $hinta, $alv)";
 
-                this.lomake.Db.DMquery(query, pairs);
-                this.t.paivita();
+                this.lomake.Db.DMquery(query, pairs); //suoritetaan kysely
+                this.t.paivita(); // päivitetään päälomake
                 this.Close();
             } else
             {
+                //päivitys query tietokantaan, ja lisätään vielä kyselyyn yksi merkkijono muuttuja
                 query = "UPDATE palvelu SET toimintaalue_id=$toimintaalue, nimi=$nimi, tyyppi=$tyyppi, kuvaus=$kuvaus, hinta=$hinta, alv=$alv WHERE palvelu_id=$palvelu_id";
                 pairs.Add("$palvelu_id", this.palvelu.Palvelu_id);
 
-                this.lomake.Db.DMquery(query, pairs);
-                this.t.paivita();
+                this.lomake.Db.DMquery(query, pairs); //suoritetaan kysely
+                this.t.paivita(); // päivitetään päälomake
                 this.Close();
             }
         }
 
-
-
         private void tbHintaEiAlv_KeyPress(object sender, KeyPressEventArgs e)
         {
             /*
-             * Estetään kirjainten ja muitten erikoismerkkien kuin pilkun käyttö
+             * Estetään kirjainten ja muitten erikoismerkkien kuin pilkun käyttö, ja niitäkin vain yksi
              * 
              */
             if ((char.IsControl(e.KeyChar)) | (char.IsNumber(e.KeyChar)) | (e.KeyChar == char.Parse(",")&&!tbHintaEiAlv.Text.Contains(",")))

@@ -96,5 +96,72 @@ namespace MOVA2020.forms
             Palvelunmuokkaus p = new Palvelunmuokkaus(this);
             p.Show();
         }
+        private void dgvPalvelut_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+
+            string column = grid.Columns[e.ColumnIndex].Name;
+            dgvPalvelut.DataSource = null;
+            if (column.Equals("Nimi"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.p.Palvelut.OrderBy(x => x.Nimi).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.p.Palvelut.OrderByDescending(x => x.Nimi).ToList();
+                }
+            }
+            else if (column.Equals("Palvelu_id"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.p.Palvelut.OrderBy(x => x.Palvelu_id).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.p.Palvelut.OrderByDescending(x => x.Palvelu_id).ToList();
+                }
+            }
+            else if (column.Equals("Toimintaalue"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.p.Palvelut.OrderBy(x => x.Toimintaalue.Nimi).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.p.Palvelut.OrderByDescending(x => x.Toimintaalue.Nimi).ToList();
+                }
+            }
+            else if (column.Equals("Hinta"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvPalvelut.DataSource = this.p.Palvelut.OrderBy(x => x.Hinta).ToList();
+                }
+                else
+                {
+                    dgvPalvelut.DataSource = this.p.Palvelut.OrderByDescending(x => x.Hinta).ToList();
+                }
+            }
+            else
+            {
+                dgvPalvelut.DataSource = this.p.Palvelut;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
     }
 }

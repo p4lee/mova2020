@@ -67,6 +67,7 @@
             this.dgvPalvelut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPalvelut.Size = new System.Drawing.Size(568, 185);
             this.dgvPalvelut.TabIndex = 1;
+            this.dgvPalvelut.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPalvelut_ColumnHeaderMouseClick);
             this.dgvPalvelut.Click += new System.EventHandler(this.dgvPalvelut_Click);
             // 
             // lblMokit

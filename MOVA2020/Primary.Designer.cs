@@ -77,10 +77,10 @@
             // btnLaskutus
             // 
             this.btnLaskutus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLaskutus.Location = new System.Drawing.Point(5, 417);
+            this.btnLaskutus.Location = new System.Drawing.Point(5, 401);
             this.btnLaskutus.Margin = new System.Windows.Forms.Padding(2);
             this.btnLaskutus.Name = "btnLaskutus";
-            this.btnLaskutus.Size = new System.Drawing.Size(130, 26);
+            this.btnLaskutus.Size = new System.Drawing.Size(295, 42);
             this.btnLaskutus.TabIndex = 1;
             this.btnLaskutus.Text = "Laskutus";
             this.btnLaskutus.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@
             this.dgvLaskut.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLaskut.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLaskut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLaskut.Location = new System.Drawing.Point(166, 5);
+            this.dgvLaskut.Location = new System.Drawing.Point(304, 7);
             this.dgvLaskut.Margin = new System.Windows.Forms.Padding(2);
             this.dgvLaskut.MultiSelect = false;
             this.dgvLaskut.Name = "dgvLaskut";
@@ -104,7 +104,7 @@
             this.dgvLaskut.RowHeadersVisible = false;
             this.dgvLaskut.RowHeadersWidth = 51;
             this.dgvLaskut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLaskut.Size = new System.Drawing.Size(737, 438);
+            this.dgvLaskut.Size = new System.Drawing.Size(597, 444);
             this.dgvLaskut.TabIndex = 0;
             // 
             // tabPage4
@@ -180,7 +180,7 @@
             this.dgvAsiakkaat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAsiakkaat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAsiakkaat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsiakkaat.Location = new System.Drawing.Point(304, 8);
+            this.dgvAsiakkaat.Location = new System.Drawing.Point(304, 7);
             this.dgvAsiakkaat.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAsiakkaat.MultiSelect = false;
             this.dgvAsiakkaat.Name = "dgvAsiakkaat";
@@ -213,7 +213,7 @@
             // 
             this.btnToimintaalueentiedot.Enabled = false;
             this.btnToimintaalueentiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnToimintaalueentiedot.Location = new System.Drawing.Point(10, 413);
+            this.btnToimintaalueentiedot.Location = new System.Drawing.Point(6, 413);
             this.btnToimintaalueentiedot.Name = "btnToimintaalueentiedot";
             this.btnToimintaalueentiedot.Size = new System.Drawing.Size(183, 29);
             this.btnToimintaalueentiedot.TabIndex = 6;
@@ -225,7 +225,7 @@
             // 
             this.btnPoistaToimintaalue.Enabled = false;
             this.btnPoistaToimintaalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnPoistaToimintaalue.Location = new System.Drawing.Point(10, 379);
+            this.btnPoistaToimintaalue.Location = new System.Drawing.Point(6, 379);
             this.btnPoistaToimintaalue.Name = "btnPoistaToimintaalue";
             this.btnPoistaToimintaalue.Size = new System.Drawing.Size(183, 28);
             this.btnPoistaToimintaalue.TabIndex = 5;
@@ -239,7 +239,7 @@
             this.btnLisaatoimintaalue.Location = new System.Drawing.Point(7, 55);
             this.btnLisaatoimintaalue.Margin = new System.Windows.Forms.Padding(4);
             this.btnLisaatoimintaalue.Name = "btnLisaatoimintaalue";
-            this.btnLisaatoimintaalue.Size = new System.Drawing.Size(160, 29);
+            this.btnLisaatoimintaalue.Size = new System.Drawing.Size(163, 29);
             this.btnLisaatoimintaalue.TabIndex = 4;
             this.btnLisaatoimintaalue.Text = "Lisää toiminta-alue";
             this.btnLisaatoimintaalue.UseVisualStyleBackColor = true;
@@ -247,16 +247,16 @@
             // 
             // tbLisaaToimintaalueNimi
             // 
-            this.tbLisaaToimintaalueNimi.Location = new System.Drawing.Point(7, 26);
+            this.tbLisaaToimintaalueNimi.Location = new System.Drawing.Point(7, 24);
             this.tbLisaaToimintaalueNimi.Margin = new System.Windows.Forms.Padding(4);
             this.tbLisaaToimintaalueNimi.Name = "tbLisaaToimintaalueNimi";
-            this.tbLisaaToimintaalueNimi.Size = new System.Drawing.Size(160, 23);
+            this.tbLisaaToimintaalueNimi.Size = new System.Drawing.Size(163, 23);
             this.tbLisaaToimintaalueNimi.TabIndex = 3;
             // 
             // lblLisaaToimintaalueNimi
             // 
             this.lblLisaaToimintaalueNimi.AutoSize = true;
-            this.lblLisaaToimintaalueNimi.Location = new System.Drawing.Point(7, 6);
+            this.lblLisaaToimintaalueNimi.Location = new System.Drawing.Point(4, 3);
             this.lblLisaaToimintaalueNimi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLisaaToimintaalueNimi.Name = "lblLisaaToimintaalueNimi";
             this.lblLisaaToimintaalueNimi.Size = new System.Drawing.Size(35, 17);
@@ -273,7 +273,7 @@
             this.dgvToimintaalueet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvToimintaalueet.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvToimintaalueet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvToimintaalueet.Location = new System.Drawing.Point(411, 6);
+            this.dgvToimintaalueet.Location = new System.Drawing.Point(304, 7);
             this.dgvToimintaalueet.Margin = new System.Windows.Forms.Padding(4);
             this.dgvToimintaalueet.MultiSelect = false;
             this.dgvToimintaalueet.Name = "dgvToimintaalueet";
@@ -288,6 +288,7 @@
             this.dgvToimintaalueet.ShowRowErrors = false;
             this.dgvToimintaalueet.Size = new System.Drawing.Size(597, 444);
             this.dgvToimintaalueet.TabIndex = 0;
+            this.dgvToimintaalueet.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvToimintaalueet_ColumnHeaderMouseClick);
             this.dgvToimintaalueet.Click += new System.EventHandler(this.dgvToimintaalueet_Click);
             // 
             // tabPage1
@@ -367,7 +368,7 @@
             this.dgvMokit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMokit.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMokit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMokit.Location = new System.Drawing.Point(323, 1);
+            this.dgvMokit.Location = new System.Drawing.Point(304, 7);
             this.dgvMokit.Margin = new System.Windows.Forms.Padding(4);
             this.dgvMokit.MultiSelect = false;
             this.dgvMokit.Name = "dgvMokit";
@@ -375,8 +376,9 @@
             this.dgvMokit.RowHeadersVisible = false;
             this.dgvMokit.RowHeadersWidth = 51;
             this.dgvMokit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMokit.Size = new System.Drawing.Size(890, 553);
+            this.dgvMokit.Size = new System.Drawing.Size(597, 444);
             this.dgvMokit.TabIndex = 0;
+            this.dgvMokit.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMokit_ColumnHeaderMouseClick);
             this.dgvMokit.Click += new System.EventHandler(this.dgvMokit_Click);
             // 
             // tabControl1

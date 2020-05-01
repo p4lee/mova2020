@@ -345,5 +345,122 @@ namespace MOVA2020
             Toimintaalueentiedot tt = new Toimintaalueentiedot(this, t);
             tt.Show();
         }
+        private void dgvMokit_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+            string column = grid.Columns[e.ColumnIndex].Name;
+            dgvMokit.DataSource = null;
+            if (column.Equals("Varustelu"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderBy(x => x.Varustelu).ToList();
+                }
+                else
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Varustelu).ToList();
+                }
+            }
+            else if(column.Equals("Hinta"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderBy(x => x.Hinta).ToList();
+                }
+                else
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Hinta).ToList();
+                }
+            }
+            else if (column.Equals("Henkilomaara"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderBy(x => x.Henkilomaara).ToList();
+                }
+                else
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Henkilomaara).ToList();
+                }
+            }
+            else if (column.Equals("Toimintaalue"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderBy(x => x.Toimintaalue.Nimi).ToList();
+                }
+                else
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Toimintaalue.Nimi).ToList();
+                }
+
+            }
+            else
+            {
+                dgvMokit.DataSource = this.Mokit;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
+
+
+
+        private void dgvToimintaalueet_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+
+            string column = grid.Columns[e.ColumnIndex].Name;
+
+            if (column.Equals("Toiminta_alueid"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderBy(x => x.Toiminta_alueid).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderByDescending(x => x.Toiminta_alueid).ToList();
+                }
+            }
+            else if (column.Equals("Nimi"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderBy(x => x.Nimi).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.toimintaalueet.OrderByDescending(x => x.Nimi).ToList();
+                }
+            }
+
+            else
+            {
+                dgvToimintaalueet.DataSource = this.toimintaalueet;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
+
     }
 }
