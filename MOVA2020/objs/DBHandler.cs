@@ -25,7 +25,6 @@ namespace MOVA2020.objs
     public class DBHandler
     {
         private string dbloc;
-
         /*
          * Luo tietokannan projektin Debug kansioon source\repos\MOVA2020\MOVA2020\bin\Debug
          */

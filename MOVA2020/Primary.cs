@@ -38,9 +38,7 @@ namespace MOVA2020
 
             InitializeComponent();
             this.paivita();
-            btnMuokkaaAsiakas.Enabled = true;
-            btnPoistaAsiakas.Enabled = true;
- 
+            
         }
         public void paivita()
         {
@@ -195,35 +193,46 @@ namespace MOVA2020
         private void btnLisaaMokki_Click(object sender, EventArgs e)
         {
             //aukaisee mokkimuokkaus filen
-            mokkimuokkaus lisaamokki = new mokkimuokkaus();
+            mokkimuokkaus lisaamokki = new mokkimuokkaus(this);
             lisaamokki.ShowDialog();
         }
 
         private void btnMuokkaaMokki_Click(object sender, EventArgs e)
         {
-            //KESKEN
-            //Muokkaa vielä, että valitsee valitun mökin muokattavaksi
             //aukaiseen mokkimuokkaus filen valitun mokin tiedoista
-            mokkimuokkaus mokkimuokkaus = new mokkimuokkaus();
+            mokkimuokkaus mokkimuokkaus = new mokkimuokkaus(this, (Mokki)dgvMokit.SelectedRows[0].DataBoundItem);
             mokkimuokkaus.ShowDialog();
         }
 
         private void btnPoistaMokki_Click(object sender, EventArgs e)
         {
-            //tekee merkkiäänen ja aukaisee varmennuskyselupoistosta-messageboxin
+            //tekee merkkiäänen ja aukaisee varmennus_kysely_poistosta-messageboxin
             SystemSounds.Beep.Play();
-            varmennus_kysely_poistosta varmennus = new varmennus_kysely_poistosta();
+            varmennus_kysely_poistosta varmennus = new varmennus_kysely_poistosta(this, (Mokki)dgvMokit.SelectedRows[0].DataBoundItem);
             varmennus.ShowDialog();
         }
 
-        private void btnMokinTiedotJaPalvelut_Click(object sender, EventArgs e)
+        private void btnMokinTiedot_Click(object sender, EventArgs e)
         {
-            //KESKEN
             //aukaisee mokkitiedot filen valitusta mokista
             mokkitiedot mokkitiedotjapalvelut = new mokkitiedot();
             mokkitiedotjapalvelut.ShowDialog();
         }
 
+        private void dgvMokit_Click(object sender, EventArgs e)
+        {
+            //muokkaa ja poista napit eivät ole valittavissa, jos riviä ei ole valittu datagridviewissä
+            if (dgvMokit.SelectedRows.Count > 0)
+            {
+                btnMuokkaaMokki.Enabled = true;
+                btnPoistaMokki.Enabled = true;
+            }
+            else
+            {
+                btnMuokkaaMokki.Enabled = false;
+                btnPoistaMokki.Enabled = false;
+            }
+        }
         private void btnLisaaPalvelu_Click(object sender, EventArgs e)
         {
             Palvelunmuokkaus p = new Palvelunmuokkaus(this);
@@ -289,7 +298,7 @@ namespace MOVA2020
         private void btnPoistaAsiakas_Click(object sender, EventArgs e)
         {
             Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
-            DialogResult dr = MessageBox.Show("Haluatko poistaa asiakkaan " + asiakas.ToString() + " ?", "Poista asiakas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Haluatko poistaa palvelun " + asiakas.ToString() + " ?", "Poista Palvelu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
@@ -299,7 +308,5 @@ namespace MOVA2020
                 this.paivita();
             }
         }
-
-
     }
 }
