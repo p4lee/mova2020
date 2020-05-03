@@ -55,18 +55,18 @@ namespace MOVA2020.forms
         }
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            e.Graphics.PageUnit = GraphicsUnit.Millimeter;
-            e.Graphics.DrawImage(bitmap, 0, 0, 210, 297);
+            e.Graphics.DrawImage(bitmap, e.MarginBounds);
         }
         private void bttulosta_Click(object sender, EventArgs e)
         {
             Graphics grp = CreateGraphics();
             Size formSize = this.panelLasku.Size;
-            bitmap = new Bitmap(formSize.Width, formSize.Height, grp);
+            bitmap = new Bitmap(formSize.Width, formSize.Height);
+            panelLasku.DrawToBitmap(bitmap, new Rectangle(0, 0, formSize.Width, formSize.Height));
             grp = Graphics.FromImage(bitmap);
-            grp.CopyFromScreen(PointToScreen(this.panelLasku.Location).X, PointToScreen(this.panelLasku.Location).Y, 0, 0, formSize);
+      
             printpreview.Document = printDocument;
-            printpreview.ClientSize = formSize;
+            printpreview.ClientSize = bitmap.Size;
             printpreview.PrintPreviewControl.Zoom = 1;
             printpreview.ShowDialog();
         }
