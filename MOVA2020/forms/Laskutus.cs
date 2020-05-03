@@ -8,24 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MOVA2020.objs.dbitems;
+using System.Drawing.Printing;
+using System.Net;
+using System.Net.Sockets;
+using System.Net.Mail;
 namespace MOVA2020.forms
 {
     public partial class Laskutus : Form
     {
         private Lasku l;
         private Primary p;
-        // UC ID 3.3 Laskutuksen koodi.
-        
-        private void doc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            // UC ID 3.3.2 Luo paneelista tulostettavan alueen.
-            Panel grd = new Panel();
-            Bitmap bmp = new Bitmap(grd.Width, grd.Height, grd.CreateGraphics());
-            grd.DrawToBitmap(bmp, new Rectangle(0, 0, grd.Width, grd.Height));
-            RectangleF bounds = e.PageSettings.PrintableArea;
-            float factor = ((float)bmp.Height / (float)bmp.Width);
-            e.Graphics.DrawImage(bmp, bounds.Left, bounds.Top, bounds.Width, factor * bounds.Width);
-        }
+        Bitmap bitmap;
+        //Laskutuksen koodi.
+
+
         public Laskutus(Primary p, Lasku l)
         {
             InitializeComponent();
@@ -39,10 +35,10 @@ namespace MOVA2020.forms
             TByht.Text = l.Summa.ToString();
             TBAsiakas.Text = l.Varaus.Asiakas.ToString();
             TBnum.Text = l.Lasku_id.ToString();
-            TBerapvm.Text = l.Erapaiva.ToString("yyyy-MM-dd");
-            TBpvm.Text = l.Varaus.Vahvistus_pvm.ToString("yyyy-MM-dd");
+            TBerapvm.Text = l.Erapaiva.ToString("dd-MM-yyyy");
+            TBpvm.Text = l.Varaus.Vahvistus_pvm.ToString("dd-MM-yyyy");
             string lisatiedot = l.Varaus.Mokki.Kuvaus + "\r\n" + l.Varaus.Mokki.Varustelu + "\r\n";
-            string summat = l.Varaus.Varattu_alkupvm.ToString("yyyy-MM-dd")+" - "+l.Varaus.Varattu_loppupvm.ToString("yyyy-MM-dd")+ "\r\n";
+            string summat = l.Varaus.Varattu_alkupvm.ToString("dd-MM-yyyy")+" - "+l.Varaus.Varattu_loppupvm.ToString("dd-MM-yyyy")+ "\r\n";
             summat += (l.Varaus.Varattu_loppupvm - l.Varaus.Varattu_alkupvm).TotalDays.ToString() + " päivä(ä), " +
                 l.Varaus.Mokki.Hinta * (l.Varaus.Varattu_loppupvm - l.Varaus.Varattu_alkupvm).TotalDays;
 
@@ -57,18 +53,49 @@ namespace MOVA2020.forms
             summat += "\r\nALV (24%):" + l.Alv;
             TBLaskutus.Text = summat;
         }
-        
+        private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bitmap, 0, 0);
+        }
         private void bttulosta_Click(object sender, EventArgs e)
         {
-            // UC ID 3.3.2 Nappi, jota painamalla lasku tulostetaan
-            System.Drawing.Printing.PrintDocument doc = new System.Drawing.Printing.PrintDocument();
-            doc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(doc_PrintPage);
-            doc.Print();
+            Panel panel = new Panel();
+            this.Controls.Add(panel);
+            Graphics grp = panel.CreateGraphics();
+            Size formSize = this.ClientSize;
+            bitmap = new Bitmap(formSize.Width, formSize.Height, grp);
+            grp = Graphics.FromImage(bitmap);
+            Point panelLocation = PointToScreen(Location);
+            grp.CopyFromScreen(panelLocation.X, panelLocation.Y, 0, 0, formSize);
+            printpreview.Document = printDocument;
+            printpreview.ClientSize = formSize;
+            printpreview.PrintPreviewControl.Zoom = 1;
+            printpreview.ShowDialog();
         }
-        
         private void btlaheta_Click(object sender, EventArgs e)
         {
-            // UC ID 3.3.1 Nappi, jota painamalla lasku lähetetään asiakkaan sähköpostiin
+            //Nappi, jota painamalla lasku lähetetään asiakkaan sähköpostiin
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("your_email_address@gmail.com");
+                mail.To.Add("to_address");
+                mail.Subject = "Test Mail";
+                mail.Body = "This is for testing SMTP mail from GMAIL";
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                MessageBox.Show("mail Send");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnVaraustiedot_Click(object sender, EventArgs e)
@@ -94,5 +121,9 @@ namespace MOVA2020.forms
             }
         }
 
+        private void TBviitenum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
