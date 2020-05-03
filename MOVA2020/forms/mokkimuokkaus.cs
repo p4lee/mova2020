@@ -12,13 +12,12 @@ using MOVA2020.objs.dbitems;
 
 namespace MOVA2020.forms
 {
-    public partial class mokkimuokkaus : Form
+    public partial class Mokkimuokkaus : Form
     {
-        //fix
         Primary p;
         Mokki m;
 
-        public mokkimuokkaus(Primary pr)
+        public Mokkimuokkaus(Primary pr)
         {
             this.Text = "Mökin lisäys";
             InitializeComponent();
@@ -27,7 +26,7 @@ namespace MOVA2020.forms
             cbToimialue.DataSource = this.p.Toimintaalueet;
             this.btnMokinLisays.Text = "Lisää Mökki";
         }
-        public mokkimuokkaus(Primary pr, Mokki mo)
+        public Mokkimuokkaus(Primary pr, Mokki mo)
         {
             this.Text = "Muokkaa mökkiä";
             InitializeComponent();
@@ -43,19 +42,14 @@ namespace MOVA2020.forms
             this.rtbKuvaus.Text = m.Kuvaus;
             this.btnMokinLisays.Text = "Tallenna Muokkaus";
         }
-
-        private void btnLisays_Click(object sender, EventArgs e)
-        {
-            //ei tämä
-        }
-
         private void btnMokinLisays_Click(object sender, EventArgs e)
         {
             //jos kaikki kentät eivät ole täytettynä, se ei anna lisätä mökkiä tietokantaan
-            if (cbToimialue.Text.Length == 0 || tbMokkiNimi.TextLength == 0 || tbPostinumero.TextLength < 5 || tbPostinumero.TextLength > 5
-                || tbKatuosoite.TextLength == 0 || tbMokkiHinta.TextLength == 0)
+            if (cbToimialue.SelectedIndex == -1 || tbMokkiNimi.Text.Length == 0 || tbPostinumero.Text.Length == 0
+                || tbKatuosoite.Text.Length == 0 || tbMokkiHinta.Text.Length == 0 || rtbVarustelu.Text.Length == 0
+                || rtbKuvaus.Text.Length == 0)
             {
-                if(cbToimialue.Text.Length == 0)
+                if (cbToimialue.SelectedIndex == -1)
                 {
                     errorProvider1.SetError(cbToimialue, "Toimialue puuttuu");
                 }
@@ -73,7 +67,7 @@ namespace MOVA2020.forms
                 }
                 if (tbPostinumero.TextLength < 5 || tbPostinumero.TextLength > 5)
                 {
-                    errorProvider1.SetError(tbPostinumero, "Postinumero ei ole oikein");
+                    errorProvider1.SetError(tbPostinumero, "Postinumero puuttuu");
                 }
                 else
                 {
@@ -89,14 +83,13 @@ namespace MOVA2020.forms
                 }
                 if (tbMokkiHinta.TextLength == 0)
                 {
-                    errorProvider1.SetError(tbMokkiHinta, "Mökkihinta ei ole oikein");
+                    errorProvider1.SetError(tbMokkiHinta, "Hinta puuttuu");
                 }
                 else
                 {
                     errorProvider1.SetError(tbMokkiHinta, "");
                 }
             }
-            //jos kaikki kentät ovat ok niin lisätään tai päivitetään mökki tietokantaan
             else
             {
                 // SQL kysely
@@ -153,7 +146,6 @@ namespace MOVA2020.forms
 
         private void tbPostinumero_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //postinumeroon mahdollista syöttää vain numerot ja backspace
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
             {
                 e.Handled = true;

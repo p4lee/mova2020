@@ -36,7 +36,7 @@ namespace MOVA2020.objs.dbitems
         override
         public string ToString()
         {
-            return "ID: " + this.palvelu_id + " | " + this.nimi;
+            return this.nimi + " Hinta:" + this.hinta.ToString() + "€";
         }
     }
 }
