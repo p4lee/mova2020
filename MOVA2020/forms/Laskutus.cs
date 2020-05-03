@@ -38,9 +38,9 @@ namespace MOVA2020.forms
             TBerapvm.Text = l.Erapaiva.ToString("dd-MM-yyyy");
             TBpvm.Text = l.Varaus.Vahvistus_pvm.ToString("dd-MM-yyyy");
             string lisatiedot = l.Varaus.Mokki.Kuvaus + "\r\n" + l.Varaus.Mokki.Varustelu + "\r\n";
-            string summat = l.Varaus.Varattu_alkupvm.ToString("dd-MM-yyyy")+" - "+l.Varaus.Varattu_loppupvm.ToString("dd-MM-yyyy")+ "\r\n";
-            summat += (l.Varaus.Varattu_loppupvm - l.Varaus.Varattu_alkupvm).TotalDays.ToString() + " päivä(ä), " +
-                l.Varaus.Mokki.Hinta * (l.Varaus.Varattu_loppupvm - l.Varaus.Varattu_alkupvm).TotalDays;
+            string summat = l.Varaus.Varaus_alkupvm.ToString("dd-MM-yyyy")+" - "+l.Varaus.Varaus_loppupvm.ToString("dd-MM-yyyy")+ "\r\n";
+            summat += (l.Varaus.Varaus_loppupvm - l.Varaus.Varaus_alkupvm).TotalDays.ToString() + " päivä(ä), " +
+                l.Varaus.Mokki.Hinta * (l.Varaus.Varaus_loppupvm - l.Varaus.Varaus_alkupvm).TotalDays;
 
             foreach (KeyValuePair<int, int> item in l.Varaus.Varauksenpalvelut)
             {
@@ -55,18 +55,17 @@ namespace MOVA2020.forms
         }
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            e.Graphics.DrawImage(bitmap, 0, 0);
+            e.Graphics.PageUnit = GraphicsUnit.Millimeter;
+            e.Graphics.DrawImage(bitmap, 0, 0, 210, 297);
         }
         private void bttulosta_Click(object sender, EventArgs e)
         {
-            Panel panel = new Panel();
-            this.Controls.Add(panel);
-            Graphics grp = panel.CreateGraphics();
-            Size formSize = this.ClientSize;
+            Graphics grp = CreateGraphics();
+            Size formSize = this.panelLasku.Size;
             bitmap = new Bitmap(formSize.Width, formSize.Height, grp);
             grp = Graphics.FromImage(bitmap);
-            Point panelLocation = PointToScreen(Location);
-            grp.CopyFromScreen(panelLocation.X, panelLocation.Y, 0, 0, formSize);
+            
+            grp.CopyFromScreen(this.Location.X+7, this.Location.Y+30, 0, 0, formSize);
             printpreview.Document = printDocument;
             printpreview.ClientSize = formSize;
             printpreview.PrintPreviewControl.Zoom = 1;
