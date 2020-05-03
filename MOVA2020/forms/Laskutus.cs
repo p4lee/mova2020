@@ -64,8 +64,7 @@ namespace MOVA2020.forms
             Size formSize = this.panelLasku.Size;
             bitmap = new Bitmap(formSize.Width, formSize.Height, grp);
             grp = Graphics.FromImage(bitmap);
-            
-            grp.CopyFromScreen(this.Location.X+7, this.Location.Y+30, 0, 0, formSize);
+            grp.CopyFromScreen(PointToScreen(this.panelLasku.Location).X, PointToScreen(this.panelLasku.Location).Y, 0, 0, formSize);
             printpreview.Document = printDocument;
             printpreview.ClientSize = formSize;
             printpreview.PrintPreviewControl.Zoom = 1;

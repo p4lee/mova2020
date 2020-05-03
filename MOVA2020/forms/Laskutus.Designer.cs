@@ -238,7 +238,7 @@
             this.panelLasku.Controls.Add(this.TByht);
             this.panelLasku.Location = new System.Drawing.Point(5, 0);
             this.panelLasku.Name = "panelLasku";
-            this.panelLasku.Size = new System.Drawing.Size(487, 947);
+            this.panelLasku.Size = new System.Drawing.Size(487, 897);
             this.panelLasku.TabIndex = 74;
             // 
             // Laskutus
