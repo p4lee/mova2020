@@ -372,6 +372,17 @@ namespace MOVA2020
                     dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Varustelu).ToList();
                 }
             }
+            else if (column.Equals("Mokkinimi"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderBy(x => x.Mokkinimi).ToList();
+                }
+                else
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Mokkinimi).ToList();
+                }
+            }
             else if(column.Equals("Hinta"))
             {
                 if (so == SortOrder.Ascending)
@@ -403,6 +414,18 @@ namespace MOVA2020
                 else
                 {
                     dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Toimintaalue.Nimi).ToList();
+                }
+
+            }
+            else if (column.Equals("Mokki_id"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderBy(x => x.Mokki_id).ToList();
+                }
+                else
+                {
+                    dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Mokki_id).ToList();
                 }
 
             }
@@ -462,5 +485,130 @@ namespace MOVA2020
             grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
         }
 
+        private void dgvAsiakkaat_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+
+            string column = grid.Columns[e.ColumnIndex].Name;
+
+            if (column.Equals("Etunimi"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.Asiakkaat.OrderBy(x => x.Etunimi).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.Asiakkaat.OrderByDescending(x => x.Etunimi).ToList();
+                }
+            }
+            else if (column.Equals("Sukunimi"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.Asiakkaat.OrderBy(x => x.Sukunimi).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.Asiakkaat.OrderByDescending(x => x.Sukunimi).ToList();
+                }
+            }
+            else if (column.Equals("Lahiosoite"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.Asiakkaat.OrderBy(x => x.Lahiosoite).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.Asiakkaat.OrderByDescending(x => x.Lahiosoite).ToList();
+                }
+            }
+            else if (column.Equals("Asiakas_id"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.Asiakkaat.OrderBy(x => x.Asiakas_id).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.Asiakkaat.OrderByDescending(x => x.Asiakas_id).ToList();
+                }
+            }
+            else
+            {
+                dgvToimintaalueet.DataSource = this.Asiakkaat;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
+
+        private void dgvLaskut_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            SortOrder so = SortOrder.None;
+            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
+
+            if (current == SortOrder.None || current == SortOrder.Ascending)
+            {
+                so = SortOrder.Descending;
+            }
+            else
+            {
+                so = SortOrder.Ascending;
+            }
+
+            string column = grid.Columns[e.ColumnIndex].Name;
+
+            if (column.Equals("Lasku_id"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.laskut.OrderBy(x => x.Lasku_id).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.laskut.OrderByDescending(x => x.Lasku_id).ToList();
+                }
+            }
+            else if (column.Equals("Erapaiva"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.laskut.OrderBy(x => x.Erapaiva).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.laskut.OrderByDescending(x => x.Erapaiva).ToList();
+                }
+            }
+            else if (column.Equals("Varaus"))
+            {
+                if (so == SortOrder.Ascending)
+                {
+                    dgvToimintaalueet.DataSource = this.laskut.OrderBy(x => x.Varaus).ToList();
+                }
+                else
+                {
+                    dgvToimintaalueet.DataSource = this.laskut.OrderByDescending(x => x.Varaus).ToList();
+                }
+            }
+
+            else
+            {
+                dgvToimintaalueet.DataSource = this.laskut;
+            }
+            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
+        }
     }
 }
