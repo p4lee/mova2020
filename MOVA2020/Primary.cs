@@ -38,6 +38,7 @@ namespace MOVA2020
 
             InitializeComponent();
             this.paivita();
+            
         }
         public void paivita()
         {
@@ -56,7 +57,12 @@ namespace MOVA2020
             foreach(Object[] itemarr in asiakkaatquery)
             {
                 Posti p = Postinumerot.Find(i => i.Postinro == (string)itemarr[1]);
-                Asiakas a = new Asiakas((long)itemarr[0], (string)itemarr[2], (string)itemarr[3], (string)itemarr[4], (string)itemarr[5], (string)itemarr[6], p);
+                var email = itemarr[5] as String;
+                if(email == null)
+                {
+                    email = "";
+                }
+                Asiakas a = new Asiakas((long)itemarr[0], (string)itemarr[2], (string)itemarr[3], (string)itemarr[4], email, (string)itemarr[6], p);
                 this.Asiakkaat.Add(a);
             }
             dgvAsiakkaat.DataSource = null;
@@ -119,8 +125,6 @@ namespace MOVA2020
                 Palvelu p = new Palvelu((long)itemarr[0], (int)(long)itemarr[3], (string)itemarr[2], (string)itemarr[4], (double)itemarr[5], (double)itemarr[6], t);
                 this.Palvelut.Add(p);
             }
-            this.dgvPalvelut.DataSource = null;
-            this.dgvPalvelut.DataSource = this.Palvelut;
         }
         private void PaivitaLaskut()
         {
@@ -141,29 +145,27 @@ namespace MOVA2020
             List<Object[]> varausquery = this.Db.SelectQuery("SELECT * FROM varaus");
             foreach(Object[] itemarr in varausquery)
             {
-                List<Palvelu> varauksenpalvelut = new List<Palvelu>();
+                Dictionary<int, int> varauksenpalvelut = new Dictionary<int, int>();
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
                 pairs.Add("$varausid", itemarr[0]);
                 List<Object[]> varauksenpalvelutquery = this.Db.SelectQuery("SELECT * FROM varauksen_palvelut WHERE varaus_id=$varausid", pairs);
                 foreach(Object[] palvelu in varauksenpalvelutquery)
                 {
-                    varauksenpalvelut.Add(Palvelut.Find(i => i.Palvelu_id == (long)palvelu[0]));
+                    varauksenpalvelut.Add((int)(long)palvelu[1], (int)(long)palvelu[2]);
                 }
                 
                 Asiakas a = Asiakkaat.Find(i => i.Asiakas_id == (long)itemarr[1]);
                 Mokki m = Mokit.Find(i => i.Mokki_id == (long)itemarr[2]);
                 var date = itemarr[4] as String;
                 DateTime t = DateTime.Parse("1970-01-01 00:00:00");
-                if (date != null)
+                if(date != null)
                 {
                     t = DateTime.Parse(date);
                 }
-
+                
                 Varaus v = new Varaus((long)itemarr[0], DateTime.Parse((string)itemarr[3]), t, DateTime.Parse((string)itemarr[5]), DateTime.Parse((string)itemarr[6]), a, m, varauksenpalvelut);
                 this.Varaukset.Add(v);
             }
-            dgvVaraukset.DataSource = null;
-            dgvVaraukset.DataSource = Varaukset;
         }
         private void btnLisaatoimintaalue_Click(object sender, EventArgs e)
         {
@@ -171,18 +173,17 @@ namespace MOVA2020
             string query = "INSERT INTO toimintaalue(nimi) VALUES($nimi)";
             /*
                 Luodaan dictionary jossa lisätään kyselyssä olevat $nimi, muuttujaksi nimi
-            */
+            */ 
             Dictionary<string, object> pairs = new Dictionary<string, object>();
             pairs.Add("$nimi", tbLisaaToimintaalueNimi.Text);
             if(this.Db.DMquery(query, pairs) !=-1)
             {
                 this.paivita();
-            }
-            else
+            } else
             {
                 MessageBox.Show("error");
             }
-
+            
         }
 
         private void Primary_Load(object sender, EventArgs e)
@@ -193,35 +194,157 @@ namespace MOVA2020
         private void btnLisaaMokki_Click(object sender, EventArgs e)
         {
             //aukaisee mokkimuokkaus filen
-            mokkimuokkaus lisaamokki = new mokkimuokkaus();
+            Mokkimuokkaus lisaamokki = new Mokkimuokkaus(this);
             lisaamokki.ShowDialog();
         }
 
         private void btnMuokkaaMokki_Click(object sender, EventArgs e)
         {
-            //KESKEN
-            //Muokkaa vielä, että valitsee valitun mökin muokattavaksi
             //aukaiseen mokkimuokkaus filen valitun mokin tiedoista
-            mokkimuokkaus mokkimuokkaus = new mokkimuokkaus();
+            Mokkimuokkaus mokkimuokkaus = new Mokkimuokkaus(this, (Mokki)dgvMokit.SelectedRows[0].DataBoundItem);
             mokkimuokkaus.ShowDialog();
         }
 
         private void btnPoistaMokki_Click(object sender, EventArgs e)
         {
-            //tekee merkkiäänen ja aukaisee varmennuskyselupoistosta-messageboxin
+            //tekee merkkiäänen ja aukaisee varmennus_kysely_poistosta-messageboxin
             SystemSounds.Beep.Play();
-            varmennus_kysely_poistosta varmennus = new varmennus_kysely_poistosta();
+            varmennus_kysely_poistosta varmennus = new varmennus_kysely_poistosta(this, (Mokki)dgvMokit.SelectedRows[0].DataBoundItem);
             varmennus.ShowDialog();
         }
 
-        private void btnMokinTiedotJaPalvelut_Click(object sender, EventArgs e)
+        private void btnMokinTiedot_Click(object sender, EventArgs e)
         {
-            //KESKEN
-            //aukaisee mokkitiedot filen valitusta mokista
-            mokkitiedot mokkitiedotjapalvelut = new mokkitiedot();
+            Mokki mokki = (Mokki)dgvMokit.SelectedRows[0].DataBoundItem;
+            Mokkitiedot mokkitiedotjapalvelut = new Mokkitiedot(this, mokki);
             mokkitiedotjapalvelut.ShowDialog();
         }
 
+        private void dgvMokit_Click(object sender, EventArgs e)
+        {
+            //muokkaa ja poista napit eivät ole valittavissa, jos riviä ei ole valittu datagridviewissä
+            if (dgvMokit.SelectedRows.Count > 0)
+            {
+                btnMuokkaaMokki.Enabled = true;
+                btnPoistaMokki.Enabled = true;
+                btnMokinTiedot.Enabled = true;
+            }
+            else
+            {
+                btnMuokkaaMokki.Enabled = false;
+                btnPoistaMokki.Enabled = false;
+                btnMokinTiedot.Enabled = false;
+            }
+        }
+
+
+
+
+        private void dgvLaskut_Click(object sender, EventArgs e)
+        {
+            if (dgvLaskut.SelectedRows.Count > 0)
+            {
+                btnLaskutus.Enabled = true;
+            }
+            else
+            {
+                btnLaskutus.Enabled = false;
+            }
+        }
+        private void btnLaskutus_Click(object sender, EventArgs e)
+        {
+            Lasku l = (Lasku)dgvLaskut.SelectedRows[0].DataBoundItem;
+            Laskutus lt = new Laskutus(this, l);
+            lt.Show();
+        }
+
+
+        private void btnLisaaAsiakas_Click(object sender, EventArgs e)
+        {
+            Asiakasmuokkaus at = new Asiakasmuokkaus(this);
+            at.Show();
+        }
+
+        private void btnMuokkaaAsiakas_Click(object sender, EventArgs e)
+        {
+            Asiakas a = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
+            Asiakasmuokkaus at = new Asiakasmuokkaus(this, a);
+            at.Show();
+        }
+
+        private void btnPoistaAsiakas_Click(object sender, EventArgs e)
+        {
+            Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
+            DialogResult dr = MessageBox.Show("Haluatko poistaa asiakkaan " + asiakas.ToString() + " ?\nTämä poistaa kaikki laskut ja varaukset!", "Poista Asiakas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                Dictionary<string, object> pairs = new Dictionary<string, object>();
+                pairs.Add("$asiakas_id", asiakas.Asiakas_id);
+
+                string query = "DELETE FROM asiakas WHERE asiakas_id = $asiakas_id";
+                this.Db.DMquery(query, pairs);
+                this.paivita();
+            }
+        }
+        private void btnAsiakastiedot_Click(object sender, EventArgs e)
+        {
+            Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
+            Asiakastiedot at = new Asiakastiedot(this, asiakas);
+            at.Show();
+        }
+        private void dgvAsiakkaat_Click(object sender, EventArgs e)
+        {
+            if (dgvAsiakkaat.SelectedRows.Count > 0)
+            {
+                btnMuokkaaAsiakas.Enabled = true;
+                btnPoistaAsiakas.Enabled = true;
+                btnAsiakastiedot.Enabled = true;
+            }
+            else
+            {
+                btnMuokkaaAsiakas.Enabled = false;
+                btnPoistaAsiakas.Enabled = false;
+                btnAsiakastiedot.Enabled = false;
+            }
+        }
+
+        private void dgvToimintaalueet_Click(object sender, EventArgs e)
+        {
+            if(dgvToimintaalueet.SelectedRows.Count > 0)
+            {
+                btnPoistaToimintaalue.Enabled = true;
+                btnToimintaalueentiedot.Enabled = true;
+            } else
+            {
+                btnPoistaToimintaalue.Enabled = false;
+                btnToimintaalueentiedot.Enabled = false;
+            }
+        }
+
+        private void btnPoistaToimintaalue_Click(object sender, EventArgs e)
+        {
+            Toimintaalue t = (Toimintaalue)dgvToimintaalueet.SelectedRows[0].DataBoundItem;
+            DialogResult dr = MessageBox.Show("Haluatko poistaa Toimialueen " + t.Nimi + " ?\nTämä ei onnistu ilman, että poistat ensimmäisenä kaikki palvelut ja mökit!", "Poista Toiminta-alue", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                Dictionary<string, object> pairs = new Dictionary<string, object>();
+                pairs.Add("$toimintaalue_id", t.Toiminta_alueid);
+
+                string query = "DELETE FROM toimintaalue WHERE toimintaalue_id = $toimintaalue_id";
+                if(this.Db.DMquery(query, pairs) == -1)
+                {
+                    MessageBox.Show("Poisto epäonnistui, muista poistaa ensimmäiseksi palvelut ja mökit!");
+                }
+                this.paivita();
+            }
+        }
+
+        private void btnToimintaalueentiedot_Click(object sender, EventArgs e)
+        {
+            Toimintaalue t = (Toimintaalue)dgvToimintaalueet.SelectedRows[0].DataBoundItem;
+            Toimintaalueentiedot tt = new Toimintaalueentiedot(this, t);
+            tt.Show();
+        }
         private void dgvMokit_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DataGridView grid = (DataGridView)sender;
@@ -237,103 +360,60 @@ namespace MOVA2020
                 so = SortOrder.Ascending;
             }
             string column = grid.Columns[e.ColumnIndex].Name;
+            dgvMokit.DataSource = null;
             if (column.Equals("Varustelu"))
             {
                 if (so == SortOrder.Ascending)
                 {
-                    dgvMokit.DataSource = this.mokit.OrderBy(x => x.Varustelu).ToList();
+                    dgvMokit.DataSource = this.Mokit.OrderBy(x => x.Varustelu).ToList();
                 }
                 else
                 {
-                    dgvMokit.DataSource = this.mokit.OrderByDescending(x => x.Varustelu).ToList();
+                    dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Varustelu).ToList();
                 }
             }
-
-            else if (column.Equals("Toimintaalue"))
+            else if(column.Equals("Hinta"))
             {
                 if (so == SortOrder.Ascending)
                 {
-                    dgvMokit.DataSource = this.mokit.OrderBy(x => x.Toimintaalue.Nimi).ToList();
+                    dgvMokit.DataSource = this.Mokit.OrderBy(x => x.Hinta).ToList();
                 }
                 else
                 {
-                    dgvMokit.DataSource = this.mokit.OrderByDescending(x => x.Toimintaalue.Nimi).ToList();
+                    dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Hinta).ToList();
                 }
-
             }
-            else
-            {
-                dgvMokit.DataSource = this.mokit;
-            }
-            grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
-        }
-
-        private void dgvPalvelut_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            DataGridView grid = (DataGridView)sender;
-            SortOrder so = SortOrder.None;
-            SortOrder current = grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection;
-
-            if (current == SortOrder.None || current == SortOrder.Ascending)
-            {
-                so = SortOrder.Descending;
-            }
-            else{
-                so = SortOrder.Ascending;
-            }
-
-            string column = grid.Columns[e.ColumnIndex].Name;
-
-            if (column.Equals("Nimi"))
+            else if (column.Equals("Henkilomaara"))
             {
                 if (so == SortOrder.Ascending)
                 {
-                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Nimi).ToList();
+                    dgvMokit.DataSource = this.Mokit.OrderBy(x => x.Henkilomaara).ToList();
                 }
                 else
                 {
-                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Nimi).ToList();
-                }
-            }
-            else if (column.Equals("Palvelu_id"))
-            {
-                if (so == SortOrder.Ascending)
-                {
-                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Palvelu_id).ToList();
-                }
-                else
-                {
-                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Palvelu_id).ToList();
+                    dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Henkilomaara).ToList();
                 }
             }
             else if (column.Equals("Toimintaalue"))
             {
                 if (so == SortOrder.Ascending)
                 {
-                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Toimintaalue.Nimi).ToList();
+                    dgvMokit.DataSource = this.Mokit.OrderBy(x => x.Toimintaalue.Nimi).ToList();
                 }
                 else
                 {
-                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Toimintaalue.Nimi).ToList();
+                    dgvMokit.DataSource = this.Mokit.OrderByDescending(x => x.Toimintaalue.Nimi).ToList();
                 }
-            }
-            else if (column.Equals("Hinta"))
-            {
-                if (so == SortOrder.Ascending)
-                {
-                    dgvPalvelut.DataSource = this.palvelut.OrderBy(x => x.Hinta).ToList();
-                }
-                else
-                {
-                    dgvPalvelut.DataSource = this.palvelut.OrderByDescending(x => x.Hinta).ToList();
-                }
+
             }
             else
             {
-                dgvPalvelut.DataSource = this.palvelut;
+                dgvMokit.DataSource = this.Mokit;
             }
             grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
         }
+
+
 
         private void dgvToimintaalueet_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -381,6 +461,6 @@ namespace MOVA2020
             }
             grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
         }
+
     }
 }
-

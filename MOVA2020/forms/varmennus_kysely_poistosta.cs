@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MOVA2020.objs.dbitems;
 
 namespace MOVA2020.forms
 {
     public partial class varmennus_kysely_poistosta : Form
     {
-        public varmennus_kysely_poistosta()
+        Primary p;
+        Mokki m;
+        public varmennus_kysely_poistosta(Primary pr, Mokki mo)
         {
             InitializeComponent();
+            this.m = mo;
+            this.p = pr;
         }
 
         private void btnPeruuta_Click(object sender, EventArgs e)
@@ -25,8 +30,12 @@ namespace MOVA2020.forms
 
         private void btnKylla_Click(object sender, EventArgs e)
         {
-            //KESKEN
             //poistaa valitun kohteen tietokannasta/dgvMokista
+            Dictionary<string, object> pairs = new Dictionary<string, object>();
+            pairs.Add("$mokki_id", m.Mokki_id);
+            string query = "DELETE FROM mokki WHERE mokki_id = $mokki_id";
+            this.p.Db.DMquery(query, pairs);
+            this.p.paivita();
 
             this.Close();
         }

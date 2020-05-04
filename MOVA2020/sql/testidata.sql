@@ -23,8 +23,9 @@ INSERT INTO palvelu (toimintaalue_id, nimi, tyyppi, kuvaus, hinta, alv) VALUES
 
 
 INSERT INTO varaus(asiakas_id, mokki_mokki_id, varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm) VALUES
+(1, 2, "2020-04-17 20:16:00", null, "2020-06-20 20:16:00", "2020-06-27 20:16:00"),
 (1, 2, "2020-04-17 20:16:00", null, "2020-06-05 20:16:00", "2020-06-18 20:16:00"),
-(3, 1, "2020-04-13 19:18:00", "2020-04-17 20:16:00", "2020-06-05 20:16:00", "2020-06-05 20:16:00");
+(3, 1, "2020-04-13 19:18:00", "2020-04-17 20:16:00", "2020-06-05 20:16:00", "2020-06-18 20:16:00");
 
 INSERT INTO varauksen_palvelut(varaus_id, palvelu_id, lkm) VALUES
 (1, 2, 5),
@@ -33,4 +34,4 @@ INSERT INTO varauksen_palvelut(varaus_id, palvelu_id, lkm) VALUES
 (2, 4, 5);
 
 INSERT INTO lasku(varaus_id, summa, alv) VALUES
-(2, 3103.52, 744.84);
+(3, 3103.52, 744.84);
