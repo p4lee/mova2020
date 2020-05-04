@@ -39,11 +39,12 @@ namespace MOVA2020.forms
      *      Lisää kahteen muuhun tekstikenttään lasketun arvonlisäveron ja loppusumman
      *      
      */
+
     public partial class Palvelunmuokkaus : Form
     {
 
         /*
-         * Palveluitten lisäys ja muokkaus
+         * Palvelun muokkaus ja lisäys
          */
         private Toimintaalueentiedot t;
         private Primary lomake;

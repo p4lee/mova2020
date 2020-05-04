@@ -9,7 +9,7 @@ namespace MOVA2020.objs.dbitems
     public class Varaus
     {
         private long varaus_id;
-        private DateTime varattu_pvm, vahvistus_pvm, varattu_alkupvm, varattu_loppupvm;
+        private DateTime varattu_pvm, vahvistus_pvm, alkupvm_varaus, loppupvm_varaus;
         private Asiakas asiakas;
         private Mokki mokki;
         private Dictionary<int, int> varauksenpalvelut;
@@ -19,8 +19,8 @@ namespace MOVA2020.objs.dbitems
             this.varaus_id = varaus_id;
             Varattu_pvm = varattu_pvm;
             Vahvistus_pvm = vahvistus_pvm;
-            Varattu_alkupvm = varattu_alkupvm;
-            Varattu_loppupvm = varattu_loppupvm;
+            Alkupvm_varaus = varattu_alkupvm;
+            Loppupvm_varaus = varattu_loppupvm;
             Asiakas = asiakas;
             Mokki = mokki;
             this.varauksenpalvelut = varauksenpalvelut;
@@ -31,8 +31,8 @@ namespace MOVA2020.objs.dbitems
         
         public DateTime Varattu_pvm { get => varattu_pvm; set => varattu_pvm = value; }
         public DateTime Vahvistus_pvm { get => vahvistus_pvm; set => vahvistus_pvm = value; }
-        public DateTime Varattu_alkupvm { get => varattu_alkupvm; set => varattu_alkupvm = value; }
-        public DateTime Varattu_loppupvm { get => varattu_loppupvm; set => varattu_loppupvm = value; }
+        public DateTime Alkupvm_varaus { get => alkupvm_varaus; set => alkupvm_varaus = value; }
+        public DateTime Loppupvm_varaus { get => loppupvm_varaus; set => loppupvm_varaus = value; }
         public Asiakas Asiakas { get => asiakas; set => asiakas = value; }
         public Mokki Mokki { get => mokki; set => mokki = value; }
         
@@ -40,7 +40,7 @@ namespace MOVA2020.objs.dbitems
         override
         public string ToString()
         {
-            return "VarausID:"+this.Varaus_id + " | MökkiID:"+this.mokki.Mokki_id+" | " + this.Varattu_alkupvm + " - " + this.varattu_loppupvm;
+            return "VarausID:"+this.Varaus_id + " | MökkiID:"+this.mokki.Mokki_id+" | " + this.Alkupvm_varaus + " - " + this.loppupvm_varaus;
         }
     }
 }

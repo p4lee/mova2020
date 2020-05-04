@@ -236,7 +236,7 @@
             // btnLisaatoimintaalue
             // 
             this.btnLisaatoimintaalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLisaatoimintaalue.Location = new System.Drawing.Point(7, 55);
+            this.btnLisaatoimintaalue.Location = new System.Drawing.Point(16, 75);
             this.btnLisaatoimintaalue.Margin = new System.Windows.Forms.Padding(4);
             this.btnLisaatoimintaalue.Name = "btnLisaatoimintaalue";
             this.btnLisaatoimintaalue.Size = new System.Drawing.Size(163, 29);
@@ -247,7 +247,7 @@
             // 
             // tbLisaaToimintaalueNimi
             // 
-            this.tbLisaaToimintaalueNimi.Location = new System.Drawing.Point(7, 24);
+            this.tbLisaaToimintaalueNimi.Location = new System.Drawing.Point(16, 44);
             this.tbLisaaToimintaalueNimi.Margin = new System.Windows.Forms.Padding(4);
             this.tbLisaaToimintaalueNimi.Name = "tbLisaaToimintaalueNimi";
             this.tbLisaaToimintaalueNimi.Size = new System.Drawing.Size(163, 23);
@@ -256,12 +256,12 @@
             // lblLisaaToimintaalueNimi
             // 
             this.lblLisaaToimintaalueNimi.AutoSize = true;
-            this.lblLisaaToimintaalueNimi.Location = new System.Drawing.Point(4, 3);
+            this.lblLisaaToimintaalueNimi.Location = new System.Drawing.Point(13, 10);
             this.lblLisaaToimintaalueNimi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLisaaToimintaalueNimi.Name = "lblLisaaToimintaalueNimi";
-            this.lblLisaaToimintaalueNimi.Size = new System.Drawing.Size(35, 17);
+            this.lblLisaaToimintaalueNimi.Size = new System.Drawing.Size(184, 17);
             this.lblLisaaToimintaalueNimi.TabIndex = 2;
-            this.lblLisaaToimintaalueNimi.Text = "Nimi";
+            this.lblLisaaToimintaalueNimi.Text = "Uuden toiminta-alueen nimi:";
             // 
             // dgvToimintaalueet
             // 

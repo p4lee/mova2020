@@ -88,12 +88,12 @@ namespace MOVA2020.forms
                 if (so == SortOrder.Ascending)
                 {
                     dgvVaraukset.DataSource = null;
-                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Varattu_alkupvm).ToList();
+                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Alkupvm_varaus).ToList();
                 }
                 else
                 {
                     dgvVaraukset.DataSource = null;
-                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Varattu_alkupvm).ToList();
+                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Alkupvm_varaus).ToList();
                 }
             }
             else if (column.Equals("Varattu_loppupvm"))
@@ -101,12 +101,12 @@ namespace MOVA2020.forms
                 if (so == SortOrder.Ascending)
                 {
                     dgvVaraukset.DataSource = null;
-                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Varattu_loppupvm).ToList();
+                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Loppupvm_varaus).ToList();
                 }
                 else
                 {
                     dgvVaraukset.DataSource = null;
-                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Varattu_loppupvm).ToList();
+                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Loppupvm_varaus).ToList();
                 }
             }
             
