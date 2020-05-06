@@ -12,6 +12,8 @@ using System.Drawing.Printing;
 using System.Net;
 using System.Net.Sockets;
 using System.Net.Mail;
+using System.Drawing.Imaging;
+
 namespace MOVA2020.forms
 {
     public partial class Laskutus : Form
@@ -69,6 +71,11 @@ namespace MOVA2020.forms
             printpreview.ClientSize = bitmap.Size;
             printpreview.PrintPreviewControl.Zoom = 1;
             printpreview.ShowDialog();
+
+            string filename = (DateTime.Now).ToString("yyyy-MM-dd") + "_" + this.l.Varaus.Varaus_id.ToString() + ".png";
+
+
+            bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)+filename, ImageFormat.Png);
         }
         private void btlaheta_Click(object sender, EventArgs e)
         {

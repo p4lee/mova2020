@@ -38,7 +38,11 @@ namespace MOVA2020
 
             InitializeComponent();
             this.paivita();
-            
+            string filename = (DateTime.Now).ToString("yyyy-MM-dd") + "_1.png";
+
+            MessageBox.Show(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) +"\\"+ filename);
+
+
         }
         public void paivita()
         {
@@ -341,9 +345,11 @@ namespace MOVA2020
 
         private void btnToimintaalueentiedot_Click(object sender, EventArgs e)
         {
-            Toimintaalue t = (Toimintaalue)dgvToimintaalueet.SelectedRows[0].DataBoundItem;
-            Toimintaalueentiedot tt = new Toimintaalueentiedot(this, t);
-            tt.Show();
+            if (dgvToimintaalueet.SelectedRows.Count > 0) {
+                Toimintaalue t = (Toimintaalue)dgvToimintaalueet.SelectedRows[0].DataBoundItem;
+                Toimintaalueentiedot tt = new Toimintaalueentiedot(this, t);
+                tt.Show();
+            }
         }
         private void dgvMokit_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
