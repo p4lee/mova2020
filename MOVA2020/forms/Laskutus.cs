@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,16 +72,16 @@ namespace MOVA2020.forms
             printpreview.ClientSize = bitmap.Size;
             printpreview.PrintPreviewControl.Zoom = 1;
             printpreview.ShowDialog();
-
-            string filename = (DateTime.Now).ToString("yyyy-MM-dd") + "_" + this.l.Varaus.Varaus_id.ToString() + ".png";
-
-
-            bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)+filename, ImageFormat.Png);
         }
         private void btlaheta_Click(object sender, EventArgs e)
         {
             //Nappi, joka aukaisee lomakkeen, jolla kysytään lähetyssähköpostia
-            sähkoposti sp = new sähkoposti();
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\MOVA2020";
+            System.IO.Directory.CreateDirectory(path);
+            string filename = (DateTime.Now).ToString("yyyy-MM-dd") + "_" + this.l.Varaus.Varaus_id.ToString() + ".png";
+            bitmap.Save(path+"\\"+filename, ImageFormat.Png);
+
+            sähkoposti sp = new sähkoposti(path+"\\"+filename);
             sp.Show();
         }
 

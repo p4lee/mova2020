@@ -15,9 +15,11 @@ namespace MOVA2020.forms
 {
     public partial class sähkoposti : Form
     {
-        public sähkoposti()
+        private Attachment file;
+        public sähkoposti(string filename)
         {
             InitializeComponent();
+            this.file = new Attachment(filename);
         }
 
         private void btkirjaudu_Click(object sender, EventArgs e)
@@ -31,6 +33,7 @@ namespace MOVA2020.forms
                 message.Subject = "Test";
                 message.IsBodyHtml = true; //to make message body as html  
                 message.Body = "This is a test message";
+                message.Attachments.Add(file);
                 smtp.Port = 587;
                 smtp.Host = "smtp.gmail.com"; //for gmail host  
                 smtp.EnableSsl = true;
