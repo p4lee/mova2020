@@ -93,10 +93,13 @@ namespace MOVA2020.forms
 
         private void tbPostinumero_Leave(object sender, EventArgs e)
         {
-            //kun tbpostinumero-kentästä poistuu, asettuu toimipaikka automaattisesti kenttäänsä            
+            //kun tbpostinumero-kentästä poistuu, asettuu toimipaikka automaattisesti kenttäänsä
+            
             Posti p = this.lomake.Postinumerot.Find(i => i.Postinro == tbPostinumero.Text);
-
-            tbPostitoimipaikka.Text = p.Toimipaikka;
+            if (p != null)
+            {
+                tbPostitoimipaikka.Text = p.Toimipaikka;
+            }
         }
 
 
@@ -112,6 +115,15 @@ namespace MOVA2020.forms
             }
         }
 
-        
+        private void tbPuhelinnumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((char.IsControl(e.KeyChar)) | (char.IsNumber(e.KeyChar) | (e.KeyChar.ToString().Equals("+") && tbPuhelinnumero.Text.Length==0)))
+            {
+                e.Handled = false;
+            } else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -180,6 +180,12 @@ namespace MOVA2020
         }
         private void btnLisaatoimintaalue_Click(object sender, EventArgs e)
         {
+
+            if(tbLisaaToimintaalueNimi.Text.Length == 0)
+            {
+                MessageBox.Show("Toiminta-alueella pitää olla nimi!", "Virhe", MessageBoxButtons.OK);
+                return;
+            }
             // SQL kysely
             string query = "INSERT INTO toimintaalue(nimi) VALUES($nimi)";
             /*

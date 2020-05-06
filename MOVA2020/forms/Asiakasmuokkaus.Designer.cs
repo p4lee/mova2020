@@ -3217,6 +3217,7 @@
             this.tbPuhelinnumero.Name = "tbPuhelinnumero";
             this.tbPuhelinnumero.Size = new System.Drawing.Size(182, 20);
             this.tbPuhelinnumero.TabIndex = 12;
+            this.tbPuhelinnumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPuhelinnumero_KeyPress);
             // 
             // tbSahkopostiosoite
             // 
@@ -3250,7 +3251,7 @@
             this.btPeruuta.UseVisualStyleBackColor = true;
             this.btPeruuta.Click += new System.EventHandler(this.btPeruuta_Click);
             // 
-            // Asiakastiedot
+            // Asiakasmuokkaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -3273,7 +3274,7 @@
             this.Controls.Add(this.lbEtunimi);
             this.MaximumSize = new System.Drawing.Size(600, 500);
             this.MinimumSize = new System.Drawing.Size(460, 500);
-            this.Name = "Asiakastiedot";
+            this.Name = "Asiakasmuokkaus";
             this.Text = "Asiakastiedot";
             this.ResumeLayout(false);
             this.PerformLayout();
