@@ -76,12 +76,18 @@ namespace MOVA2020.forms
         private void btlaheta_Click(object sender, EventArgs e)
         {
             //Nappi, joka aukaisee lomakkeen, jolla kysytään lähetyssähköpostia
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\MOVA2020";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\MOVA2020";
             System.IO.Directory.CreateDirectory(path);
             string filename = (DateTime.Now).ToString("yyyy-MM-dd") + "_" + this.l.Varaus.Varaus_id.ToString() + ".png";
-            bitmap.Save(path+"\\"+filename, ImageFormat.Png);
+            string fullpath = path + @"\" + filename;
 
-            sähkoposti sp = new sähkoposti(path+"\\"+filename);
+            Graphics grp = CreateGraphics();
+            Size formSize = this.panelLasku.Size;
+            bitmap = new Bitmap(formSize.Width, formSize.Height);
+            panelLasku.DrawToBitmap(bitmap, new Rectangle(0, 0, formSize.Width, formSize.Height)) ;
+            bitmap.Save(fullpath, ImageFormat.Png);
+
+            sähkoposti sp = new sähkoposti(path+@"\"+filename);
             sp.Show();
         }
 
