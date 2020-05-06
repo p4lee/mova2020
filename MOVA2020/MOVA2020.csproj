@@ -113,6 +113,12 @@
     <Compile Include="forms\Palvelunmuokkaus.Designer.cs">
       <DependentUpon>Palvelunmuokkaus.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\sähkoposti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\sähkoposti.Designer.cs">
+      <DependentUpon>sähkoposti.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\Toimintaalueentiedot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Palvelunmuokkaus.resx">
       <DependentUpon>Palvelunmuokkaus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\sähkoposti.resx">
+      <DependentUpon>sähkoposti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Toimintaalueentiedot.resx">
       <DependentUpon>Toimintaalueentiedot.cs</DependentUpon>
