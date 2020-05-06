@@ -78,7 +78,7 @@ namespace MOVA2020.forms
             //Nappi, joka aukaisee lomakkeen, jolla kysytään lähetyssähköpostia
             string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\MOVA2020";
             System.IO.Directory.CreateDirectory(path);
-            string filename = (DateTime.Now).ToString("yyyy-MM-dd") + "_" + this.l.Varaus.Varaus_id.ToString() + ".png";
+            string filename = (DateTime.Now).ToString("yyyy-MM-dd") + "_" + this.l.Varaus.Varaus_id.ToString()+"_"+Path.GetRandomFileName()+".png";
             string fullpath = path + @"\" + filename;
 
             Graphics grp = CreateGraphics();
