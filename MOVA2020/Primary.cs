@@ -52,7 +52,8 @@ namespace MOVA2020
 
             InitializeComponent();
             this.paivita();
-            
+
+
         }
         public void paivita()
         {
@@ -80,7 +81,9 @@ namespace MOVA2020
                 this.Asiakkaat.Add(a);
             }
             dgvAsiakkaat.DataSource = null;
-            dgvAsiakkaat.DataSource = Asiakkaat;
+            if (Asiakkaat.Count > 0) {
+                dgvAsiakkaat.DataSource = Asiakkaat;
+            }
             
         }
         private void PaivitaPostinumerot()
@@ -104,7 +107,9 @@ namespace MOVA2020
                 this.Toimintaalueet.Add(t);
             }
             dgvToimintaalueet.DataSource = null;
-            dgvToimintaalueet.DataSource = this.Toimintaalueet;
+            if (this.Toimintaalueet.Count > 0) { 
+                dgvToimintaalueet.DataSource = this.Toimintaalueet;
+            }
         }
         private void PaivitaMokit()
         {
@@ -126,9 +131,13 @@ namespace MOVA2020
                     (int)(long)itemarr[7]);
                 this.Mokit.Add(m);
             }
+            
             dgvMokit.DataSource = null;
-            dgvMokit.DataSource = this.Mokit;
-        }
+            if (this.Mokit.Count > 0)
+            {
+                dgvMokit.DataSource = this.Mokit;
+            }
+    }
         private void PaivitaPalvelut()
         {
             this.Palvelut.Clear();
@@ -151,7 +160,9 @@ namespace MOVA2020
                 Laskut.Add(l);
             }
             this.dgvLaskut.DataSource = null;
-            this.dgvLaskut.DataSource = Laskut;
+            if (this.Laskut.Count > 0) {
+                this.dgvLaskut.DataSource = Laskut;
+            }
         }
         private void PaivitaVaraukset()
         {
@@ -360,9 +371,11 @@ namespace MOVA2020
 
         private void btnToimintaalueentiedot_Click(object sender, EventArgs e)
         {
-            Toimintaalue t = (Toimintaalue)dgvToimintaalueet.SelectedRows[0].DataBoundItem;
-            Toimintaalueentiedot tt = new Toimintaalueentiedot(this, t);
-            tt.Show();
+            if (dgvToimintaalueet.SelectedRows.Count > 0) {
+                Toimintaalue t = (Toimintaalue)dgvToimintaalueet.SelectedRows[0].DataBoundItem;
+                Toimintaalueentiedot tt = new Toimintaalueentiedot(this, t);
+                tt.Show();
+            }
         }
         private void dgvMokit_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
