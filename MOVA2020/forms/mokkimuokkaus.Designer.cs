@@ -59,7 +59,7 @@
             this.cbToimialue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbToimialue.FormattingEnabled = true;
             this.cbToimialue.Location = new System.Drawing.Point(19, 38);
-            this.cbToimialue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbToimialue.Margin = new System.Windows.Forms.Padding(4);
             this.cbToimialue.Name = "cbToimialue";
             this.cbToimialue.Size = new System.Drawing.Size(409, 24);
             this.cbToimialue.TabIndex = 0;
@@ -70,7 +70,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbPostinumero.Location = new System.Drawing.Point(19, 158);
-            this.tbPostinumero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPostinumero.Margin = new System.Windows.Forms.Padding(4);
             this.tbPostinumero.MaxLength = 5;
             this.tbPostinumero.Name = "tbPostinumero";
             this.tbPostinumero.Size = new System.Drawing.Size(409, 22);
@@ -83,7 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMokkiNimi.Location = new System.Drawing.Point(20, 98);
-            this.tbMokkiNimi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMokkiNimi.Margin = new System.Windows.Forms.Padding(4);
             this.tbMokkiNimi.Name = "tbMokkiNimi";
             this.tbMokkiNimi.Size = new System.Drawing.Size(408, 22);
             this.tbMokkiNimi.TabIndex = 1;
@@ -94,7 +94,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbKatuosoite.Location = new System.Drawing.Point(19, 217);
-            this.tbKatuosoite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbKatuosoite.Margin = new System.Windows.Forms.Padding(4);
             this.tbKatuosoite.Name = "tbKatuosoite";
             this.tbKatuosoite.Size = new System.Drawing.Size(409, 22);
             this.tbKatuosoite.TabIndex = 3;
@@ -161,7 +161,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbKuvaus.Location = new System.Drawing.Point(20, 528);
-            this.rtbKuvaus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtbKuvaus.Margin = new System.Windows.Forms.Padding(4);
             this.rtbKuvaus.Name = "rtbKuvaus";
             this.rtbKuvaus.Size = new System.Drawing.Size(408, 154);
             this.rtbKuvaus.TabIndex = 7;
@@ -187,7 +187,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nmbHenkilomaara.Location = new System.Drawing.Point(17, 340);
-            this.nmbHenkilomaara.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.nmbHenkilomaara.Margin = new System.Windows.Forms.Padding(5);
             this.nmbHenkilomaara.Name = "nmbHenkilomaara";
             this.nmbHenkilomaara.Size = new System.Drawing.Size(412, 22);
             this.nmbHenkilomaara.TabIndex = 5;
@@ -225,7 +225,7 @@
             this.rtbVarustelu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbVarustelu.Location = new System.Drawing.Point(19, 400);
-            this.rtbVarustelu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtbVarustelu.Margin = new System.Windows.Forms.Padding(4);
             this.rtbVarustelu.Name = "rtbVarustelu";
             this.rtbVarustelu.Size = new System.Drawing.Size(409, 95);
             this.rtbVarustelu.TabIndex = 6;
@@ -237,7 +237,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMokinLisays.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMokinLisays.Location = new System.Drawing.Point(19, 690);
-            this.btnMokinLisays.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMokinLisays.Margin = new System.Windows.Forms.Padding(4);
             this.btnMokinLisays.Name = "btnMokinLisays";
             this.btnMokinLisays.Size = new System.Drawing.Size(411, 46);
             this.btnMokinLisays.TabIndex = 8;
@@ -254,9 +254,9 @@
             this.lbMokkiHinta.Location = new System.Drawing.Point(17, 247);
             this.lbMokkiHinta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMokkiHinta.Name = "lbMokkiHinta";
-            this.lbMokkiHinta.Size = new System.Drawing.Size(79, 20);
+            this.lbMokkiHinta.Size = new System.Drawing.Size(100, 20);
             this.lbMokkiHinta.TabIndex = 16;
-            this.lbMokkiHinta.Text = "Hinta/Yö*";
+            this.lbMokkiHinta.Text = "Hinta/Yö(€)*";
             // 
             // tbMokkiHinta
             // 
@@ -264,7 +264,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMokkiHinta.Location = new System.Drawing.Point(19, 276);
-            this.tbMokkiHinta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMokkiHinta.Margin = new System.Windows.Forms.Padding(4);
             this.tbMokkiHinta.Name = "tbMokkiHinta";
             this.tbMokkiHinta.Size = new System.Drawing.Size(409, 22);
             this.tbMokkiHinta.TabIndex = 4;
@@ -296,7 +296,7 @@
             this.Controls.Add(this.tbMokkiNimi);
             this.Controls.Add(this.tbPostinumero);
             this.Controls.Add(this.cbToimialue);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(423, 798);
             this.Name = "Mokkimuokkaus";
             ((System.ComponentModel.ISupportInitialize)(this.nmbHenkilomaara)).EndInit();
