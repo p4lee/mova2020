@@ -98,9 +98,9 @@
             this.lbPostitoimipaikka.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPostitoimipaikka.Location = new System.Drawing.Point(224, 156);
             this.lbPostitoimipaikka.Name = "lbPostitoimipaikka";
-            this.lbPostitoimipaikka.Size = new System.Drawing.Size(118, 17);
+            this.lbPostitoimipaikka.Size = new System.Drawing.Size(113, 17);
             this.lbPostitoimipaikka.TabIndex = 4;
-            this.lbPostitoimipaikka.Text = "Postitoimipaikka *";
+            this.lbPostitoimipaikka.Text = "Postitoimipaikka ";
             // 
             // lbPuhelinnumero
             // 
@@ -3229,9 +3229,9 @@
             // 
             // btTallenna
             // 
-            this.btTallenna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btTallenna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btTallenna.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTallenna.Location = new System.Drawing.Point(286, 410);
+            this.btTallenna.Location = new System.Drawing.Point(28, 358);
             this.btTallenna.Name = "btTallenna";
             this.btTallenna.Size = new System.Drawing.Size(113, 28);
             this.btTallenna.TabIndex = 14;
@@ -3241,8 +3241,9 @@
             // 
             // btPeruuta
             // 
+            this.btPeruuta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btPeruuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btPeruuta.Location = new System.Drawing.Point(28, 410);
+            this.btPeruuta.Location = new System.Drawing.Point(294, 358);
             this.btPeruuta.Name = "btPeruuta";
             this.btPeruuta.Size = new System.Drawing.Size(113, 28);
             this.btPeruuta.TabIndex = 15;
@@ -3250,11 +3251,11 @@
             this.btPeruuta.UseVisualStyleBackColor = true;
             this.btPeruuta.Click += new System.EventHandler(this.btPeruuta_Click);
             // 
-            // Asiakastiedot
+            // Asiakasmuokkaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 461);
+            this.ClientSize = new System.Drawing.Size(444, 411);
             this.Controls.Add(this.btPeruuta);
             this.Controls.Add(this.btTallenna);
             this.Controls.Add(this.tbSahkopostiosoite);
@@ -3272,8 +3273,8 @@
             this.Controls.Add(this.lbSukunimi);
             this.Controls.Add(this.lbEtunimi);
             this.MaximumSize = new System.Drawing.Size(600, 500);
-            this.MinimumSize = new System.Drawing.Size(460, 500);
-            this.Name = "Asiakastiedot";
+            this.MinimumSize = new System.Drawing.Size(460, 450);
+            this.Name = "Asiakasmuokkaus";
             this.Text = "Asiakastiedot";
             this.ResumeLayout(false);
             this.PerformLayout();
