@@ -216,7 +216,7 @@
             this.btnToimintaalueentiedot.Location = new System.Drawing.Point(6, 413);
             this.btnToimintaalueentiedot.Name = "btnToimintaalueentiedot";
             this.btnToimintaalueentiedot.Size = new System.Drawing.Size(183, 29);
-            this.btnToimintaalueentiedot.TabIndex = 6;
+            this.btnToimintaalueentiedot.TabIndex = 3;
             this.btnToimintaalueentiedot.Text = "Toiminta-alueen tiedot";
             this.btnToimintaalueentiedot.UseVisualStyleBackColor = true;
             this.btnToimintaalueentiedot.Click += new System.EventHandler(this.btnToimintaalueentiedot_Click);
@@ -228,7 +228,7 @@
             this.btnPoistaToimintaalue.Location = new System.Drawing.Point(6, 379);
             this.btnPoistaToimintaalue.Name = "btnPoistaToimintaalue";
             this.btnPoistaToimintaalue.Size = new System.Drawing.Size(183, 28);
-            this.btnPoistaToimintaalue.TabIndex = 5;
+            this.btnPoistaToimintaalue.TabIndex = 2;
             this.btnPoistaToimintaalue.Text = "Poista toiminta-alue";
             this.btnPoistaToimintaalue.UseVisualStyleBackColor = true;
             this.btnPoistaToimintaalue.Click += new System.EventHandler(this.btnPoistaToimintaalue_Click);
@@ -236,32 +236,32 @@
             // btnLisaatoimintaalue
             // 
             this.btnLisaatoimintaalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLisaatoimintaalue.Location = new System.Drawing.Point(7, 55);
+            this.btnLisaatoimintaalue.Location = new System.Drawing.Point(16, 75);
             this.btnLisaatoimintaalue.Margin = new System.Windows.Forms.Padding(4);
             this.btnLisaatoimintaalue.Name = "btnLisaatoimintaalue";
             this.btnLisaatoimintaalue.Size = new System.Drawing.Size(163, 29);
-            this.btnLisaatoimintaalue.TabIndex = 4;
+            this.btnLisaatoimintaalue.TabIndex = 1;
             this.btnLisaatoimintaalue.Text = "Lisää toiminta-alue";
             this.btnLisaatoimintaalue.UseVisualStyleBackColor = true;
             this.btnLisaatoimintaalue.Click += new System.EventHandler(this.btnLisaatoimintaalue_Click);
             // 
             // tbLisaaToimintaalueNimi
             // 
-            this.tbLisaaToimintaalueNimi.Location = new System.Drawing.Point(7, 24);
+            this.tbLisaaToimintaalueNimi.Location = new System.Drawing.Point(16, 44);
             this.tbLisaaToimintaalueNimi.Margin = new System.Windows.Forms.Padding(4);
             this.tbLisaaToimintaalueNimi.Name = "tbLisaaToimintaalueNimi";
             this.tbLisaaToimintaalueNimi.Size = new System.Drawing.Size(163, 23);
-            this.tbLisaaToimintaalueNimi.TabIndex = 3;
+            this.tbLisaaToimintaalueNimi.TabIndex = 0;
             // 
             // lblLisaaToimintaalueNimi
             // 
             this.lblLisaaToimintaalueNimi.AutoSize = true;
-            this.lblLisaaToimintaalueNimi.Location = new System.Drawing.Point(4, 3);
+            this.lblLisaaToimintaalueNimi.Location = new System.Drawing.Point(13, 10);
             this.lblLisaaToimintaalueNimi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLisaaToimintaalueNimi.Name = "lblLisaaToimintaalueNimi";
-            this.lblLisaaToimintaalueNimi.Size = new System.Drawing.Size(35, 17);
+            this.lblLisaaToimintaalueNimi.Size = new System.Drawing.Size(184, 17);
             this.lblLisaaToimintaalueNimi.TabIndex = 2;
-            this.lblLisaaToimintaalueNimi.Text = "Nimi";
+            this.lblLisaaToimintaalueNimi.Text = "Uuden toiminta-alueen nimi:";
             // 
             // dgvToimintaalueet
             // 
@@ -315,7 +315,7 @@
             this.btnMokinTiedot.Location = new System.Drawing.Point(5, 413);
             this.btnMokinTiedot.Name = "btnMokinTiedot";
             this.btnMokinTiedot.Size = new System.Drawing.Size(164, 29);
-            this.btnMokinTiedot.TabIndex = 4;
+            this.btnMokinTiedot.TabIndex = 3;
             this.btnMokinTiedot.Text = "Mökin Tiedot";
             this.btnMokinTiedot.UseVisualStyleBackColor = true;
             this.btnMokinTiedot.Click += new System.EventHandler(this.btnMokinTiedot_Click);
@@ -328,7 +328,7 @@
             this.btnPoistaMokki.Margin = new System.Windows.Forms.Padding(2);
             this.btnPoistaMokki.Name = "btnPoistaMokki";
             this.btnPoistaMokki.Size = new System.Drawing.Size(164, 29);
-            this.btnPoistaMokki.TabIndex = 3;
+            this.btnPoistaMokki.TabIndex = 2;
             this.btnPoistaMokki.Text = "Poista Mökki";
             this.btnPoistaMokki.UseVisualStyleBackColor = true;
             this.btnPoistaMokki.Click += new System.EventHandler(this.btnPoistaMokki_Click);
@@ -341,7 +341,7 @@
             this.btnMuokkaaMokki.Margin = new System.Windows.Forms.Padding(2);
             this.btnMuokkaaMokki.Name = "btnMuokkaaMokki";
             this.btnMuokkaaMokki.Size = new System.Drawing.Size(164, 29);
-            this.btnMuokkaaMokki.TabIndex = 2;
+            this.btnMuokkaaMokki.TabIndex = 1;
             this.btnMuokkaaMokki.Text = "Muokkaa Mökkiä";
             this.btnMuokkaaMokki.UseVisualStyleBackColor = true;
             this.btnMuokkaaMokki.Click += new System.EventHandler(this.btnMuokkaaMokki_Click);
@@ -353,7 +353,7 @@
             this.btnLisaaMokki.Margin = new System.Windows.Forms.Padding(2);
             this.btnLisaaMokki.Name = "btnLisaaMokki";
             this.btnLisaaMokki.Size = new System.Drawing.Size(164, 29);
-            this.btnLisaaMokki.TabIndex = 1;
+            this.btnLisaaMokki.TabIndex = 0;
             this.btnLisaaMokki.Text = "Lisää Mökki";
             this.btnLisaaMokki.UseVisualStyleBackColor = true;
             this.btnLisaaMokki.Click += new System.EventHandler(this.btnLisaaMokki_Click);
