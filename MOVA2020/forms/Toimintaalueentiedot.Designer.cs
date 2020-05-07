@@ -114,7 +114,7 @@
             // 
             this.btnPoistaPalvelu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPoistaPalvelu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnPoistaPalvelu.Location = new System.Drawing.Point(11, 336);
+            this.btnPoistaPalvelu.Location = new System.Drawing.Point(11, 408);
             this.btnPoistaPalvelu.Name = "btnPoistaPalvelu";
             this.btnPoistaPalvelu.Size = new System.Drawing.Size(152, 30);
             this.btnPoistaPalvelu.TabIndex = 6;
@@ -138,7 +138,7 @@
             // 
             this.btnLisaaPalvelu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLisaaPalvelu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLisaaPalvelu.Location = new System.Drawing.Point(11, 408);
+            this.btnLisaaPalvelu.Location = new System.Drawing.Point(12, 336);
             this.btnLisaaPalvelu.Name = "btnLisaaPalvelu";
             this.btnLisaaPalvelu.Size = new System.Drawing.Size(152, 30);
             this.btnLisaaPalvelu.TabIndex = 8;

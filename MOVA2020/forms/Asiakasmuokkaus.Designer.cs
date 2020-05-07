@@ -3217,6 +3217,7 @@
             this.tbPuhelinnumero.Name = "tbPuhelinnumero";
             this.tbPuhelinnumero.Size = new System.Drawing.Size(182, 20);
             this.tbPuhelinnumero.TabIndex = 12;
+            this.tbPuhelinnumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPuhelinnumero_KeyPress);
             // 
             // tbSahkopostiosoite
             // 

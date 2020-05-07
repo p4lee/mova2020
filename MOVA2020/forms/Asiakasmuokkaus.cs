@@ -134,6 +134,15 @@ namespace MOVA2020.forms
             }
         }
 
-        
+        private void tbPuhelinnumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((char.IsControl(e.KeyChar)) | (char.IsNumber(e.KeyChar) | (e.KeyChar.ToString().Equals("+") && tbPuhelinnumero.Text.Length==0)))
+            {
+                e.Handled = false;
+            } else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
