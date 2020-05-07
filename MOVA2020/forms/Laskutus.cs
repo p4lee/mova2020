@@ -31,7 +31,6 @@ namespace MOVA2020.forms
             InitializeComponent();
             this.p = p;
             this.l = l;
-
             if(this.l.Varaus.Vahvistus_pvm.Equals(DateTime.Parse("1970-01-01 00:00:00")))
             {
                 btnVarmenna.Enabled = true;

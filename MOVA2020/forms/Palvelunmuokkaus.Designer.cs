@@ -47,7 +47,7 @@
             this.btnPalvelu.Location = new System.Drawing.Point(15, 343);
             this.btnPalvelu.Name = "btnPalvelu";
             this.btnPalvelu.Size = new System.Drawing.Size(245, 33);
-            this.btnPalvelu.TabIndex = 0;
+            this.btnPalvelu.TabIndex = 4;
             this.btnPalvelu.Text = "Lisää";
             this.btnPalvelu.UseVisualStyleBackColor = true;
             this.btnPalvelu.Click += new System.EventHandler(this.btnPalvelu_Click);
@@ -58,7 +58,7 @@
             this.tbNimi.Location = new System.Drawing.Point(15, 29);
             this.tbNimi.Name = "tbNimi";
             this.tbNimi.Size = new System.Drawing.Size(245, 23);
-            this.tbNimi.TabIndex = 2;
+            this.tbNimi.TabIndex = 1;
             // 
             // rtbKuvaus
             // 
@@ -66,7 +66,7 @@
             this.rtbKuvaus.Location = new System.Drawing.Point(15, 75);
             this.rtbKuvaus.Name = "rtbKuvaus";
             this.rtbKuvaus.Size = new System.Drawing.Size(245, 117);
-            this.rtbKuvaus.TabIndex = 3;
+            this.rtbKuvaus.TabIndex = 2;
             this.rtbKuvaus.Text = "";
             // 
             // tbHintaEiAlv
@@ -74,7 +74,7 @@
             this.tbHintaEiAlv.Location = new System.Drawing.Point(15, 247);
             this.tbHintaEiAlv.Name = "tbHintaEiAlv";
             this.tbHintaEiAlv.Size = new System.Drawing.Size(100, 20);
-            this.tbHintaEiAlv.TabIndex = 4;
+            this.tbHintaEiAlv.TabIndex = 3;
             this.tbHintaEiAlv.TextChanged += new System.EventHandler(this.tbHintaEiAlv_TextChanged);
             this.tbHintaEiAlv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbHintaEiAlv_KeyPress);
             // 

@@ -14,30 +14,9 @@ namespace MOVA2020.forms
      * MOVA2020
      * Tekijä: Tommi Puurunen
      * 
-     * Palvelun muokkaus ja lisäys
-     * Toteuttaa 
-     *      toiminnallisuusmäärittelyn 4.2.12, 4.2.13 (v 1.0)
-     * 
-     * 
-     * Palvelunmuokkaus(Toimintaalueentiedot)
-     *      Konstruktori jolla lisätään palvelu toiminta-alueeseen
-     *      
-     *      
-     * Palvelunmuokkaus(Toimintaalueentiedot, Palvelu)
-     *      Konstruktori jolla muokataan palvelua toiminta-alueessa
-     *      
-     *      
-     * btnPalvelu_Click(object, EventArgs)
-     *      Toteuttaa varsinaisen päivittämisen/lisäämisen
-     *      
-     *      
-     * tbHintaEiAlv_KeyPress(object, EventArgs)
-     *      Estää muitten kuin numeroitten laittamisen ja yhden pilkun (,)
-     *      
-     *      
-     * tbHintaEiAlv_TextChanged(object, EventArgs)
-     *      Lisää kahteen muuhun tekstikenttään lasketun arvonlisäveron ja loppusumman
-     *      
+     * Toteuttaa toiminnallisuusmäärittelyn 
+     *      4.2.12 Palvelun lisäys
+     *      4.2.13 Palvelun muokkaus
      */
 
     public partial class Palvelunmuokkaus : Form
