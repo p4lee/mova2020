@@ -76,7 +76,7 @@
             this.btnVarmenna.Location = new System.Drawing.Point(577, 142);
             this.btnVarmenna.Name = "btnVarmenna";
             this.btnVarmenna.Size = new System.Drawing.Size(189, 37);
-            this.btnVarmenna.TabIndex = 57;
+            this.btnVarmenna.TabIndex = 4;
             this.btnVarmenna.Text = "Maksun varmennus";
             this.btnVarmenna.UseVisualStyleBackColor = true;
             this.btnVarmenna.Click += new System.EventHandler(this.btnVarmenna_Click);
@@ -87,7 +87,7 @@
             this.btlaheta.Location = new System.Drawing.Point(577, 104);
             this.btlaheta.Name = "btlaheta";
             this.btlaheta.Size = new System.Drawing.Size(189, 32);
-            this.btlaheta.TabIndex = 54;
+            this.btlaheta.TabIndex = 3;
             this.btlaheta.Text = "Lähetä lasku";
             this.btlaheta.UseVisualStyleBackColor = true;
             this.btlaheta.Click += new System.EventHandler(this.btlaheta_Click);
@@ -98,7 +98,7 @@
             this.btnVaraustiedot.Location = new System.Drawing.Point(577, 26);
             this.btnVaraustiedot.Name = "btnVaraustiedot";
             this.btnVaraustiedot.Size = new System.Drawing.Size(189, 32);
-            this.btnVaraustiedot.TabIndex = 56;
+            this.btnVaraustiedot.TabIndex = 1;
             this.btnVaraustiedot.Text = "Varauksen tiedot";
             this.btnVaraustiedot.UseVisualStyleBackColor = true;
             this.btnVaraustiedot.Click += new System.EventHandler(this.btnVaraustiedot_Click);
@@ -109,7 +109,7 @@
             this.bttulosta.Location = new System.Drawing.Point(577, 67);
             this.bttulosta.Name = "bttulosta";
             this.bttulosta.Size = new System.Drawing.Size(189, 32);
-            this.bttulosta.TabIndex = 55;
+            this.bttulosta.TabIndex = 2;
             this.bttulosta.Text = "Tulosta lasku";
             this.bttulosta.UseVisualStyleBackColor = true;
             this.bttulosta.Click += new System.EventHandler(this.bttulosta_Click);
@@ -119,7 +119,7 @@
             this.lblpvm.AutoSize = true;
             this.lblpvm.Location = new System.Drawing.Point(230, 62);
             this.lblpvm.Name = "lblpvm";
-            this.lblpvm.Size = new System.Drawing.Size(84, 17);
+            this.lblpvm.Size = new System.Drawing.Size(99, 20);
             this.lblpvm.TabIndex = 81;
             this.lblpvm.Text = "Laskun pvm";
             // 
@@ -128,7 +128,7 @@
             this.lblErapvm.AutoSize = true;
             this.lblErapvm.Location = new System.Drawing.Point(230, 85);
             this.lblErapvm.Name = "lblErapvm";
-            this.lblErapvm.Size = new System.Drawing.Size(64, 17);
+            this.lblErapvm.Size = new System.Drawing.Size(74, 20);
             this.lblErapvm.TabIndex = 82;
             this.lblErapvm.Text = "Eräpäivä";
             // 
@@ -137,7 +137,7 @@
             this.lbllaskunum.AutoSize = true;
             this.lbllaskunum.Location = new System.Drawing.Point(230, 39);
             this.lbllaskunum.Name = "lbllaskunum";
-            this.lbllaskunum.Size = new System.Drawing.Size(106, 17);
+            this.lbllaskunum.Size = new System.Drawing.Size(124, 20);
             this.lbllaskunum.TabIndex = 80;
             this.lbllaskunum.Text = "Laskun numero";
             // 
@@ -145,7 +145,7 @@
             // 
             this.TBnum.Location = new System.Drawing.Point(359, 36);
             this.TBnum.Name = "TBnum";
-            this.TBnum.Size = new System.Drawing.Size(117, 23);
+            this.TBnum.Size = new System.Drawing.Size(117, 26);
             this.TBnum.TabIndex = 83;
             // 
             // TBlisatiedot
@@ -160,7 +160,7 @@
             // 
             this.TBpvm.Location = new System.Drawing.Point(359, 62);
             this.TBpvm.Name = "TBpvm";
-            this.TBpvm.Size = new System.Drawing.Size(117, 23);
+            this.TBpvm.Size = new System.Drawing.Size(117, 26);
             this.TBpvm.TabIndex = 84;
             // 
             // TBAsiakas
@@ -175,7 +175,7 @@
             // 
             this.TBerapvm.Location = new System.Drawing.Point(359, 88);
             this.TBerapvm.Name = "TBerapvm";
-            this.TBerapvm.Size = new System.Drawing.Size(117, 23);
+            this.TBerapvm.Size = new System.Drawing.Size(117, 26);
             this.TBerapvm.TabIndex = 85;
             // 
             // label1
@@ -183,7 +183,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 17);
+            this.label1.Size = new System.Drawing.Size(192, 20);
             this.label1.TabIndex = 77;
             this.label1.Text = "Siilokatu 1, 90700 OULU";
             // 
@@ -193,7 +193,7 @@
             this.TByht.Location = new System.Drawing.Point(410, 656);
             this.TByht.Name = "TByht";
             this.TByht.ReadOnly = true;
-            this.TByht.Size = new System.Drawing.Size(67, 23);
+            this.TByht.Size = new System.Drawing.Size(67, 26);
             this.TByht.TabIndex = 87;
             // 
             // lbllasku
@@ -201,7 +201,7 @@
             this.lbllasku.AutoSize = true;
             this.lbllasku.Location = new System.Drawing.Point(230, 7);
             this.lbllasku.Name = "lbllasku";
-            this.lbllasku.Size = new System.Drawing.Size(53, 17);
+            this.lbllasku.Size = new System.Drawing.Size(64, 20);
             this.lbllasku.TabIndex = 75;
             this.lbllasku.Text = "LASKU";
             // 
@@ -210,7 +210,7 @@
             this.lblyht.AutoSize = true;
             this.lblyht.Location = new System.Drawing.Point(336, 659);
             this.lblyht.Name = "lblyht";
-            this.lblyht.Size = new System.Drawing.Size(68, 17);
+            this.lblyht.Size = new System.Drawing.Size(78, 20);
             this.lblyht.TabIndex = 86;
             this.lblyht.Text = "Yhteensä";
             // 
@@ -219,7 +219,7 @@
             this.lbllaskuttaja.AutoSize = true;
             this.lbllaskuttaja.Location = new System.Drawing.Point(3, 7);
             this.lbllaskuttaja.Name = "lbllaskuttaja";
-            this.lbllaskuttaja.Size = new System.Drawing.Size(131, 17);
+            this.lbllaskuttaja.Size = new System.Drawing.Size(156, 20);
             this.lbllaskuttaja.TabIndex = 76;
             this.lbllaskuttaja.Text = "Village Newbies OY";
             // 
@@ -254,7 +254,7 @@
             // 
             // Laskutus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(831, 726);
@@ -267,7 +267,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(550, 650);
             this.Name = "Laskutus";
-            this.Text = "a";
+            this.Text = "Lasku";
             this.panelLasku.ResumeLayout(false);
             this.panelLasku.PerformLayout();
             this.ResumeLayout(false);

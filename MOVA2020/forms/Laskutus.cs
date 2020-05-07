@@ -17,14 +17,23 @@ using System.Drawing.Imaging;
 
 namespace MOVA2020.forms
 {
+    /*
+    * MOVA2020
+    * Tekijä: Jonna Räsänen, Tommi Puurunen
+    * 
+    * Toteuttaa  toiminnallisuusmäärittelyn 
+    *      3.3.1 Sähköinen lasku
+    *      3.3.2 Paperinen lasku
+    *      4.2.2 Varmistus laskun maksusta
+    * 
+    */
     public partial class Laskutus : Form
     {
         private Lasku l;
         private Primary p;
         Bitmap bitmap;
-        //Laskutuksen koodi.
 
-
+        // 3.3 Laskutuksen koodi. Laskuun ilmestyy automaattisesti asiakkaan tiedot valitusta varauksesta
         public Laskutus(Primary p, Lasku l)
         {
             InitializeComponent();
@@ -56,6 +65,10 @@ namespace MOVA2020.forms
             summat += "\r\nALV (24%):" + l.Alv;
             TBLaskutus.Text = summat;
         }
+
+        /*3.3.2. Paperinen lasku. Piirtää täytetyn laskuformin ja avaa tulostuksen esikatselun,
+         *jota kautta laskun saa tulostettua
+         */
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(bitmap, e.MarginBounds);
@@ -73,9 +86,12 @@ namespace MOVA2020.forms
             printpreview.PrintPreviewControl.Zoom = 1;
             printpreview.ShowDialog();
         }
+        /* 3.3.1 Sähköinen lasku. Luo laskusta kuvatiedoston, joka lähetetään asiakkaan sähköpostiin.
+         * Avaa formin, jolle käyttäjä laittaa oman/yrityksensä sähköpostin. Kuva laskusta tallennetaan myös
+         * käyttäjän tietokoneelle.
+         */
         private void btlaheta_Click(object sender, EventArgs e)
         {
-            //Nappi, joka aukaisee lomakkeen, jolla kysytään lähetyssähköpostia
             string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\MOVA2020";
             System.IO.Directory.CreateDirectory(path);
             string filename = (DateTime.Now).ToString("yyyy-MM-dd") + "_" + this.l.Varaus.Varaus_id.ToString() + ".png";
@@ -97,6 +113,7 @@ namespace MOVA2020.forms
             vt.Show();
         }
 
+        //4.2.2-4.2.3 Napilla varmennetaan, että lasku on maksettu.
         private void btnVarmenna_Click(object sender, EventArgs e)
         {
             Varaus var = this.l.Varaus;
@@ -114,9 +131,5 @@ namespace MOVA2020.forms
             }
         }
 
-        private void TBviitenum_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
