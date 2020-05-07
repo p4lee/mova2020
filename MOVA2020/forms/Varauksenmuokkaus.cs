@@ -53,9 +53,9 @@ namespace MOVA2020.forms
             CBMokki.Enabled = false;
             this.Text = "Varauksen muokkaus";
             this.btvaraus.Text = "Muokkaa varausta";
+            calVaraus.SelectionRange.Start = this.v.Alkupvm_varaus;
+            calVaraus.SelectionRange.End = this.v.Loppupvm_varaus;
 
-            calVaraus.SelectionRange.Start = this.v.Varaus_alkupvm;
-            calVaraus.SelectionRange.End = this.v.Varaus_loppupvm;
 
             foreach(KeyValuePair<int, int> item in v.Varauksenpalvelut)
             {
@@ -96,7 +96,7 @@ namespace MOVA2020.forms
                         this.lomake.Db.DMquery(query, pairs);
                         this.paivita();
 
-                        Varaus vt = this.lomake.Varaukset.Find(i => i.Asiakas.Asiakas_id == a.Asiakas_id && i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id && i.Varaus_alkupvm == calVaraus.SelectionRange.Start && i.Varaus_loppupvm == calVaraus.SelectionRange.End);
+                        Varaus vt = this.lomake.Varaukset.Find(i => i.Asiakas.Asiakas_id == a.Asiakas_id && i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id && i.Alkupvm_varaus == calVaraus.SelectionRange.Start && i.Loppupvm_varaus == calVaraus.SelectionRange.End);
                         string query2 = "INSERT INTO varauksen_palvelut(varaus_id, palvelu_id, lkm) VALUES($varaus_id, $palvelu_id, $lkm)";
                         Dictionary<string, object> pairs2 = new Dictionary<string, object>();
                         foreach (VarauksenPalvelu pari in lbVarauksenPalvelut.Items)
@@ -197,10 +197,10 @@ namespace MOVA2020.forms
             
             foreach(Varaus vm in mokinvaraukset)
             {
-                if(calVaraus.SelectionRange.Start >= vm.Varaus_alkupvm && calVaraus.SelectionRange.Start <= vm.Varaus_loppupvm)
+                if(calVaraus.SelectionRange.Start >= vm.Alkupvm_varaus && calVaraus.SelectionRange.Start <= vm.Loppupvm_varaus)
                 {
                     return false;
-                } else if (calVaraus.SelectionRange.End >= vm.Varaus_alkupvm && calVaraus.SelectionRange.End <= vm.Varaus_loppupvm)
+                } else if (calVaraus.SelectionRange.End >= vm.Alkupvm_varaus && calVaraus.SelectionRange.End <= vm.Loppupvm_varaus)
                 {
                     return false;
                 }
