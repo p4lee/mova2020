@@ -53,9 +53,9 @@ namespace MOVA2020.forms
             CBMokki.Enabled = false;
             this.Text = "Varauksen muokkaus";
             this.btvaraus.Text = "Muokkaa varausta";
-
             calVaraus.SelectionRange.Start = this.v.Alkupvm_varaus;
             calVaraus.SelectionRange.End = this.v.Loppupvm_varaus;
+
 
             foreach(KeyValuePair<int, int> item in v.Varauksenpalvelut)
             {

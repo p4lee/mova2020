@@ -89,6 +89,7 @@ namespace MOVA2020.forms
                 {
                     dgvVaraukset.DataSource = null;
                     dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Alkupvm_varaus).ToList();
+
                 }
                 else
                 {
