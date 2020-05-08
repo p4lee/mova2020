@@ -45,13 +45,13 @@
             this.lblLisaaToimintaalueNimi = new System.Windows.Forms.Label();
             this.dgvToimintaalueet = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnMokkihaku = new System.Windows.Forms.Button();
             this.btnMokinTiedot = new System.Windows.Forms.Button();
             this.btnPoistaMokki = new System.Windows.Forms.Button();
             this.btnMuokkaaMokki = new System.Windows.Forms.Button();
             this.btnLisaaMokki = new System.Windows.Forms.Button();
             this.dgvMokit = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.btnMokkihaku = new System.Windows.Forms.Button();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaskut)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -67,11 +67,10 @@
             // 
             this.tabPage5.Controls.Add(this.btnLaskutus);
             this.tabPage5.Controls.Add(this.dgvLaskut);
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage5.Size = new System.Drawing.Size(1213, 554);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Size = new System.Drawing.Size(908, 448);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Laskut";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -80,10 +79,10 @@
             // 
             this.btnLaskutus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLaskutus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLaskutus.Location = new System.Drawing.Point(7, 494);
-            this.btnLaskutus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLaskutus.Location = new System.Drawing.Point(5, 401);
+            this.btnLaskutus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLaskutus.Name = "btnLaskutus";
-            this.btnLaskutus.Size = new System.Drawing.Size(393, 52);
+            this.btnLaskutus.Size = new System.Drawing.Size(295, 42);
             this.btnLaskutus.TabIndex = 1;
             this.btnLaskutus.Text = "Laskutus";
             this.btnLaskutus.UseVisualStyleBackColor = true;
@@ -99,15 +98,15 @@
             this.dgvLaskut.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLaskut.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLaskut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLaskut.Location = new System.Drawing.Point(405, 9);
-            this.dgvLaskut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvLaskut.Location = new System.Drawing.Point(304, 7);
+            this.dgvLaskut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvLaskut.MultiSelect = false;
             this.dgvLaskut.Name = "dgvLaskut";
             this.dgvLaskut.ReadOnly = true;
             this.dgvLaskut.RowHeadersVisible = false;
             this.dgvLaskut.RowHeadersWidth = 51;
             this.dgvLaskut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLaskut.Size = new System.Drawing.Size(796, 546);
+            this.dgvLaskut.Size = new System.Drawing.Size(597, 444);
             this.dgvLaskut.TabIndex = 0;
             // 
             // tabPage4
@@ -117,11 +116,11 @@
             this.tabPage4.Controls.Add(this.btnMuokkaaAsiakas);
             this.tabPage4.Controls.Add(this.btnLisaaAsiakas);
             this.tabPage4.Controls.Add(this.dgvAsiakkaat);
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage4.Size = new System.Drawing.Size(1213, 554);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Size = new System.Drawing.Size(908, 448);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Asiakkaat";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -131,10 +130,9 @@
             this.btnAsiakastiedot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAsiakastiedot.Enabled = false;
             this.btnAsiakastiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAsiakastiedot.Location = new System.Drawing.Point(8, 508);
-            this.btnAsiakastiedot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAsiakastiedot.Location = new System.Drawing.Point(6, 413);
             this.btnAsiakastiedot.Name = "btnAsiakastiedot";
-            this.btnAsiakastiedot.Size = new System.Drawing.Size(219, 36);
+            this.btnAsiakastiedot.Size = new System.Drawing.Size(164, 29);
             this.btnAsiakastiedot.TabIndex = 4;
             this.btnAsiakastiedot.Text = "Asiakkaan tiedot";
             this.btnAsiakastiedot.UseVisualStyleBackColor = true;
@@ -145,10 +143,9 @@
             this.btnPoistaAsiakas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPoistaAsiakas.Enabled = false;
             this.btnPoistaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnPoistaAsiakas.Location = new System.Drawing.Point(8, 465);
-            this.btnPoistaAsiakas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPoistaAsiakas.Location = new System.Drawing.Point(6, 378);
             this.btnPoistaAsiakas.Name = "btnPoistaAsiakas";
-            this.btnPoistaAsiakas.Size = new System.Drawing.Size(219, 36);
+            this.btnPoistaAsiakas.Size = new System.Drawing.Size(164, 29);
             this.btnPoistaAsiakas.TabIndex = 3;
             this.btnPoistaAsiakas.Text = "Poista asiakas";
             this.btnPoistaAsiakas.UseVisualStyleBackColor = true;
@@ -159,10 +156,9 @@
             this.btnMuokkaaAsiakas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnMuokkaaAsiakas.Enabled = false;
             this.btnMuokkaaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnMuokkaaAsiakas.Location = new System.Drawing.Point(8, 422);
-            this.btnMuokkaaAsiakas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMuokkaaAsiakas.Location = new System.Drawing.Point(6, 343);
             this.btnMuokkaaAsiakas.Name = "btnMuokkaaAsiakas";
-            this.btnMuokkaaAsiakas.Size = new System.Drawing.Size(219, 36);
+            this.btnMuokkaaAsiakas.Size = new System.Drawing.Size(164, 29);
             this.btnMuokkaaAsiakas.TabIndex = 2;
             this.btnMuokkaaAsiakas.Text = "Muokkaa asiakasta";
             this.btnMuokkaaAsiakas.UseVisualStyleBackColor = true;
@@ -171,10 +167,9 @@
             // btnLisaaAsiakas
             // 
             this.btnLisaaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLisaaAsiakas.Location = new System.Drawing.Point(8, 10);
-            this.btnLisaaAsiakas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLisaaAsiakas.Location = new System.Drawing.Point(6, 8);
             this.btnLisaaAsiakas.Name = "btnLisaaAsiakas";
-            this.btnLisaaAsiakas.Size = new System.Drawing.Size(219, 36);
+            this.btnLisaaAsiakas.Size = new System.Drawing.Size(164, 29);
             this.btnLisaaAsiakas.TabIndex = 1;
             this.btnLisaaAsiakas.Text = "Lisää asiakas";
             this.btnLisaaAsiakas.UseVisualStyleBackColor = true;
@@ -190,15 +185,15 @@
             this.dgvAsiakkaat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAsiakkaat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAsiakkaat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsiakkaat.Location = new System.Drawing.Point(405, 9);
-            this.dgvAsiakkaat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgvAsiakkaat.Location = new System.Drawing.Point(304, 7);
+            this.dgvAsiakkaat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAsiakkaat.MultiSelect = false;
             this.dgvAsiakkaat.Name = "dgvAsiakkaat";
             this.dgvAsiakkaat.ReadOnly = true;
             this.dgvAsiakkaat.RowHeadersVisible = false;
             this.dgvAsiakkaat.RowHeadersWidth = 51;
             this.dgvAsiakkaat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAsiakkaat.Size = new System.Drawing.Size(796, 546);
+            this.dgvAsiakkaat.Size = new System.Drawing.Size(597, 444);
             this.dgvAsiakkaat.TabIndex = 0;
             this.dgvAsiakkaat.Click += new System.EventHandler(this.dgvAsiakkaat_Click);
             // 
@@ -210,11 +205,11 @@
             this.tabPage2.Controls.Add(this.tbLisaaToimintaalueNimi);
             this.tabPage2.Controls.Add(this.lblLisaaToimintaalueNimi);
             this.tabPage2.Controls.Add(this.dgvToimintaalueet);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(1213, 554);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(908, 448);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Toimialueet";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -224,10 +219,9 @@
             this.btnToimintaalueentiedot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnToimintaalueentiedot.Enabled = false;
             this.btnToimintaalueentiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnToimintaalueentiedot.Location = new System.Drawing.Point(8, 508);
-            this.btnToimintaalueentiedot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnToimintaalueentiedot.Location = new System.Drawing.Point(6, 413);
             this.btnToimintaalueentiedot.Name = "btnToimintaalueentiedot";
-            this.btnToimintaalueentiedot.Size = new System.Drawing.Size(244, 36);
+            this.btnToimintaalueentiedot.Size = new System.Drawing.Size(183, 29);
             this.btnToimintaalueentiedot.TabIndex = 6;
             this.btnToimintaalueentiedot.Text = "Toiminta-alueen tiedot";
             this.btnToimintaalueentiedot.UseVisualStyleBackColor = true;
@@ -238,10 +232,9 @@
             this.btnPoistaToimintaalue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPoistaToimintaalue.Enabled = false;
             this.btnPoistaToimintaalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnPoistaToimintaalue.Location = new System.Drawing.Point(8, 466);
-            this.btnPoistaToimintaalue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPoistaToimintaalue.Location = new System.Drawing.Point(6, 379);
             this.btnPoistaToimintaalue.Name = "btnPoistaToimintaalue";
-            this.btnPoistaToimintaalue.Size = new System.Drawing.Size(244, 34);
+            this.btnPoistaToimintaalue.Size = new System.Drawing.Size(183, 28);
             this.btnPoistaToimintaalue.TabIndex = 5;
             this.btnPoistaToimintaalue.Text = "Poista toiminta-alue";
             this.btnPoistaToimintaalue.UseVisualStyleBackColor = true;
@@ -250,10 +243,10 @@
             // btnLisaatoimintaalue
             // 
             this.btnLisaatoimintaalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLisaatoimintaalue.Location = new System.Drawing.Point(9, 68);
-            this.btnLisaatoimintaalue.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLisaatoimintaalue.Location = new System.Drawing.Point(7, 55);
+            this.btnLisaatoimintaalue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLisaatoimintaalue.Name = "btnLisaatoimintaalue";
-            this.btnLisaatoimintaalue.Size = new System.Drawing.Size(217, 36);
+            this.btnLisaatoimintaalue.Size = new System.Drawing.Size(163, 29);
             this.btnLisaatoimintaalue.TabIndex = 4;
             this.btnLisaatoimintaalue.Text = "Lisää toiminta-alue";
             this.btnLisaatoimintaalue.UseVisualStyleBackColor = true;
@@ -261,19 +254,19 @@
             // 
             // tbLisaaToimintaalueNimi
             // 
-            this.tbLisaaToimintaalueNimi.Location = new System.Drawing.Point(9, 30);
-            this.tbLisaaToimintaalueNimi.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbLisaaToimintaalueNimi.Location = new System.Drawing.Point(7, 24);
+            this.tbLisaaToimintaalueNimi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbLisaaToimintaalueNimi.Name = "tbLisaaToimintaalueNimi";
-            this.tbLisaaToimintaalueNimi.Size = new System.Drawing.Size(216, 26);
+            this.tbLisaaToimintaalueNimi.Size = new System.Drawing.Size(163, 23);
             this.tbLisaaToimintaalueNimi.TabIndex = 3;
             // 
             // lblLisaaToimintaalueNimi
             // 
             this.lblLisaaToimintaalueNimi.AutoSize = true;
-            this.lblLisaaToimintaalueNimi.Location = new System.Drawing.Point(5, 4);
-            this.lblLisaaToimintaalueNimi.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblLisaaToimintaalueNimi.Location = new System.Drawing.Point(4, 3);
+            this.lblLisaaToimintaalueNimi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLisaaToimintaalueNimi.Name = "lblLisaaToimintaalueNimi";
-            this.lblLisaaToimintaalueNimi.Size = new System.Drawing.Size(43, 20);
+            this.lblLisaaToimintaalueNimi.Size = new System.Drawing.Size(184, 17);
             this.lblLisaaToimintaalueNimi.TabIndex = 2;
             this.lblLisaaToimintaalueNimi.Text = "Uuden toiminta-alueen nimi:";
             // 
@@ -287,8 +280,8 @@
             this.dgvToimintaalueet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvToimintaalueet.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvToimintaalueet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvToimintaalueet.Location = new System.Drawing.Point(405, 9);
-            this.dgvToimintaalueet.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgvToimintaalueet.Location = new System.Drawing.Point(304, 7);
+            this.dgvToimintaalueet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvToimintaalueet.MultiSelect = false;
             this.dgvToimintaalueet.Name = "dgvToimintaalueet";
             this.dgvToimintaalueet.ReadOnly = true;
@@ -300,7 +293,7 @@
             this.dgvToimintaalueet.ShowCellToolTips = false;
             this.dgvToimintaalueet.ShowEditingIcon = false;
             this.dgvToimintaalueet.ShowRowErrors = false;
-            this.dgvToimintaalueet.Size = new System.Drawing.Size(796, 546);
+            this.dgvToimintaalueet.Size = new System.Drawing.Size(597, 444);
             this.dgvToimintaalueet.TabIndex = 0;
             this.dgvToimintaalueet.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvToimintaalueet_ColumnHeaderMouseClick);
             this.dgvToimintaalueet.Click += new System.EventHandler(this.dgvToimintaalueet_Click);
@@ -314,23 +307,34 @@
             this.tabPage1.Controls.Add(this.btnMuokkaaMokki);
             this.tabPage1.Controls.Add(this.btnLisaaMokki);
             this.tabPage1.Controls.Add(this.dgvMokit);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1213, 554);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(908, 448);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mökit";
+            // 
+            // btnMokkihaku
+            // 
+            this.btnMokkihaku.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnMokkihaku.Location = new System.Drawing.Point(5, 251);
+            this.btnMokkihaku.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMokkihaku.Name = "btnMokkihaku";
+            this.btnMokkihaku.Size = new System.Drawing.Size(164, 30);
+            this.btnMokkihaku.TabIndex = 4;
+            this.btnMokkihaku.Text = "Mökki haku";
+            this.btnMokkihaku.UseVisualStyleBackColor = true;
+            this.btnMokkihaku.Click += new System.EventHandler(this.btnMokkihaku_Click);
             // 
             // btnMokinTiedot
             // 
             this.btnMokinTiedot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnMokinTiedot.Enabled = false;
             this.btnMokinTiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMokinTiedot.Location = new System.Drawing.Point(7, 508);
-            this.btnMokinTiedot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMokinTiedot.Location = new System.Drawing.Point(5, 413);
             this.btnMokinTiedot.Name = "btnMokinTiedot";
-            this.btnMokinTiedot.Size = new System.Drawing.Size(219, 36);
+            this.btnMokinTiedot.Size = new System.Drawing.Size(164, 29);
             this.btnMokinTiedot.TabIndex = 4;
             this.btnMokinTiedot.Text = "Mökin Tiedot";
             this.btnMokinTiedot.UseVisualStyleBackColor = true;
@@ -341,10 +345,10 @@
             this.btnPoistaMokki.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPoistaMokki.Enabled = false;
             this.btnPoistaMokki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPoistaMokki.Location = new System.Drawing.Point(7, 466);
-            this.btnPoistaMokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPoistaMokki.Location = new System.Drawing.Point(5, 379);
+            this.btnPoistaMokki.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPoistaMokki.Name = "btnPoistaMokki";
-            this.btnPoistaMokki.Size = new System.Drawing.Size(219, 36);
+            this.btnPoistaMokki.Size = new System.Drawing.Size(164, 29);
             this.btnPoistaMokki.TabIndex = 3;
             this.btnPoistaMokki.Text = "Poista Mökki";
             this.btnPoistaMokki.UseVisualStyleBackColor = true;
@@ -355,10 +359,10 @@
             this.btnMuokkaaMokki.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnMuokkaaMokki.Enabled = false;
             this.btnMuokkaaMokki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMuokkaaMokki.Location = new System.Drawing.Point(7, 426);
-            this.btnMuokkaaMokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMuokkaaMokki.Location = new System.Drawing.Point(5, 346);
+            this.btnMuokkaaMokki.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMuokkaaMokki.Name = "btnMuokkaaMokki";
-            this.btnMuokkaaMokki.Size = new System.Drawing.Size(219, 36);
+            this.btnMuokkaaMokki.Size = new System.Drawing.Size(164, 29);
             this.btnMuokkaaMokki.TabIndex = 2;
             this.btnMuokkaaMokki.Text = "Muokkaa Mökkiä";
             this.btnMuokkaaMokki.UseVisualStyleBackColor = true;
@@ -367,10 +371,10 @@
             // btnLisaaMokki
             // 
             this.btnLisaaMokki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLisaaMokki.Location = new System.Drawing.Point(7, 6);
-            this.btnLisaaMokki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLisaaMokki.Location = new System.Drawing.Point(5, 5);
+            this.btnLisaaMokki.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLisaaMokki.Name = "btnLisaaMokki";
-            this.btnLisaaMokki.Size = new System.Drawing.Size(219, 36);
+            this.btnLisaaMokki.Size = new System.Drawing.Size(164, 29);
             this.btnLisaaMokki.TabIndex = 1;
             this.btnLisaaMokki.Text = "Lisää Mökki";
             this.btnLisaaMokki.UseVisualStyleBackColor = true;
@@ -386,15 +390,15 @@
             this.dgvMokit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMokit.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMokit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMokit.Location = new System.Drawing.Point(405, 9);
-            this.dgvMokit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgvMokit.Location = new System.Drawing.Point(304, 7);
+            this.dgvMokit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMokit.MultiSelect = false;
             this.dgvMokit.Name = "dgvMokit";
             this.dgvMokit.ReadOnly = true;
             this.dgvMokit.RowHeadersVisible = false;
             this.dgvMokit.RowHeadersWidth = 51;
             this.dgvMokit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMokit.Size = new System.Drawing.Size(796, 546);
+            this.dgvMokit.Size = new System.Drawing.Size(597, 444);
             this.dgvMokit.TabIndex = 0;
             this.dgvMokit.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMokit_ColumnHeaderMouseClick);
             this.dgvMokit.Click += new System.EventHandler(this.dgvMokit_Click);
@@ -409,32 +413,20 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tabControl1.Location = new System.Drawing.Point(16, 15);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1221, 587);
+            this.tabControl1.Size = new System.Drawing.Size(916, 477);
             this.tabControl1.TabIndex = 0;
-            // 
-            // btnMokkihaku
-            // 
-            this.btnMokkihaku.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnMokkihaku.Location = new System.Drawing.Point(7, 309);
-            this.btnMokkihaku.Name = "btnMokkihaku";
-            this.btnMokkihaku.Size = new System.Drawing.Size(162, 32);
-            this.btnMokkihaku.TabIndex = 4;
-            this.btnMokkihaku.Text = "Mökki haku";
-            this.btnMokkihaku.UseVisualStyleBackColor = true;
-            this.btnMokkihaku.Click += new System.EventHandler(this.btnMokkihaku_Click);
             // 
             // Primary
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1245, 610);
+            this.ClientSize = new System.Drawing.Size(934, 496);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MinimumSize = new System.Drawing.Size(1261, 648);
+            this.MinimumSize = new System.Drawing.Size(950, 534);
             this.Name = "Primary";
             this.Text = "MOVA2020";
             this.Load += new System.EventHandler(this.Primary_Load);

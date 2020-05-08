@@ -267,7 +267,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(550, 650);
             this.Name = "Laskutus";
-            this.Text = "a";
+            this.Text = "Laskutus";
             this.panelLasku.ResumeLayout(false);
             this.panelLasku.PerformLayout();
             this.ResumeLayout(false);

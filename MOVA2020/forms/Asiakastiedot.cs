@@ -14,11 +14,9 @@ namespace MOVA2020.forms
 {
     /*
      * 
-     * 
-     * 
-     * 
-     * 
-     * 
+     * Tehnyt: Tommi Puurunen
+     * Toteuttaa toiminnallisuusmäärittelyn
+     *      4.2.4 Asiakkaan tiedot
      */
     public partial class Asiakastiedot : Form
     {

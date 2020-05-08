@@ -11,6 +11,12 @@ using MOVA2020;
 using MOVA2020.objs.dbitems;
 namespace MOVA2020.forms
 {
+    /*
+     * Tekijä: Tommi Puurunen
+     * 
+     * Toteuttaa toiminnallisuusmäärittelyn
+     *      4.2.8 Mökin tiedot
+     */
     public partial class Mokkitiedot : Form
     {
         private Primary p;
@@ -38,6 +44,9 @@ namespace MOVA2020.forms
         }
         public void paivita()
         {
+            /*
+             * Päivittää datagridit
+             */
             this.p.paivita();
             dgvVaraukset.DataSource = null;
             dgvVaraukset.DataSource = this.Varaukset;
