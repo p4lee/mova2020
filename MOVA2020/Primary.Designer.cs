@@ -274,7 +274,7 @@
             this.lblLisaaToimintaalueNimi.Name = "lblLisaaToimintaalueNimi";
             this.lblLisaaToimintaalueNimi.Size = new System.Drawing.Size(43, 20);
             this.lblLisaaToimintaalueNimi.TabIndex = 2;
-            this.lblLisaaToimintaalueNimi.Text = "Nimi";
+            this.lblLisaaToimintaalueNimi.Text = "Uuden toiminta-alueen nimi:";
             // 
             // dgvToimintaalueet
             // 

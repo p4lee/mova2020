@@ -49,12 +49,10 @@ namespace MOVA2020
 
         public Primary()
         {
-
             InitializeComponent();
-            this.paivita();
-
-
+            this.paivita();            
         }
+
         public void paivita()
         {
             this.PaivitaPostinumerot();
@@ -65,6 +63,7 @@ namespace MOVA2020
             this.PaivitaVaraukset();
             this.PaivitaLaskut();
         }
+
         private void PaivitaAsiakkaat()
         {
             this.Asiakkaat.Clear();
@@ -194,6 +193,12 @@ namespace MOVA2020
         }
         private void btnLisaatoimintaalue_Click(object sender, EventArgs e)
         {
+
+            if(tbLisaaToimintaalueNimi.Text.Length == 0)
+            {
+                MessageBox.Show("Toiminta-alueella pitää olla nimi!", "Virhe", MessageBoxButtons.OK);
+                return;
+            }
             // SQL kysely
             string query = "INSERT INTO toimintaalue(nimi) VALUES($nimi)";
             /*
@@ -207,8 +212,7 @@ namespace MOVA2020
             } else
             {
                 MessageBox.Show("error");
-            }
-            
+            }         
         }
 
         private void Primary_Load(object sender, EventArgs e)
@@ -267,9 +271,6 @@ namespace MOVA2020
             }
         }
 
-
-
-
         private void dgvLaskut_Click(object sender, EventArgs e)
         {
             if (dgvLaskut.SelectedRows.Count > 0)
@@ -281,6 +282,7 @@ namespace MOVA2020
                 btnLaskutus.Enabled = false;
             }
         }
+
         private void btnLaskutus_Click(object sender, EventArgs e)
         {
             Lasku l = (Lasku)dgvLaskut.SelectedRows[0].DataBoundItem;
@@ -288,15 +290,16 @@ namespace MOVA2020
             lt.Show();
         }
 
-
         private void btnLisaaAsiakas_Click(object sender, EventArgs e)
         {
+            //4.2.1 Asiakkaan lisäys, siirrytään tyhjälle Asiakasmuokkaus -formille.
             Asiakasmuokkaus at = new Asiakasmuokkaus(this);
             at.Show();
         }
 
         private void btnMuokkaaAsiakas_Click(object sender, EventArgs e)
         {
+            //4.2.2 Asiakkaan muokkaus, siirrytään Asiakasmuokkaus -formille, johon viedään asiakkaan aiemmat tiedot. 
             Asiakas a = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
             Asiakasmuokkaus at = new Asiakasmuokkaus(this, a);
             at.Show();
@@ -304,8 +307,10 @@ namespace MOVA2020
 
         private void btnPoistaAsiakas_Click(object sender, EventArgs e)
         {
+            //4.2.3 Asiakkaan poisto, varmistusten jälkeen poistetaan asiakas laskutus ja varaus tietoineen. 
             Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
-            DialogResult dr = MessageBox.Show("Haluatko poistaa asiakkaan " + asiakas.ToString() + " ?\nTämä poistaa kaikki laskut ja varaukset!", "Poista Asiakas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dr = MessageBox.Show("Haluatko poistaa asiakkaan " + asiakas.ToString() 
+                + " ?\nTämä poistaa kaikki laskut ja varaukset!", "Poista Asiakas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
@@ -316,12 +321,14 @@ namespace MOVA2020
                 this.paivita();
             }
         }
+
         private void btnAsiakastiedot_Click(object sender, EventArgs e)
         {
             Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
             Asiakastiedot at = new Asiakastiedot(this, asiakas);
             at.Show();
         }
+
         private void dgvAsiakkaat_Click(object sender, EventArgs e)
         {
             if (dgvAsiakkaat.SelectedRows.Count > 0)
