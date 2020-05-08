@@ -11,6 +11,13 @@ using MOVA2020.objs.dbitems;
 
 namespace MOVA2020.forms
 {
+    /*
+    * MOVA2020
+    * Tekijä: Roosa Turunen
+    * 
+    * Toteuttaa  toiminnallisuusmäärittelyn 
+    *      4.2.7 Mökin poisto 
+    */
     public partial class varmennus_kysely_poistosta : Form
     {
         Primary p;
@@ -30,7 +37,7 @@ namespace MOVA2020.forms
 
         private void btnKylla_Click(object sender, EventArgs e)
         {
-            //poistaa valitun kohteen tietokannasta/dgvMokista
+            //4.2.7 Mökin poisto, poistaa valitun kohteen tietokannasta/dgvMokista
             Dictionary<string, object> pairs = new Dictionary<string, object>();
             pairs.Add("$mokki_id", m.Mokki_id);
             string query = "DELETE FROM mokki WHERE mokki_id = $mokki_id";
