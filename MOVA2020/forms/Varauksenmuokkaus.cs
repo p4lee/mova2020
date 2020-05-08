@@ -232,5 +232,11 @@ namespace MOVA2020.forms
                 mt.Show();
             }
         }
+
+        private void btnMokinhaku_Click(object sender, EventArgs e)
+        {
+            Mokinhaku mh = new Mokinhaku(this.lomake);
+            mh.Show();
+        }
     }
 }

@@ -95,7 +95,7 @@
             // tbNimi
             // 
             this.tbNimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tbNimi.Location = new System.Drawing.Point(11, 34);
+            this.tbNimi.Location = new System.Drawing.Point(12, 28);
             this.tbNimi.Name = "tbNimi";
             this.tbNimi.Size = new System.Drawing.Size(152, 23);
             this.tbNimi.TabIndex = 4;
@@ -104,11 +104,11 @@
             // 
             this.lblNimi.AutoSize = true;
             this.lblNimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNimi.Location = new System.Drawing.Point(8, 15);
+            this.lblNimi.Location = new System.Drawing.Point(9, 9);
             this.lblNimi.Name = "lblNimi";
-            this.lblNimi.Size = new System.Drawing.Size(35, 17);
+            this.lblNimi.Size = new System.Drawing.Size(139, 17);
             this.lblNimi.TabIndex = 5;
-            this.lblNimi.Text = "Nimi";
+            this.lblNimi.Text = "Toiminta-alueen nimi";
             // 
             // btnPoistaPalvelu
             // 
@@ -149,7 +149,7 @@
             // btnVaihdanimi
             // 
             this.btnVaihdanimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnVaihdanimi.Location = new System.Drawing.Point(11, 61);
+            this.btnVaihdanimi.Location = new System.Drawing.Point(12, 55);
             this.btnVaihdanimi.Name = "btnVaihdanimi";
             this.btnVaihdanimi.Size = new System.Drawing.Size(152, 31);
             this.btnVaihdanimi.TabIndex = 9;
