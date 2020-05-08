@@ -11,6 +11,12 @@ using MOVA2020;
 using MOVA2020.objs.dbitems;
 namespace MOVA2020.forms
 {
+    /*
+     * Tekijä: Tommi Puurunen
+     * 
+     * Toteuttaa toiminnallisuusmäärittelyn
+     *      4.2.8 Mökin tiedot
+     */
     public partial class Mokkitiedot : Form
     {
         private Primary p;
@@ -38,6 +44,9 @@ namespace MOVA2020.forms
         }
         public void paivita()
         {
+            /*
+             * Päivittää datagridit
+             */
             this.p.paivita();
             dgvVaraukset.DataSource = null;
             dgvVaraukset.DataSource = this.Varaukset;
@@ -88,12 +97,13 @@ namespace MOVA2020.forms
                 if (so == SortOrder.Ascending)
                 {
                     dgvVaraukset.DataSource = null;
-                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Varaus_alkupvm).ToList();
+                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Alkupvm_varaus).ToList();
+
                 }
                 else
                 {
                     dgvVaraukset.DataSource = null;
-                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Varaus_alkupvm).ToList();
+                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Alkupvm_varaus).ToList();
                 }
             }
             else if (column.Equals("Varattu_loppupvm"))
@@ -101,12 +111,12 @@ namespace MOVA2020.forms
                 if (so == SortOrder.Ascending)
                 {
                     dgvVaraukset.DataSource = null;
-                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Varaus_loppupvm).ToList();
+                    dgvVaraukset.DataSource = this.Varaukset.OrderBy(x => x.Loppupvm_varaus).ToList();
                 }
                 else
                 {
                     dgvVaraukset.DataSource = null;
-                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Varaus_loppupvm).ToList();
+                    dgvVaraukset.DataSource = this.Varaukset.OrderByDescending(x => x.Loppupvm_varaus).ToList();
                 }
             }
             

@@ -95,6 +95,12 @@
     <Compile Include="forms\Asiakasmuokkaus.Designer.cs">
       <DependentUpon>Asiakasmuokkaus.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\Mokinhaku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Mokinhaku.Designer.cs">
+      <DependentUpon>Mokinhaku.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\Mokkitiedot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Asiakasmuokkaus.resx">
       <DependentUpon>Asiakasmuokkaus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Mokinhaku.resx">
+      <DependentUpon>Mokinhaku.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Mokkimuokkaus.resx">
       <DependentUpon>Mokkimuokkaus.cs</DependentUpon>

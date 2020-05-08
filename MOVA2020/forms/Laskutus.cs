@@ -39,7 +39,6 @@ namespace MOVA2020.forms
             InitializeComponent();
             this.p = p;
             this.l = l;
-
             if(this.l.Varaus.Vahvistus_pvm.Equals(DateTime.Parse("1970-01-01 00:00:00")))
             {
                 btnVarmenna.Enabled = true;
@@ -50,9 +49,10 @@ namespace MOVA2020.forms
             TBerapvm.Text = l.Erapaiva.ToString("dd-MM-yyyy");
             TBpvm.Text = l.Varaus.Vahvistus_pvm.ToString("dd-MM-yyyy");
             string lisatiedot = l.Varaus.Mokki.Kuvaus + "\r\n" + l.Varaus.Mokki.Varustelu + "\r\n";
-            string summat = l.Varaus.Varaus_alkupvm.ToString("dd-MM-yyyy")+" - "+l.Varaus.Varaus_loppupvm.ToString("dd-MM-yyyy")+ "\r\n";
-            summat += (l.Varaus.Varaus_loppupvm - l.Varaus.Varaus_alkupvm).TotalDays.ToString() + " päivä(ä), " +
-                l.Varaus.Mokki.Hinta * (l.Varaus.Varaus_loppupvm - l.Varaus.Varaus_alkupvm).TotalDays;
+            string summat = l.Varaus.Alkupvm_varaus.ToString("yyyy-MM-dd")+" - "+l.Varaus.Loppupvm_varaus.ToString("yyyy-MM-dd")+ "\r\n";
+            summat += (l.Varaus.Loppupvm_varaus - l.Varaus.Alkupvm_varaus).TotalDays.ToString() + " päivä(ä), " +
+                l.Varaus.Mokki.Hinta * (l.Varaus.Loppupvm_varaus - l.Varaus.Alkupvm_varaus).TotalDays;
+
 
             foreach (KeyValuePair<int, int> item in l.Varaus.Varauksenpalvelut)
             {

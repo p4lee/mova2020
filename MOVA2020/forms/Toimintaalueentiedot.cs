@@ -11,6 +11,16 @@ using System.Windows.Forms;
 using MOVA2020.objs.dbitems;
 namespace MOVA2020.forms
 {
+    /*
+     * Toiminta-alueen tiedot
+     * Tekijä: Tommi Puurunen
+     * 
+     * Toteuttaa toiminta-alueiden tietojen tarkistuksen
+     * Painikkeet toiminnallismäärittelyn
+     *      4.2.12 Palveluiden lisäys
+     *      4.2.13 Palveluiden muokkaus
+     *      4.2.14 Palveluiden poisto
+     */
     public partial class Toimintaalueentiedot : Form
     {
         private Primary p;
@@ -40,6 +50,9 @@ namespace MOVA2020.forms
 
         private void btnVaihdanimi_Click(object sender, EventArgs e)
         {
+            /*
+             * Vaihdetaan nimi ja tarkistetaan että kentässä on ainakin 1 kirjain tai numero
+             */
             if (tbNimi.Text.Length > 0) {
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
                 pairs.Add("$nimi", tbNimi.Text);
@@ -56,6 +69,9 @@ namespace MOVA2020.forms
 
         private void dgvPalvelut_Click(object sender, EventArgs e)
         {
+            /*
+             * Jos on valittuna palvelu, niin sallitaan muokkaamis painike ja poisto painike
+             */
             if (dgvPalvelut.SelectedRows.Count > 0)
             {
                 btnMuokkaaPalvelu.Enabled = true;
@@ -67,9 +83,29 @@ namespace MOVA2020.forms
                 btnPoistaPalvelu.Enabled = false;
             }
         }
+        private void btnLisaaPalvelu_Click(object sender, EventArgs e)
+        {
+            /*
+             * 4.2.12 Palveluiden lisäys
+             */
+            Palvelunmuokkaus p = new Palvelunmuokkaus(this);
+            p.Show();
+        }
+        private void btnMuokkaaPalvelu_Click(object sender, EventArgs e)
+        {
+            /*
+             * 4.2.13 Palveluiden muokkaus
+             */
+            Palvelu palvelu = (Palvelu)dgvPalvelut.SelectedRows[0].DataBoundItem;
 
+            Palvelunmuokkaus p = new Palvelunmuokkaus(this, palvelu);
+            p.Show();
+        }
         private void btnPoistaPalvelu_Click(object sender, EventArgs e)
         {
+            /*
+             * 4.2.14 Palveluiden poisto
+             */
             Palvelu palvelu = (Palvelu)dgvPalvelut.SelectedRows[0].DataBoundItem;
             SystemSounds.Beep.Play();
             DialogResult dr = MessageBox.Show("Haluatko poistaa palvelun " + palvelu.Nimi + " ?", "Poista Palvelu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -83,19 +119,7 @@ namespace MOVA2020.forms
             }
         }
 
-        private void btnMuokkaaPalvelu_Click(object sender, EventArgs e)
-        {
-            Palvelu palvelu = (Palvelu)dgvPalvelut.SelectedRows[0].DataBoundItem;
 
-            Palvelunmuokkaus p = new Palvelunmuokkaus(this, palvelu);
-            p.Show();
-        }
-
-        private void btnLisaaPalvelu_Click(object sender, EventArgs e)
-        {
-            Palvelunmuokkaus p = new Palvelunmuokkaus(this);
-            p.Show();
-        }
         private void dgvPalvelut_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DataGridView grid = (DataGridView)sender;

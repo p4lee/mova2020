@@ -44,6 +44,7 @@
             this.lblToimintaalue = new System.Windows.Forms.Label();
             this.calVaraus = new System.Windows.Forms.MonthCalendar();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnMokinhaku = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nmrLukumaara)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,7 +167,7 @@
             // 
             this.cbToimintaalueet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbToimintaalueet.FormattingEnabled = true;
-            this.cbToimintaalueet.Location = new System.Drawing.Point(19, 29);
+            this.cbToimintaalueet.Location = new System.Drawing.Point(20, 29);
             this.cbToimintaalueet.Name = "cbToimintaalueet";
             this.cbToimintaalueet.Size = new System.Drawing.Size(229, 28);
             this.cbToimintaalueet.TabIndex = 1;
@@ -194,7 +195,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(258, 107);
+            this.button1.Location = new System.Drawing.Point(258, 101);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(216, 24);
             this.button1.TabIndex = 3;
@@ -202,11 +203,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnMokintiedot_Click);
             // 
+            // btnMokinhaku
+            // 
+            this.btnMokinhaku.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnMokinhaku.Location = new System.Drawing.Point(258, 29);
+            this.btnMokinhaku.Name = "btnMokinhaku";
+            this.btnMokinhaku.Size = new System.Drawing.Size(216, 32);
+            this.btnMokinhaku.TabIndex = 25;
+            this.btnMokinhaku.Text = "Mökin haku";
+            this.btnMokinhaku.UseVisualStyleBackColor = true;
+            this.btnMokinhaku.Click += new System.EventHandler(this.btnMokinhaku_Click);
+            // 
             // Varauksenmuokkaus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 700);
+            this.Controls.Add(this.btnMokinhaku);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.calVaraus);
             this.Controls.Add(this.lblToimintaalue);
@@ -250,5 +263,6 @@
         private System.Windows.Forms.Label lblToimintaalue;
         private System.Windows.Forms.MonthCalendar calVaraus;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMokinhaku;
     }
 }

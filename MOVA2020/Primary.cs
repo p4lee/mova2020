@@ -13,6 +13,20 @@ using MOVA2020.objs.dbitems;
 using MOVA2020.forms;
 namespace MOVA2020
 {
+    /*
+    * MOVA2020
+    * Tekijä: Teija Tilli, Tommi Puurunen, Jonna Räsänen, Roosa Turunen, Pauli Pursiainen
+    * 
+    * Toteuttaa  toiminnallisuusmäärittelyn 
+    *      4.2.1 Asiakkaan lisäys
+    *      4.2.2 Asiakkaan muokkaus
+    *      4.2.3 Asiakkaan poisto
+    *      
+    *      4.2.5 Mökin lisäys
+    *      4.2.6 Mökin muokkaaminen
+    *      4.2.7 Mökin poisto
+    *      4.2.8 Mökin tiedot
+    */
     public partial class Primary : Form
     {
         private DBHandler db = new DBHandler();
@@ -35,12 +49,10 @@ namespace MOVA2020
 
         public Primary()
         {
-
             InitializeComponent();
-            this.paivita();
-
-
+            this.paivita();            
         }
+
         public void paivita()
         {
             this.PaivitaPostinumerot();
@@ -51,6 +63,7 @@ namespace MOVA2020
             this.PaivitaVaraukset();
             this.PaivitaLaskut();
         }
+
         private void PaivitaAsiakkaat()
         {
             this.Asiakkaat.Clear();
@@ -180,6 +193,12 @@ namespace MOVA2020
         }
         private void btnLisaatoimintaalue_Click(object sender, EventArgs e)
         {
+
+            if(tbLisaaToimintaalueNimi.Text.Length == 0)
+            {
+                MessageBox.Show("Toiminta-alueella pitää olla nimi!", "Virhe", MessageBoxButtons.OK);
+                return;
+            }
             // SQL kysely
             string query = "INSERT INTO toimintaalue(nimi) VALUES($nimi)";
             /*
@@ -193,8 +212,7 @@ namespace MOVA2020
             } else
             {
                 MessageBox.Show("error");
-            }
-            
+            }         
         }
 
         private void Primary_Load(object sender, EventArgs e)
@@ -204,6 +222,7 @@ namespace MOVA2020
 
         private void btnLisaaMokki_Click(object sender, EventArgs e)
         {
+            //4.2.5 Mökin lisäys
             //aukaisee mokkimuokkaus filen
             Mokkimuokkaus lisaamokki = new Mokkimuokkaus(this);
             lisaamokki.ShowDialog();
@@ -211,6 +230,7 @@ namespace MOVA2020
 
         private void btnMuokkaaMokki_Click(object sender, EventArgs e)
         {
+            //4.2.6 Mökin muokkaaminen
             //aukaiseen mokkimuokkaus filen valitun mokin tiedoista
             Mokkimuokkaus mokkimuokkaus = new Mokkimuokkaus(this, (Mokki)dgvMokit.SelectedRows[0].DataBoundItem);
             mokkimuokkaus.ShowDialog();
@@ -218,6 +238,7 @@ namespace MOVA2020
 
         private void btnPoistaMokki_Click(object sender, EventArgs e)
         {
+            //4.2.7 Mökin poisto
             //tekee merkkiäänen ja aukaisee varmennus_kysely_poistosta-messageboxin
             SystemSounds.Beep.Play();
             varmennus_kysely_poistosta varmennus = new varmennus_kysely_poistosta(this, (Mokki)dgvMokit.SelectedRows[0].DataBoundItem);
@@ -226,6 +247,8 @@ namespace MOVA2020
 
         private void btnMokinTiedot_Click(object sender, EventArgs e)
         {
+            //4.2.8 Mökin tiedot
+            //aukaisee valitun mökin tiedot
             Mokki mokki = (Mokki)dgvMokit.SelectedRows[0].DataBoundItem;
             Mokkitiedot mokkitiedotjapalvelut = new Mokkitiedot(this, mokki);
             mokkitiedotjapalvelut.ShowDialog();
@@ -248,9 +271,6 @@ namespace MOVA2020
             }
         }
 
-
-
-
         private void dgvLaskut_Click(object sender, EventArgs e)
         {
             if (dgvLaskut.SelectedRows.Count > 0)
@@ -271,15 +291,16 @@ namespace MOVA2020
             lt.Show();
         }
 
-
         private void btnLisaaAsiakas_Click(object sender, EventArgs e)
         {
+            //4.2.1 Asiakkaan lisäys, siirrytään tyhjälle Asiakasmuokkaus -formille.
             Asiakasmuokkaus at = new Asiakasmuokkaus(this);
             at.Show();
         }
 
         private void btnMuokkaaAsiakas_Click(object sender, EventArgs e)
         {
+            //4.2.2 Asiakkaan muokkaus, siirrytään Asiakasmuokkaus -formille, johon viedään asiakkaan aiemmat tiedot. 
             Asiakas a = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
             Asiakasmuokkaus at = new Asiakasmuokkaus(this, a);
             at.Show();
@@ -287,8 +308,10 @@ namespace MOVA2020
 
         private void btnPoistaAsiakas_Click(object sender, EventArgs e)
         {
+            //4.2.3 Asiakkaan poisto, varmistusten jälkeen poistetaan asiakas laskutus ja varaus tietoineen. 
             Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
-            DialogResult dr = MessageBox.Show("Haluatko poistaa asiakkaan " + asiakas.ToString() + " ?\nTämä poistaa kaikki laskut ja varaukset!", "Poista Asiakas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dr = MessageBox.Show("Haluatko poistaa asiakkaan " + asiakas.ToString() 
+                + " ?\nTämä poistaa kaikki laskut ja varaukset!", "Poista Asiakas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
                 Dictionary<string, object> pairs = new Dictionary<string, object>();
@@ -299,12 +322,14 @@ namespace MOVA2020
                 this.paivita();
             }
         }
+
         private void btnAsiakastiedot_Click(object sender, EventArgs e)
         {
             Asiakas asiakas = (Asiakas)dgvAsiakkaat.SelectedRows[0].DataBoundItem;
             Asiakastiedot at = new Asiakastiedot(this, asiakas);
             at.Show();
         }
+
         private void dgvAsiakkaat_Click(object sender, EventArgs e)
         {
             if (dgvAsiakkaat.SelectedRows.Count > 0)
@@ -477,5 +502,10 @@ namespace MOVA2020
             grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
         }
 
+        private void btnMokkihaku_Click(object sender, EventArgs e)
+        {
+            Mokinhaku mh = new Mokinhaku(this);
+            mh.Show();
+        }
     }
 }
