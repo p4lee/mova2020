@@ -60,7 +60,7 @@
             this.tbosoite.Location = new System.Drawing.Point(131, 25);
             this.tbosoite.Name = "tbosoite";
             this.tbosoite.Size = new System.Drawing.Size(307, 26);
-            this.tbosoite.TabIndex = 2;
+            this.tbosoite.TabIndex = 0;
             // 
             // tbsalasana
             // 
@@ -68,7 +68,7 @@
             this.tbsalasana.Name = "tbsalasana";
             this.tbsalasana.PasswordChar = '*';
             this.tbsalasana.Size = new System.Drawing.Size(307, 26);
-            this.tbsalasana.TabIndex = 3;
+            this.tbsalasana.TabIndex = 1;
             // 
             // btkirjaudu
             // 
@@ -76,7 +76,7 @@
             this.btkirjaudu.Location = new System.Drawing.Point(145, 94);
             this.btkirjaudu.Name = "btkirjaudu";
             this.btkirjaudu.Size = new System.Drawing.Size(198, 43);
-            this.btkirjaudu.TabIndex = 4;
+            this.btkirjaudu.TabIndex = 2;
             this.btkirjaudu.Text = "Kirjaudu";
             this.btkirjaudu.UseVisualStyleBackColor = true;
             this.btkirjaudu.Click += new System.EventHandler(this.btkirjaudu_Click);
@@ -92,7 +92,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "sähkoposti";
             this.Text = "GMAIL kirjautuminen";
             this.ResumeLayout(false);

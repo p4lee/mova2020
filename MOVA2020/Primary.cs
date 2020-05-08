@@ -283,6 +283,7 @@ namespace MOVA2020
             }
         }
 
+        // 3.3 Avaa laskutusformin valitun varauksen tiedoilla
         private void btnLaskutus_Click(object sender, EventArgs e)
         {
             Lasku l = (Lasku)dgvLaskut.SelectedRows[0].DataBoundItem;
