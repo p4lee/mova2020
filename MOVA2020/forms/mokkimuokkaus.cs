@@ -12,6 +12,15 @@ using MOVA2020.objs.dbitems;
 
 namespace MOVA2020.forms
 {
+    /*
+    * MOVA2020
+    * Tekijä: Roosa Turunen, Tommi Puurunen
+    * 
+    * Toteuttaa  toiminnallisuusmäärittelyn 
+    *      4.2.5 Mökin lisäys
+    *      4.2.6 Mökin muokkaaminen
+    * 
+    */
     public partial class Mokkimuokkaus : Form
     {
         Primary p;
@@ -45,9 +54,8 @@ namespace MOVA2020.forms
         private void btnMokinLisays_Click(object sender, EventArgs e)
         {
             //jos kaikki kentät eivät ole täytettynä, se ei anna lisätä mökkiä tietokantaan
-            if (cbToimialue.SelectedIndex == -1 || tbMokkiNimi.Text.Length == 0 || tbPostinumero.Text.Length == 0
-                || tbKatuosoite.Text.Length == 0 || tbMokkiHinta.Text.Length == 0 || rtbVarustelu.Text.Length == 0
-                || rtbKuvaus.Text.Length == 0)
+            if (cbToimialue.SelectedIndex == -1 || tbMokkiNimi.Text.Length == 0 || tbPostinumero.TextLength < 5 || tbPostinumero.TextLength > 5
+                || tbKatuosoite.Text.Length == 0 || tbMokkiHinta.Text.Length == 0)
             {
                 if (cbToimialue.SelectedIndex == -1)
                 {
@@ -67,7 +75,7 @@ namespace MOVA2020.forms
                 }
                 if (tbPostinumero.TextLength < 5 || tbPostinumero.TextLength > 5)
                 {
-                    errorProvider1.SetError(tbPostinumero, "Postinumero puuttuu");
+                    errorProvider1.SetError(tbPostinumero, "Postinumero ei ole oikein");
                 }
                 else
                 {
@@ -108,7 +116,7 @@ namespace MOVA2020.forms
                 pairs.Add("$kuvaus", rtbKuvaus.Text);
 
                 if (this.m == null)
-                {
+                {//4.2.5 Mökin lisäys, lisää mökin tietokantaan
                     query = "INSERT INTO mokki(toimintaalue_id, mokkinimi, postinro, katuosoite, hinta, henkilomaara, varustelu, kuvaus) VALUES($toimialue, $mokkinimi, $postinumero, $katuosoite, $hinta, $henkilomaara, $varustelu, $kuvaus)";
 
                     this.p.Db.DMquery(query, pairs);
@@ -116,7 +124,7 @@ namespace MOVA2020.forms
                     this.Close();
                 }
                 else
-                {
+                {//4.2.6 Mökin muokkaaminen, päivittää mökin tietoja tietokannassa
                     query = "UPDATE mokki SET toimintaalue_id=$toimialue, mokkinimi=$mokkinimi, postinro=$postinumero, katuosoite=$katuosoite, hinta=$hinta, henkilomaara=$henkilomaara, varustelu=$varustelu, kuvaus=$kuvaus WHERE mokki_id=$mokki_id";
                     pairs.Add("$mokki_id", this.m.Mokki_id);
 
@@ -145,7 +153,7 @@ namespace MOVA2020.forms
         }
 
         private void tbPostinumero_KeyPress(object sender, KeyPressEventArgs e)
-        {
+        {//vain numerot ja backspace sallitaan postinumero textboxissa
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
             {
                 e.Handled = true;
