@@ -8,16 +8,13 @@ using System.IO;
 using System.Collections;
 /*
  * 
- * DELETE FROM asiakas WHERE asiakas_id=$id;
- * UPDATE asiakas SET etunimi=$etunimi WHERE asiakas_id=$id;
- * INSERT INTO asiakas(postinro, etunimi, sukunimi, lahiosoite, email, puhelinnro) VALUES($postinro, $etunimi, $lahiosoite, $email, $puhelinnro)
+ * Tekijä: Tommi Puurunen
  * 
- * Dictionary<string, Object) paritAsiakas = new Dictionary<string, object>();
- * parit.add($id, asiakasid);
- * 
- * INSERTIN parit
- * Dictionary<string, Object) paritAsiakas = new Dictionary<string, object>();
- * parit.add("$postinro", tbPostinro.Text)
+ * SQLite Wrapper
+ * Tehty Microsoft.Data.SQLiten ympärille.
+ * Mallityyppi on PHP -kielen PDO MySQL yhteyden mallinen.
+ * On ns. muuttujapareja, joilla voidaan estää SQL injektio, 
+ * joka pahimmassa tapauksessa voi tuhota koko tietokannan.
  * 
  */
 namespace MOVA2020.objs
@@ -38,11 +35,13 @@ namespace MOVA2020.objs
         }
         private void CreateDb(string dbloc)
         {
+            //alustetaan tietokanta tiedosto
             File.WriteAllBytes(dbloc, new byte[0]);
             using (var conn = new SqliteConnection("Data Source=" + dbloc))
             {
                 conn.Open();
                 var command = conn.CreateCommand();
+                //liitetään taulut ja postinumerot (ja testidata mikäli halutaan testata)
                 command.CommandText = Properties.Resources.alustus+Properties.Resources.postinumerot;
                 
                 command.ExecuteReader();
@@ -51,9 +50,9 @@ namespace MOVA2020.objs
         }
         /*
          * 
-         * @params string query, Dictionary<string, string> pairs
-         * returns amounts of row affected by data manipulation queries
-         * returns -1 if exception is encountered
+         * DMQuery, tulee sanoista Data Manipulation Query
+         * UPDATE, INSERT, DELETE, CREATE, ALTER komennot
+         * Käytetään tässä ohjelmassa vain UPDATE, INSERT ja DELETE, muut mahdollisia.
          */
         public int DMquery(string query, Dictionary<string, Object> pairs)
         {
@@ -79,6 +78,9 @@ namespace MOVA2020.objs
             }
             return ret;
         }
+        /*
+         * Select Query
+         */
         public List<Object[]> SelectQuery(string select, Dictionary<string, Object> valuePairs=null)
         {
             List<Object[]> lista = new List<Object[]>();

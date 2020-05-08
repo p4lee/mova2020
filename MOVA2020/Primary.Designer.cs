@@ -51,6 +51,7 @@
             this.btnLisaaMokki = new System.Windows.Forms.Button();
             this.dgvMokit = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.btnMokkihaku = new System.Windows.Forms.Button();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaskut)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -294,6 +295,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.btnMokkihaku);
             this.tabPage1.Controls.Add(this.btnMokinTiedot);
             this.tabPage1.Controls.Add(this.btnPoistaMokki);
             this.tabPage1.Controls.Add(this.btnMuokkaaMokki);
@@ -398,6 +400,17 @@
             this.tabControl1.Size = new System.Drawing.Size(916, 477);
             this.tabControl1.TabIndex = 0;
             // 
+            // btnMokkihaku
+            // 
+            this.btnMokkihaku.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnMokkihaku.Location = new System.Drawing.Point(7, 309);
+            this.btnMokkihaku.Name = "btnMokkihaku";
+            this.btnMokkihaku.Size = new System.Drawing.Size(162, 32);
+            this.btnMokkihaku.TabIndex = 4;
+            this.btnMokkihaku.Text = "Mökki haku";
+            this.btnMokkihaku.UseVisualStyleBackColor = true;
+            this.btnMokkihaku.Click += new System.EventHandler(this.btnMokkihaku_Click);
+            // 
             // Primary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,6 +460,7 @@
         private System.Windows.Forms.Button btnLisaaMokki;
         private System.Windows.Forms.DataGridView dgvMokit;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button btnMokkihaku;
     }
 }
 

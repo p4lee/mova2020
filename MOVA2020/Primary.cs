@@ -492,5 +492,10 @@ namespace MOVA2020
             grid.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection = so;
         }
 
+        private void btnMokkihaku_Click(object sender, EventArgs e)
+        {
+            Mokinhaku mh = new Mokinhaku(this);
+            mh.Show();
+        }
     }
 }

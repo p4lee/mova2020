@@ -33,6 +33,8 @@
             this.cbJarjestely = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMokinjarjestely = new System.Windows.Forms.Label();
+            this.btnValitsemokki = new System.Windows.Forms.Button();
+            this.btnMokintiedot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokit)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +49,7 @@
             this.dgvMokit.Name = "dgvMokit";
             this.dgvMokit.ReadOnly = true;
             this.dgvMokit.RowHeadersVisible = false;
+            this.dgvMokit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMokit.Size = new System.Drawing.Size(565, 426);
             this.dgvMokit.TabIndex = 0;
             // 
@@ -55,7 +58,7 @@
             this.tbHaku.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.tbHaku.Location = new System.Drawing.Point(12, 81);
             this.tbHaku.Name = "tbHaku";
-            this.tbHaku.Size = new System.Drawing.Size(185, 23);
+            this.tbHaku.Size = new System.Drawing.Size(188, 23);
             this.tbHaku.TabIndex = 1;
             this.tbHaku.TextChanged += new System.EventHandler(this.tbHaku_TextChanged);
             // 
@@ -64,9 +67,9 @@
             this.cbJarjestely.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbJarjestely.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbJarjestely.FormattingEnabled = true;
-            this.cbJarjestely.Location = new System.Drawing.Point(13, 32);
+            this.cbJarjestely.Location = new System.Drawing.Point(12, 33);
             this.cbJarjestely.Name = "cbJarjestely";
-            this.cbJarjestely.Size = new System.Drawing.Size(184, 24);
+            this.cbJarjestely.Size = new System.Drawing.Size(188, 24);
             this.cbJarjestely.TabIndex = 2;
             // 
             // label1
@@ -83,24 +86,48 @@
             // 
             this.lblMokinjarjestely.AutoSize = true;
             this.lblMokinjarjestely.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblMokinjarjestely.Location = new System.Drawing.Point(12, 13);
+            this.lblMokinjarjestely.Location = new System.Drawing.Point(9, 13);
             this.lblMokinjarjestely.Name = "lblMokinjarjestely";
             this.lblMokinjarjestely.Size = new System.Drawing.Size(127, 17);
             this.lblMokinjarjestely.TabIndex = 4;
             this.lblMokinjarjestely.Text = "Mökin haku sarake";
+            // 
+            // btnValitsemokki
+            // 
+            this.btnValitsemokki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnValitsemokki.Location = new System.Drawing.Point(15, 405);
+            this.btnValitsemokki.Name = "btnValitsemokki";
+            this.btnValitsemokki.Size = new System.Drawing.Size(185, 33);
+            this.btnValitsemokki.TabIndex = 5;
+            this.btnValitsemokki.Text = "Valitse mökki";
+            this.btnValitsemokki.UseVisualStyleBackColor = true;
+            this.btnValitsemokki.Click += new System.EventHandler(this.btnValitsemokki_Click);
+            // 
+            // btnMokintiedot
+            // 
+            this.btnMokintiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnMokintiedot.Location = new System.Drawing.Point(12, 110);
+            this.btnMokintiedot.Name = "btnMokintiedot";
+            this.btnMokintiedot.Size = new System.Drawing.Size(188, 33);
+            this.btnMokintiedot.TabIndex = 6;
+            this.btnMokintiedot.Text = "Mökin tiedot";
+            this.btnMokintiedot.UseVisualStyleBackColor = true;
+            this.btnMokintiedot.Click += new System.EventHandler(this.btnMokintiedot_Click);
             // 
             // Mokinhaku
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMokintiedot);
+            this.Controls.Add(this.btnValitsemokki);
             this.Controls.Add(this.lblMokinjarjestely);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbJarjestely);
             this.Controls.Add(this.tbHaku);
             this.Controls.Add(this.dgvMokit);
             this.Name = "Mokinhaku";
-            this.Text = "Mokinhaku";
+            this.Text = "Mokin haku";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMokit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -114,5 +141,7 @@
         private System.Windows.Forms.ComboBox cbJarjestely;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblMokinjarjestely;
+        private System.Windows.Forms.Button btnValitsemokki;
+        private System.Windows.Forms.Button btnMokintiedot;
     }
 }

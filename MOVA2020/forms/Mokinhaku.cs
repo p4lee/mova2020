@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MOVA2020.objs.dbitems;
 
 namespace MOVA2020.forms
 {
@@ -20,10 +21,25 @@ namespace MOVA2020.forms
     public partial class Mokinhaku : Form
     {
         private Primary p;
+        private Varauksenmuokkaus vm;
+        public Mokinhaku(Varauksenmuokkaus vm)
+        {
+            this.vm = vm;
+            this.p = vm.Lomake;
+            InitializeComponent();
+            dgvMokit.DataSource = null;
+            dgvMokit.DataSource = p.Mokit;
+            cbJarjestely.Items.Add("Nimi");
+            cbJarjestely.Items.Add("Hinta");
+            cbJarjestely.Items.Add("Toiminta-alue");
+            cbJarjestely.Items.Add("Henkilömäärä");
+        }
         public Mokinhaku(Primary p)
         {
             this.p = p;
             InitializeComponent();
+            btnValitsemokki.Visible = false;
+
             dgvMokit.DataSource = null;
             dgvMokit.DataSource = p.Mokit;
             cbJarjestely.Items.Add("Nimi");
@@ -57,6 +73,36 @@ namespace MOVA2020.forms
                         dgvMokit.DataSource = p.Mokit.FindAll(i => i.Henkilomaara.ToString().StartsWith(tbHaku.Text));
                         break;
                 }
+            }
+        }
+
+        private void btnValitsemokki_Click(object sender, EventArgs e)
+        {
+            /*
+             * Laitetaan mökkihaun tulos Varauksen lisäys lomakkeeseen
+             */
+            if(dgvMokit.SelectedRows.Count > 0)
+            {
+                Mokki m = (Mokki)dgvMokit.SelectedRows[0].DataBoundItem;
+                this.vm.ValitseMokki(m);
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Mökki pitää olla valittuna!", "Virhe");
+            }
+        }
+
+        private void btnMokintiedot_Click(object sender, EventArgs e)
+        {
+            if (dgvMokit.SelectedRows.Count > 0)
+            {
+                Mokki m = (Mokki)dgvMokit.SelectedRows[0].DataBoundItem;
+                Mokkitiedot mt = new Mokkitiedot(this.p, m);
+                mt.Show();
+            }
+            else
+            {
+                MessageBox.Show("Mökki pitää olla valittuna!", "Virhe");
             }
         }
     }
