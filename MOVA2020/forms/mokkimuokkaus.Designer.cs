@@ -84,6 +84,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMokkiNimi.Location = new System.Drawing.Point(20, 98);
             this.tbMokkiNimi.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMokkiNimi.MaxLength = 45;
             this.tbMokkiNimi.Name = "tbMokkiNimi";
             this.tbMokkiNimi.Size = new System.Drawing.Size(408, 22);
             this.tbMokkiNimi.TabIndex = 1;
@@ -95,6 +96,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbKatuosoite.Location = new System.Drawing.Point(19, 217);
             this.tbKatuosoite.Margin = new System.Windows.Forms.Padding(4);
+            this.tbKatuosoite.MaxLength = 45;
             this.tbKatuosoite.Name = "tbKatuosoite";
             this.tbKatuosoite.Size = new System.Drawing.Size(409, 22);
             this.tbKatuosoite.TabIndex = 3;
@@ -162,6 +164,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbKuvaus.Location = new System.Drawing.Point(20, 528);
             this.rtbKuvaus.Margin = new System.Windows.Forms.Padding(4);
+            this.rtbKuvaus.MaxLength = 150;
             this.rtbKuvaus.Name = "rtbKuvaus";
             this.rtbKuvaus.Size = new System.Drawing.Size(408, 154);
             this.rtbKuvaus.TabIndex = 7;
@@ -226,6 +229,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbVarustelu.Location = new System.Drawing.Point(19, 400);
             this.rtbVarustelu.Margin = new System.Windows.Forms.Padding(4);
+            this.rtbVarustelu.MaxLength = 100;
             this.rtbVarustelu.Name = "rtbVarustelu";
             this.rtbVarustelu.Size = new System.Drawing.Size(409, 95);
             this.rtbVarustelu.TabIndex = 6;
@@ -265,6 +269,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMokkiHinta.Location = new System.Drawing.Point(19, 276);
             this.tbMokkiHinta.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMokkiHinta.MaxLength = 8;
             this.tbMokkiHinta.Name = "tbMokkiHinta";
             this.tbMokkiHinta.Size = new System.Drawing.Size(409, 22);
             this.tbMokkiHinta.TabIndex = 4;
