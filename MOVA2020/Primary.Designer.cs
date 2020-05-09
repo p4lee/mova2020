@@ -108,6 +108,7 @@
             this.dgvLaskut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLaskut.Size = new System.Drawing.Size(597, 444);
             this.dgvLaskut.TabIndex = 0;
+            this.dgvLaskut.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvLaskut_ColumnHeaderMouseClick);
             // 
             // tabPage4
             // 
@@ -195,6 +196,7 @@
             this.dgvAsiakkaat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAsiakkaat.Size = new System.Drawing.Size(597, 444);
             this.dgvAsiakkaat.TabIndex = 0;
+            this.dgvAsiakkaat.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAsiakkaat_ColumnHeaderMouseClick);
             this.dgvAsiakkaat.Click += new System.EventHandler(this.dgvAsiakkaat_Click);
             // 
             // tabPage2
