@@ -12,10 +12,17 @@ using MOVA2020.objs;
 using MOVA2020;
 namespace MOVA2020.forms
 {
+    /*
+     * 
+     * Tehnyt: Tommi Puurunen
+     * Toteuttaa toiminnallisuusmäärittelyn
+     *      4.2.4 Asiakkaan tiedot
+     */
     public partial class Asiakastiedot : Form
     {
         private Asiakas asiakas;
         private Primary paalomake;
+
         public Asiakastiedot(Primary p, Asiakas a)
         {
             this.asiakas = a;
@@ -33,6 +40,7 @@ namespace MOVA2020.forms
 
             this.paivita();
         }
+
         public void paivita()
         {
             this.paalomake.paivita();

@@ -95,7 +95,7 @@
             // tbNimi
             // 
             this.tbNimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tbNimi.Location = new System.Drawing.Point(11, 34);
+            this.tbNimi.Location = new System.Drawing.Point(12, 28);
             this.tbNimi.Name = "tbNimi";
             this.tbNimi.Size = new System.Drawing.Size(152, 23);
             this.tbNimi.TabIndex = 4;
@@ -104,17 +104,17 @@
             // 
             this.lblNimi.AutoSize = true;
             this.lblNimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNimi.Location = new System.Drawing.Point(8, 15);
+            this.lblNimi.Location = new System.Drawing.Point(9, 9);
             this.lblNimi.Name = "lblNimi";
-            this.lblNimi.Size = new System.Drawing.Size(35, 17);
+            this.lblNimi.Size = new System.Drawing.Size(139, 17);
             this.lblNimi.TabIndex = 5;
-            this.lblNimi.Text = "Nimi";
+            this.lblNimi.Text = "Toiminta-alueen nimi";
             // 
             // btnPoistaPalvelu
             // 
             this.btnPoistaPalvelu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPoistaPalvelu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnPoistaPalvelu.Location = new System.Drawing.Point(11, 336);
+            this.btnPoistaPalvelu.Location = new System.Drawing.Point(11, 408);
             this.btnPoistaPalvelu.Name = "btnPoistaPalvelu";
             this.btnPoistaPalvelu.Size = new System.Drawing.Size(152, 30);
             this.btnPoistaPalvelu.TabIndex = 6;
@@ -138,7 +138,7 @@
             // 
             this.btnLisaaPalvelu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLisaaPalvelu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnLisaaPalvelu.Location = new System.Drawing.Point(11, 408);
+            this.btnLisaaPalvelu.Location = new System.Drawing.Point(12, 336);
             this.btnLisaaPalvelu.Name = "btnLisaaPalvelu";
             this.btnLisaaPalvelu.Size = new System.Drawing.Size(152, 30);
             this.btnLisaaPalvelu.TabIndex = 8;
@@ -149,7 +149,7 @@
             // btnVaihdanimi
             // 
             this.btnVaihdanimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnVaihdanimi.Location = new System.Drawing.Point(11, 61);
+            this.btnVaihdanimi.Location = new System.Drawing.Point(12, 55);
             this.btnVaihdanimi.Name = "btnVaihdanimi";
             this.btnVaihdanimi.Size = new System.Drawing.Size(152, 31);
             this.btnVaihdanimi.TabIndex = 9;

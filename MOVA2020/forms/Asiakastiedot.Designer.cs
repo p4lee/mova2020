@@ -57,7 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVaraukset.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVaraukset.Location = new System.Drawing.Point(317, 12);
+            this.dgvVaraukset.Location = new System.Drawing.Point(317, 30);
             this.dgvVaraukset.MultiSelect = false;
             this.dgvVaraukset.Name = "dgvVaraukset";
             this.dgvVaraukset.ReadOnly = true;
@@ -82,7 +82,7 @@
             // 
             this.lblEtunimi.AutoSize = true;
             this.lblEtunimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblEtunimi.Location = new System.Drawing.Point(13, 12);
+            this.lblEtunimi.Location = new System.Drawing.Point(1, 11);
             this.lblEtunimi.Name = "lblEtunimi";
             this.lblEtunimi.Size = new System.Drawing.Size(54, 17);
             this.lblEtunimi.TabIndex = 2;
@@ -92,7 +92,7 @@
             // 
             this.lblSukunimi.AutoSize = true;
             this.lblSukunimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSukunimi.Location = new System.Drawing.Point(14, 55);
+            this.lblSukunimi.Location = new System.Drawing.Point(2, 52);
             this.lblSukunimi.Name = "lblSukunimi";
             this.lblSukunimi.Size = new System.Drawing.Size(65, 17);
             this.lblSukunimi.TabIndex = 3;
@@ -102,7 +102,7 @@
             // 
             this.lblKatuosoite.AutoSize = true;
             this.lblKatuosoite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblKatuosoite.Location = new System.Drawing.Point(13, 154);
+            this.lblKatuosoite.Location = new System.Drawing.Point(3, 109);
             this.lblKatuosoite.Name = "lblKatuosoite";
             this.lblKatuosoite.Size = new System.Drawing.Size(75, 17);
             this.lblKatuosoite.TabIndex = 4;
@@ -112,7 +112,7 @@
             // 
             this.lblPaikkakunta.AutoSize = true;
             this.lblPaikkakunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPaikkakunta.Location = new System.Drawing.Point(12, 202);
+            this.lblPaikkakunta.Location = new System.Drawing.Point(3, 152);
             this.lblPaikkakunta.Name = "lblPaikkakunta";
             this.lblPaikkakunta.Size = new System.Drawing.Size(85, 17);
             this.lblPaikkakunta.TabIndex = 5;
@@ -122,7 +122,7 @@
             // 
             this.lblPostinumero.AutoSize = true;
             this.lblPostinumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPostinumero.Location = new System.Drawing.Point(163, 202);
+            this.lblPostinumero.Location = new System.Drawing.Point(151, 152);
             this.lblPostinumero.Name = "lblPostinumero";
             this.lblPostinumero.Size = new System.Drawing.Size(87, 17);
             this.lblPostinumero.TabIndex = 6;
@@ -132,7 +132,7 @@
             // 
             this.lblPuhnro.AutoSize = true;
             this.lblPuhnro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPuhnro.Location = new System.Drawing.Point(12, 281);
+            this.lblPuhnro.Location = new System.Drawing.Point(3, 216);
             this.lblPuhnro.Name = "lblPuhnro";
             this.lblPuhnro.Size = new System.Drawing.Size(103, 17);
             this.lblPuhnro.TabIndex = 7;
@@ -142,7 +142,7 @@
             // 
             this.lblSahkoposti.AutoSize = true;
             this.lblSahkoposti.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSahkoposti.Location = new System.Drawing.Point(11, 328);
+            this.lblSahkoposti.Location = new System.Drawing.Point(2, 257);
             this.lblSahkoposti.Name = "lblSahkoposti";
             this.lblSahkoposti.Size = new System.Drawing.Size(78, 17);
             this.lblSahkoposti.TabIndex = 8;
@@ -163,7 +163,7 @@
             // tbSukunimi
             // 
             this.tbSukunimi.Enabled = false;
-            this.tbSukunimi.Location = new System.Drawing.Point(16, 32);
+            this.tbSukunimi.Location = new System.Drawing.Point(4, 30);
             this.tbSukunimi.Name = "tbSukunimi";
             this.tbSukunimi.Size = new System.Drawing.Size(295, 20);
             this.tbSukunimi.TabIndex = 10;
@@ -171,7 +171,7 @@
             // tbEtunimi
             // 
             this.tbEtunimi.Enabled = false;
-            this.tbEtunimi.Location = new System.Drawing.Point(17, 75);
+            this.tbEtunimi.Location = new System.Drawing.Point(5, 71);
             this.tbEtunimi.Name = "tbEtunimi";
             this.tbEtunimi.Size = new System.Drawing.Size(294, 20);
             this.tbEtunimi.TabIndex = 11;
@@ -179,7 +179,7 @@
             // tbKatuosoite
             // 
             this.tbKatuosoite.Enabled = false;
-            this.tbKatuosoite.Location = new System.Drawing.Point(16, 179);
+            this.tbKatuosoite.Location = new System.Drawing.Point(4, 129);
             this.tbKatuosoite.Name = "tbKatuosoite";
             this.tbKatuosoite.Size = new System.Drawing.Size(295, 20);
             this.tbKatuosoite.TabIndex = 12;
@@ -187,7 +187,7 @@
             // tbPaikkakunta
             // 
             this.tbPaikkakunta.Enabled = false;
-            this.tbPaikkakunta.Location = new System.Drawing.Point(16, 222);
+            this.tbPaikkakunta.Location = new System.Drawing.Point(6, 172);
             this.tbPaikkakunta.Name = "tbPaikkakunta";
             this.tbPaikkakunta.Size = new System.Drawing.Size(144, 20);
             this.tbPaikkakunta.TabIndex = 13;
@@ -195,7 +195,7 @@
             // tbPostinumero
             // 
             this.tbPostinumero.Enabled = false;
-            this.tbPostinumero.Location = new System.Drawing.Point(166, 222);
+            this.tbPostinumero.Location = new System.Drawing.Point(154, 172);
             this.tbPostinumero.Name = "tbPostinumero";
             this.tbPostinumero.Size = new System.Drawing.Size(145, 20);
             this.tbPostinumero.TabIndex = 14;
@@ -203,7 +203,7 @@
             // tbPuhnro
             // 
             this.tbPuhnro.Enabled = false;
-            this.tbPuhnro.Location = new System.Drawing.Point(15, 302);
+            this.tbPuhnro.Location = new System.Drawing.Point(6, 235);
             this.tbPuhnro.Name = "tbPuhnro";
             this.tbPuhnro.Size = new System.Drawing.Size(296, 20);
             this.tbPuhnro.TabIndex = 15;
@@ -211,7 +211,7 @@
             // tbSahkoposti
             // 
             this.tbSahkoposti.Enabled = false;
-            this.tbSahkoposti.Location = new System.Drawing.Point(15, 348);
+            this.tbSahkoposti.Location = new System.Drawing.Point(6, 276);
             this.tbSahkoposti.Name = "tbSahkoposti";
             this.tbSahkoposti.Size = new System.Drawing.Size(296, 20);
             this.tbSahkoposti.TabIndex = 16;

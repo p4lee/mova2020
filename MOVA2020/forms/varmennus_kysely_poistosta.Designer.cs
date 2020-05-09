@@ -37,7 +37,7 @@
             // 
             this.btnPeruuta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPeruuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPeruuta.Location = new System.Drawing.Point(12, 127);
+            this.btnPeruuta.Location = new System.Drawing.Point(217, 127);
             this.btnPeruuta.Name = "btnPeruuta";
             this.btnPeruuta.Size = new System.Drawing.Size(103, 30);
             this.btnPeruuta.TabIndex = 2;
@@ -49,7 +49,7 @@
             // 
             this.btnKylla.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnKylla.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKylla.Location = new System.Drawing.Point(217, 127);
+            this.btnKylla.Location = new System.Drawing.Point(12, 127);
             this.btnKylla.Name = "btnKylla";
             this.btnKylla.Size = new System.Drawing.Size(103, 30);
             this.btnKylla.TabIndex = 3;

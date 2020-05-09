@@ -26,14 +26,17 @@ namespace MOVA2020.forms
         private Asiakastiedot att;
         private Asiakas a;
         private Varaus v = null;
+
+        public Primary Lomake { get => lomake; set => lomake = value; }
+
         public Varauksenmuokkaus(Asiakastiedot att, Primary p, Asiakas a)
         {
             this.att = att;
-            this.lomake = p;
+            this.Lomake = p;
             this.a = a;
             InitializeComponent();
             lbVarauksenPalvelut.DataSource = null;
-            cbToimintaalueet.DataSource = this.lomake.Toimintaalueet;
+            cbToimintaalueet.DataSource = this.Lomake.Toimintaalueet;
             calVaraus.MinDate = DateTime.Now;
             this.Text = "Varauksen lisäys";
             this.btvaraus.Text = "Tee varaus";
@@ -41,7 +44,7 @@ namespace MOVA2020.forms
         public Varauksenmuokkaus(Asiakastiedot att, Primary p, Asiakas a, Varaus v)
         {
             this.att = att;
-            this.lomake = p;
+            this.Lomake = p;
             this.a = a;
             this.v = v;
             InitializeComponent();
@@ -53,13 +56,13 @@ namespace MOVA2020.forms
             CBMokki.Enabled = false;
             this.Text = "Varauksen muokkaus";
             this.btvaraus.Text = "Muokkaa varausta";
+            calVaraus.SelectionRange.Start = this.v.Alkupvm_varaus;
+            calVaraus.SelectionRange.End = this.v.Loppupvm_varaus;
 
-            calVaraus.SelectionRange.Start = this.v.Varattu_alkupvm;
-            calVaraus.SelectionRange.End = this.v.Varattu_loppupvm;
 
             foreach(KeyValuePair<int, int> item in v.Varauksenpalvelut)
             {
-                Palvelu pp = this.lomake.Palvelut.Find(i => i.Palvelu_id == item.Key);
+                Palvelu pp = this.Lomake.Palvelut.Find(i => i.Palvelu_id == item.Key);
                 VarauksenPalvelu vp;
                 vp.p = pp;
                 vp.lkm = item.Value;
@@ -72,7 +75,7 @@ namespace MOVA2020.forms
         }
         public void paivita()
         {
-            this.lomake.paivita();
+            this.Lomake.paivita();
             this.att.paivita();
         }
         private void btvaraus_Click(object sender, EventArgs e)
@@ -93,10 +96,10 @@ namespace MOVA2020.forms
                         double summa = 0;
                         query = "INSERT INTO varaus(mokki_mokki_id, asiakas_id, varattu_pvm, varattu_alkupvm, varattu_loppupvm) VALUES($mokki_id,$asiakas, $varattu_pvm, $varaus_alkupvm, $varaus_loppupvm)";
 
-                        this.lomake.Db.DMquery(query, pairs);
+                        this.Lomake.Db.DMquery(query, pairs);
                         this.paivita();
 
-                        Varaus vt = this.lomake.Varaukset.Find(i => i.Asiakas.Asiakas_id == a.Asiakas_id && i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id && i.Varattu_alkupvm == calVaraus.SelectionRange.Start && i.Varattu_loppupvm == calVaraus.SelectionRange.End);
+                        Varaus vt = this.Lomake.Varaukset.Find(i => i.Asiakas.Asiakas_id == a.Asiakas_id && i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id && i.Alkupvm_varaus == calVaraus.SelectionRange.Start && i.Loppupvm_varaus == calVaraus.SelectionRange.End);
                         string query2 = "INSERT INTO varauksen_palvelut(varaus_id, palvelu_id, lkm) VALUES($varaus_id, $palvelu_id, $lkm)";
                         Dictionary<string, object> pairs2 = new Dictionary<string, object>();
                         foreach (VarauksenPalvelu pari in lbVarauksenPalvelut.Items)
@@ -106,7 +109,7 @@ namespace MOVA2020.forms
                             pairs2.Add("$varaus_id", vt.Varaus_id);
                             pairs2.Add("$palvelu_id", pari.p.Palvelu_id);
                             pairs2.Add("$lkm", pari.lkm);
-                            this.lomake.Db.DMquery(query2, pairs2);
+                            this.Lomake.Db.DMquery(query2, pairs2);
                         }
                         summa += (calVaraus.SelectionRange.End - calVaraus.SelectionRange.Start).TotalDays * ((Mokki)this.CBMokki.SelectedItem).Hinta;
                  
@@ -115,7 +118,7 @@ namespace MOVA2020.forms
                         pairs2.Add("$varaus_id", vt.Varaus_id);
                         pairs2.Add("$summa", summa);
                         pairs2.Add("$alv", (summa*1.24)-summa);
-                        this.lomake.Db.DMquery(query2, pairs2);
+                        this.Lomake.Db.DMquery(query2, pairs2);
 
                         this.att.paivita();
                         this.Close();
@@ -125,14 +128,14 @@ namespace MOVA2020.forms
                         Dictionary<string, object> pairs2 = new Dictionary<string, object>();
                         pairs2.Add("$varaus_id", this.v.Varaus_id);
                         string query2 = "DELETE FROM varauksen_palvelut WHERE varaus_id = $varaus_id";
-                        this.lomake.Db.DMquery(query2, pairs2);
+                        this.Lomake.Db.DMquery(query2, pairs2);
 
                         query = "UPDATE varaus SET varattu_alkupvm = $varattu_alkupvm, varattu_loppupvm = $varattu_loppupvm WHERE varaus_id=$varaus_id";
                         pairs2.Clear();
                         pairs2.Add("$varattu_alkupvm", calVaraus.SelectionRange.Start);
                         pairs2.Add("$varattu_loppupvm", calVaraus.SelectionRange.End);
                         pairs2.Add("$varaus_id", this.v.Varaus_id);
-                        this.lomake.Db.DMquery(query2, pairs);
+                        this.Lomake.Db.DMquery(query2, pairs);
 
                         query2 = "INSERT INTO varauksen_palvelut(varaus_id, palvelu_id, lkm) VALUES($varaus_id, $palvelu_id, $lkm)";
                         foreach (VarauksenPalvelu pari in lbVarauksenPalvelut.Items)
@@ -142,17 +145,17 @@ namespace MOVA2020.forms
                             pairs2.Add("$varaus_id", this.v.Varaus_id);
                             pairs2.Add("$palvelu_id", pari.p.Palvelu_id);
                             pairs2.Add("$lkm", pari.lkm);
-                            this.lomake.Db.DMquery(query2, pairs2);
+                            this.Lomake.Db.DMquery(query2, pairs2);
                         }
                         summa += (calVaraus.SelectionRange.End - calVaraus.SelectionRange.Start).TotalDays * ((Mokki)this.CBMokki.SelectedItem).Hinta;
-                        Lasku l = this.lomake.Laskut.Find(i => i.Varaus.Varaus_id == this.v.Varaus_id);
+                        Lasku l = this.Lomake.Laskut.Find(i => i.Varaus.Varaus_id == this.v.Varaus_id);
                         query2 = "UPDATE lasku SET summa=$summa, alv=$alv WHERE varaus_id = $varaus_id AND lasku_id=$lasku_id";
                         pairs2.Clear();
                         pairs2.Add("$lasku_id", l.Lasku_id);
                         pairs2.Add("$varaus_id", this.v.Varaus_id);
                         pairs2.Add("$summa", summa);
                         pairs2.Add("$alv", (summa * 1.24) - summa);
-                        this.lomake.Db.DMquery(query2, pairs2);
+                        this.Lomake.Db.DMquery(query2, pairs2);
                         this.att.paivita();
                         this.Close();
                     }
@@ -189,18 +192,18 @@ namespace MOVA2020.forms
             List<Varaus> mokinvaraukset;
             if(this.v != null)
             {
-                mokinvaraukset = this.lomake.Varaukset.FindAll(i => i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id && i.Varaus_id == this.v.Varaus_id);
+                mokinvaraukset = this.Lomake.Varaukset.FindAll(i => i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id && i.Varaus_id == this.v.Varaus_id);
             } else
             {
-                mokinvaraukset = this.lomake.Varaukset.FindAll(i => i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id);
+                mokinvaraukset = this.Lomake.Varaukset.FindAll(i => i.Mokki.Mokki_id == ((Mokki)this.CBMokki.SelectedItem).Mokki_id);
             }
             
             foreach(Varaus vm in mokinvaraukset)
             {
-                if(calVaraus.SelectionRange.Start >= vm.Varattu_alkupvm && calVaraus.SelectionRange.Start <= vm.Varattu_loppupvm)
+                if(calVaraus.SelectionRange.Start >= vm.Alkupvm_varaus && calVaraus.SelectionRange.Start <= vm.Loppupvm_varaus)
                 {
                     return false;
-                } else if (calVaraus.SelectionRange.End >= vm.Varattu_alkupvm && calVaraus.SelectionRange.End <= vm.Varattu_loppupvm)
+                } else if (calVaraus.SelectionRange.End >= vm.Alkupvm_varaus && calVaraus.SelectionRange.End <= vm.Loppupvm_varaus)
                 {
                     return false;
                 }
@@ -212,12 +215,12 @@ namespace MOVA2020.forms
         {
             if (cbToimintaalueet.SelectedIndex != -1) {
                 CBMokki.Items.Clear();
-                List<Mokki> toimintamokit = this.lomake.Mokit.FindAll(i => i.Toimintaalue.Toiminta_alueid == ((Toimintaalue)cbToimintaalueet.SelectedItem).Toiminta_alueid);
+                List<Mokki> toimintamokit = this.Lomake.Mokit.FindAll(i => i.Toimintaalue.Toiminta_alueid == ((Toimintaalue)cbToimintaalueet.SelectedItem).Toiminta_alueid);
                 foreach (Mokki m in toimintamokit) {
                     CBMokki.Items.Add(m);
                 }
                 cbPalvelut.Items.Clear();
-                List<Palvelu> toimintapalvelut = this.lomake.Palvelut.FindAll(i => i.Toimintaalue.Toiminta_alueid == ((Toimintaalue)cbToimintaalueet.SelectedItem).Toiminta_alueid);
+                List<Palvelu> toimintapalvelut = this.Lomake.Palvelut.FindAll(i => i.Toimintaalue.Toiminta_alueid == ((Toimintaalue)cbToimintaalueet.SelectedItem).Toiminta_alueid);
                 foreach (Palvelu pa in toimintapalvelut) {
                     cbPalvelut.Items.Add(pa);
                 }
@@ -228,9 +231,20 @@ namespace MOVA2020.forms
             if (CBMokki.SelectedIndex != -1)
             {
                 Mokki m = (Mokki)CBMokki.SelectedItem;
-                Mokkitiedot mt = new Mokkitiedot(this.lomake, m);
+                Mokkitiedot mt = new Mokkitiedot(this.Lomake, m);
                 mt.Show();
             }
+        }
+
+        private void btnMokinhaku_Click(object sender, EventArgs e)
+        {
+            Mokinhaku mh = new Mokinhaku(this);
+            mh.Show();
+        }
+        public void ValitseMokki(Mokki valittu)
+        {
+            cbToimintaalueet.SelectedItem = valittu.Toimintaalue;
+            CBMokki.SelectedItem = valittu;
         }
     }
 }

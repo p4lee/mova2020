@@ -3,35 +3,42 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MOVA2020.objs.dbitems;
+using System.Drawing.Printing;
+using System.Net;
+using System.Net.Sockets;
+using System.Net.Mail;
+using System.Drawing.Imaging;
+
 namespace MOVA2020.forms
 {
+    /*
+    * MOVA2020
+    * Tekijä: Jonna Räsänen, Tommi Puurunen
+    * 
+    * Toteuttaa  toiminnallisuusmäärittelyn 
+    *      3.3.1 Sähköinen lasku
+    *      3.3.2 Paperinen lasku
+    *      4.2.2 Varmistus laskun maksusta
+    * 
+    */
     public partial class Laskutus : Form
     {
         private Lasku l;
         private Primary p;
-        // UC ID 3.3 Laskutuksen koodi.
-        
-        private void doc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            // UC ID 3.3.2 Luo paneelista tulostettavan alueen.
-            Panel grd = new Panel();
-            Bitmap bmp = new Bitmap(grd.Width, grd.Height, grd.CreateGraphics());
-            grd.DrawToBitmap(bmp, new Rectangle(0, 0, grd.Width, grd.Height));
-            RectangleF bounds = e.PageSettings.PrintableArea;
-            float factor = ((float)bmp.Height / (float)bmp.Width);
-            e.Graphics.DrawImage(bmp, bounds.Left, bounds.Top, bounds.Width, factor * bounds.Width);
-        }
+        Bitmap bitmap;
+
+        // 3.3 Laskutuksen koodi. Laskuun ilmestyy automaattisesti asiakkaan tiedot valitusta varauksesta
         public Laskutus(Primary p, Lasku l)
         {
             InitializeComponent();
             this.p = p;
             this.l = l;
-
             if(this.l.Varaus.Vahvistus_pvm.Equals(DateTime.Parse("1970-01-01 00:00:00")))
             {
                 btnVarmenna.Enabled = true;
@@ -39,12 +46,13 @@ namespace MOVA2020.forms
             TByht.Text = l.Summa.ToString();
             TBAsiakas.Text = l.Varaus.Asiakas.ToString();
             TBnum.Text = l.Lasku_id.ToString();
-            TBerapvm.Text = l.Erapaiva.ToString("yyyy-MM-dd");
-            TBpvm.Text = l.Varaus.Vahvistus_pvm.ToString("yyyy-MM-dd");
+            TBerapvm.Text = l.Erapaiva.ToString("dd-MM-yyyy");
+            TBpvm.Text = l.Varaus.Vahvistus_pvm.ToString("dd-MM-yyyy");
             string lisatiedot = l.Varaus.Mokki.Kuvaus + "\r\n" + l.Varaus.Mokki.Varustelu + "\r\n";
-            string summat = l.Varaus.Varattu_alkupvm.ToString("yyyy-MM-dd")+" - "+l.Varaus.Varattu_loppupvm.ToString("yyyy-MM-dd")+ "\r\n";
-            summat += (l.Varaus.Varattu_loppupvm - l.Varaus.Varattu_alkupvm).TotalDays.ToString() + " päivä(ä), " +
-                l.Varaus.Mokki.Hinta * (l.Varaus.Varattu_loppupvm - l.Varaus.Varattu_alkupvm).TotalDays;
+            string summat = l.Varaus.Alkupvm_varaus.ToString("yyyy-MM-dd")+" - "+l.Varaus.Loppupvm_varaus.ToString("yyyy-MM-dd")+ "\r\n";
+            summat += (l.Varaus.Loppupvm_varaus - l.Varaus.Alkupvm_varaus).TotalDays.ToString() + " päivä(ä), " +
+                l.Varaus.Mokki.Hinta * (l.Varaus.Loppupvm_varaus - l.Varaus.Alkupvm_varaus).TotalDays;
+
 
             foreach (KeyValuePair<int, int> item in l.Varaus.Varauksenpalvelut)
             {
@@ -57,18 +65,46 @@ namespace MOVA2020.forms
             summat += "\r\nALV (24%):" + l.Alv;
             TBLaskutus.Text = summat;
         }
-        
+
+        /*3.3.2. Paperinen lasku. Piirtää täytetyn laskuformin ja avaa tulostuksen esikatselun,
+         *jota kautta laskun saa tulostettua
+         */
+        private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bitmap, e.MarginBounds);
+        }
         private void bttulosta_Click(object sender, EventArgs e)
         {
-            // UC ID 3.3.2 Nappi, jota painamalla lasku tulostetaan
-            System.Drawing.Printing.PrintDocument doc = new System.Drawing.Printing.PrintDocument();
-            doc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(doc_PrintPage);
-            doc.Print();
+            Graphics grp = CreateGraphics();
+            Size formSize = this.panelLasku.Size;
+            bitmap = new Bitmap(formSize.Width, formSize.Height);
+            panelLasku.DrawToBitmap(bitmap, new Rectangle(0, 0, formSize.Width, formSize.Height));
+            grp = Graphics.FromImage(bitmap);
+      
+            printpreview.Document = printDocument;
+            printpreview.ClientSize = bitmap.Size;
+            printpreview.PrintPreviewControl.Zoom = 1;
+            printpreview.ShowDialog();
         }
-        
+        /* 3.3.1 Sähköinen lasku. Luo laskusta kuvatiedoston, joka lähetetään asiakkaan sähköpostiin.
+         * Avaa formin, jolle käyttäjä laittaa oman/yrityksensä sähköpostin. Kuva laskusta tallennetaan myös
+         * käyttäjän tietokoneelle.
+         */
         private void btlaheta_Click(object sender, EventArgs e)
         {
-            // UC ID 3.3.1 Nappi, jota painamalla lasku lähetetään asiakkaan sähköpostiin
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\MOVA2020";
+            System.IO.Directory.CreateDirectory(path);
+            string filename = (DateTime.Now).ToString("yyyy-MM-dd") + "_" + this.l.Varaus.Varaus_id.ToString()+"_"+Path.GetRandomFileName()+".png";
+            string fullpath = path + @"\" + filename;
+
+            Graphics grp = CreateGraphics();
+            Size formSize = this.panelLasku.Size;
+            bitmap = new Bitmap(formSize.Width, formSize.Height);
+            panelLasku.DrawToBitmap(bitmap, new Rectangle(0, 0, formSize.Width, formSize.Height)) ;
+            bitmap.Save(fullpath, ImageFormat.Png);
+
+            sähkoposti sp = new sähkoposti(path+@"\"+filename);
+            sp.Show();
         }
 
         private void btnVaraustiedot_Click(object sender, EventArgs e)
@@ -77,6 +113,7 @@ namespace MOVA2020.forms
             vt.Show();
         }
 
+        //4.2.2-4.2.3 Napilla varmennetaan, että lasku on maksettu.
         private void btnVarmenna_Click(object sender, EventArgs e)
         {
             Varaus var = this.l.Varaus;

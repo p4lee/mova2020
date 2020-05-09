@@ -115,7 +115,7 @@
             this.tbNimi.Location = new System.Drawing.Point(12, 30);
             this.tbNimi.Name = "tbNimi";
             this.tbNimi.Size = new System.Drawing.Size(144, 23);
-            this.tbNimi.TabIndex = 7;
+            this.tbNimi.TabIndex = 0;
             // 
             // tbKatuosoite
             // 
@@ -152,7 +152,7 @@
             this.tbHinta.Location = new System.Drawing.Point(195, 29);
             this.tbHinta.Name = "tbHinta";
             this.tbHinta.Size = new System.Drawing.Size(100, 23);
-            this.tbHinta.TabIndex = 11;
+            this.tbHinta.TabIndex = 1;
             // 
             // nmrHenkilomaara
             // 

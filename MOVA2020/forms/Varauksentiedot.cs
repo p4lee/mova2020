@@ -24,9 +24,10 @@ namespace MOVA2020.forms
             tbAsiakasnimi.Text = v.Asiakas.Etunimi + " " + v.Asiakas.Sukunimi;
             tbMokkinimi.Text = v.Mokki.Mokkinimi;
             dtpVarattupvm.Value = v.Varattu_pvm;
-            calVaraus.SelectionStart = v.Varattu_alkupvm;
-            calVaraus.SelectionEnd = v.Varattu_loppupvm;
-            calVaraus.TodayDate = v.Varattu_alkupvm;
+            calVaraus.SelectionStart = v.Alkupvm_varaus;
+            calVaraus.SelectionEnd = v.Loppupvm_varaus;
+            calVaraus.TodayDate = v.Alkupvm_varaus;
+
         }
 
         private void btnAsiakkaantiedot_Click(object sender, EventArgs e)
